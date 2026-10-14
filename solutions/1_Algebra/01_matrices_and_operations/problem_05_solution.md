@@ -5,7 +5,8 @@ Ax=
 \begin{pmatrix}
 6 \\
 10 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 Writing the columns of $A$ as $a_1$ and $a_2$, the same result is
@@ -23,7 +24,8 @@ Ax=4a_1+2a_2
 =\begin{pmatrix}
 6 \\
 10 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 **Steps & Detailed Explanation:**
@@ -49,7 +51,8 @@ Ax=
 \begin{pmatrix}
 6 \\
 10 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 The columns of $A$ are
@@ -58,11 +61,13 @@ $$
 a_1=\begin{pmatrix}
 2 \\
 1 \\
-\end{pmatrix},\qquad
+\end{pmatrix}
+,\qquad
 a_2=\begin{pmatrix}
 -1 \\
 3 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 The vector $x$ has entries $4$ and $2$. These entries become the coefficients of the corresponding columns:
@@ -88,7 +93,8 @@ Ax=4a_1+2a_2
 =\begin{pmatrix}
 6 \\
 10 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 Thus, matrix-vector multiplication combines the columns of the matrix linearly, using the vector's entries as coefficients. The row calculation and the column-combination calculation agree, providing a verification of the result.

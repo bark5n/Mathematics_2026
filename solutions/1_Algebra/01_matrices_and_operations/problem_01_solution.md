@@ -34,7 +34,8 @@ $$
 1 \\
 -2 \\
 4 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 This distinction between row and column is reflected in their vector notation: rows are naturally written horizontally, while columns are written vertically.

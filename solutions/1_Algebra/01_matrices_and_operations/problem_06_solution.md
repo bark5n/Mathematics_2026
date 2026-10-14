@@ -6,12 +6,14 @@ A^T=
 1 & 4 \\
 2 & 5 \\
 3 & 6 \\
-\end{pmatrix},\qquad
+\end{pmatrix}
+,\qquad
 B^T=
 \begin{pmatrix}
 1 & 2 & -1 \\
 0 & 1 & 3 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 $$
@@ -19,12 +21,14 @@ AB=
 \begin{pmatrix}
 2 & 11 \\
 8 & 23 \\
-\end{pmatrix},\qquad
+\end{pmatrix}
+,\qquad
 (AB)^T=B^TA^T=
 \begin{pmatrix}
 2 & 8 \\
 11 & 23 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 **Steps & Detailed Explanation:**
@@ -37,12 +41,14 @@ A^T=
 1 & 4 \\
 2 & 5 \\
 3 & 6 \\
-\end{pmatrix},\qquad
+\end{pmatrix}
+,\qquad
 B^T=
 \begin{pmatrix}
 1 & 2 & -1 \\
 0 & 1 & 3 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 Now multiply $A$ by $B$. The entries are row-by-column dot products:
@@ -57,7 +63,8 @@ AB=
 \begin{pmatrix}
 2 & 11 \\
 8 & 23 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 Transpose this product by exchanging its rows and columns:
@@ -67,7 +74,8 @@ $$
 \begin{pmatrix}
 2 & 8 \\
 11 & 23 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 To verify the stated identity, multiply $B^T$ by $A^T$ in the reversed order:
@@ -92,7 +100,8 @@ B^TA^T=
 \begin{pmatrix}
 2 & 8 \\
 11 & 23 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 The two results match, so $(AB)^T=B^TA^T$ is verified. Transposition reverses the order of factors in a product because the rows and columns used in the original products exchange roles.

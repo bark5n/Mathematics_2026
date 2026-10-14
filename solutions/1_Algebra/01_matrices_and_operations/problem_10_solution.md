@@ -8,13 +8,15 @@ b_1=
 1 \\
 -1 \\
 3 \\
-\end{pmatrix},\qquad
+\end{pmatrix}
+,\qquad
 b_2=
 \begin{pmatrix}
 2 \\
 0 \\
 1 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 Their images under $A$ are
@@ -24,12 +26,14 @@ Ab_1=
 \begin{pmatrix}
 -1 \\
 2 \\
-\end{pmatrix},\qquad
+\end{pmatrix}
+,\qquad
 Ab_2=
 \begin{pmatrix}
 2 \\
 1 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 Therefore,
@@ -43,7 +47,8 @@ AB=
 =
 \begin{pmatrix}
 Ab_1 & Ab_2 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 **Steps & Detailed Explanation:**
@@ -55,7 +60,8 @@ A=
 \begin{pmatrix}
 1 & 2 & 0 \\
 0 & 1 & 1 \\
-\end{pmatrix},\qquad
+\end{pmatrix}
+,\qquad
 B=
 \begin{pmatrix}
 1 & 2 \\
@@ -65,7 +71,8 @@ B=
 =
 \begin{pmatrix}
 b_1 & b_2 \\
-\end{pmatrix},
+\end{pmatrix}
+,
 $$
 
 where
@@ -76,13 +83,15 @@ b_1=
 1 \\
 -1 \\
 3 \\
-\end{pmatrix},\qquad
+\end{pmatrix}
+,\qquad
 b_2=
 \begin{pmatrix}
 2 \\
 0 \\
 1 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 **Step 1: Multiply $A$ by the first column.**
@@ -107,7 +116,8 @@ Ab_1=
 \begin{pmatrix}
 -1 \\
 2 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 **Step 2: Multiply $A$ by the second column.**
@@ -132,7 +142,8 @@ Ab_2=
 \begin{pmatrix}
 2 \\
 1 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 **Step 3: Form the product from its columns.** Place the resulting vectors side by side:
@@ -146,7 +157,8 @@ Ab_1 & Ab_2 \\
 \begin{pmatrix}
 -1 & 2 \\
 2 & 1 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 Direct multiplication confirms this result:
@@ -170,7 +182,8 @@ $$
 \begin{pmatrix}
 -1 & 2 \\
 2 & 1 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 The column rule follows directly from how matrix multiplication is defined. The $j$th column of $AB$ is obtained by multiplying $A$ by the $j$th column of $B$. Since the columns of $B$ are $b_1$ and $b_2$, the columns of $AB$ are exactly $Ab_1$ and $Ab_2$.

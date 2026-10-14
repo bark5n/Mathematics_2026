@@ -5,17 +5,20 @@ A+B=
 \begin{pmatrix}
 5 & 0 \\
 -1 & 8 \\
-\end{pmatrix},\qquad
+\end{pmatrix}
+,\qquad
 A-B=
 \begin{pmatrix}
 -3 & 4 \\
 -1 & -2 \\
-\end{pmatrix},\qquad
+\end{pmatrix}
+,\qquad
 3A-2B=
 \begin{pmatrix}
 -5 & 10 \\
 -3 & -1 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 **Steps & Detailed Explanation:**
@@ -32,7 +35,8 @@ A+B=
 \begin{pmatrix}
 5 & 0 \\
 -1 & 8 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 Similarly,
@@ -47,7 +51,8 @@ A-B=
 \begin{pmatrix}
 -3 & 4 \\
 -1 & -2 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 For the scalar expression, multiply every entry of each matrix by its scalar, then subtract corresponding entries:
@@ -57,12 +62,14 @@ $$
 \begin{pmatrix}
 3 & 6 \\
 -3 & 9 \\
-\end{pmatrix},\qquad
+\end{pmatrix}
+,\qquad
 2B=
 \begin{pmatrix}
 8 & -4 \\
 0 & 10 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 Therefore,
@@ -77,7 +84,8 @@ $$
 \begin{pmatrix}
 -5 & 10 \\
 -3 & -1 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 The matrices must have the same size for addition or subtraction because each entry in one matrix must have a corresponding entry in the other matrix. If their numbers of rows or columns differ, this entry-by-entry pairing is not defined.

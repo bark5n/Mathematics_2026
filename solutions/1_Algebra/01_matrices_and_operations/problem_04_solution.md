@@ -5,12 +5,14 @@ AB=
 \begin{pmatrix}
 8 & 2 \\
 3 & 1 \\
-\end{pmatrix},\qquad
+\end{pmatrix}
+,\qquad
 BA=
 \begin{pmatrix}
 2 & 4 \\
 3 & 7 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 Thus, $AB\ne BA$.
@@ -38,7 +40,8 @@ AB=
 \begin{pmatrix}
 8 & 2 \\
 3 & 1 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 For $BA$, reverse the order of the factors and calculate again:
@@ -62,7 +65,8 @@ BA=
 \begin{pmatrix}
 2 & 4 \\
 3 & 7 \\
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$
 
 The results differ, for example in their top-left entries: $8\ne2$. Noncommutativity means matrix multiplication does not generally satisfy the commutative rule $AB=BA$. The order of the factors must be preserved; in applications, the two orders can represent different sequences of transformations.
