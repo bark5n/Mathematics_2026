@@ -3,27 +3,31 @@
 For the $2 \times 2$ identity matrix $I$ and zero matrix $0$,
 
 $$
-AI = IA = A + 0 = A = 
+\begin{aligned}
+AI = IA = A + 0 = A &= 
 \begin{pmatrix}
 2 & 1 \\
 0 & 2 \\
 \end{pmatrix}
+\end{aligned}
 $$
 
 The powers are
 
 $$
-A^2 = 
+\begin{aligned}
+A^2 &= 
 \begin{pmatrix}
 4 & 4 \\
 0 & 4 \\
-\end{pmatrix}
-,\qquad 
-A^3 = 
+\end{pmatrix}, 
+&
+A^3 &= 
 \begin{pmatrix}
 8 & 12 \\
 0 & 8 \\
 \end{pmatrix}
+\end{aligned}
 $$
 
 For every integer $n \ge 1$, the observed pattern is
@@ -63,7 +67,8 @@ Multiplying by $I$ leaves a matrix unchanged, so $AI = IA = A$. Adding $0$ also 
 To compute the powers, multiply $A$ by itself:
 
 $$
-A^2 = AA = 
+\begin{aligned}
+A^2 = AA &= 
 \begin{pmatrix}
 2 & 1 \\
 0 & 2 \\
@@ -71,18 +76,20 @@ A^2 = AA =
 \begin{pmatrix}
 2 & 1 \\
 0 & 2 \\
-\end{pmatrix}
-= 
+\end{pmatrix} \\
+&= 
 \begin{pmatrix}
 4 & 4 \\
 0 & 4 \\
 \end{pmatrix}
+\end{aligned}
 $$
 
 Then multiply $A^2$ by $A$:
 
 $$
-A^3 = A^2A = 
+\begin{aligned}
+A^3 = A^2A &= 
 \begin{pmatrix}
 4 & 4 \\
 0 & 4 \\
@@ -90,12 +97,13 @@ A^3 = A^2A =
 \begin{pmatrix}
 2 & 1 \\
 0 & 2 \\
-\end{pmatrix}
-= 
+\end{pmatrix} \\
+&= 
 \begin{pmatrix}
 8 & 12 \\
 0 & 8 \\
 \end{pmatrix}
+\end{aligned}
 $$
 
 The diagonal entries double with each multiplication, while the upper-right entry changes from $1$ to $4$ to $12$. To see the general rule, suppose
