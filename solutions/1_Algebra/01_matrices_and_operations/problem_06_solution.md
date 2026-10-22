@@ -15,7 +15,7 @@ B^T &=
 0 & 1 & 3 \\
 \end{pmatrix}
 \end{aligned}
-$$[cite: 7]
+$$
 
 $$
 \begin{aligned}
@@ -31,11 +31,11 @@ AB &=
 11 & 23 \\
 \end{pmatrix}
 \end{aligned}
-$$[cite: 7]
+$$
 
 **Steps & Detailed Explanation:**
 
-Transposing a matrix exchanges its rows and columns. Therefore, the $2 \times 3$ matrix $A$ becomes a $3 \times 2$ matrix, and the $3 \times 2$ matrix $B$ becomes a $2 \times 3$ matrix:[cite: 7]
+Transposing a matrix exchanges its rows and columns. Therefore, the $2 \times 3$ matrix $A$ becomes a $3 \times 2$ matrix, and the $3 \times 2$ matrix $B$ becomes a $2 \times 3$ matrix:
 
 $$
 \begin{aligned}
@@ -52,9 +52,9 @@ B^T &=
 0 & 1 & 3 \\
 \end{pmatrix}
 \end{aligned}
-$$[cite: 7]
+$$
 
-Now multiply $A$ by $B$. The entries are row-by-column dot products:[cite: 7]
+Now multiply $A$ by $B$. The entries are row-by-column dot products:
 
 $$
 \begin{aligned}
@@ -69,9 +69,9 @@ AB &=
 8 & 23 \\
 \end{pmatrix}
 \end{aligned}
-$$[cite: 7]
+$$
 
-Transpose this product by exchanging its rows and columns:[cite: 7]
+Transpose this product by exchanging its rows and columns:
 
 $$
 (AB)^T = 
@@ -79,9 +79,9 @@ $$
 2 & 8 \\
 11 & 23 \\
 \end{pmatrix}
-$$[cite: 7]
+$$
 
-To verify the stated identity, multiply $B^T$ by $A^T$ in the reversed order:[cite: 7]
+To verify the stated identity, multiply $B^T$ by $A^T$ in the reversed order:
 
 $$
 \begin{aligned}
@@ -106,6 +106,6 @@ B^TA^T &=
 11 & 23 \\
 \end{pmatrix}
 \end{aligned}
-$$[cite: 7]
+$$
 
-The two results match, so $(AB)^T = B^TA^T$ is verified. Transposition reverses the order of factors in a product because the rows and columns used in the original products exchange roles.[cite: 7]
+The two results match, so $(AB)^T = B^TA^T$ is verified. Transposition reverses the order of factors in a product because the rows and columns used in the original products exchange roles.
