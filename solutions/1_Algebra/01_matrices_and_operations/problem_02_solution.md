@@ -20,11 +20,11 @@ A - B &=
 -3 & -1 \\
 \end{pmatrix}
 \end{aligned}
-$$[cite: 3]
+$$
 
 **Steps & Detailed Explanation:**
 
-Matrix addition and subtraction are performed entry by entry, at matching positions. First,[cite: 3]
+Matrix addition and subtraction are performed entry by entry, at matching positions. First,
 
 $$
 \begin{aligned}
@@ -39,9 +39,9 @@ A + B &=
 -1 & 8 \\
 \end{pmatrix}
 \end{aligned}
-$$[cite: 3]
+$$
 
-Similarly,[cite: 3]
+Similarly,
 
 $$
 \begin{aligned}
@@ -56,9 +56,9 @@ A - B &=
 -1 & -2 \\
 \end{pmatrix}
 \end{aligned}
-$$[cite: 3]
+$$
 
-For the scalar expression, multiply every entry of each matrix by its scalar, then subtract corresponding entries:[cite: 3]
+For the scalar expression, multiply every entry of each matrix by its scalar, then subtract corresponding entries:
 
 $$
 \begin{aligned}
@@ -74,9 +74,9 @@ $$
 0 & 10 \\
 \end{pmatrix}
 \end{aligned}
-$$[cite: 3]
+$$
 
-Therefore,[cite: 3]
+Therefore,
 
 $$
 \begin{aligned}
@@ -91,6 +91,6 @@ $$
 -3 & -1 \\
 \end{pmatrix}
 \end{aligned}
-$$[cite: 3]
+$$
 
-The matrices must have the same size for addition or subtraction because each entry in one matrix must have a corresponding entry in the other matrix. If their numbers of rows or columns differ, this entry-by-entry pairing is not defined.[cite: 3]
+The matrices must have the same size for addition or subtraction because each entry in one matrix must have a corresponding entry in the other matrix. If their numbers of rows or columns differ, this entry-by-entry pairing is not defined.
