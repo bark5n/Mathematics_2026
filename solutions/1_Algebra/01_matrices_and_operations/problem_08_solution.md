@@ -1,123 +1,100 @@
 **Result:**
 
+After the three row operations, the matrices are[cite: 9]
+
 $$
 \begin{aligned}
-RSx &= 
+A_1 &= 
 \begin{pmatrix}
--2 \\
-2 \\
+1 & 2 & -1 \\
+0 & 0 & 3 \\
+-1 & 1 & 3 \\
 \end{pmatrix}, 
 &
-SRx &= 
+A_2 &= 
 \begin{pmatrix}
--4 \\
-1 \\
+1 & 2 & -1 \\
+0 & 0 & 3 \\
+0 & 3 & 2 \\
+\end{pmatrix}, 
+&
+A_3 &= 
+\begin{pmatrix}
+1 & 2 & -1 \\
+0 & 3 & 2 \\
+0 & 0 & 3 \\
 \end{pmatrix}
 \end{aligned}
-$$
+$$[cite: 9]
 
-The results are different, so the order of the scaling and rotation matters for this vector.
+The inverse operations, in the same order as the original operations they reverse, are:[cite: 9]
+
+1. $R_2 \leftarrow R_2 + 2R_1$.[cite: 9]
+2. $R_3 \leftarrow R_3 - R_1$.[cite: 9]
+3. Interchange $R_2$ and $R_3$ again.[cite: 9]
 
 **Steps & Detailed Explanation:**
 
-The vector is
+Start with[cite: 9]
 
 $$
-x = 
+A = 
 \begin{pmatrix}
-1 \\
-2 \\
+1 & 2 & -1 \\
+2 & 4 & 1 \\
+-1 & 1 & 3 \\
 \end{pmatrix}
-$$
+$$[cite: 9]
 
-and the matrices are
+**Step 1: Replace $R_2$ by $R_2 - 2R_1$.** The first row stays unchanged. The new second row is[cite: 9]
 
 $$
-\begin{aligned}
-S &= 
+(2, 4, 1) - 2(1, 2, -1) = (2, 4, 1) - (2, 4, -2) = (0, 0, 3).
+$$[cite: 9]
+
+The third row is also unchanged, so[cite: 9]
+
+$$
+A_1 = 
 \begin{pmatrix}
-2 & 0 \\
-0 & 1 \\
-\end{pmatrix}, 
-&
-R &= 
-\begin{pmatrix}
-0 & -1 \\
-1 & 0 \\
+1 & 2 & -1 \\
+0 & 0 & 3 \\
+-1 & 1 & 3 \\
 \end{pmatrix}
-\end{aligned}
-$$
+$$[cite: 9]
 
-For $RSx$, apply $S$ first because the rightmost matrix acts first:
+To reverse this operation, add $2R_1$ back to $R_2$: $R_2 \leftarrow R_2 + 2R_1$.[cite: 9]
+
+**Step 2: Replace $R_3$ by $R_3 + R_1$.** The new third row is[cite: 9]
 
 $$
-Sx = 
+(-1, 1, 3) + (1, 2, -1) = (0, 3, 2).
+$$[cite: 9]
+
+Therefore,[cite: 9]
+
+$$
+A_2 = 
 \begin{pmatrix}
-2 & 0 \\
-0 & 1 \\
+1 & 2 & -1 \\
+0 & 0 & 3 \\
+0 & 3 & 2 \\
 \end{pmatrix}
-\begin{pmatrix}
-1 \\
-2 \\
-\end{pmatrix} = 
-\begin{pmatrix}
-2 \\
-2 \\
-\end{pmatrix}
-$$
+$$[cite: 9]
 
-Then rotate the scaled vector counterclockwise by $90^\circ$:
+Subtracting $R_1$ from $R_3$ restores the previous third row, so the reverse is $R_3 \leftarrow R_3 - R_1$.[cite: 9]
+
+**Step 3: Interchange $R_2$ and $R_3$.** This gives[cite: 9]
 
 $$
-RSx = R(Sx) = 
+A_3 = 
 \begin{pmatrix}
-0 & -1 \\
-1 & 0 \\
+1 & 2 & -1 \\
+0 & 3 & 2 \\
+0 & 0 & 3 \\
 \end{pmatrix}
-\begin{pmatrix}
-2 \\
-2 \\
-\end{pmatrix} = 
-\begin{pmatrix}
--2 \\
-2 \\
-\end{pmatrix}
-$$
+$$[cite: 9]
 
-For $SRx$, rotate first:
+A swap reverses itself: swapping these two rows once more returns $A_2$.[cite: 9]
 
-$$
-Rx = 
-\begin{pmatrix}
-0 & -1 \\
-1 & 0 \\
-\end{pmatrix}
-\begin{pmatrix}
-1 \\
-2 \\
-\end{pmatrix} = 
-\begin{pmatrix}
--2 \\
-1 \\
-\end{pmatrix}
-$$
-
-Next apply the scaling matrix. It doubles the first coordinate and leaves the second coordinate unchanged:
-
-$$
-SRx = S(Rx) = 
-\begin{pmatrix}
-2 & 0 \\
-0 & 1 \\
-\end{pmatrix}
-\begin{pmatrix}
--2 \\
-1 \\
-\end{pmatrix} = 
-\begin{pmatrix}
--4 \\
-1 \\
-\end{pmatrix}
-$$
-
-Geometrically, $S$ stretches horizontally while leaving vertical distances unchanged, whereas $R$ changes which direction is horizontal and which is vertical. If we stretch before rotating, the stretched horizontal component is rotated into the vertical direction. If we rotate first, the vector's horizontal component after rotation is the one that gets stretched. Thus these transformations do not commute: in general, $RS \ne SR$.
+Each operation is reversible because adding a multiple of another row can be undone by subtracting that multiple, and an interchange can be undone by repeating it. These reversible changes are useful in elimination because they change a matrix's appearance without losing the ability to recover the previous matrix.[cite: 9]

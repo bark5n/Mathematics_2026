@@ -14,13 +14,13 @@ BA &=
 3 & 7 \\
 \end{pmatrix}
 \end{aligned}
-$$
+$$[cite: 5]
 
-Thus, $AB \ne BA$.
+Thus, $AB \ne BA$.[cite: 5]
 
 **Steps & Detailed Explanation:**
 
-To find an entry of a matrix product, take the dot product of a row of the first matrix with a column of the second matrix. For $AB$,
+To find an entry of a matrix product, take the dot product of a row of the first matrix with a column of the second matrix. For $AB$,[cite: 5]
 
 $$
 \begin{aligned}
@@ -44,9 +44,9 @@ AB &=
 3 & 1 \\
 \end{pmatrix}
 \end{aligned}
-$$
+$$[cite: 5]
 
-For $BA$, reverse the order of the factors and calculate again:
+For $BA$, reverse the order of the factors and calculate again:[cite: 5]
 
 $$
 \begin{aligned}
@@ -70,6 +70,6 @@ BA &=
 3 & 7 \\
 \end{pmatrix}
 \end{aligned}
-$$
+$$[cite: 5]
 
-The results differ, for example in their top-left entries: $8 \ne 2$. Noncommutativity means matrix multiplication does not generally satisfy the commutative rule $AB = BA$. The order of the factors must be preserved; in applications, the two orders can represent different sequences of transformations.
+The results differ, for example in their top-left entries: $8 \ne 2$. Noncommutativity means matrix multiplication does not generally satisfy the commutative rule $AB = BA$. The order of the factors must be preserved; in applications, the two orders can represent different sequences of transformations.[cite: 5]

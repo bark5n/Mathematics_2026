@@ -1,6 +1,6 @@
 **Result:**
 
-The columns of $B$ are
+The columns of $B$ are[cite: 11]
 
 $$
 \begin{aligned}
@@ -18,9 +18,9 @@ b_2 &=
 1 \\
 \end{pmatrix}
 \end{aligned}
-$$
+$$[cite: 11]
 
-Their images under $A$ are
+Their images under $A$ are[cite: 11]
 
 $$
 \begin{aligned}
@@ -36,9 +36,9 @@ Ab_2 &=
 1 \\
 \end{pmatrix}
 \end{aligned}
-$$
+$$[cite: 11]
 
-Therefore,
+Therefore,[cite: 11]
 
 $$
 AB = 
@@ -49,11 +49,11 @@ AB =
 \begin{pmatrix}
 Ab_1 & Ab_2 \\
 \end{pmatrix}
-$$
+$$[cite: 11]
 
 **Steps & Detailed Explanation:**
 
-Write the matrices and the columns of $B$ explicitly:
+Write the matrices and the columns of $B$ explicitly:[cite: 11]
 
 $$
 A = 
@@ -70,9 +70,9 @@ B =
 \begin{pmatrix}
 b_1 & b_2 \\
 \end{pmatrix}
-$$
+$$[cite: 11]
 
-where
+where[cite: 11]
 
 $$
 \begin{aligned}
@@ -90,9 +90,9 @@ b_2 &=
 1 \\
 \end{pmatrix}
 \end{aligned}
-$$
+$$[cite: 11]
 
-**Step 1: Multiply $A$ by the first column.**
+**Step 1: Multiply $A$ by the first column.**[cite: 11]
 
 $$
 Ab_1 = 
@@ -113,9 +113,9 @@ Ab_1 =
 -1 \\
 2 \\
 \end{pmatrix}
-$$
+$$[cite: 11]
 
-**Step 2: Multiply $A$ by the second column.**
+**Step 2: Multiply $A$ by the second column.**[cite: 11]
 
 $$
 Ab_2 = 
@@ -136,9 +136,9 @@ Ab_2 =
 2 \\
 1 \\
 \end{pmatrix}
-$$
+$$[cite: 11]
 
-**Step 3: Form the product from its columns.** Place the resulting vectors side by side:
+**Step 3: Form the product from its columns.** Place the resulting vectors side by side:[cite: 11]
 
 $$
 AB = 
@@ -149,9 +149,9 @@ Ab_1 & Ab_2 \\
 -1 & 2 \\
 2 & 1 \\
 \end{pmatrix}
-$$
+$$[cite: 11]
 
-Direct multiplication confirms this result:
+Direct multiplication confirms this result:[cite: 11]
 
 $$
 \begin{pmatrix}
@@ -171,6 +171,6 @@ $$
 -1 & 2 \\
 2 & 1 \\
 \end{pmatrix}
-$$
+$$[cite: 11]
 
-The column rule follows directly from how matrix multiplication is defined. The $j$th column of $AB$ is obtained by multiplying $A$ by the $j$th column of $B$. Since the columns of $B$ are $b_1$ and $b_2$, the columns of $AB$ are exactly $Ab_1$ and $Ab_2$.
+The column rule follows directly from how matrix multiplication is defined. The $j$th column of $AB$ is obtained by multiplying $A$ by the $j$th column of $B$. Since the columns of $B$ are $b_1$ and $b_2$, the columns of $AB$ are exactly $Ab_1$ and $Ab_2$.[cite: 11]
