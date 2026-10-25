@@ -6,18 +6,18 @@ $$
 \begin{pmatrix}
 2 & -1 & 1 \\
 1 & 3 & -2 \\
-3 & 1 & 1 \\
+3 & 1 & 1
 \end{pmatrix}
 \begin{pmatrix}
 x \\
 y \\
-z \\
+z
 \end{pmatrix}
 =
 \begin{pmatrix}
 4 \\
 1 \\
-7 \\
+7
 \end{pmatrix}
 $$
 
@@ -37,7 +37,7 @@ A =
 \begin{pmatrix}
 2 & -1 & 1 \\
 1 & 3 & -2 \\
-3 & 1 & 1 \\
+3 & 1 & 1
 \end{pmatrix}
 $$
 
@@ -48,14 +48,14 @@ x =
 \begin{pmatrix}
 x \\
 y \\
-z \\
+z
 \end{pmatrix}, 
 \qquad 
 b = 
 \begin{pmatrix}
 4 \\
 1 \\
-7 \\
+7
 \end{pmatrix}
 $$
 
