@@ -44,8 +44,7 @@ $$
 
 **Step 2:** Eliminate the entry below the pivot using $R_2 \leftarrow R_2 - 2R_1$.
 
-For System 1, the new second row is $(2, 1, 5) - (2, -2, 2) = (0, 3, 3)$.
-For System 2, the new second row is $(2, 1, 1) - (2, -2, 8) = (0, 3, -7)$.
+For System 1, the new second row is $(2, 1, 5) - (2, -2, 2) = (0, 3, 3)$. For System 2, the new second row is $(2, 1, 1) - (2, -2, 8) = (0, 3, -7)$.
 
 At this point, the left sides of both matrices are exactly:
 $$
