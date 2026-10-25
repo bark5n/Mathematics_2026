@@ -3,22 +3,10 @@
 The system in the form $Ax = b$ is:
 
 $$
-\left( \begin{array}{ccc}
-2 & -1 & 1 \cr
-1 & 3 & -2 \cr
-3 & 1 & 1
-\end{array} \right)
-\left( \begin{array}{c}
-x \cr
-y \cr
-z
-\end{array} \right)
-=
-\left( \begin{array}{c}
-4 \cr
-1 \cr
-7
-\end{array} \right)
+\begin{pmatrix} 2 & -1 & 1 \\ 1 & 3 & -2 \\ 3 & 1 & 1 \end{pmatrix} 
+\begin{pmatrix} x \\ y \\ z \end{pmatrix} 
+= 
+\begin{pmatrix} 4 \\ 1 \\ 7 \end{pmatrix}
 $$
 
 **Steps & Detailed Explanation:**
@@ -34,29 +22,29 @@ The coefficient matrix $A$ is formed by aligning the coefficients of $x$, $y$, a
 
 $$
 A = 
-\left( \begin{array}{ccc}
-2 & -1 & 1 \cr
-1 & 3 & -2 \cr
+\begin{pmatrix}
+2 & -1 & 1 \\
+1 & 3 & -2 \\
 3 & 1 & 1
-\end{array} \right)
+\end{pmatrix}
 $$
 
 The vector of unknowns $x$ and the right-hand side vector $b$ are:
 
 $$
 x = 
-\left( \begin{array}{c}
-x \cr
-y \cr
+\begin{pmatrix}
+x \\
+y \\
 z
-\end{array} \right), 
-\qquad 
+\end{pmatrix}, 
+\quad 
 b = 
-\left( \begin{array}{c}
-4 \cr
-1 \cr
+\begin{pmatrix}
+4 \\
+1 \\
 7
-\end{array} \right)
+\end{pmatrix}
 $$
 
 When you multiply the matrix $A$ by the vector $x$ using the standard row-by-column matrix multiplication, the first row of $A$ multiplies the column $x$ to give $2x - y + z$. This must equal the first entry of $b$, which is $4$. Thus, each horizontal row in the matrix multiplication reproduces exactly one equation from the original system.
