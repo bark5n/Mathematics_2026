@@ -35,3 +35,5 @@ $$
 
 If $a = 2$, then $b = 2 - 2 = 0$. 
 With $a = 2$, $b = 0$, and $c = 1$, the exact polynomial is $p(x) = 2x^2 + 1$.
+
+

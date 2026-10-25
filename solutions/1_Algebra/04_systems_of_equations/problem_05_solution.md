@@ -17,11 +17,11 @@ The number of free variables is $1$, which corresponds to the number of columns 
 The given augmented matrix is already in row echelon form:
 
 $$
-\left( \begin{array}{ccc|c}
+\begin{pmatrix}
 1 & 2 & -1 & 3 \\
 0 & 1 & 2 & 1 \\
 0 & 0 & 0 & 0
-\end{array} \right)
+\end{pmatrix}
 $$
 
 Look at the columns representing the variables (the first three columns). The first column has a pivot in the first row. The second column has a pivot in the second row. The third column does not contain a leading non-zero entry in any row. 
