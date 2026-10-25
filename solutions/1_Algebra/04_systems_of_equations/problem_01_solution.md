@@ -4,19 +4,19 @@ The system in the form $Ax = b$ is:
 
 $$
 \begin{pmatrix}
-2 & -1 & 1 \\
-1 & 3 & -2 \\
+2 & -1 & 1 \\\\
+1 & 3 & -2 \\\\
 3 & 1 & 1
 \end{pmatrix}
 \begin{pmatrix}
-x \\
-y \\
+x \\\\
+y \\\\
 z
 \end{pmatrix}
 =
 \begin{pmatrix}
-4 \\
-1 \\
+4 \\\\
+1 \\\\
 7
 \end{pmatrix}
 $$
@@ -35,7 +35,7 @@ The coefficient matrix $A$ is formed by aligning the coefficients of $x$, $y$, a
 $$
 A = 
 \begin{pmatrix}
-2 & -1 & 1 \\
+2 & -1 & 1 \\\\
 1 & 3 & -2 \\
 3 & 1 & 1
 \end{pmatrix}
@@ -46,15 +46,15 @@ The vector of unknowns $x$ and the right-hand side vector $b$ are:
 $$
 x = 
 \begin{pmatrix}
-x \\
-y \\
+x \\\\
+y \\\\
 z
 \end{pmatrix}, 
 \qquad 
 b = 
 \begin{pmatrix}
-4 \\
-1 \\
+4 \\\\
+1 \\\\
 7
 \end{pmatrix}
 $$
