@@ -3,21 +3,21 @@
 The system in the form $Ax = b$ is:
 
 $$
-\left( \begin{array}{ccc}
-2 & -1 & 1 \\
-1 & 3 & -2 \\
-3 & 1 & 1
+\left( \begin{array}{ccc} 
+2 & -1 & 1 \cr 
+1 & 3 & -2 \cr 
+3 & 1 & 1 
 \end{array} \right)
-\left( \begin{array}{c}
-x \\
-y \\
-z
+\left( \begin{array}{c} 
+x \cr 
+y \cr 
+z 
 \end{array} \right)
 =
-\left( \begin{array}{c}
-4 \\
-1 \\
-7
+\left( \begin{array}{c} 
+4 \cr 
+1 \cr 
+7 
 \end{array} \right)
 $$
 
@@ -34,10 +34,10 @@ The coefficient matrix $A$ is formed by aligning the coefficients of $x$, $y$, a
 
 $$
 A = 
-\left( \begin{array}{ccc}
-2 & -1 & 1 \\
-1 & 3 & -2 \\
-3 & 1 & 1
+\left( \begin{array}{ccc} 
+2 & -1 & 1 \cr 
+1 & 3 & -2 \cr 
+3 & 1 & 1 
 \end{array} \right)
 $$
 
@@ -45,17 +45,17 @@ The vector of unknowns $x$ and the right-hand side vector $b$ are:
 
 $$
 x = 
-\left( \begin{array}{c}
-x \\
-y \\
-z
+\left( \begin{array}{c} 
+x \cr 
+y \cr 
+z 
 \end{array} \right), 
 \qquad 
 b = 
-\left( \begin{array}{c}
-4 \\
-1 \\
-7
+\left( \begin{array}{c} 
+4 \cr 
+1 \cr 
+7 
 \end{array} \right)
 $$
 
