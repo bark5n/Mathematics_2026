@@ -5,29 +5,32 @@ For a linear system $Ax = b$ reduced by elementary row operations to row echelon
 
 1. **Exactly One Solution (Unique):**
    Every variable column in the coefficient matrix contains a pivot, and there are no contradictory rows:
-   $$
+
+$$
    \begin{pmatrix}
    1 & * & \mid & * \\
    0 & 1 & \mid & * \\
    \end{pmatrix}
-   $$
+$$
 
 2. **Infinitely Many Solutions:**
    The system is consistent (no row of the form $(0 \quad \cdots \quad 0 \mid c)$ with $c \neq 0$), but at least one variable column lacks a pivot (free variable):
-   $$
+
+$$
    \begin{pmatrix}
    1 & * & \mid & * \\
    0 & 0 & \mid & 0 \\
    \end{pmatrix}
-   $$
+$$
 
 3. **No Solution (Inconsistent):**
    A row of the augmented matrix has all zero coefficients on the left, but a nonzero constant on the right:
-   $$
+
+$$
    \begin{pmatrix}
    0 & \cdots & 0 & \mid & c \\
    \end{pmatrix}, \qquad c \neq 0
-   $$
+$$
 
 ---
 

@@ -101,8 +101,7 @@ x \\
 y \\
 z \\
 \end{pmatrix}
-=
-\begin{pmatrix}
+= \begin{pmatrix}
 4 \\
 1 \\
 7 \\
@@ -112,9 +111,51 @@ $$
 **Step 4: Explain the row-equation correspondence**
 
 Computing the matrix product $Ax$ by taking the dot product of each row of $A$ with the column vector $x$:
-* Row 1: $\begin{pmatrix} 2 & -1 & 1 \\ \end{pmatrix} \begin{pmatrix} x \\ y \\ z \\ \end{pmatrix} = 2x - y + z$. Setting this equal to the first entry of $b$ gives $2x - y + z = 4$ (Equation 1).
-* Row 2: $\begin{pmatrix} 1 & 3 & -2 \\ \end{pmatrix} \begin{pmatrix} x \\ y \\ z \\ \end{pmatrix} = x + 3y - 2z$. Setting this equal to the second entry of $b$ gives $x + 3y - 2z = 1$ (Equation 2).
-* Row 3: $\begin{pmatrix} 3 & 1 & 1 \\ \end{pmatrix} \begin{pmatrix} x \\ y \\ z \\ \end{pmatrix} = 3x + y + z$. Setting this equal to the third entry of $b$ gives $3x + y + z = 7$ (Equation 3).
+* Row 1:
+
+$$
+\begin{pmatrix}
+2 & -1 & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+y \\
+z \\
+\end{pmatrix}
+= 2x - y + z
+$$
+
+ Setting this equal to the first entry of $b$ gives $2x - y + z = 4$ (Equation 1).
+* Row 2:
+
+$$
+\begin{pmatrix}
+1 & 3 & -2 \\
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+y \\
+z \\
+\end{pmatrix}
+= x + 3y - 2z
+$$
+
+ Setting this equal to the second entry of $b$ gives $x + 3y - 2z = 1$ (Equation 2).
+* Row 3:
+
+$$
+\begin{pmatrix}
+3 & 1 & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+y \\
+z \\
+\end{pmatrix}
+= 3x + y + z
+$$
+
+ Setting this equal to the third entry of $b$ gives $3x + y + z = 7$ (Equation 3).
 
 Every horizontal row in the coefficient matrix contains the weights for the linear combination of the unknowns in the corresponding equation.
 
@@ -135,8 +176,7 @@ x \\
 y \\
 z \\
 \end{pmatrix}
-=
-\begin{pmatrix}
+= \begin{pmatrix}
 4 \\
 1 \\
 7 \\
@@ -144,6 +184,36 @@ z \\
 $$
 
 2. Identified components:
-   * Coefficient matrix: $A = \begin{pmatrix} 2 & -1 & 1 \\ 1 & 3 & -2 \\ 3 & 1 & 1 \\ \end{pmatrix}$
-   * Unknown vector: $x = \begin{pmatrix} x \\ y \\ z \\ \end{pmatrix}$
-   * Right-hand side vector: $b = \begin{pmatrix} 4 \\ 1 \\ 7 \\ \end{pmatrix}$
+   * Coefficient matrix:
+
+$$
+A = \begin{pmatrix}
+2 & -1 & 1 \\
+1 & 3 & -2 \\
+3 & 1 & 1 \\
+\end{pmatrix}
+$$
+
+$
+   * Unknown vector:
+
+$$
+x = \begin{pmatrix}
+x \\
+y \\
+z \\
+\end{pmatrix}
+$$
+
+$
+   * Right-hand side vector:
+
+$$
+b = \begin{pmatrix}
+4 \\
+1 \\
+7 \\
+\end{pmatrix}
+$$
+
+$

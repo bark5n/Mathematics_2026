@@ -3,21 +3,24 @@
 **Determinant Properties:**
 1. **Determinant of a Matrix Product:**
    For any square matrices $X, Y, Z$ of the same size:
-   $$
+
+$$
    \det(XYZ) = \det X \cdot \det Y \cdot \det Z
-   $$
+$$
 
 2. **Determinant of an Inverse Matrix:**
    If $B$ is invertible ($\det B \neq 0$):
-   $$
+
+$$
    \det(B^{-1}) = \frac{1}{\det B}
-   $$
+$$
 
 3. **Determinant of a Transpose:**
    For any square matrix $A$:
-   $$
+
+$$
    \det(A^T) = \det A
-   $$
+$$
 
 4. **Multiplication of Real Numbers:**
    Because determinants are scalar values (real numbers), their scalar multiplication is commutative.

@@ -80,23 +80,27 @@ Because column 3 lacks a pivot, $z$ can be assigned any arbitrary real number $t
 Set $z = t$, with $t \in \mathbb{R}$.
 
 * From row 2:
-  $$
+
+$$
   y + 2z = 1 \implies y + 2t = 1 \implies y = 1 - 2t
-  $$
+$$
 
 * From row 1:
-  $$
+
+$$
   x + 2y - z = 3
-  $$
+$$
+
   Substitute $y = 1 - 2t$ and $z = t$:
-  $$
+
+$$
   \begin{aligned}
   x + 2(1 - 2t) - t &= 3 \\
   x + 2 - 4t - t &= 3 \\
   x + 2 - 5t &= 3 \\
   x &= 1 + 5t
   \end{aligned}
-  $$
+$$
 
 Thus, the solution set in parametric form is:
 

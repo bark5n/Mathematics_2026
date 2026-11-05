@@ -4,20 +4,24 @@
 
 1. **Matrix Inversion Method:**
    If $\det A \neq 0$, the inverse $A^{-1}$ exists, and:
-   $$
+
+$$
    x = A^{-1}b
-   $$
+$$
+
    For a $2 \times 2$ matrix:
-   $$
+
+$$
    A^{-1} = \frac{1}{ad - bc} \begin{pmatrix}
    d & -b \\
    -c & a \\
    \end{pmatrix}
-   $$
+$$
 
 2. **Gaussian Elimination Method:**
    Form the augmented matrix $[A \mid b]$ and apply elementary row operations to reduce it to row echelon form:
-   $$
+
+$$
    \begin{pmatrix}
    a_{11} & a_{12} & \mid & b_1 \\
    a_{21} & a_{22} & \mid & b_2 \\
@@ -27,7 +31,8 @@
    1 & u & \mid & c_1 \\
    0 & 1 & \mid & c_2 \\
    \end{pmatrix}
-   $$
+$$
+
    followed by back-substitution.
 
 ---
@@ -158,11 +163,13 @@ $$
 *Step 2.4: Back-substitution*
 
 From row 2:
+
 $$
 -5y = -9 \implies y = \frac{9}{5}
 $$
 
 Substitute $y = \frac{9}{5}$ into row 1:
+
 $$
 x + 3y = 8 \implies x + 3\left(\frac{9}{5}\right) = 8 \implies x + \frac{27}{5} = \frac{40}{5} \implies x = \frac{13}{5}
 $$
@@ -180,7 +187,7 @@ $$
 
 **Comparison of Methods:**
 
-1. **Consistency:** Both methods yield the identical solution vector $\begin{pmatrix} \frac{13}{5} \\ \frac{9}{5} \\ \end{pmatrix}$.
+1. **Consistency:** Both methods yield the identical solution vector $x = (13/5, 9/5)^T$.
 2. **Computational effort:**
    * **Matrix inversion** required calculating a determinant, transposing and negating entries for the adjugate, carrying a scalar denominator ($\frac{1}{5}$) through a complete matrix-vector product, and performing 4 scalar multiplications plus 2 additions.
    * **Gaussian elimination** required only one row swap and one row elimination step, keeping integers throughout the elimination and delaying fractional arithmetic until the final back-substitution step.

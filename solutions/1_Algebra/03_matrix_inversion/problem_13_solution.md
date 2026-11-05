@@ -108,14 +108,31 @@ $$
 **Step 2: Method 2 — Use the product rule $(HS)^{-1} = S^{-1} H^{-1}$**
 
 Find the individual inverses $S^{-1}$ and $H^{-1}$:
-* For $S = \begin{pmatrix} 2 & 0 \\ 0 & 1 \\ \end{pmatrix}$, $\det S = 2$:
-  $$
+* For matrix $S$, $\det S = 2$:
+
+$$
+S = \begin{pmatrix}
+2 & 0 \\
+0 & 1 \\
+\end{pmatrix}
+$$
+
+$$
   S^{-1} = \frac{1}{2} \begin{pmatrix} 1 & 0 \\ 0 & 2 \\ \end{pmatrix} = \begin{pmatrix} \frac{1}{2} & 0 \\ 0 & 1 \\ \end{pmatrix}
-  $$
-* For $H = \begin{pmatrix} 1 & 1 \\ 0 & 1 \\ \end{pmatrix}$, $\det H = 1$:
-  $$
+$$
+
+* For matrix $H$, $\det H = 1$:
+
+$$
+H = \begin{pmatrix}
+1 & 1 \\
+0 & 1 \\
+\end{pmatrix}
+$$
+
+$$
   H^{-1} = \frac{1}{1} \begin{pmatrix} 1 & -1 \\ 0 & 1 \\ \end{pmatrix} = \begin{pmatrix} 1 & -1 \\ 0 & 1 \\ \end{pmatrix}
-  $$
+$$
 
 Compute the product in reverse order $S^{-1} H^{-1}$:
 
@@ -167,7 +184,20 @@ H^{-1} S^{-1} &= \begin{pmatrix}
 \end{aligned}
 $$
 
-Notice that $\begin{pmatrix} \frac{1}{2} & -1 \\ 0 & 1 \\ \end{pmatrix} \neq \begin{pmatrix} \frac{1}{2} & -\frac{1}{2} \\ 0 & 1 \\ \end{pmatrix}$.
+Notice that:
+
+$$
+\begin{pmatrix}
+\frac{1}{2} & -1 \\
+0 & 1 \\
+\end{pmatrix}
+\neq
+\begin{pmatrix}
+\frac{1}{2} & -\frac{1}{2} \\
+0 & 1 \\
+\end{pmatrix}
+$$
+
 The incorrect order does not invert $T$:
 
 $$
@@ -177,13 +207,17 @@ $$
 **Step 4: Explain the rule**
 
 When $T = HS$ acts on a point $x$, scaling $S$ acts first and shear $H$ acts second:
+
 $$
 x \xrightarrow{S} Sx \xrightarrow{H} H(Sx)
 $$
+
 To return to $x$, one must first undo the last operation that was performed (which is the shear $H$, undone by $H^{-1}$), returning the system to state $Sx$. Only then can one undo the scaling $S$ (using $S^{-1}$):
+
 $$
 H(Sx) \xrightarrow{H^{-1}} Sx \xrightarrow{S^{-1}} x
 $$
+
 Applying $S^{-1}$ before $H^{-1}$ would attempt to undo the scaling while the coordinates are still distorted by the shear, which scrambles the geometry. Hence, undoing a composition always proceeds from the end: $(HS)^{-1} = S^{-1}H^{-1}$.
 
 ---

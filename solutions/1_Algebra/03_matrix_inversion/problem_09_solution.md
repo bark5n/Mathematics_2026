@@ -10,7 +10,16 @@ $$
 Multiplying from the right would yield $AXA^{-1} = BA^{-1}$, which does not simplify to $X$ because $AXA^{-1} \neq X$.
 
 **Inverse of a $2 \times 2$ Upper Triangular Matrix:**
-For $A = \begin{pmatrix} 1 & k \\ 0 & 1 \\ \end{pmatrix}$, $\det A = 1$, and:
+For an upper triangular matrix
+
+$$
+A = \begin{pmatrix}
+1 & k \\
+0 & 1 \\
+\end{pmatrix}
+$$
+
+we have $\det A = 1$, and:
 
 $$
 A^{-1} = \begin{pmatrix}
@@ -65,7 +74,14 @@ $$
 
 **Step 2: Compute $A^{-1}$**
 
-For $A = \begin{pmatrix} 1 & 2 \\ 0 & 1 \\ \end{pmatrix}$:
+For matrix $A$:
+
+$$
+A = \begin{pmatrix}
+1 & 2 \\
+0 & 1 \\
+\end{pmatrix}
+$$
 
 $$
 \det A = (1)(1) - (2)(0) = 1

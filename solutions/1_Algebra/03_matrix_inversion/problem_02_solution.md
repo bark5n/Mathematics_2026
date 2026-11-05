@@ -2,12 +2,14 @@
 
 **Inverse Formula for a $2 \times 2$ Matrix:**
 For a $2 \times 2$ matrix
+
 $$
 A = \begin{pmatrix}
 a & b \\
 c & d \\
 \end{pmatrix}
 $$
+
 with determinant $\det A = ad - bc \neq 0$, the inverse matrix is given by:
 
 $$

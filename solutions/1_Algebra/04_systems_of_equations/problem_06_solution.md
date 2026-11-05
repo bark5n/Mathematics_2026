@@ -5,9 +5,10 @@ For an augmented matrix $[A(a) \mid b]$ reduced by row operations:
 * **Unique solution:** Occurs if and only if $\det A(a) \neq 0$ (full rank).
 * **Infinitely many solutions:** Occurs if $\det A(a) = 0$ and the reduced augmented matrix has no contradiction row, leaving fewer pivot rows than variables.
 * **No solution (inconsistent):** Occurs if row operations produce a row of the form:
-  $$
+
+$$
   \begin{pmatrix} 0 & 0 & \mid & c \end{pmatrix} \quad \mathrm{for}\  c \neq 0
-  $$
+$$
 
 ---
 
@@ -73,13 +74,16 @@ $$
 * **Case 1: $4 - 2a = 0 \iff a = 2$**
   The second row becomes $(0 \quad 0 \mid 0)$, which represents the identity $0 = 0$.
   The system reduces to the single equation:
-  $$
+
+$$
   x + y = 2 \implies x = 2 - y
-  $$
+$$
+
   Variable $y$ is free ($y = t$), yielding **infinitely many solutions**:
-  $$
+
+$$
   \begin{pmatrix} x \\ y \\ \end{pmatrix} = \begin{pmatrix} 2 - t \\ t \\ \end{pmatrix}, \qquad t \in \mathbb{R}
-  $$
+$$
 
 * **Case 2: $4 - 2a \neq 0 \iff a \neq 2$**
   The second row has zeros for both variable coefficients, but a nonzero right-hand side ($4 - 2a \neq 0$).

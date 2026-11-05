@@ -60,8 +60,8 @@ a zero determinant leads to division by zero ($\frac{1}{0}$), which is undefined
 **Method 2: Using dependence between the rows**
 
 Identify the rows of matrix $A$:
-* Row 1: $R_1 = \begin{pmatrix} 2 & 4 \\ \end{pmatrix}$
-* Row 2: $R_2 = \begin{pmatrix} 1 & 2 \\ \end{pmatrix}$
+* Row 1: $R_1 = (2, 4)$
+* Row 2: $R_2 = (1, 2)$
 
 Notice that:
 

@@ -166,13 +166,17 @@ $$
 
 *Explanation of the reversed order:*
 When applying the transformation $AB$ to a vector $x$, matrix $B$ acts first, followed by matrix $A$:
+
 $$
 y = A(Bx)
 $$
+
 To undo this sequence and recover $x$, one must first undo the last operation that was applied (which is $A$, undone by $A^{-1}$), and only then undo the earlier operation (which is $B$, undone by $B^{-1}$):
+
 $$
 x = B^{-1}(A^{-1} y) = (B^{-1} A^{-1}) y
 $$
+
 This is the "shoes and socks" principle: you put on socks first, then shoes; but to undo, you must remove the shoes first, then the socks.
 
 ---

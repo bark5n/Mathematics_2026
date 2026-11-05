@@ -3,25 +3,30 @@
 **Properties of Matrix Inverses:**
 1. **Inverse of a Scalar Multiple:**
    For any nonzero scalar $c \neq 0$:
-   $$
+
+$$
    (c A)^{-1} = \frac{1}{c} A^{-1}
-   $$
+$$
 
 2. **Inverse of a Transpose:**
    The operations of transposition and inversion commute:
-   $$
+
+$$
    (A^T)^{-1} = (A^{-1})^T
-   $$
+$$
 
 3. **Inverse of a Matrix Power:**
    For any positive integer $k$:
-   $$
+
+$$
    (A^k)^{-1} = (A^{-1})^k
-   $$
+$$
+
    In particular for $k = 2$:
-   $$
+
+$$
    (A^2)^{-1} = (A^{-1})^2 = A^{-1} A^{-1}
-   $$
+$$
 
 ---
 

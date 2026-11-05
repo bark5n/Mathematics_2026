@@ -2,12 +2,14 @@
 
 **Scaling Transformation Matrix:**
 A diagonal matrix of the form
+
 $$
 S = \begin{pmatrix}
 s_x & 0 \\
 0 & s_y \\
 \end{pmatrix}
 $$
+
 represents a geometric scaling (dilation/contraction) that scales the $x$-coordinate by a factor of $s_x$ and the $y$-coordinate by a factor of $s_y$.
 
 **Geometric Inverse of Scaling:**
@@ -84,7 +86,7 @@ $$
 
 **Step 3: Test on a concrete test vector**
 
-Choose the vector $v = \begin{pmatrix} 1 \\ 1 \\ \end{pmatrix}$.
+Choose the vector $v = (1, 1)^T$.
 
 Apply the forward transformation $S$:
 

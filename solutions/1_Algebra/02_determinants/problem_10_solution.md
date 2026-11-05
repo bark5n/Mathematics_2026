@@ -51,22 +51,22 @@ A =
 $$
 
 Write down each row as a vector:
-* Row 1: $r_1 = \begin{pmatrix} 1 & 2 & 3 \\ \end{pmatrix}$
-* Row 2: $r_2 = \begin{pmatrix} 2 & 4 & 6 \\ \end{pmatrix}$
-* Row 3: $r_3 = \begin{pmatrix} 0 & 1 & 5 \\ \end{pmatrix}$
+* Row 1: $r_1 = (1, 2, 3)$
+* Row 2: $r_2 = (2, 4, 6)$
+* Row 3: $r_3 = (0, 1, 5)$
 
 **Step 2: Identify the specific linear dependence**
 
 Comparing row 1 and row 2 entry by entry:
 
 $$
-2 \cdot r_1 = 2 \cdot \begin{pmatrix} 1 & 2 & 3 \\ \end{pmatrix} = \begin{pmatrix} 2 & 4 & 6 \\ \end{pmatrix} = r_2
+2 \cdot r_1 = 2 \cdot (1, 2, 3) = (2, 4, 6) = r_2
 $$
 
 Equivalently:
 
 $$
-r_2 - 2 r_1 = \begin{pmatrix} 0 & 0 & 0 \\ \end{pmatrix}
+r_2 - 2 r_1 = (0, 0, 0)
 $$
 
 Row 2 is an exact scalar multiple of row 1, which means the set of rows $\{r_1, r_2, r_3\}$ is linearly dependent.
@@ -74,7 +74,7 @@ Row 2 is an exact scalar multiple of row 1, which means the set of rows $\{r_1, 
 **Step 3: Connect dependence to the determinant and noninvertibility**
 
 * When performing the elementary row operation $R_2 \leftarrow R_2 - 2R_1$, row 2 becomes entirely zeros:
-  
+
 $$
 \begin{pmatrix}
 1 & 2 & 3 \\

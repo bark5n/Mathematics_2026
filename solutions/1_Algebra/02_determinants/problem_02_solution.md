@@ -2,6 +2,7 @@
 
 **Sarrus' Rule for a $3 \times 3$ Matrix:**
 For a matrix
+
 $$
 A = \begin{pmatrix}
 a & b & c \\
@@ -9,6 +10,7 @@ d & e & f \\
 g & h & i \\
 \end{pmatrix}
 $$
+
 the determinant is calculated by taking the sum of the products of the three downward diagonals minus the sum of the products of the three upward diagonals:
 
 $$

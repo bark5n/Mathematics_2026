@@ -115,13 +115,16 @@ The row of zeros confirms that the third equation was redundant.
 Column 3 has no pivot, so $x_3$ is a free variable. Let $x_3 = t$, where $t \in \mathbb{R}$.
 
 * From row 2:
-  $$
+
+$$
   x_2 + x_3 = 8 \implies x_2 + t = 8 \implies x_2 = 8 - t
-  $$
+$$
+
 * From row 1:
-  $$
+
+$$
   x_1 + x_2 = 10 \implies x_1 + (8 - t) = 10 \implies x_1 = 2 + t
-  $$
+$$
 
 Thus, the complete solution in parametric form is:
 
@@ -142,8 +145,7 @@ x_1 \\
 x_2 \\
 x_3 \\
 \end{pmatrix}
-=
-\begin{pmatrix}
+= \begin{pmatrix}
 2 \\
 8 \\
 0 \\

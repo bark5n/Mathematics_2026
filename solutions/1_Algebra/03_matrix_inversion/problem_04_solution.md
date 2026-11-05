@@ -59,11 +59,13 @@ $$
 **Step 2: Eliminate the entry in row 2, column 1**
 
 Perform the row operation:
+
 $$
 R_2 \leftarrow R_2 - 3R_1
 $$
 
 Compute the new row 2:
+
 $$
 (3, 5 \mid 0, 1) - 3(1, 2 \mid 1, 0) = (3 - 3, 5 - 6 \mid 0 - 3, 1 - 0) = (0, -1 \mid -3, 1)
 $$
@@ -80,6 +82,7 @@ $$
 **Step 3: Normalize the second pivot to $+1$**
 
 Perform the row operation:
+
 $$
 R_2 \leftarrow -1 \cdot R_2
 $$
@@ -96,11 +99,13 @@ $$
 **Step 4: Eliminate the entry in row 1, column 2**
 
 Perform the row operation:
+
 $$
 R_1 \leftarrow R_1 - 2R_2
 $$
 
 Compute the new row 1:
+
 $$
 (1, 2 \mid 1, 0) - 2(0, 1 \mid 3, -1) = (1 - 0, 2 - 2 \mid 1 - 6, 0 - (-2)) = (1, 0 \mid -5, 2)
 $$

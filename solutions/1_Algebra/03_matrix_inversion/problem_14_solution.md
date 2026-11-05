@@ -11,9 +11,11 @@ When such a matrix $B$ exists, it is unique and denoted $A^{-1}$.
 
 **Involution (Involutory Matrix):**
 A matrix $A$ satisfying
+
 $$
 A^2 = I
 $$
+
 is called an involution (or involutory matrix). For every involutory matrix, $A^{-1} = A$.
 
 ---
@@ -84,7 +86,7 @@ $$
 
 Notice that $A \neq I$ and $A \neq -I$.
 
-*(Another valid example is a reflection across the $x$-axis: $A = \begin{pmatrix} 1 & 0 \\ 0 & -1 \\ \end{pmatrix}$.)*
+*(Another valid example is a reflection across the $x$-axis where the diagonal entries are $1$ and $-1$).*
 
 **Step 3: Verify the example by multiplication**
 

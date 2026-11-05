@@ -2,12 +2,14 @@
 
 **Determinant of a Parameter-Dependent $2 \times 2$ Matrix:**
 For a matrix
+
 $$
 A(t) = \begin{pmatrix}
 a(t) & b(t) \\
 c(t) & d(t) \\
 \end{pmatrix}
 $$
+
 the determinant is:
 
 $$
@@ -103,19 +105,25 @@ $$
 **Step 4: Explain what happens at the excluded values**
 
 * At $t = 1$ and $t = -1$, the determinant becomes zero ($1 - (\pm 1)^2 = 0$). In the inverse formula, this causes a division by zero:
-  $$
+
+$$
   \frac{1}{0}
-  $$
+$$
+
   which is undefined, so the formula breaks down and no inverse exists.
 * **Structural breakdown at $t = 1$:**
-  $$
+
+$$
   A(1) = \begin{pmatrix} 1 & 1 \\ 1 & 1 \\ \end{pmatrix}
-  $$
+$$
+
   Here $R_2 = R_1$, so the rows are identical and linearly dependent.
 * **Structural breakdown at $t = -1$:**
-  $$
+
+$$
   A(-1) = \begin{pmatrix} 1 & -1 \\ -1 & 1 \\ \end{pmatrix}
-  $$
+$$
+
   Here $R_2 = -R_1$, so the rows are exact opposites and linearly dependent.
 * In both cases, the transformation squashes the 2-dimensional plane onto a 1-dimensional line, so information is destroyed and the mapping cannot be inverted.
 

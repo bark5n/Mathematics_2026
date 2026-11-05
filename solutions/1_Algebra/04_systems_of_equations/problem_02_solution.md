@@ -56,14 +56,16 @@ $$
 **Step 2: Eliminate $x$ from rows 2 and 3**
 
 * Eliminate entry at $(2,1)$ using $R_2 \leftarrow R_2 - 2R_1$:
-  $$
+
+$$
   (2, -1, 1 \mid 3) - 2(1, 1, 1 \mid 6) = (0, -3, -1 \mid -9)
-  $$
+$$
 
 * Eliminate entry at $(3,1)$ using $R_3 \leftarrow R_3 - R_1$:
-  $$
+
+$$
   (1, 2, -1 \mid 2) - (1, 1, 1 \mid 6) = (0, 1, -2 \mid -4)
-  $$
+$$
 
 The augmented matrix becomes:
 
@@ -108,19 +110,22 @@ $$
 **Step 5: Back-substitution**
 
 1. From row 3:
-   $$
+
+$$
    -7z = -21 \implies z = \frac{-21}{-7} = 3
-   $$
+$$
 
 2. From row 2, substitute $z = 3$:
-   $$
+
+$$
    y - 2z = -4 \implies y - 2(3) = -4 \implies y - 6 = -4 \implies y = 2
-   $$
+$$
 
 3. From row 1, substitute $y = 2$ and $z = 3$:
-   $$
+
+$$
    x + y + z = 6 \implies x + 2 + 3 = 6 \implies x + 5 = 6 \implies x = 1
-   $$
+$$
 
 Thus, the unique solution is $(x, y, z) = (1, 2, 3)$.
 

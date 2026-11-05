@@ -29,8 +29,7 @@ c & d \\
 e & f \\
 g & h \\
 \end{pmatrix}
-=
-\begin{pmatrix}
+= \begin{pmatrix}
 ae + bg & af + bh \\
 ce + dg & cf + dh \\
 \end{pmatrix}

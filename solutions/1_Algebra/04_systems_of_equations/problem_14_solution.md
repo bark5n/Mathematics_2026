@@ -70,6 +70,7 @@ $$
 **Step 2: Check consistency of the First System**
 
 The third equation in the first system is:
+
 $$
 E_3: 3x = 3
 $$
@@ -86,6 +87,7 @@ Because $(1, 1)$ satisfies all three equations, the first system is **consistent
 **Step 3: Check consistency of the Second System**
 
 The third equation in the second system is:
+
 $$
 E_3': 3x = 3.1
 $$

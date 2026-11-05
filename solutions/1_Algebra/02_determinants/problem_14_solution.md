@@ -74,7 +74,7 @@ A =
 \end{pmatrix}
 $$
 
-The system $Ax = b$ with $b = \begin{pmatrix} b_1 \\ b_2 \\ \end{pmatrix}$ corresponds to:
+The system $Ax = b$ with $b = (b_1, b_2)^T$ corresponds to:
 
 $$
 \begin{cases}

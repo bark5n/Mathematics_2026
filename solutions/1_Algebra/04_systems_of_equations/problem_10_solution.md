@@ -2,9 +2,11 @@
 
 **Polynomial Interpolation:**
 A quadratic polynomial
+
 $$
 p(x) = a x^2 + b x + c
 $$
+
 passing through three points $(x_1, y_1)$, $(x_2, y_2)$, and $(x_3, y_3)$ requires that:
 
 $$
@@ -24,8 +26,7 @@ a \\
 b \\
 c \\
 \end{pmatrix}
-=
-\begin{pmatrix}
+= \begin{pmatrix}
 y_1 \\
 y_2 \\
 y_3 \\
@@ -53,19 +54,22 @@ Find a polynomial $p(x)=ax^2+bx+c$ whose graph passes through $(0,1)$, $(1,3)$, 
 Substitute each given $(x, y)$ coordinate pair into $p(x) = ax^2 + bx + c$:
 
 * Point 1: $(0, 1)$
-  $$
+
+$$
   p(0) = a(0)^2 + b(0) + c = 1 \implies c = 1
-  $$
+$$
 
 * Point 2: $(1, 3)$
-  $$
+
+$$
   p(1) = a(1)^2 + b(1) + c = 3 \implies a + b + c = 3
-  $$
+$$
 
 * Point 3: $(2, 9)$
-  $$
+
+$$
   p(2) = a(2)^2 + b(2) + c = 9 \implies 4a + 2b + c = 9
-  $$
+$$
 
 In matrix form:
 
@@ -80,8 +84,7 @@ a \\
 b \\
 c \\
 \end{pmatrix}
-=
-\begin{pmatrix}
+= \begin{pmatrix}
 1 \\
 3 \\
 9 \\
@@ -133,21 +136,27 @@ $$
 **Step 3: Check consistency by substituting all three points**
 
 1. For $x = 0$:
-   $$
+
+$$
    p(0) = 2(0)^2 + 1 = 0 + 1 = 1
-   $$
+$$
+
    Matches point $(0, 1)$.
 
 2. For $x = 1$:
-   $$
+
+$$
    p(1) = 2(1)^2 + 1 = 2(1) + 1 = 3
-   $$
+$$
+
    Matches point $(1, 3)$.
 
 3. For $x = 2$:
-   $$
+
+$$
    p(2) = 2(2)^2 + 1 = 2(4) + 1 = 8 + 1 = 9
-   $$
+$$
+
    Matches point $(2, 9)$.
 
 All three points lie exactly on the graph of $p(x) = 2x^2 + 1$.

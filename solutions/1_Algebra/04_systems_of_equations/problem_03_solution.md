@@ -55,6 +55,7 @@ $$
 **Step 2: Perform Gaussian elimination**
 
 Eliminate the leading term of the second row using the operation:
+
 $$
 R_2 \leftarrow R_2 - 2R_1
 $$
@@ -113,4 +114,4 @@ Since $0$ cannot equal $1$, no values of $x$ and $y$ can satisfy this equation. 
 The system is **inconsistent** (it has no solution).
 
 2. Contradiction:
-Gaussian elimination produces the row $\begin{pmatrix} 0 & 0 & \mid & 1 \end{pmatrix}$, which represents the impossible equation $0 = 1$. Geometrically, the two equations represent parallel distinct lines that never intersect.
+Gaussian elimination produces a row of zeros with a nonzero right-hand side $(0, 0 \mid 1)$, which represents the impossible equation $0 = 1$. Geometrically, the two equations represent parallel distinct lines that never intersect.

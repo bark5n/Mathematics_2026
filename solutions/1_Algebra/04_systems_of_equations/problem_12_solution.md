@@ -50,13 +50,16 @@ $$
 **Step 2: Eliminate below the first pivot**
 
 * $R_2 \leftarrow R_2 - 2R_1$:
-  $$
+
+$$
   (2, 4, -2 \mid 0) - 2(1, 2, -1 \mid 0) = (0, 0, 0 \mid 0)
-  $$
+$$
+
 * $R_3 \leftarrow R_3 - R_1$:
-  $$
+
+$$
   (1, -1, 2 \mid 0) - (1, 2, -1 \mid 0) = (0, -3, 3 \mid 0)
-  $$
+$$
 
 The augmented matrix becomes:
 
@@ -91,13 +94,16 @@ Set $z = t$, with $t \in \mathbb{R}$.
 **Step 5: Solve for basic variables via back-substitution**
 
 * From row 2:
-  $$
+
+$$
   y - z = 0 \implies y = z = t
-  $$
+$$
+
 * From row 1:
-  $$
+
+$$
   x + 2y - z = 0 \implies x + 2t - t = 0 \implies x + t = 0 \implies x = -t
-  $$
+$$
 
 Thus, the complete parametric solution is:
 

@@ -89,13 +89,16 @@ $$
 **Step 3: Back-substitution**
 
 * From row 2:
-  $$
+
+$$
   3y = 12 \implies y = \frac{12}{3} = 4
-  $$
+$$
+
 * From row 1:
-  $$
+
+$$
   x + y = 10 \implies x + 4 = 10 \implies x = 6
-  $$
+$$
 
 Thus, the unique solution is $(x, y) = (6, 4)$.
 
@@ -103,22 +106,28 @@ Thus, the unique solution is $(x, y) = (6, 4)$.
 
 Rewrite each linear equation in slope-intercept form ($y = mx + b$):
 * **Line 1 ($L_1$):**
-  $$
+
+$$
   x + y = 10 \implies y = -x + 10
-  $$
+$$
+
   Slope $m_1 = -1$, $y$-intercept is $10$.
 
 * **Line 2 ($L_2$):**
-  $$
+
+$$
   2x + 5y = 32 \implies 5y = -2x + 32 \implies y = -\frac{2}{5}x + \frac{32}{5}
-  $$
+$$
+
   Slope $m_2 = -\frac{2}{5} = -0.4$, $y$-intercept is $6.4$.
 
 * **Why the solution is unique:**
   The slopes of the two lines are different:
-  $$
+
+$$
   m_1 = -1 \neq -\frac{2}{5} = m_2
-  $$
+$$
+
   In Euclidean geometry, two lines in the same plane with different slopes are neither parallel nor coincident. Any two non-parallel straight lines must intersect at exactly one point. That single intersection point $(6, 4)$ is the unique point in the plane that satisfies both linear conditions simultaneously.
 
 ---

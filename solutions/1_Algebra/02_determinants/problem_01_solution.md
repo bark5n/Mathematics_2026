@@ -1,7 +1,7 @@
 ### Essential Formulas
 
 **Determinant of a $2 \times 2$ Matrix:**
-For a $2 \times 2$ matrix $A = \begin{pmatrix} a & b \\ c & d \\ \end{pmatrix}$, the determinant is given by the product of the main diagonal entries minus the product of the off-diagonal entries:
+For a $2 \times 2$ matrix $A$, the determinant is given by the product of the main diagonal entries minus the product of the off-diagonal entries:
 
 $$
 \det A = \det \begin{pmatrix} a & b \\ c & d \\ \end{pmatrix} = ad - bc
@@ -46,27 +46,52 @@ Which matrix is invertible? Justify your answer.
 
 **Step 1: Compute the determinant of the first matrix**
 
-Let $A = \begin{pmatrix} 3 & -2 \\ 5 & 4 \\ \end{pmatrix}$. Using the formula $\det A = ad - bc$:
+For the first matrix $A$:
 
 $$
+A = \begin{pmatrix}
+3 & -2 \\
+5 & 4 \\
+\end{pmatrix}
+
+$$
+
+Using the formula $\det A = ad - bc$:
+
+$$
+
 \begin{aligned}
 \det A &= (3)(4) - (-2)(5) \\
 &= 12 - (-10) \\
 &= 12 + 10 \\
 &= 22
 \end{aligned}
+
 $$
 
 **Step 2: Compute the determinant of the second matrix**
 
-Let $B = \begin{pmatrix} 1 & 7 \\ 2 & 14 \\ \end{pmatrix}$. Using the formula $\det B = ad - bc$:
+For the second matrix $B$:
 
 $$
+
+B = \begin{pmatrix}
+1 & 7 \\
+2 & 14 \\
+\end{pmatrix}
+
+$$
+
+Using the formula $\det B = ad - bc$:
+
+$$
+
 \begin{aligned}
 \det B &= (1)(14) - (7)(2) \\
 &= 14 - 14 \\
 &= 0
 \end{aligned}
+
 $$
 
 **Step 3: Determine invertibility and justify**
@@ -83,21 +108,25 @@ Notice also that the second row of $B$ is a scalar multiple of the first row: $R
 1. Determinant values:
 
 $$
+
 \det
 \begin{pmatrix}
 3 & -2 \\
 5 & 4 \\
 \end{pmatrix}
 = 22
+
 $$
 
 $$
+
 \det
 \begin{pmatrix}
 1 & 7 \\
 2 & 14 \\
 \end{pmatrix}
 = 0
+
 $$
 
 2. Invertibility:

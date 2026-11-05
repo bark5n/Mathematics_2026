@@ -47,14 +47,16 @@ $$
 **Step 2: Eliminate below the first pivot**
 
 * $R_2 \leftarrow R_2 - 2R_1$:
-  $$
+
+$$
   (2, 2, 2 \mid 4) - 2(1, 1, 1 \mid 2) = (0, 0, 0 \mid 0)
-  $$
+$$
 
 * $R_3 \leftarrow R_3 - R_1$:
-  $$
+
+$$
   (1, -1, 1 \mid 0) - (1, 1, 1 \mid 2) = (0, -2, 0 \mid -2)
-  $$
+$$
 
 The augmented matrix becomes:
 
@@ -89,13 +91,16 @@ Set $z = t$, where $t \in \mathbb{R}$ is any real parameter.
 **Step 5: Solve for the pivot variables via back-substitution**
 
 * From row 2:
-  $$
+
+$$
   -2y = -2 \implies y = 1
-  $$
+$$
+
 * From row 1:
-  $$
+
+$$
   x + y + z = 2 \implies x + 1 + t = 2 \implies x = 1 - t
-  $$
+$$
 
 Thus, the general solution in parametric form is:
 
@@ -116,8 +121,7 @@ x \\
 y \\
 z \\
 \end{pmatrix}
-=
-\begin{pmatrix}
+= \begin{pmatrix}
 1 \\
 1 \\
 0 \\

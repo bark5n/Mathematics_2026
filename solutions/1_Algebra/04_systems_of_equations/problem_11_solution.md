@@ -47,13 +47,16 @@ $$
 
 Apply row operations:
 * $R_2 \leftarrow R_2 - R_1$:
-  $$
+
+$$
   (1, t, 1 \mid 2) - (1, 1, 1 \mid 1) = (0, t - 1, 0 \mid 1)
-  $$
+$$
+
 * $R_3 \leftarrow R_3 - R_1$:
-  $$
+
+$$
   (1, 1, t \mid 3) - (1, 1, 1 \mid 1) = (0, 0, t - 1 \mid 2)
-  $$
+$$
 
 The augmented matrix in row echelon form is:
 
@@ -90,29 +93,39 @@ $$
 $$
 
   Row 2 reads:
-  $$
+
+$$
   0 \cdot x + 0 \cdot y + 0 \cdot z = 1 \implies 0 = 1
-  $$
+$$
+
   Row 3 reads:
-  $$
+
+$$
   0 \cdot x + 0 \cdot y + 0 \cdot z = 2 \implies 0 = 2
-  $$
+$$
+
   Both rows represent mathematical contradictions. Therefore, for $t = 1$, the system is **inconsistent and has no solution**.
 
 * **Case 2: $t \neq 1$**
   When $t - 1 \neq 0$, both pivots are nonzero. The matrix has three nonzero pivots in the three variable columns:
   * From row 3:
-    $$
+
+$$
     (t - 1)z = 2 \implies z = \frac{2}{t - 1}
-    $$
+$$
+
   * From row 2:
-    $$
+
+$$
     (t - 1)y = 1 \implies y = \frac{1}{t - 1}
-    $$
+$$
+
   * From row 1:
-    $$
+
+$$
     x = 1 - y - z = 1 - \frac{1}{t - 1} - \frac{2}{t - 1} = 1 - \frac{3}{t - 1} = \frac{t - 4}{t - 1}
-    $$
+$$
+
   Each variable is uniquely determined. Therefore, for every $t \neq 1$, the system has **exactly one solution**.
 
 ---

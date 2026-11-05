@@ -2,9 +2,11 @@
 
 **Solving Linear Systems via Matrix Inversion:**
 If $A \in \mathbb{R}^{n \times n}$ is an invertible square matrix ($\det A \neq 0$), then the matrix equation
+
 $$
 A x = b
 $$
+
 has a unique solution obtained by multiplying both sides from the left by $A^{-1}$:
 
 $$
@@ -88,7 +90,14 @@ $$
 
 **Step 2: Solve for $x$ using $x = A^{-1}b$**
 
-Multiply $A^{-1}$ by the column vector $b = \begin{pmatrix} 5 \\ 7 \\ \end{pmatrix}$:
+Multiply $A^{-1}$ by the column vector $b$:
+
+$$
+b = \begin{pmatrix}
+5 \\
+7 \\
+\end{pmatrix}
+$$
 
 $$
 \begin{aligned}
@@ -122,7 +131,7 @@ $$
 
 **Step 3: Verification by substitution back into $Ax = b$**
 
-Substitute the calculated vector $x = \begin{pmatrix} \frac{8}{5} \\ \frac{9}{5} \\ \end{pmatrix}$ back into the original matrix equation:
+Substitute the calculated vector $x$ back into the original matrix equation:
 
 $$
 \begin{aligned}

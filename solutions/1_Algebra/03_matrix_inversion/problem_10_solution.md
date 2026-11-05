@@ -2,6 +2,7 @@
 
 **Determinant and Inverse of a Diagonal Matrix:**
 For an $n \times n$ diagonal matrix
+
 $$
 D = \begin{pmatrix}
 d_1 & 0 & \cdots & 0 \\
@@ -10,6 +11,7 @@ d_1 & 0 & \cdots & 0 \\
 0 & 0 & \cdots & d_n \\
 \end{pmatrix}
 $$
+
 the determinant is the product of the diagonal entries:
 
 $$
@@ -65,7 +67,7 @@ Without using Gauss–Jordan elimination, decide which matrix is invertible. For
 
 * **For matrix $D$:**
   The diagonal entries are $2$, $-3$, and $5$. None of them are zero:
-  
+
 $$
 \det D = (2)(-3)(5) = -30 \neq 0
 $$
@@ -74,7 +76,7 @@ $$
 
 * **For matrix $E$:**
   The entry in row 2, column 2 is $e_{22} = 0$:
-  
+
 $$
 \det E = (2)(0)(5) = 0
 $$

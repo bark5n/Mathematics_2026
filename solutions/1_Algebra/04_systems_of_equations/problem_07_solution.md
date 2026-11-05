@@ -5,9 +5,11 @@
    When the coefficient matrix is already upper (or lower) triangular, use **direct back-substitution** (or forward-substitution). No elimination or matrix inversion is needed.
 2. **Multiple Systems with the Same Matrix $A$ and Known $A^{-1}$:**
    When solving $Ax = b_i$ for multiple vectors $b_i$, use **matrix-vector multiplication**:
-   $$
+
+$$
    x = A^{-1} b_i
-   $$
+$$
+
    The precomputed inverse is reused across all right-hand sides, requiring only matrix-vector multiplication of size $\mathcal{O}(n^2)$ per system.
 3. **Single System with Unknown $A^{-1}$:**
    To solve a single system $Ax = b$, **Gaussian elimination** is the most efficient method ($\approx \frac{2}{3}n^3$ operations), whereas computing $A^{-1}$ first requires $\approx 2n^3$ operations plus additional multiplication, which is roughly three times more computationally expensive.
@@ -43,16 +45,20 @@ For case 1, carry out the chosen method completely. For cases 2 and 3, describe 
 **Case 1: System with a Triangular Coefficient Matrix**
 
 * **Method choice:** **Direct back-substitution.**
-* **Justification:** The coefficient matrix $\begin{pmatrix} 2 & -1 \\ 0 & 4 \\ \end{pmatrix}$ is already upper triangular. Performing Gaussian elimination or computing an inverse would introduce redundant calculations, because elimination's entire objective is to arrive at this very triangular form.
+* **Justification:** The coefficient matrix is already upper triangular: already upper triangular. Performing Gaussian elimination or computing an inverse would introduce redundant calculations, because elimination's entire objective is to arrive at this very triangular form.
 * **Complete calculation:**
   From equation 2:
-  $$
+
+$$
   4y = 8 \implies y = \frac{8}{4} = 2
-  $$
+$$
+
   Substitute $y = 2$ into equation 1:
-  $$
+
+$$
   2x - 2 = 3 \implies 2x = 5 \implies x = \frac{5}{2} = 2.5
-  $$
+$$
+
   The unique solution is $(x, y) = \left(\frac{5}{2}, 2\right)$.
 
 ---
@@ -62,9 +68,11 @@ For case 1, carry out the chosen method completely. For cases 2 and 3, describe 
 * **Method choice:** **Matrix multiplication using the inverse ($x = A^{-1}b_i$).**
 * **Justification & Plan:**
   Because the inverse matrix $A^{-1}$ is already computed and provided, calculating each solution vector requires only a single matrix-vector multiplication:
-  $$
+
+$$
   x_1 = A^{-1}b_1, \qquad x_2 = A^{-1}b_2, \qquad x_3 = A^{-1}b_3
-  $$
+$$
+
   * *Reusable part:* The matrix $A^{-1}$ is reused across all three computations.
   * *Unnecessary part:* Re-running Gaussian elimination on $[A \mid b_1]$, $[A \mid b_2]$, and $[A \mid b_3]$ would redundantly re-triangularize $A$ three separate times.
 

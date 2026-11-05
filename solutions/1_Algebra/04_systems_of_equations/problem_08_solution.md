@@ -55,23 +55,26 @@ $$
 $$
 
 * Swap $R_1 \leftrightarrow R_2$ to place $1$ as the pivot:
-  $$
+
+$$
   \begin{pmatrix}
   1 & -1 & \mid & 1 \\
   2 & 1 & \mid & 5 \\
   \end{pmatrix}
-  $$
+$$
 
 * Eliminate entry at $(2, 1)$ using $R_2 \leftarrow R_2 - 2R_1$:
-  $$
+
+$$
   (2, 1 \mid 5) - 2(1, -1 \mid 1) = (0, 3 \mid 3)
-  $$
-  $$
+$$
+
+$$
   \begin{pmatrix}
   1 & -1 & \mid & 1 \\
   0 & 3 & \mid & 3 \\
   \end{pmatrix}
-  $$
+$$
 
 * Back-substitution:
   * Row 2: $3y = 3 \implies y = 1$
@@ -93,23 +96,26 @@ $$
 $$
 
 * Swap $R_1 \leftrightarrow R_2$ using the identical operation as in System 1:
-  $$
+
+$$
   \begin{pmatrix}
   1 & -1 & \mid & 4 \\
   2 & 1 & \mid & 1 \\
   \end{pmatrix}
-  $$
+$$
 
 * Eliminate entry at $(2, 1)$ using the identical operation $R_2 \leftarrow R_2 - 2R_1$:
-  $$
+
+$$
   (2, 1 \mid 1) - 2(1, -1 \mid 4) = (0, 3 \mid -7)
-  $$
-  $$
+$$
+
+$$
   \begin{pmatrix}
   1 & -1 & \mid & 4 \\
   0 & 3 & \mid & -7 \\
   \end{pmatrix}
-  $$
+$$
 
 * Back-substitution:
   * Row 2: $3y = -7 \implies y = -\frac{7}{3}$
@@ -125,12 +131,13 @@ Solution for System 2: $(x, y) = \left(\frac{5}{3}, -\frac{7}{3}\right)$.
   1. Row swap $R_1 \leftrightarrow R_2$.
   2. Row addition $R_2 \leftarrow R_2 - 2R_1$.
   In both systems, the left-hand block of the augmented matrix was transformed into the exact same upper triangular matrix:
-  $$
+
+$$
   U = \begin{pmatrix}
   1 & -1 \\
   0 & 3 \\
   \end{pmatrix}
-  $$
+$$
 
 * **Why this occurs:**
   The goal of Gaussian elimination is to systematically introduce zeros into specific column positions of the coefficient matrix. The multiplier $c = -2$ is chosen because $a_{21} - c \cdot a_{11} = 2 - 2(1) = 0$. This depends exclusively on the entries of $A$, not on the right-hand constants $b$.
@@ -154,4 +161,4 @@ x = \frac{5}{3}, \qquad y = -\frac{7}{3}
 $$
 
 2. Comparison:
-The sequence of row operations ($R_1 \leftrightarrow R_2$, then $R_2 \leftarrow R_2 - 2R_1$) and the resulting triangular coefficient matrix $\begin{pmatrix} 1 & -1 \\ 0 & 3 \\ \end{pmatrix}$ are identical in both cases because row elimination operations are determined entirely by the coefficient matrix $A$.
+The sequence of row operations ($R_1 \leftrightarrow R_2$, then $R_2 \leftarrow R_2 - 2R_1$) and the resulting upper triangular coefficient matrix $U$ are identical in both cases because row elimination operations are determined entirely by the coefficient matrix $A$.
