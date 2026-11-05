@@ -1,195 +1,168 @@
 ### Essential Formulas
 
-**Row Operation Invariance:**
-Adding a scalar multiple of one row to another row preserves the value of the determinant:
+**Row Operation Invariance (Type III Row Operations):**
+Adding any scalar multiple of one row to another row does not alter the value of the determinant:
 
 $$
 R_i \leftarrow R_i + c R_j \quad (i \neq j) \implies \det A' = \det A
 $$
 
-**Laplace (Cofactor) Expansion along a Row:**
-For an $n \times n$ matrix $A$, expanding along row $i$ gives:
+By strategically selecting $c$, this operation can be used systematically to introduce zeros into targeted positions, reducing the matrix to an upper triangular form without requiring sign adjustments or scalar division corrections.
+
+**Determinant of an Upper Triangular Matrix:**
+Once all entries below the main diagonal are reduced to zeros ($a_{ij} = 0$ for $i > j$), the determinant is simply the product of the diagonal elements:
 
 $$
-\det A = \sum_{j=1}^n (-1)^{i+j} a_{ij} \det M_{ij}
-$$
-
-When a row contains mostly zeros, expanding along that row reduces the calculation to a single non-zero term.
-
-**Invertibility and Singularity Condition:**
-A matrix $A(t)$ depending on a parameter $t$ is **not invertible** if and only if its determinant is zero:
-
-$$
-\det A(t) = 0
+\det U = u_{11} \cdot u_{22} \cdots u_{nn}
 $$
 
 ---
 
 ### Problem Statement
 
-**Exercise 12. A Parameter Revealed by a Row Operation**
+**Exercise 11. Shortening the Calculation with Row Operations**
 
-For
+Compute
 
 $$
-A(t)=
+\det
 \begin{pmatrix}
 1 & 2 & 3 \\
-2 & 4 & t \\
-0 & 1 & 1 \\
+1 & 3 & 4 \\
+1 & 4 & 6 \\
 \end{pmatrix}
 $$
 
-find the values of $t$ for which the matrix is not invertible.
+by first performing row operations that create as many zeros as possible. State which operations do not change the determinant.
 
-Before computing the determinant, perform the operation
-
-$$
-R_2\leftarrow R_2-2R_1
-$$
-
-and use the resulting structure. At the end, explain what special thing happens to the rows for the value of the parameter you found.
-
-> **Why this exercise:** combines a parameter, row operations, and recognition of dependence in one short argument.
+> **Why this exercise:** develops planning instead of mechanically repeating the same procedure.
 
 ---
 
 ### Solution
 
-**Step 1: Apply the specified row operation $R_2 \leftarrow R_2 - 2R_1$**
-
-The original matrix is:
+Let the given matrix be:
 
 $$
-A(t) = \begin{pmatrix}
+A = \begin{pmatrix}
 1 & 2 & 3 \\
-2 & 4 & t \\
-0 & 1 & 1 \\
+1 & 3 & 4 \\
+1 & 4 & 6 \\
 \end{pmatrix}
 $$
 
-Apply the row operation $R_2 \leftarrow R_2 - 2R_1$:
+**Step 1: Create zeros in the first column**
+
+Notice that the first column contains $1$ in every row. Using the pivot $a_{11} = 1$, eliminate the entries in row 2 and row 3:
+
+* **Operation 1: $R_2 \leftarrow R_2 - R_1$**
+  * *Effect on determinant:* Does not change the determinant ($\det A_1 = \det A$).
+  * Calculation:
+
+    $$
+    R_2 = (1 - 1,\ 3 - 2,\ 4 - 3) = (0, 1, 1)
+    $$
+
+* **Operation 2: $R_3 \leftarrow R_3 - R_1$**
+  * *Effect on determinant:* Does not change the determinant ($\det A_2 = \det A_1 = \det A$).
+  * Calculation:
+
+    $$
+    R_3 = (1 - 1,\ 4 - 2,\ 6 - 3) = (0, 2, 3)
+    $$
+
+The matrix becomes:
 
 $$
-R_2 = (2 - 2\cdot 1,\ 4 - 2\cdot 2,\ t - 2\cdot 3) = (0,\ 0,\ t - 6)
-$$
-
-The transformed matrix is:
-
-$$
-A'(t) = \begin{pmatrix}
+A_2 = \begin{pmatrix}
 1 & 2 & 3 \\
-0 & 0 & t - 6 \\
 0 & 1 & 1 \\
+0 & 2 & 3 \\
 \end{pmatrix}
 $$
 
-Because adding a multiple of row 1 to row 2 does not change the determinant:
+**Step 2: Create a zero in the second column below the pivot**
+
+Now use the pivot $a_{22} = 1$ in row 2 to eliminate the entry below it in row 3:
+
+* **Operation 3: $R_3 \leftarrow R_3 - 2R_2$**
+  * *Effect on determinant:* Does not change the determinant ($\det A_3 = \det A_2 = \det A$).
+  * Calculation:
+
+    $$
+    R_3 = (0 - 2\cdot 0,\ 2 - 2\cdot 1,\ 3 - 2\cdot 1) = (0, 0, 1)
+    $$
+
+The matrix is now in upper triangular form:
 
 $$
-\det A(t) = \det A'(t)
-$$
-
-**Step 2: Compute the determinant using the resulting structure**
-
-The second row of $A'(t)$ has zeros in the first two positions. Expand $\det A'(t)$ along row 2:
-
-$$
-\det A'(t) = 0 \cdot C_{21} + 0 \cdot C_{22} + (t - 6) \cdot C_{23}
-$$
-
-The cofactor $C_{23}$ is given by:
-
-$$
-C_{23} = (-1)^{2+3} \det \begin{pmatrix}
-1 & 2 \\
-0 & 1 \\
+A_3 = \begin{pmatrix}
+1 & 2 & 3 \\
+0 & 1 & 1 \\
+0 & 0 & 1 \\
 \end{pmatrix}
-= -1 \cdot [(1)(1) - (2)(0)] = -1 \cdot 1 = -1
 $$
 
-Therefore:
+**Step 3: State the operations and compute the determinant**
 
-$$
-\det A(t) = (t - 6)(-1) = 6 - t
-$$
+* **Operations that do not change the determinant:**
+  All three operations performed:
+  1. $R_2 \leftarrow R_2 - R_1$
+  2. $R_3 \leftarrow R_3 - R_1$
+  3. $R_3 \leftarrow R_3 - 2R_2$
 
-**Step 3: Determine the value of $t$ for non-invertibility**
+  are elementary row operations of the form $R_i \leftarrow R_i + c R_j$ with $i \neq j$. None of these operations change the value of the determinant.
 
-The matrix $A(t)$ is not invertible if and only if its determinant is zero:
+* **Compute $\det A_3$:**
+  Because $A_3$ is upper triangular, its determinant is the product of its diagonal entries:
 
-$$
-\det A(t) = 0
-$$
+  $$
+  \det A = \det A_3 = (1) \cdot (1) \cdot (1) = 1
+  $$
 
-Substitute $\det A(t) = 6 - t$:
+**Step 4: Verification using Sarrus' rule**
 
-$$
-6 - t = 0 \implies t = 6
-$$
-
-Thus, $A(t)$ is not invertible precisely when $t = 6$.
-
-**Step 4: Explain what happens to the rows at $t = 6$**
-
-When $t = 6$:
-
-1. In the transformed matrix $A'(6)$, the second row becomes completely zero:
-
-   $$
-   R_2 - 2R_1 = (0, 0, 6 - 6) = (0, 0, 0)
-   $$
-
-2. In the original matrix $A(6)$, row 2 is:
-
-   $$
-   R_2 = (2, 4, 6) = 2 \cdot (1, 2, 3) = 2 R_1
-   $$
-
-   This shows that row 2 is an exact scalar multiple of row 1.
-
-*Conclusion:*
-At $t = 6$, row 1 and row 2 are **linearly dependent** (parallel vectors in $\mathbb{R}^3$). The three row vectors span at most a 2D plane rather than all of $\mathbb{R}^3$, causing the rank of $A(6)$ to drop to $2 < 3$. This linear dependence collapses the 3D volume spanned by the rows to zero ($\det A(6) = 0$), making the matrix singular and non-invertible.
-
-**Step 5: Verification using Sarrus' rule**
-
-Compute $\det A(t)$ directly from the original matrix using Sarrus' rule:
+Compute the determinant directly on the original matrix $A$:
 
 * Downward diagonal products:
 
   $$
-  (1)(4)(1) + (2)(t)(0) + (3)(2)(1) = 4 + 0 + 6 = 10
+  (1)(3)(6) + (2)(4)(1) + (3)(1)(4) = 18 + 8 + 12 = 38
   $$
 
 * Upward diagonal products:
 
   $$
-  (3)(4)(0) + (1)(t)(1) + (2)(2)(1) = 0 + t + 4 = t + 4
+  (3)(3)(1) + (1)(4)(4) + (2)(1)(6) = 9 + 16 + 12 = 37
   $$
 
 * Difference:
 
   $$
-  \det A(t) = 10 - (t + 4) = 6 - t
+  \det A = 38 - 37 = 1
   $$
 
-Setting $6 - t = 0$ confirms $t = 6$.
+The direct calculation verifies the result $\det A = 1$.
 
 ---
 
 ### Final Answer
 
-Determinant formula:
+Operations that do not change the determinant:
 
 $$
-\det A(t) = 6 - t
+R_2 \leftarrow R_2 - R_1, \qquad R_3 \leftarrow R_3 - R_1, \qquad R_3 \leftarrow R_3 - 2R_2
 $$
 
-Value of $t$ for non-invertibility:
+All operations of the form $R_i \leftarrow R_i + c R_j$ ($i \neq j$) preserve the determinant.
+
+Calculated determinant:
 
 $$
-t = 6
+\det \begin{pmatrix}
+1 & 2 & 3 \\
+1 & 3 & 4 \\
+1 & 4 & 6 \\
+\end{pmatrix}
+= 1
 $$
-
-Special row behavior:
-At $t = 6$, row 2 becomes an exact multiple of row 1 ($R_2 = 2R_1$). The rows become linearly dependent and the rank drops to $2 < 3$, rendering the matrix non-invertible.
