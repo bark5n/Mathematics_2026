@@ -1,81 +1,148 @@
-**Result:**
+### Essential Formulas
+
+**Scaling Transformation Matrix:**
+A diagonal matrix of the form
+$$
+S = \begin{pmatrix}
+s_x & 0 \\
+0 & s_y \\
+\end{pmatrix}
+$$
+represents a geometric scaling (dilation/contraction) that scales the $x$-coordinate by a factor of $s_x$ and the $y$-coordinate by a factor of $s_y$.
+
+**Geometric Inverse of Scaling:**
+To undo a scaling by $(s_x, s_y)$, each axis must be scaled by the reciprocal factor $(1/s_x, 1/s_y)$:
 
 $$
-S^{-1} = 
+S^{-1} = \begin{pmatrix}
+\frac{1}{s_x} & 0 \\
+0 & \frac{1}{s_y} \\
+\end{pmatrix}
+$$
+
+provided $s_x \neq 0$ and $s_y \neq 0$.
+
+---
+
+### Problem Statement
+
+**Exercise 8. Inverse of a Transformation**
+
+The matrix
+
+$$
+S=
 \begin{pmatrix}
+2 & 0 \\
+0 & \frac12 \\
+\end{pmatrix}
+$$
+
+describes a scaling of the plane. Find $S^{-1}$ and explain geometrically what the inverse transformation does. Check the action of the pair $S,S^{-1}$ on one simple vector.
+
+> **Why this exercise:** gives the inverse the interpretation of undoing a transformation.
+
+---
+
+### Solution
+
+**Step 1: Find $S^{-1}$ analytically**
+
+The matrix $S$ is:
+
+$$
+S = \begin{pmatrix}
+2 & 0 \\
+0 & \frac{1}{2} \\
+\end{pmatrix}
+$$
+
+Compute the determinant:
+
+$$
+\det S = (2)\left(\frac{1}{2}\right) - (0)(0) = 1
+$$
+
+Using the $2 \times 2$ inverse formula:
+
+$$
+S^{-1} = \frac{1}{1} \begin{pmatrix}
+\frac{1}{2} & 0 \\
+0 & 2 \\
+\end{pmatrix}
+= \begin{pmatrix}
 \frac{1}{2} & 0 \\
 0 & 2 \\
 \end{pmatrix}
 $$
 
-**Steps & Detailed Explanation:**
+**Step 2: Geometric explanation**
 
-The matrix $S$ scales the horizontal direction ($x$-axis) by a factor of $2$ and scales the vertical direction ($y$-axis) by a factor of $1/2$.
+* **Action of $S$:** Matrix $S$ stretches the horizontal axis ($x$-coordinate) by a factor of $2$ and compresses the vertical axis ($y$-coordinate) by a factor of $\frac{1}{2}$ (halving the height).
+* **Action of $S^{-1}$:** The inverse transformation reverses both actions: it compresses the horizontal axis by a factor of $\frac{1}{2}$ (halving the width) and stretches the vertical axis by a factor of $2$ (doubling the height).
+* Applying $S$ followed by $S^{-1}$ restores any geometric shape in the plane back to its original size, orientation, and position.
 
-To undo this transformation geometrically, we must reverse those operations: shrink the horizontal direction by half ($1/2$) and stretch the vertical direction by $2$. The inverse matrix must therefore be:
+**Step 3: Test on a concrete test vector**
 
-$$
-S^{-1} = 
-\begin{pmatrix}
-\frac{1}{2} & 0 \\
-0 & 2 \\
-\end{pmatrix}
-$$
+Choose the vector $v = \begin{pmatrix} 1 \\ 1 \\ \end{pmatrix}$.
 
-To verify analytically using the formula, the determinant of $S$ is $(2)(\frac{1}{2}) = 1$. The inverse is:
+Apply the forward transformation $S$:
 
 $$
-S^{-1} = \frac{1}{1}
-\begin{pmatrix}
-\frac{1}{2} & 0 \\
-0 & 2 \\
-\end{pmatrix} = 
-\begin{pmatrix}
-\frac{1}{2} & 0 \\
-0 & 2 \\
-\end{pmatrix}
-$$
-
-Check the action on a simple vector, $v = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$.
-
-Apply the original transformation $S$:
-
-$$
-Sv = 
-\begin{pmatrix}
+w = Sv = \begin{pmatrix}
 2 & 0 \\
 0 & \frac{1}{2} \\
 \end{pmatrix}
 \begin{pmatrix}
 1 \\
 1 \\
-\end{pmatrix} = 
-\begin{pmatrix}
+\end{pmatrix}
+= \begin{pmatrix}
+2(1) + 0(1) \\
+0(1) + \frac{1}{2}(1) \\
+\end{pmatrix}
+= \begin{pmatrix}
 2 \\
 \frac{1}{2} \\
 \end{pmatrix}
 $$
 
-Now apply the inverse matrix $S^{-1}$ to this result to see if we get the original vector back:
+Now apply the inverse transformation $S^{-1}$ to the resulting vector $w$:
 
 $$
-S^{-1}(Sv) = 
-\begin{pmatrix}
+S^{-1} w = S^{-1}(Sv) = \begin{pmatrix}
 \frac{1}{2} & 0 \\
 0 & 2 \\
 \end{pmatrix}
 \begin{pmatrix}
 2 \\
 \frac{1}{2} \\
-\end{pmatrix} = 
-\begin{pmatrix}
-(\frac{1}{2})(2) + 0 \\
-0 + (2)(\frac{1}{2}) \\
-\end{pmatrix} = 
-\begin{pmatrix}
+\end{pmatrix}
+= \begin{pmatrix}
+\frac{1}{2}(2) + 0\left(\frac{1}{2}\right) \\
+0(2) + 2\left(\frac{1}{2}\right) \\
+\end{pmatrix}
+= \begin{pmatrix}
 1 \\
 1 \\
-\end{pmatrix} = v
+\end{pmatrix}
+= v
 $$
 
-The inverse effectively "undoes" the stretching and shrinking, bringing every point back to its original position on the plane.
+The composite action $(S^{-1} S)v = I v = v$ returns the original vector $v$, confirming that $S^{-1}$ completely undoes the geometric action of $S$.
+
+---
+
+### Final Answer
+
+1. Inverse matrix:
+
+$$
+S^{-1} = \begin{pmatrix}
+\frac{1}{2} & 0 \\
+0 & 2 \\
+\end{pmatrix}
+$$
+
+2. Geometric action:
+$S^{-1}$ scales the $x$-direction by $\frac{1}{2}$ and the $y$-direction by $2$, undoing the stretching by $2$ along $x$ and compression by $\frac{1}{2}$ along $y$ caused by $S$.

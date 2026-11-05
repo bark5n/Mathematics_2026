@@ -1,38 +1,76 @@
-**Result:**
+### Essential Formulas
+
+**Definition of the Inverse Matrix:**
+For a square matrix $A \in \mathbb{R}^{n \times n}$, a matrix $B \in \mathbb{R}^{n \times n}$ is called the inverse of $A$ (denoted $A^{-1}$) if and only if:
 
 $$
-AB = 
-\begin{pmatrix}
+A B = B A = I
+$$
+
+where $I$ is the $n \times n$ identity matrix.
+
+**Identity Matrix for $n = 2$:**
+
+$$
+I = \begin{pmatrix}
 1 & 0 \\
 0 & 1 \\
 \end{pmatrix}
-= I, \qquad 
-BA = 
+$$
+
+**Matrix Multiplication ($2 \times 2$):**
+
+$$
 \begin{pmatrix}
-1 & 0 \\
-0 & 1 \\
+a & b \\
+c & d \\
 \end{pmatrix}
-= I
+\begin{pmatrix}
+e & f \\
+g & h \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+ae + bg & af + bh \\
+ce + dg & cf + dh \\
+\end{pmatrix}
 $$
 
-Since both $AB = I$ and $BA = I$, it is verified that $B = A^{-1}$.
+---
 
-**Steps & Detailed Explanation:**
+### Problem Statement
 
-The definition of an inverse matrix states that if $A$ is an $n \times n$ matrix, then its inverse $A^{-1}$ is the matrix that satisfies:
+**Exercise 1. Definition of the Inverse**
+
+For
 
 $$
-A A^{-1} = A^{-1} A = I
+A=
+\begin{pmatrix}
+2 & 1 \\
+1 & 1 \\
+\end{pmatrix},\qquad B=
+\begin{pmatrix}
+1 & -1 \\
+-1 & 2 \\
+\end{pmatrix}
 $$
 
-where $I$ is the identity matrix. To check if $B$ is the inverse of $A$, compute both products.
+check, without using a formula, whether $B=A^{-1}$. Compute $AB$ and $BA$ and relate the result to the definition of the inverse.
 
-First compute $AB$:
+> **Why this exercise:** starts from the definition of the inverse through multiplication before any formulas or computational methods are introduced.
+
+---
+
+### Solution
+
+**Step 1: Compute the matrix product $AB$**
+
+Multiply row by column:
 
 $$
 \begin{aligned}
-AB &= 
-\begin{pmatrix}
+AB &= \begin{pmatrix}
 2 & 1 \\
 1 & 1 \\
 \end{pmatrix}
@@ -40,18 +78,15 @@ AB &=
 1 & -1 \\
 -1 & 2 \\
 \end{pmatrix} \\
-&= 
-\begin{pmatrix}
-(2)(1) + (1)(-1) & (2)(-1) + (1)(2) \\
-(1)(1) + (1)(-1) & (1)(-1) + (1)(2) \\
+&= \begin{pmatrix}
+2(1) + 1(-1) & 2(-1) + 1(2) \\
+1(1) + 1(-1) & 1(-1) + 1(2) \\
 \end{pmatrix} \\
-&= 
-\begin{pmatrix}
+&= \begin{pmatrix}
 2 - 1 & -2 + 2 \\
 1 - 1 & -1 + 2 \\
 \end{pmatrix} \\
-&= 
-\begin{pmatrix}
+&= \begin{pmatrix}
 1 & 0 \\
 0 & 1 \\
 \end{pmatrix} \\
@@ -59,12 +94,13 @@ AB &=
 \end{aligned}
 $$
 
-Next compute $BA$:
+**Step 2: Compute the matrix product $BA$**
+
+Multiply in reverse order:
 
 $$
 \begin{aligned}
-BA &= 
-\begin{pmatrix}
+BA &= \begin{pmatrix}
 1 & -1 \\
 -1 & 2 \\
 \end{pmatrix}
@@ -72,18 +108,15 @@ BA &=
 2 & 1 \\
 1 & 1 \\
 \end{pmatrix} \\
-&= 
-\begin{pmatrix}
-(1)(2) + (-1)(1) & (1)(1) + (-1)(1) \\
-(-1)(2) + (2)(1) & (-1)(1) + (2)(1) \\
+&= \begin{pmatrix}
+1(2) + (-1)(1) & 1(1) + (-1)(1) \\
+(-1)(2) + 2(1) & (-1)(1) + 2(1) \\
 \end{pmatrix} \\
-&= 
-\begin{pmatrix}
+&= \begin{pmatrix}
 2 - 1 & 1 - 1 \\
 -2 + 2 & -1 + 2 \\
 \end{pmatrix} \\
-&= 
-\begin{pmatrix}
+&= \begin{pmatrix}
 1 & 0 \\
 0 & 1 \\
 \end{pmatrix} \\
@@ -91,4 +124,33 @@ BA &=
 \end{aligned}
 $$
 
-Because multiplying them in either order results in the identity matrix, the definition is fully satisfied.
+**Step 3: Relate the result to the definition of the inverse**
+
+By definition, a matrix $B$ is the inverse of $A$ if and only if both products satisfy $AB = I$ and $BA = I$.
+Since both calculations yield the $2 \times 2$ identity matrix:
+
+$$
+AB = BA = I
+$$
+
+the matrix $B$ satisfies the definition of the inverse. Therefore, $B = A^{-1}$.
+
+---
+
+### Final Answer
+
+1. Matrix products:
+
+$$
+AB = \begin{pmatrix}
+1 & 0 \\
+0 & 1 \\
+\end{pmatrix} = I, \qquad
+BA = \begin{pmatrix}
+1 & 0 \\
+0 & 1 \\
+\end{pmatrix} = I
+$$
+
+2. Conclusion:
+Since $AB = BA = I$, by definition $B$ is the inverse of $A$, so $B = A^{-1}$.

@@ -1,29 +1,93 @@
-**Result & Choices:**
+### Essential Formulas
 
-1. **System 1 (Triangular matrix):** Use Back-Substitution.  
-   *Solution:* $y = 2, x = 2.5$.
-2. **System 2 (Multiple $b_i$, known $A^{-1}$):** Multiply $x = A^{-1}b_i$.
-3. **System 3 ($3 \times 3$, single solution, unknown $A^{-1}$):** Use Gaussian Elimination.
+**Criteria for Choosing a Solution Method:**
+1. **Triangular System:**
+   When the coefficient matrix is already upper (or lower) triangular, use **direct back-substitution** (or forward-substitution). No elimination or matrix inversion is needed.
+2. **Multiple Systems with the Same Matrix $A$ and Known $A^{-1}$:**
+   When solving $Ax = b_i$ for multiple vectors $b_i$, use **matrix-vector multiplication**:
+   $$
+   x = A^{-1} b_i
+   $$
+   The precomputed inverse is reused across all right-hand sides, requiring only matrix-vector multiplication of size $\mathcal{O}(n^2)$ per system.
+3. **Single System with Unknown $A^{-1}$:**
+   To solve a single system $Ax = b$, **Gaussian elimination** is the most efficient method ($\approx \frac{2}{3}n^3$ operations), whereas computing $A^{-1}$ first requires $\approx 2n^3$ operations plus additional multiplication, which is roughly three times more computationally expensive.
 
-**Steps & Detailed Explanation:**
+---
 
-**Case 1:**
+### Problem Statement
+
+**Exercise 7. Choosing a Method Deliberately**
+
+Do not solve all of the following systems completely. For each situation, choose the method that best uses its structure and justify your choice:
+
+1. one system with a triangular coefficient matrix
 
 $$
 \begin{cases}
-2x - y = 3 \\
-4y = 8
+2x-y=3, \\
+4y=8;
 \end{cases}
 $$
 
-The coefficient matrix is already upper triangular. Applying full Gaussian elimination or finding an inverse would be redundant. We can simply use back-substitution immediately.
-From the second equation, $4y = 8 \implies y = 2$.
-Substitute into the first: $2x - 2 = 3 \implies 2x = 5 \implies x = 2.5$.
+2. three systems $Ax=b_i$ with the same invertible matrix $A$, when $A^{-1}$ is already known;
+3. one $3\times3$ system for which the inverse matrix is not given and the goal is only to find one solution vector.
 
-**Case 2:**
+For case 1, carry out the chosen method completely. For cases 2 and 3, describe the plan and indicate which part of the computation would be reusable or unnecessary. Do not judge a method by its name alone — refer to the number of right-hand sides and the structure of the matrix.
 
-We have $Ax = b_i$ for three different right-hand sides, and $A^{-1}$ is already given. The most efficient choice is to use $x = A^{-1}b_i$. Since the inverse is known, computing a single matrix-vector multiplication is extremely fast. If we used Gaussian elimination, we would have to repeat the row operations for the left side three separate times (or form a large augmented matrix), which is unnecessary repeated labor.
+> **Why this exercise:** practices choosing a method based on the structure of the problem instead of solving another small system by two methods.
 
-**Case 3:**
+---
 
-We have a single $3 \times 3$ system and do not know the inverse. The best method is Gaussian elimination. Finding an inverse matrix from scratch just to solve a single system requires much more arithmetic (finding a matrix of cofactors or running full Gauss-Jordan to reach the identity matrix) than merely reducing the system to row echelon form and back-substituting.
+### Solution
+
+**Case 1: System with a Triangular Coefficient Matrix**
+
+* **Method choice:** **Direct back-substitution.**
+* **Justification:** The coefficient matrix $\begin{pmatrix} 2 & -1 \\ 0 & 4 \\ \end{pmatrix}$ is already upper triangular. Performing Gaussian elimination or computing an inverse would introduce redundant calculations, because elimination's entire objective is to arrive at this very triangular form.
+* **Complete calculation:**
+  From equation 2:
+  $$
+  4y = 8 \implies y = \frac{8}{4} = 2
+  $$
+  Substitute $y = 2$ into equation 1:
+  $$
+  2x - 2 = 3 \implies 2x = 5 \implies x = \frac{5}{2} = 2.5
+  $$
+  The unique solution is $(x, y) = \left(\frac{5}{2}, 2\right)$.
+
+---
+
+**Case 2: Three Systems $Ax = b_i$ with the Same Matrix $A$ and Known $A^{-1}$**
+
+* **Method choice:** **Matrix multiplication using the inverse ($x = A^{-1}b_i$).**
+* **Justification & Plan:**
+  Because the inverse matrix $A^{-1}$ is already computed and provided, calculating each solution vector requires only a single matrix-vector multiplication:
+  $$
+  x_1 = A^{-1}b_1, \qquad x_2 = A^{-1}b_2, \qquad x_3 = A^{-1}b_3
+  $$
+  * *Reusable part:* The matrix $A^{-1}$ is reused across all three computations.
+  * *Unnecessary part:* Re-running Gaussian elimination on $[A \mid b_1]$, $[A \mid b_2]$, and $[A \mid b_3]$ would redundantly re-triangularize $A$ three separate times.
+
+---
+
+**Case 3: One $3 \times 3$ System with Unknown $A^{-1}$ and a Single Target Solution**
+
+* **Method choice:** **Gaussian elimination with back-substitution.**
+* **Justification & Plan:**
+  Form the augmented matrix $[A \mid b]$ of size $3 \times 4$. Perform row operations to reduce it to upper triangular form, then solve for the unknowns using back-substitution.
+  * *Why Gaussian elimination:* Solving a single linear system by first inverting $A$ requires reducing $[A \mid I_3]$ (size $3 \times 6$), which takes approximately three times more arithmetic operations, followed by an additional matrix-vector product $A^{-1}b$.
+  * *Unnecessary part:* Computing all individual entries of $A^{-1}$ (or finding 9 cofactors) is completely unnecessary since the inverse will never be used again.
+
+---
+
+### Final Answer
+
+1. **Case 1 (Triangular matrix):** Method is **Back-substitution**.
+   Solution:
+
+$$
+x = \frac{5}{2}, \qquad y = 2
+$$
+
+2. **Case 2 (Multiple $b_i$, known $A^{-1}$):** Method is **$x = A^{-1}b_i$** (matrix-vector multiplication). The known $A^{-1}$ is reused for each $b_i$, avoiding repeating elimination.
+3. **Case 3 (Single $3 \times 3$ system, unknown $A^{-1}$):** Method is **Gaussian elimination**. Directly finding the single solution avoids the heavy, unnecessary overhead of inverting the full $3 \times 3$ matrix.
