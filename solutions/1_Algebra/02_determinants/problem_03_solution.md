@@ -1,20 +1,20 @@
 ### Essential Formulas
 
-**Row Swap Property of Determinants:**
-If matrix $B$ is obtained from matrix $A$ by interchanging any two rows (or two columns), the sign of the determinant changes:
+**Row Swap (Permutation) Property:**
+Interchanging any two rows (or any two columns) of a square matrix reverses the sign of its determinant:
 
 $$
-\det B = -\det A
+R_i \leftrightarrow R_j \implies \det B = -\det A
 $$
 
-**Cofactor Expansion along a Column:**
-For a $3 \times 3$ matrix, expanding along column $1$:
+Every elementary row swap corresponds to multiplying by an elementary permutation matrix whose determinant is $-1$.
+
+**Sarrus' Rule for $3 \times 3$ Matrices:**
+For any $3 \times 3$ matrix with entries $m_{ij}$:
 
 $$
-\det A = a_{11} C_{11} + a_{21} C_{21} + a_{31} C_{31}
+\det M = m_{11}m_{22}m_{33} + m_{12}m_{23}m_{31} + m_{13}m_{21}m_{32} - m_{13}m_{22}m_{31} - m_{11}m_{23}m_{32} - m_{12}m_{21}m_{33}
 $$
-
-where $C_{ij} = (-1)^{i+j} M_{ij}$.
 
 ---
 
@@ -25,8 +25,7 @@ where $C_{ij} = (-1)^{i+j} M_{ij}$.
 For
 
 $$
-A=
-\begin{pmatrix}
+A = \begin{pmatrix}
 1 & 2 & 0 \\
 0 & 3 & 1 \\
 2 & 1 & 1 \\
@@ -45,47 +44,32 @@ First predict $\det B$ using a determinant property, and then verify your predic
 
 **Step 1: Compute $\det A$**
 
-Given
+Using Sarrus' rule for matrix $A$:
+
+Sum of downward diagonal products:
 
 $$
-A =
-\begin{pmatrix}
-1 & 2 & 0 \\
-0 & 3 & 1 \\
-2 & 1 & 1 \\
-\end{pmatrix}
+(1)(3)(1) + (2)(1)(2) + (0)(0)(1) = 3 + 4 + 0 = 7
 $$
 
-Expanding along the first column, which contains a zero at position $(2,1)$:
+Sum of upward diagonal products:
 
 $$
-\begin{aligned}
-\det A &= 1 \cdot \det \begin{pmatrix}
-3 & 1 \\
-1 & 1 \\
-\end{pmatrix}
-- 0 \cdot \det \begin{pmatrix}
-2 & 0 \\
-1 & 1 \\
-\end{pmatrix}
-+ 2 \cdot \det \begin{pmatrix}
-2 & 0 \\
-3 & 1 \\
-\end{pmatrix} \\
-&= 1 \cdot (3 \cdot 1 - 1 \cdot 1) - 0 + 2 \cdot (2 \cdot 1 - 0 \cdot 3) \\
-&= 1 \cdot (3 - 1) + 2 \cdot (2 - 0) \\
-&= 2 + 4 \\
-&= 6
-\end{aligned}
+(0)(3)(2) + (1)(1)(1) + (2)(0)(1) = 0 + 1 + 0 = 1
+$$
+
+Subtract the upward sum from the downward sum:
+
+$$
+\det A = 7 - 1 = 6
 $$
 
 **Step 2: Form matrix $B$ and predict $\det B$**
 
-Matrix $B$ is formed by swapping row 1 and row 2 of $A$:
+Interchange the first and second rows ($R_1 \leftrightarrow R_2$) of matrix $A$ to obtain matrix $B$:
 
 $$
-B =
-\begin{pmatrix}
+B = \begin{pmatrix}
 0 & 3 & 1 \\
 1 & 2 & 0 \\
 2 & 1 & 1 \\
@@ -93,51 +77,53 @@ B =
 $$
 
 *Prediction:*
-Because interchanging two rows negates the determinant:
+According to the row swap property of determinants, exchanging any two rows in a matrix negates its determinant. Therefore:
 
 $$
 \det B = -\det A = -6
 $$
 
-**Step 3: Verify the prediction by direct calculation of $\det B$**
+**Step 3: Calculate $\det B$ directly**
 
-Compute $\det B$ by expanding along its first column:
+Evaluate $\det B$ directly using Sarrus' rule:
+
+Sum of downward diagonal products:
 
 $$
-\begin{aligned}
-\det B &= 0 \cdot \det \begin{pmatrix}
-2 & 0 \\
-1 & 1 \\
-\end{pmatrix}
-- 1 \cdot \det \begin{pmatrix}
-3 & 1 \\
-1 & 1 \\
-\end{pmatrix}
-+ 2 \cdot \det \begin{pmatrix}
-3 & 1 \\
-2 & 0 \\
-\end{pmatrix} \\
-&= 0 - 1 \cdot (3 \cdot 1 - 1 \cdot 1) + 2 \cdot (3 \cdot 0 - 1 \cdot 2) \\
-&= -1 \cdot (3 - 1) + 2 \cdot (0 - 2) \\
-&= -1(2) + 2(-2) \\
-&= -2 - 4 \\
-&= -6
-\end{aligned}
+(0)(2)(1) + (3)(0)(2) + (1)(1)(1) = 0 + 0 + 1 = 1
 $$
 
-The direct calculation yields $-6$, which matches the prediction $\det B = -\det A = -6$.
+Sum of upward diagonal products:
+
+$$
+(1)(2)(2) + (0)(0)(1) + (3)(1)(1) = 4 + 0 + 3 = 7
+$$
+
+Subtract the upward sum from the downward sum:
+
+$$
+\det B = 1 - 7 = -6
+$$
+
+**Step 4: Verification**
+
+The direct calculation yields $-6$, which confirms the theoretical prediction based on the row swap property:
+
+$$
+\det B = -\det A = -6
+$$
 
 ---
 
 ### Final Answer
 
-1. Determinant of $A$:
+Calculated determinant of $A$:
 
 $$
 \det A = 6
 $$
 
-2. Prediction and verified value for $B$:
+Predicted and verified determinant of $B$:
 
 $$
 \det B = -6

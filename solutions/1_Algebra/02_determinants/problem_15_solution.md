@@ -1,29 +1,34 @@
 ### Essential Formulas
 
-**Determinant Properties:**
-1. **Determinant of a Matrix Product:**
-   For any square matrices $X, Y, Z$ of the same size:
+**Multiplicative Property of Determinants:**
+The determinant of a product of square matrices equals the product of their individual determinants:
 
 $$
-   \det(XYZ) = \det X \cdot \det Y \cdot \det Z
+\det(XYZ) = \det X \cdot \det Y \cdot \det Z
 $$
 
-2. **Determinant of an Inverse Matrix:**
-   If $B$ is invertible ($\det B \neq 0$):
+**Determinant of an Inverse Matrix:**
+For any invertible matrix $B$ ($\det B \neq 0$):
 
 $$
-   \det(B^{-1}) = \frac{1}{\det B}
+\det(B^{-1}) = \frac{1}{\det B}
 $$
 
-3. **Determinant of a Transpose:**
-   For any square matrix $A$:
+**Determinant of a Transpose:**
+Transposing a matrix does not change its determinant:
 
 $$
-   \det(A^T) = \det A
+\det(A^T) = \det A
 $$
 
-4. **Multiplication of Real Numbers:**
-   Because determinants are scalar values (real numbers), their scalar multiplication is commutative.
+**Determinant Invariance under Similarity Transformations:**
+A matrix of the form $P^{-1} M P$ is similar to $M$. Because scalar multiplication in $\mathbb{R}$ is commutative:
+
+$$
+\det(P^{-1} M P) = \det(P^{-1}) \cdot \det M \cdot \det P = \frac{1}{\det P} \cdot \det P \cdot \det M = \det M
+$$
+
+Thus, conjugating a matrix by an invertible matrix preserves its determinant.
 
 ---
 
@@ -51,73 +56,148 @@ State the determinant properties you use in order and explain why the factors in
 
 ### Solution
 
-**Step 1: Apply the product property of determinants**
-
-Using the property that the determinant of a matrix product is the product of their determinants:
+Given that $A$ and $B$ are invertible $2 \times 2$ matrices with:
 
 $$
-\det\left(B^{-1}A^TB\right) = \det(B^{-1}) \cdot \det(A^T) \cdot \det B
+\det A = -2, \qquad \det B = 3
 $$
 
-**Step 2: Apply properties for the inverse and the transpose**
+**Step 1: State and apply determinant properties in sequential order**
 
-Next, evaluate the determinant of each factor using fundamental properties:
-1. Inverse property:
+1. **Property 1: Multiplicative Property of Determinants**
+   Apply the product rule to split the three-factor product into scalar determinants:
 
-$$
-\det(B^{-1}) = \frac{1}{\det B}
-$$
+   $$
+   \det(B^{-1} A^T B) = \det(B^{-1}) \cdot \det(A^T) \cdot \det B
+   $$
 
-2. Transpose property:
+2. **Property 2: Determinant of an Inverse Matrix**
+   Since $B$ is invertible and $\det B = 3 \neq 0$:
 
-$$
-\det(A^T) = \det A
-$$
+   $$
+   \det(B^{-1}) = \frac{1}{\det B} = \frac{1}{3}
+   $$
 
-Substitute these into the expression:
+3. **Property 3: Determinant of a Transposed Matrix**
+   Transposition preserves determinant values:
 
-$$
-\det\left(B^{-1}A^TB\right) = \left(\frac{1}{\det B}\right) \cdot (\det A) \cdot (\det B)
-$$
+   $$
+   \det(A^T) = \det A = -2
+   $$
 
-**Step 3: Explain the cancellation of the factors involving $B$**
+**Step 2: Evaluate the expression and explain the cancellation of $B$**
 
-Determinant values are scalars (ordinary real numbers in $\mathbb{R}$). While matrix multiplication is non-commutative in general ($XY \neq YX$), the multiplication of real numbers is commutative:
-
-$$
-\left(\frac{1}{\det B}\right) \cdot (\det A) \cdot (\det B) = (\det A) \cdot \left(\frac{1}{\det B} \cdot \det B\right)
-$$
-
-Since $B$ is invertible, $\det B \neq 0$. Therefore:
+Substitute the individual determinants back into the expansion:
 
 $$
-\frac{1}{\det B} \cdot \det B = 1
+\det(B^{-1} A^T B) = \left(\frac{1}{\det B}\right) \cdot (\det A^T) \cdot (\det B)
 $$
 
-The scalar factors $\det(B^{-1}) = \frac{1}{\det B}$ and $\det B$ cancel each other out, leaving:
+Substitute $\det A^T = \det A$:
 
 $$
-\det\left(B^{-1}A^TB\right) = \det A
+\det(B^{-1} A^T B) = \frac{1}{\det B} \cdot \det A \cdot \det B
 $$
 
-This reflects the general theorem that a similarity transformation (conjugation by an invertible matrix $B$) preserves the determinant of any matrix: $\det(B^{-1}MB) = \det M$.
-
-**Step 4: Substitute the given numerical values**
-
-Given $\det A = -2$ and $\det B = 3$:
+Because determinants are real numbers, scalar multiplication is commutative and associative:
 
 $$
-\begin{aligned}
-\det\left(B^{-1}A^TB\right) &= \left(\frac{1}{3}\right) \cdot (-2) \cdot (3) \\
-&= \left(\frac{1}{3} \cdot 3\right) \cdot (-2) \\
-&= 1 \cdot (-2) \\
-&= -2
-\end{aligned}
+\det(B^{-1} A^T B) = \left( \frac{1}{\det B} \cdot \det B \right) \cdot \det A = 1 \cdot \det A = \det A
 $$
+
+Substitute the numerical value $\det A = -2$:
+
+$$
+\det(B^{-1} A^T B) = \frac{1}{3} \cdot (-2) \cdot 3 = -2
+$$
+
+*Why factors involving $B$ cancel:*
+* **Algebraic Explanation:** The determinant operation maps matrices to scalars. In scalar multiplication, $\det(B^{-1}) = (\det B)^{-1}$. Multiplying any non-zero real number by its multiplicative inverse yields $1$: $(\det B)^{-1} \cdot \det B = 1$.
+* **Geometric Explanation:** The matrix $B^{-1} A^T B$ represents a similarity transformation of $A^T$. The matrix $B$ transforms coordinates into a new basis (scaling volume by a factor of $\det B = 3$), the matrix $A^T$ acts on that space (scaling volume by $\det A = -2$), and $B^{-1}$ transforms back to the original basis (scaling volume by $\det(B^{-1}) = 1/3$). The net volume scaling factor introduced by changing bases and returning is $3 \cdot \frac{1}{3} = 1$, so the factors of $B$ completely cancel out.
+
+**Step 3: Verification using test matrices**
+
+Select concrete invertible matrices satisfying $\det A = -2$ and $\det B = 3$:
+
+$$
+A = \begin{pmatrix}
+-2 & 0 \\
+0 & 1 \\
+\end{pmatrix},
+\qquad
+B = \begin{pmatrix}
+1 & 0 \\
+0 & 3 \\
+\end{pmatrix}
+$$
+
+Find $A^T$ and $B^{-1}$:
+
+$$
+A^T = \begin{pmatrix}
+-2 & 0 \\
+0 & 1 \\
+\end{pmatrix},
+\qquad
+B^{-1} = \begin{pmatrix}
+1 & 0 \\
+0 & \frac{1}{3} \\
+\end{pmatrix}
+$$
+
+Compute the product $A^T B$:
+
+$$
+A^T B = \begin{pmatrix}
+-2 & 0 \\
+0 & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 \\
+0 & 3 \\
+\end{pmatrix}
+= \begin{pmatrix}
+-2 & 0 \\
+0 & 3 \\
+\end{pmatrix}
+$$
+
+Multiply on the left by $B^{-1}$:
+
+$$
+B^{-1} A^T B = \begin{pmatrix}
+1 & 0 \\
+0 & \frac{1}{3} \\
+\end{pmatrix}
+\begin{pmatrix}
+-2 & 0 \\
+0 & 3 \\
+\end{pmatrix}
+= \begin{pmatrix}
+-2 & 0 \\
+0 & 1 \\
+\end{pmatrix}
+$$
+
+Calculate the determinant of the resulting matrix:
+
+$$
+\det(B^{-1} A^T B) = (-2)(1) - (0)(0) = -2
+$$
+
+The direct matrix computation confirms the result $-2$.
 
 ---
 
 ### Final Answer
+
+Properties used in order:
+1. Multiplicative property: $\det(B^{-1}A^TB) = \det(B^{-1}) \cdot \det(A^T) \cdot \det B$
+2. Inverse property: $\det(B^{-1}) = \frac{1}{\det B}$
+3. Transpose property: $\det(A^T) = \det A$
+4. Scalar cancellation: $\frac{1}{\det B} \cdot \det B = 1$
+
+Calculated determinant:
 
 $$
 \det\left(B^{-1}A^TB\right) = -2

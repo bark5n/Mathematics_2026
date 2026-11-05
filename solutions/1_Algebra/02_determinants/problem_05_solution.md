@@ -1,32 +1,34 @@
 ### Essential Formulas
 
-**Effect of Elementary Row Operations on the Determinant:**
-1. **Row Addition / Elimination ($R_i \leftarrow R_i + c R_j$ with $i \neq j$):**
-   Adding a scalar multiple of one row to another does **not** change the determinant:
+**Effects of Elementary Row Operations on the Determinant:**
+Let $A$ be a square matrix.
 
-$$
-   \det(A_{\mathrm{new}}) = \det(A_{\mathrm{old}})
-$$
+1. **Row Addition ($R_i \leftarrow R_i + c R_j$ with $i \neq j$):**
+   Adding a scalar multiple of one row to another row does not change the determinant:
+
+   $$
+   \det A' = \det A
+   $$
 
 2. **Row Swap ($R_i \leftrightarrow R_j$):**
-   Swapping two rows multiplies the determinant by $-1$:
+   Exchanging two rows reverses the sign of the determinant:
+
+   $$
+   \det A' = -\det A
+   $$
+
+3. **Scalar Multiplication ($R_i \leftarrow c R_i$):**
+   Multiplying a row by a non-zero scalar $c$ scales the determinant by $c$:
+
+   $$
+   \det A' = c \cdot \det A \implies \det A = \frac{1}{c} \det A'
+   $$
+
+**Determinant of an Upper Triangular Matrix:**
+When a matrix is brought to upper triangular form $U$, its determinant is the product of its diagonal entries:
 
 $$
-   \det(A_{\mathrm{new}}) = -\det(A_{\mathrm{old}})
-$$
-
-3. **Row Scaling ($R_i \leftarrow c R_i$):**
-   Multiplying a row by a nonzero scalar $c$ scales the determinant by $c$:
-
-$$
-   \det(A_{\mathrm{new}}) = c \cdot \det(A_{\mathrm{old}})
-$$
-
-**Triangular Determinant Formula:**
-Once transformed into upper triangular form $U$, the determinant is:
-
-$$
-\det U = u_{11} u_{22} \cdots u_{nn}
+\det U = u_{11} \cdot u_{22} \cdots u_{nn}
 $$
 
 ---
@@ -38,8 +40,7 @@ $$
 For
 
 $$
-A=
-\begin{pmatrix}
+A = \begin{pmatrix}
 1 & 2 & 3 \\
 2 & 1 & 0 \\
 -1 & 4 & 2 \\
@@ -54,103 +55,109 @@ find $\det A$ by simplifying the matrix with row operations. At each step, indic
 
 ### Solution
 
-**Step 1: Eliminate the entry in row 2, column 1**
+**Step 1: Eliminate entries in the first column below the pivot**
 
-Perform the row operation:
-
-$$
-R_2 \leftarrow R_2 - 2R_1
-$$
-
-*Effect on determinant:* Adding a scalar multiple of one row to another preserves the determinant ($\det A_1 = \det A$).
-
-Compute the new row 2:
+The initial matrix is:
 
 $$
-(2, 1, 0) - 2(1, 2, 3) = (2 - 2, 1 - 4, 0 - 6) = (0, -3, -6)
-$$
-
-The resulting matrix is:
-
-$$
-A_1 =
-\begin{pmatrix}
+A = \begin{pmatrix}
 1 & 2 & 3 \\
-0 & -3 & -6 \\
+2 & 1 & 0 \\
 -1 & 4 & 2 \\
 \end{pmatrix}
 $$
 
-**Step 2: Eliminate the entry in row 3, column 1**
+* **Operation 1: $R_2 \leftarrow R_2 - 2R_1$**
+  * *Effect on determinant:* Adding a multiple of row 1 to row 2 does not change the determinant ($\det A_1 = \det A$).
+  * Computation:
 
-Perform the row operation:
+    $$
+    R_2 = (2 - 2\cdot 1,\ 1 - 2\cdot 2,\ 0 - 2\cdot 3) = (0, -3, -6)
+    $$
+
+* **Operation 2: $R_3 \leftarrow R_3 + R_1$**
+  * *Effect on determinant:* Adding row 1 to row 3 does not change the determinant ($\det A_2 = \det A_1 = \det A$).
+  * Computation:
+
+    $$
+    R_3 = (-1 + 1,\ 4 + 2,\ 2 + 3) = (0, 6, 5)
+    $$
+
+The matrix becomes:
 
 $$
-R_3 \leftarrow R_3 + R_1
-$$
-
-*Effect on determinant:* Preserves the determinant ($\det A_2 = \det A_1 = \det A$).
-
-Compute the new row 3:
-
-$$
-(-1, 4, 2) + (1, 2, 3) = (-1 + 1, 4 + 2, 2 + 3) = (0, 6, 5)
-$$
-
-The resulting matrix is:
-
-$$
-A_2 =
-\begin{pmatrix}
+A_2 = \begin{pmatrix}
 1 & 2 & 3 \\
 0 & -3 & -6 \\
 0 & 6 & 5 \\
 \end{pmatrix}
 $$
 
-**Step 3: Eliminate the entry in row 3, column 2 to achieve upper triangular form**
+At this stage, $\det A = \det A_2$.
 
-Perform the row operation:
+**Step 2: Eliminate the entry in the second column below the pivot**
 
-$$
-R_3 \leftarrow R_3 + 2R_2
-$$
+* **Operation 3: $R_3 \leftarrow R_3 + 2R_2$**
+  * *Effect on determinant:* Adding $2$ times row 2 to row 3 does not change the determinant ($\det A_3 = \det A_2 = \det A$).
+  * Computation:
 
-*Effect on determinant:* Preserves the determinant ($\det A_3 = \det A_2 = \det A$).
+    $$
+    R_3 = (0 + 2\cdot 0,\ 6 + 2(-3),\ 5 + 2(-6)) = (0, 0, -7)
+    $$
 
-Compute the new row 3:
-
-$$
-(0, 6, 5) + 2(0, -3, -6) = (0 + 0, 6 - 6, 5 - 12) = (0, 0, -7)
-$$
-
-The resulting upper triangular matrix is:
+The matrix is now in upper triangular form:
 
 $$
-A_3 =
-\begin{pmatrix}
+A_3 = \begin{pmatrix}
 1 & 2 & 3 \\
 0 & -3 & -6 \\
 0 & 0 & -7 \\
 \end{pmatrix}
 $$
 
-**Step 4: Compute the determinant of the upper triangular matrix**
+**Step 3: Compute the determinant of the upper triangular matrix**
 
-Since every operation used was of the type $R_i \leftarrow R_i + c R_j$, the determinant is completely unchanged:
+Because all operations used were of the form $R_i \leftarrow R_i + c R_j$, the determinant remained strictly invariant across every step:
 
 $$
 \det A = \det A_3
 $$
 
-For the upper triangular matrix $A_3$, the determinant is the product of its diagonal elements:
+Since $A_3$ is upper triangular, its determinant is the product of the main diagonal elements:
 
 $$
-\begin{aligned}
-\det A &= 1 \cdot (-3) \cdot (-7) \\
-&= 21
-\end{aligned}
+\det A_3 = (1) \cdot (-3) \cdot (-7) = 21
 $$
+
+Therefore:
+
+$$
+\det A = 21
+$$
+
+**Step 4: Verification using Sarrus' rule**
+
+Compute $\det A$ directly from the original matrix using Sarrus' rule:
+
+Downward diagonal products:
+
+$$
+(1)(1)(2) + (2)(0)(-1) + (3)(2)(4) = 2 + 0 + 24 = 26
+$$
+
+Upward diagonal products:
+
+$$
+(3)(1)(-1) + (1)(0)(4) + (2)(2)(2) = -3 + 0 + 8 = 5
+$$
+
+Subtract upward sum from downward sum:
+
+$$
+\det A = 26 - 5 = 21
+$$
+
+Both methods yield $21$, confirming the result and the tracking of row operations.
 
 ---
 

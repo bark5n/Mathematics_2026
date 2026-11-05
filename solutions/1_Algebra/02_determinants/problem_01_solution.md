@@ -1,20 +1,24 @@
 ### Essential Formulas
 
 **Determinant of a $2 \times 2$ Matrix:**
-For a $2 \times 2$ matrix $A$, the determinant is given by the product of the main diagonal entries minus the product of the off-diagonal entries:
+For any $2 \times 2$ matrix $M$, the determinant is computed by taking the product of the main diagonal entries and subtracting the product of the off-diagonal entries:
 
 $$
-\det A = \det \begin{pmatrix} a & b \\ c & d \\ \end{pmatrix} = ad - bc
+\det \begin{pmatrix}
+a & b \\
+c & d \\
+\end{pmatrix}
+= ad - bc
 $$
 
-**Invertibility and Determinant:**
-A square matrix $A$ is invertible (non-singular) if and only if its determinant is nonzero:
+**Invertibility Criterion:**
+A square matrix $M$ is invertible (non-singular) if and only if its determinant is non-zero:
 
 $$
-\det A \neq 0 \iff \exists A^{-1}
+\det M \neq 0
 $$
 
-If $\det A = 0$, the matrix is singular and has no inverse.
+If $\det M = 0$, the matrix is singular (not invertible), meaning its rows (and columns) are linearly dependent.
 
 ---
 
@@ -46,88 +50,119 @@ Which matrix is invertible? Justify your answer.
 
 **Step 1: Compute the determinant of the first matrix**
 
-For the first matrix $A$:
+Let
 
 $$
 A = \begin{pmatrix}
 3 & -2 \\
 5 & 4 \\
 \end{pmatrix}
-
 $$
 
-Using the formula $\det A = ad - bc$:
+Using the $2 \times 2$ determinant formula:
 
 $$
-
-\begin{aligned}
-\det A &= (3)(4) - (-2)(5) \\
-&= 12 - (-10) \\
-&= 12 + 10 \\
-&= 22
-\end{aligned}
-
+\det A = (3)(4) - (-2)(5) = 12 - (-10) = 12 + 10 = 22
 $$
 
 **Step 2: Compute the determinant of the second matrix**
 
-For the second matrix $B$:
+Let
 
 $$
-
 B = \begin{pmatrix}
 1 & 7 \\
 2 & 14 \\
 \end{pmatrix}
-
 $$
 
-Using the formula $\det B = ad - bc$:
+Applying the same formula:
 
 $$
-
-\begin{aligned}
-\det B &= (1)(14) - (7)(2) \\
-&= 14 - 14 \\
-&= 0
-\end{aligned}
-
+\det B = (1)(14) - (7)(2) = 14 - 14 = 0
 $$
 
-**Step 3: Determine invertibility and justify**
+**Step 3: Analyze invertibility**
 
-* For matrix $A$, $\det A = 22 \neq 0$. Therefore, matrix $A$ is invertible.
-* For matrix $B$, $\det B = 0$. Therefore, matrix $B$ is not invertible (singular).
+* For matrix $A$:
+  Because $\det A = 22 \neq 0$, matrix $A$ is **invertible**. Its rows are linearly independent, and a unique inverse matrix $A^{-1}$ exists.
+* For matrix $B$:
+  Because $\det B = 0$, matrix $B$ is **not invertible** (singular). Notice that the second row is an exact scalar multiple of the first row ($R_2 = 2R_1$), meaning the rows are linearly dependent.
 
-Notice also that the second row of $B$ is a scalar multiple of the first row: $R_2 = 2R_1$. Linearly dependent rows always produce a zero determinant.
+**Step 4: Verification**
+
+To verify the invertibility of $A$, we can construct its explicit inverse using the formula:
+
+$$
+A^{-1} = \frac{1}{\det A}
+\begin{pmatrix}
+d & -b \\
+-c & a \\
+\end{pmatrix}
+= \frac{1}{22}
+\begin{pmatrix}
+4 & 2 \\
+-5 & 3 \\
+\end{pmatrix}
+$$
+
+Multiply $A$ by $A^{-1}$:
+
+$$
+A A^{-1} = \begin{pmatrix}
+3 & -2 \\
+5 & 4 \\
+\end{pmatrix}
+\left[ \frac{1}{22}
+\begin{pmatrix}
+4 & 2 \\
+-5 & 3 \\
+\end{pmatrix} \right]
+= \frac{1}{22}
+\begin{pmatrix}
+3\cdot 4 + (-2)(-5) & 3\cdot 2 + (-2)\cdot 3 \\
+5\cdot 4 + 4(-5) & 5\cdot 2 + 4\cdot 3 \\
+\end{pmatrix}
+$$
+
+$$
+A A^{-1} = \frac{1}{22}
+\begin{pmatrix}
+22 & 0 \\
+0 & 22 \\
+\end{pmatrix}
+= \begin{pmatrix}
+1 & 0 \\
+0 & 1 \\
+\end{pmatrix}
+$$
+
+The identity matrix is obtained, confirming that $\det A = 22$ is correct and $A$ is invertible.
+
+For matrix $B$, the system $Bx = 0$ has nontrivial solutions (for instance, $x = (-7, 1)^T$), confirming that $\det B = 0$ and $B$ cannot be inverted.
 
 ---
 
 ### Final Answer
 
-1. Determinant values:
+Calculated determinants:
 
 $$
-
-\det
-\begin{pmatrix}
+\det \begin{pmatrix}
 3 & -2 \\
 5 & 4 \\
 \end{pmatrix}
 = 22
-
 $$
 
 $$
-
-\det
-\begin{pmatrix}
+\det \begin{pmatrix}
 1 & 7 \\
 2 & 14 \\
 \end{pmatrix}
 = 0
-
 $$
 
-2. Invertibility:
-The first matrix is invertible because its determinant is nonzero ($\det \neq 0$). The second matrix is not invertible because its determinant is zero ($\det = 0$).
+Invertibility:
+* The first matrix is **invertible** because its determinant is non-zero ($22 \neq 0$).
+* The second matrix is **not invertible** because its determinant is zero ($0$).

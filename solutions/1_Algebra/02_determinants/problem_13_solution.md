@@ -1,21 +1,36 @@
 ### Essential Formulas
 
-**Row Operation — Adding a Multiple of One Row to Another:**
-The operation $R_i \leftarrow R_i + cR_j$ (with $i \ne j$) does not change the value of the determinant:
+**Gaussian Elimination and the Determinant:**
+Gaussian elimination transforms a matrix into an upper triangular form $U$ via elementary row operations. The determinant of the original matrix $A$ is tracked by recording the effect of each operation:
+
+1. **Row Addition ($R_i \leftarrow R_i + c R_j$ with $i \neq j$):**
+
+   $$
+   \det A' = \det A
+   $$
+
+   The determinant is strictly unchanged.
+
+2. **Row Swap ($R_i \leftrightarrow R_j$):**
+
+   $$
+   \det A' = -\det A \implies \det A = -\det A'
+   $$
+
+   Each row swap negates the determinant.
+
+3. **Row Scaling ($R_i \leftarrow c R_i$ with $c \neq 0$):**
+
+   $$
+   \det A' = c \det A \implies \det A = \frac{1}{c} \det A'
+   $$
+
+**Determinant of an Upper Triangular Matrix:**
+Once reduced to upper triangular form $U$, the determinant equals the product of the diagonal elements:
 
 $$
-\det(A_{\mathrm{new}}) = \det(A_{\mathrm{orig}})
+\det U = u_{11} \cdot u_{22} \cdots u_{nn}
 $$
-
-**Determinant of a Triangular Matrix:**
-If a square matrix is upper or lower triangular, its determinant equals the product of the diagonal entries:
-
-$$
-\det A = a_{11} \cdot a_{22} \cdot \ldots \cdot a_{nn}
-$$
-
-**Gaussian Elimination and Determinants:**
-Reducing a matrix to upper triangular form via row operations of the type $R_i \leftarrow R_i + cR_j$ preserves the determinant at every step, so $\det A$ equals the product of the diagonal entries of the resulting triangular matrix.
 
 ---
 
@@ -26,7 +41,7 @@ Reducing a matrix to upper triangular form via row operations of the type $R_i \
 Compute the determinant
 
 $$
-A =
+A=
 \begin{pmatrix}
 1 & 2 & 3 \\
 2 & 5 & 7 \\
@@ -36,106 +51,135 @@ $$
 
 using elimination. Record the effect of every row operation used on the value of the determinant.
 
+> **Why this exercise:** reinforces organizing a determinant calculation through row operations without introducing an unnecessary second procedure.
+
 ---
 
 ### Solution
 
-**Step 1: Identify the pivot and plan the elimination**
-
-The entry $a_{11} = 1$ serves as the first pivot. To create zeros below it in column 1, subtract suitable multiples of row 1 from rows 2 and 3.
-
-The original matrix is:
+The given matrix is:
 
 $$
-A =
-\begin{pmatrix}
+A = \begin{pmatrix}
 1 & 2 & 3 \\
 2 & 5 & 7 \\
 1 & 0 & 2 \\
 \end{pmatrix}
 $$
 
-**Step 2: Apply $R_2 \leftarrow R_2 - 2R_1$**
+**Step 1: Eliminate entries in the first column below the pivot $a_{11} = 1$**
 
-Compute the new second row: $(2 - 2,\; 5 - 4,\; 7 - 6) = (0, 1, 1)$.
+* **Operation 1: $R_2 \leftarrow R_2 - 2R_1$**
+  * *Effect on determinant:* Adding a multiple of row 1 to row 2 does not change the determinant ($\det A_1 = \det A$).
+  * Calculation:
+
+    $$
+    R_2 = (2 - 2\cdot 1,\ 5 - 2\cdot 2,\ 7 - 2\cdot 3) = (0, 1, 1)
+    $$
+
+* **Operation 2: $R_3 \leftarrow R_3 - R_1$**
+  * *Effect on determinant:* Adding a multiple of row 1 to row 3 does not change the determinant ($\det A_2 = \det A_1 = \det A$).
+  * Calculation:
+
+    $$
+    R_3 = (1 - 1,\ 0 - 2,\ 2 - 3) = (0, -2, -1)
+    $$
+
+After these two operations, the matrix is:
 
 $$
-A_1 =
-\begin{pmatrix}
-1 & 2 & 3 \\
-0 & 1 & 1 \\
-1 & 0 & 2 \\
-\end{pmatrix}
-$$
-
-Effect on the determinant: this is an operation of the form $R_i \leftarrow R_i + cR_j$, so the determinant is unchanged. $\det A_1 = \det A$.
-
-**Step 3: Apply $R_3 \leftarrow R_3 - R_1$**
-
-Compute the new third row: $(1 - 1,\; 0 - 2,\; 2 - 3) = (0, -2, -1)$.
-
-$$
-A_2 =
-\begin{pmatrix}
+A_2 = \begin{pmatrix}
 1 & 2 & 3 \\
 0 & 1 & 1 \\
 0 & -2 & -1 \\
 \end{pmatrix}
 $$
 
-Effect on the determinant: same type of operation, so the determinant is unchanged. $\det A_2 = \det A$.
+**Step 2: Eliminate the entry in the second column below the pivot $a_{22} = 1$**
 
-**Step 4: Apply $R_3 \leftarrow R_3 + 2R_2$**
+* **Operation 3: $R_3 \leftarrow R_3 + 2R_2$**
+  * *Effect on determinant:* Adding a multiple of row 2 to row 3 does not change the determinant ($\det A_3 = \det A_2 = \det A$).
+  * Calculation:
 
-Compute the new third row: $(0 + 0,\; -2 + 2,\; -1 + 2) = (0, 0, 1)$.
+    $$
+    R_3 = (0 + 2\cdot 0,\ -2 + 2\cdot 1,\ -1 + 2\cdot 1) = (0, 0, 1)
+    $$
+
+The matrix is now in upper triangular form $U$:
 
 $$
-A_3 =
-\begin{pmatrix}
+U = A_3 = \begin{pmatrix}
 1 & 2 & 3 \\
 0 & 1 & 1 \\
 0 & 0 & 1 \\
 \end{pmatrix}
 $$
 
-Effect on the determinant: same type of operation, so the determinant is unchanged. $\det A_3 = \det A$.
+**Step 3: Record cumulative effects and calculate the determinant**
 
-**Step 5: Read off the determinant from the upper triangular matrix**
+Tracking each row operation:
+1. $R_2 \leftarrow R_2 - 2R_1$: Multiplier on determinant is $1$.
+2. $R_3 \leftarrow R_3 - R_1$: Multiplier on determinant is $1$.
+3. $R_3 \leftarrow R_3 + 2R_2$: Multiplier on determinant is $1$.
 
-The matrix $A_3$ is upper triangular. Its determinant is the product of its diagonal entries:
-
-$$
-\det A_3 = 1 \cdot 1 \cdot 1 = 1
-$$
-
-Since every row operation preserved the determinant:
+Since all operations performed were row additions, the determinant remained invariant throughout the entire elimination:
 
 $$
-\det A = \det A_1 = \det A_2 = \det A_3 = 1
+\det A = \det U
 $$
 
-**Step 6: Summary of operations and their effects**
+Compute the determinant of the upper triangular matrix $U$ by taking the product of its main diagonal entries:
 
-| Operation | Type | Effect on determinant |
-|---|---|---|
-| $R_2 \leftarrow R_2 - 2R_1$ | $R_i \leftarrow R_i + cR_j$ | Unchanged |
-| $R_3 \leftarrow R_3 - R_1$ | $R_i \leftarrow R_i + cR_j$ | Unchanged |
-| $R_3 \leftarrow R_3 + 2R_2$ | $R_i \leftarrow R_i + cR_j$ | Unchanged |
+$$
+\det U = u_{11} \cdot u_{22} \cdot u_{33} = (1) \cdot (1) \cdot (1) = 1
+$$
 
-All three operations are of the type that does not change the determinant, so the determinant of the original matrix equals the determinant of the final upper triangular matrix.
+Therefore:
+
+$$
+\det A = 1
+$$
+
+**Step 4: Verification using Sarrus' rule**
+
+Compute the determinant directly on the original matrix $A$:
+
+* Downward diagonal products:
+
+  $$
+  (1)(5)(2) + (2)(7)(1) + (3)(2)(0) = 10 + 14 + 0 = 24
+  $$
+
+* Upward diagonal products:
+
+  $$
+  (3)(5)(1) + (1)(7)(0) + (2)(2)(2) = 15 + 0 + 8 = 23
+  $$
+
+* Difference:
+
+  $$
+  \det A = 24 - 23 = 1
+  $$
+
+The calculation confirms $\det A = 1$.
 
 ---
 
 ### Final Answer
 
+Record of row operations:
+* $R_2 \leftarrow R_2 - 2R_1$: Determinant unchanged ($\times 1$)
+* $R_3 \leftarrow R_3 - R_1$: Determinant unchanged ($\times 1$)
+* $R_3 \leftarrow R_3 + 2R_2$: Determinant unchanged ($\times 1$)
+
+Calculated determinant:
+
 $$
-\det A = \det
-\begin{pmatrix}
+\det \begin{pmatrix}
 1 & 2 & 3 \\
 2 & 5 & 7 \\
 1 & 0 & 2 \\
 \end{pmatrix}
 = 1
 $$
-
-Every row operation used ($R_2 \leftarrow R_2 - 2R_1$, $R_3 \leftarrow R_3 - R_1$, $R_3 \leftarrow R_3 + 2R_2$) is of the form $R_i \leftarrow R_i + cR_j$ and leaves the determinant unchanged.

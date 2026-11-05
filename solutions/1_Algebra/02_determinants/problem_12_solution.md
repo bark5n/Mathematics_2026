@@ -1,23 +1,27 @@
 ### Essential Formulas
 
-**Row Operation — Adding a Multiple of One Row to Another:**
-The operation $R_i \leftarrow R_i + cR_j$ (with $i \ne j$) does not change the value of the determinant:
+**Row Operation Invariance:**
+Adding a scalar multiple of one row to another row preserves the value of the determinant:
 
 $$
-\det(A_{\mathrm{new}}) = \det(A_{\mathrm{orig}})
+R_i \leftarrow R_i + c R_j \quad (i \neq j) \implies \det A' = \det A
 $$
 
-**Invertibility Criterion:**
-A square matrix $A$ is invertible if and only if $\det A \ne 0$. Equivalently, $A$ is not invertible if and only if $\det A = 0$.
-
-**Cofactor Expansion Along a Row:**
-For a $3 \times 3$ matrix, expanding the determinant along row $i$:
+**Laplace (Cofactor) Expansion along a Row:**
+For an $n \times n$ matrix $A$, expanding along row $i$ gives:
 
 $$
-\det A = \sum_{j=1}^{3} (-1)^{i+j}\, a_{ij}\, M_{ij}
+\det A = \sum_{j=1}^n (-1)^{i+j} a_{ij} \det M_{ij}
 $$
 
-where $M_{ij}$ is the $(i,j)$-minor (the determinant of the $2 \times 2$ submatrix obtained by deleting row $i$ and column $j$).
+When a row contains mostly zeros, expanding along that row reduces the calculation to a single non-zero term.
+
+**Invertibility and Singularity Condition:**
+A matrix $A(t)$ depending on a parameter $t$ is **not invertible** if and only if its determinant is zero:
+
+$$
+\det A(t) = 0
+$$
 
 ---
 
@@ -28,7 +32,7 @@ where $M_{ij}$ is the $(i,j)$-minor (the determinant of the $2 \times 2$ submatr
 For
 
 $$
-A(t) =
+A(t)=
 \begin{pmatrix}
 1 & 2 & 3 \\
 2 & 4 & t \\
@@ -41,106 +45,151 @@ find the values of $t$ for which the matrix is not invertible.
 Before computing the determinant, perform the operation
 
 $$
-R_2 \leftarrow R_2 - 2R_1
+R_2\leftarrow R_2-2R_1
 $$
 
 and use the resulting structure. At the end, explain what special thing happens to the rows for the value of the parameter you found.
+
+> **Why this exercise:** combines a parameter, row operations, and recognition of dependence in one short argument.
 
 ---
 
 ### Solution
 
-**Step 1: Perform the suggested row operation**
+**Step 1: Apply the specified row operation $R_2 \leftarrow R_2 - 2R_1$**
 
-Apply $R_2 \leftarrow R_2 - 2R_1$. Compute each entry of the new second row:
-
-$$
-\begin{aligned}
-&2 - 2(1) = 0, \\
-&4 - 2(2) = 0, \\
-&t - 2(3) = t - 6.
-\end{aligned}
-$$
-
-The updated matrix is:
+The original matrix is:
 
 $$
-A_1(t) =
-\begin{pmatrix}
+A(t) = \begin{pmatrix}
+1 & 2 & 3 \\
+2 & 4 & t \\
+0 & 1 & 1 \\
+\end{pmatrix}
+$$
+
+Apply the row operation $R_2 \leftarrow R_2 - 2R_1$:
+
+$$
+R_2 = (2 - 2\cdot 1,\ 4 - 2\cdot 2,\ t - 2\cdot 3) = (0,\ 0,\ t - 6)
+$$
+
+The transformed matrix is:
+
+$$
+A'(t) = \begin{pmatrix}
 1 & 2 & 3 \\
 0 & 0 & t - 6 \\
 0 & 1 & 1 \\
 \end{pmatrix}
 $$
 
-Since the operation $R_2 \leftarrow R_2 - 2R_1$ is of the form $R_i \leftarrow R_i + cR_j$, the determinant is unchanged: $\det A_1(t) = \det A(t)$.
-
-**Step 2: Compute the determinant by cofactor expansion along row 2**
-
-Row 2 of $A_1(t)$ has two zeros, making expansion along this row efficient. The cofactor expansion along row 2 gives:
+Because adding a multiple of row 1 to row 2 does not change the determinant:
 
 $$
-\begin{aligned}
-\det A_1(t) &= (-1)^{2+1}(0) \cdot M_{21} + (-1)^{2+2}(0) \cdot M_{22} + (-1)^{2+3}(t - 6) \cdot M_{23}
-\end{aligned}
+\det A(t) = \det A'(t)
 $$
 
-The first two terms vanish because their entries are zero. Only the third term survives:
+**Step 2: Compute the determinant using the resulting structure**
+
+The second row of $A'(t)$ has zeros in the first two positions. Expand $\det A'(t)$ along row 2:
 
 $$
-\det A_1(t) = (-1)^{2+3}(t - 6) \cdot M_{23}
+\det A'(t) = 0 \cdot C_{21} + 0 \cdot C_{22} + (t - 6) \cdot C_{23}
 $$
 
-where the minor $M_{23}$ is obtained by deleting row 2 and column 3:
+The cofactor $C_{23}$ is given by:
 
 $$
-M_{23} = \det
-\begin{pmatrix}
+C_{23} = (-1)^{2+3} \det \begin{pmatrix}
 1 & 2 \\
 0 & 1 \\
 \end{pmatrix}
-= (1)(1) - (2)(0) = 1
+= -1 \cdot [(1)(1) - (2)(0)] = -1 \cdot 1 = -1
 $$
 
 Therefore:
 
 $$
-\det A_1(t) = (-1)(t - 6)(1) = -(t - 6) = 6 - t
+\det A(t) = (t - 6)(-1) = 6 - t
 $$
 
-**Step 3: Determine the values of $t$ that make the matrix non-invertible**
+**Step 3: Determine the value of $t$ for non-invertibility**
 
-The matrix is not invertible when $\det A(t) = 0$:
+The matrix $A(t)$ is not invertible if and only if its determinant is zero:
+
+$$
+\det A(t) = 0
+$$
+
+Substitute $\det A(t) = 6 - t$:
 
 $$
 6 - t = 0 \implies t = 6
 $$
 
-**Step 4: Explain the row dependence at $t = 6$**
+Thus, $A(t)$ is not invertible precisely when $t = 6$.
 
-When $t = 6$, the original matrix becomes:
+**Step 4: Explain what happens to the rows at $t = 6$**
 
-$$
-A(6) =
-\begin{pmatrix}
-1 & 2 & 3 \\
-2 & 4 & 6 \\
-0 & 1 & 1 \\
-\end{pmatrix}
-$$
+When $t = 6$:
 
-The second row $(2, 4, 6) = 2 \cdot (1, 2, 3)$ is exactly twice the first row. This means $R_2 = 2R_1$, so the rows are linearly dependent.
+1. In the transformed matrix $A'(6)$, the second row becomes completely zero:
 
-The row operation $R_2 \leftarrow R_2 - 2R_1$ produces the zero row $(0, 0, 0)$, which confirms the dependence. A matrix with a row of zeros has determinant zero and is therefore not invertible.
+   $$
+   R_2 - 2R_1 = (0, 0, 6 - 6) = (0, 0, 0)
+   $$
+
+2. In the original matrix $A(6)$, row 2 is:
+
+   $$
+   R_2 = (2, 4, 6) = 2 \cdot (1, 2, 3) = 2 R_1
+   $$
+
+   This shows that row 2 is an exact scalar multiple of row 1.
+
+*Conclusion:*
+At $t = 6$, row 1 and row 2 are **linearly dependent** (parallel vectors in $\mathbb{R}^3$). The three row vectors span at most a 2D plane rather than all of $\mathbb{R}^3$, causing the rank of $A(6)$ to drop to $2 < 3$. This linear dependence collapses the 3D volume spanned by the rows to zero ($\det A(6) = 0$), making the matrix singular and non-invertible.
+
+**Step 5: Verification using Sarrus' rule**
+
+Compute $\det A(t)$ directly from the original matrix using Sarrus' rule:
+
+* Downward diagonal products:
+
+  $$
+  (1)(4)(1) + (2)(t)(0) + (3)(2)(1) = 4 + 0 + 6 = 10
+  $$
+
+* Upward diagonal products:
+
+  $$
+  (3)(4)(0) + (1)(t)(1) + (2)(2)(1) = 0 + t + 4 = t + 4
+  $$
+
+* Difference:
+
+  $$
+  \det A(t) = 10 - (t + 4) = 6 - t
+  $$
+
+Setting $6 - t = 0$ confirms $t = 6$.
 
 ---
 
 ### Final Answer
 
-The matrix $A(t)$ is not invertible when $t = 6$.
-
-At $t = 6$, the second row is exactly twice the first row ($R_2 = 2R_1$), so the rows are linearly dependent and the determinant vanishes:
+Determinant formula:
 
 $$
 \det A(t) = 6 - t
 $$
+
+Value of $t$ for non-invertibility:
+
+$$
+t = 6
+$$
+
+Special row behavior:
+At $t = 6$, row 2 becomes an exact multiple of row 1 ($R_2 = 2R_1$). The rows become linearly dependent and the rank drops to $2 < 3$, rendering the matrix non-invertible.

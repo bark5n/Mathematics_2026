@@ -1,21 +1,19 @@
 ### Essential Formulas
 
-**Determinant of a $2 \times 2$ Matrix:**
+**Determinant and Linear System Solvability:**
+For a linear system $Ax = b$ with a square coefficient matrix $A \in \mathbb{R}^{n \times n}$:
 
-$$
-\det \begin{pmatrix} a & b \\ c & d \\ \end{pmatrix} = ad - bc
-$$
+1. **Unique Solution:**
+   The system has a unique solution $x = A^{-1}b$ for every right-hand side vector $b \in \mathbb{R}^n$ if and only if the coefficient matrix is invertible:
 
-**Cramer's Rule / Invertibility Criterion for $Ax = b$:**
-A linear system $Ax = b$ with a square matrix $A$ has a unique solution for every vector $b$ if and only if $A$ is invertible, which is equivalent to:
+   $$
+   \det A \neq 0
+   $$
 
-$$
-\det A \neq 0
-$$
-
-When $\det A = 0$:
-* If the augmented matrix $[A \mid b]$ has the same rank as $A$, the system is consistent and has infinitely many solutions.
-* If the augmented matrix has a rank strictly greater than $\mathrm{rank}(A)$ (producing a row of the form $(0 \quad 0 \mid c)$ with $c \neq 0$), the system is inconsistent and has no solution.
+2. **Singular Matrix ($\det A = 0$):**
+   When $\det A = 0$, the rows of $A$ are linearly dependent. By the Rouché–Capelli theorem:
+   * The system is **consistent with infinitely many solutions** if the right-hand side vector $b$ satisfies the same linear dependence as the rows of $A$ ($\mathrm{rank}(A) = \mathrm{rank}([A \mid b]) < n$).
+   * The system is **inconsistent (no solution)** if $b$ does not satisfy the row relation ($\mathrm{rank}(A) < \mathrm{rank}([A \mid b])$).
 
 ---
 
@@ -41,119 +39,180 @@ For which values of $k$ does the system have exactly one solution for every $b$?
 
 ### Solution
 
-**Step 1: Compute $\det A$ in terms of the parameter $k$**
+The coefficient matrix is:
+
+$$
+A = \begin{pmatrix}
+1 & 2 \\
+k & 4 \\
+\end{pmatrix}
+$$
+
+**Step 1: Compute $\det A$**
 
 Using the $2 \times 2$ determinant formula:
 
 $$
-\begin{aligned}
-\det A &= (1)(4) - (2)(k) \\
-&= 4 - 2k
-\end{aligned}
+\det A = (1)(4) - (2)(k) = 4 - 2k
 $$
 
-**Step 2: Determine when the system has a unique solution for every $b$**
+**Step 2: Determine values of $k$ for a unique solution**
 
-The system $Ax = b$ has a unique solution for every right-hand side $b$ if and only if $A$ is invertible ($\det A \neq 0$):
-
-$$
-4 - 2k \neq 0 \iff 2k \neq 4 \iff k \neq 2
-$$
-
-Therefore, for all $k \neq 2$, the system has exactly one solution for any vector $b$.
-
-**Step 3: Analyze the exceptional value $k = 2$**
-
-Substitute $k = 2$ into the matrix $A$:
+The system $Ax = b$ possesses a unique solution for every choice of right-hand side $b$ if and only if $A$ is invertible, which requires:
 
 $$
-A =
-\begin{pmatrix}
+\det A \neq 0
+$$
+
+Substitute $\det A = 4 - 2k$:
+
+$$
+4 - 2k \neq 0 \implies 2k \neq 4 \implies k \neq 2
+$$
+
+Therefore, for all $k \in \mathbb{R} \setminus \{2\}$, the matrix $A$ is invertible and a unique solution $x = A^{-1}b$ exists for every vector $b$.
+
+**Step 3: Analyze the remaining value $k = 2$**
+
+For $k = 2$, the determinant vanishes ($\det A = 4 - 2(2) = 0$). The matrix is:
+
+$$
+A = \begin{pmatrix}
 1 & 2 \\
 2 & 4 \\
 \end{pmatrix}
 $$
 
-The system $Ax = b$ with $b = (b_1, b_2)^T$ corresponds to:
+The linear system $Ax = b$ can be written explicitly as:
 
 $$
 \begin{cases}
-x + 2y = b_1, \\
-2x + 4y = b_2.
+x_1 + 2x_2 = b_1 \\
+2x_1 + 4x_2 = b_2 \\
 \end{cases}
 $$
 
-Notice that the left-hand side of the second equation is $2(x + 2y) = 2 \cdot (\mathrm{LHS}(E_1))$.
-
-* **Infinitely many solutions:**
-  For the system to be consistent, the right-hand sides must satisfy the same proportionality: $b_2 = 2b_1$.
-  Let $b_1 = 1$, which requires $b_2 = 2$.
-  Then:
+Multiplying the first equation by $2$ gives $2x_1 + 4x_2 = 2b_1$. Comparing this with the second equation yields the consistency condition:
 
 $$
-b = \begin{pmatrix} 1 \\ 2 \\ \end{pmatrix}
+b_2 = 2b_1
 $$
 
-  The augmented matrix is:
+**Step 4: Construct examples for $k = 2$**
 
-$$
-\begin{pmatrix}
-1 & 2 & \mid & 1 \\
-2 & 4 & \mid & 2 \\
-\end{pmatrix}
-\xrightarrow{R_2 \leftarrow R_2 - 2R_1}
-\begin{pmatrix}
-1 & 2 & \mid & 1 \\
-0 & 0 & \mid & 0 \\
-\end{pmatrix}
-$$
+* **Example with infinitely many solutions:**
+  Choose a vector $b$ that satisfies the consistency condition $b_2 = 2b_1$, such as:
 
-  The second equation is $0 = 0$, leaving $x = 1 - 2y$ with $y$ as a free parameter, giving infinitely many solutions.
+  $$
+  b = \begin{pmatrix}
+  1 \\
+  2 \\
+  \end{pmatrix}
+  $$
 
-* **No solution:**
-  For the system to be inconsistent, choose a right-hand side where $b_2 \neq 2b_1$.
-  Let $b_1 = 1$ and $b_2 = 3$.
-  Then:
+  The system becomes:
 
-$$
-b = \begin{pmatrix} 1 \\ 3 \\ \end{pmatrix}
-$$
+  $$
+  \begin{cases}
+  x_1 + 2x_2 = 1 \\
+  2x_1 + 4x_2 = 2 \\
+  \end{cases}
+  $$
 
-  The augmented matrix is:
+  The second equation is a scalar multiple of the first ($2 R_1 = R_2$) and provides no new constraint. The general solution is:
 
-$$
-\begin{pmatrix}
-1 & 2 & \mid & 1 \\
-2 & 4 & \mid & 3 \\
-\end{pmatrix}
-\xrightarrow{R_2 \leftarrow R_2 - 2R_1}
-\begin{pmatrix}
-1 & 2 & \mid & 1 \\
-0 & 0 & \mid & 1 \\
-\end{pmatrix}
-$$
+  $$
+  x_1 = 1 - 2x_2, \qquad x_2 \in \mathbb{R}
+  $$
 
-  The second row yields the contradiction $0x + 0y = 1$, which is impossible ($0 = 1$). Thus the system has no solution.
+  Because $x_2$ can be chosen arbitrarily, there are **infinitely many solutions**.
+
+* **Example with no solution:**
+  Choose a vector $b$ that violates the consistency condition $b_2 = 2b_1$, such as:
+
+  $$
+  b = \begin{pmatrix}
+  1 \\
+  0 \\
+  \end{pmatrix}
+  $$
+
+  Here $b_1 = 1$ and $b_2 = 0 \neq 2(1)$. The system becomes:
+
+  $$
+  \begin{cases}
+  x_1 + 2x_2 = 1 \\
+  2x_1 + 4x_2 = 0 \\
+  \end{cases}
+  $$
+
+  Multiplying the first equation by $2$ gives $2x_1 + 4x_2 = 2$. Subtracting the second equation yields:
+
+  $$
+  0 = 2
+  $$
+
+  This contradiction demonstrates that there is **no solution**.
+
+**Step 5: Verification using augmented matrix ranks**
+
+* For $b = (1, 2)^T$:
+
+  $$
+  \begin{pmatrix}
+  1 & 2 & \mid & 1 \\
+  2 & 4 & \mid & 2 \\
+  \end{pmatrix}
+  \xrightarrow{R_2 - 2R_1}
+  \begin{pmatrix}
+  1 & 2 & \mid & 1 \\
+  0 & 0 & \mid & 0 \\
+  \end{pmatrix}
+  $$
+
+  Here $\mathrm{rank}(A) = \mathrm{rank}([A \mid b]) = 1 < 2$, confirming infinitely many solutions.
+
+* For $b = (1, 0)^T$:
+
+  $$
+  \begin{pmatrix}
+  1 & 2 & \mid & 1 \\
+  2 & 4 & \mid & 0 \\
+  \end{pmatrix}
+  \xrightarrow{R_2 - 2R_1}
+  \begin{pmatrix}
+  1 & 2 & \mid & 1 \\
+  0 & 0 & \mid & -2 \\
+  \end{pmatrix}
+  $$
+
+  Here $\mathrm{rank}(A) = 1 < \mathrm{rank}([A \mid b]) = 2$, confirming the system is inconsistent.
 
 ---
 
 ### Final Answer
 
-1. Value of $k$ for unique solution for every $b$:
+Condition for exactly one solution for every $b$:
 
 $$
 k \neq 2
 $$
 
-2. For $k = 2$:
-   * **Infinitely many solutions example:**
+For the remaining value $k = 2$:
+* Example with **infinitely many solutions**:
 
-$$
-b = \begin{pmatrix} 1 \\ 2 \\ \end{pmatrix}
-$$
+  $$
+  b = \begin{pmatrix}
+  1 \\
+  2 \\
+  \end{pmatrix}
+  $$
 
-   * **No solution example:**
+* Example with **no solution**:
 
-$$
-b = \begin{pmatrix} 1 \\ 3 \\ \end{pmatrix}
-$$
+  $$
+  b = \begin{pmatrix}
+  1 \\
+  0 \\
+  \end{pmatrix}
+  $$

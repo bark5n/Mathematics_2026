@@ -1,16 +1,29 @@
 ### Essential Formulas
 
-**Determinant of a $2 \times 2$ Matrix:**
+**Determinant of a Parameter-Dependent $2 \times 2$ Matrix:**
+For a matrix whose entries depend on a scalar parameter $t$:
 
 $$
 \det \begin{pmatrix}
-a & b \\
-c & d \\
-\end{pmatrix} = ad - bc
+a(t) & b(t) \\
+c(t) & d(t) \\
+\end{pmatrix}
+= a(t)d(t) - b(t)c(t)
 $$
 
-**Invertibility Criterion:**
-A square matrix $A$ is invertible if and only if $\det A \neq 0$. Equivalently, $A$ is not invertible (singular) if and only if $\det A = 0$.
+**Invertibility and Singularity Condition:**
+A square matrix $A(t)$ is **not invertible** (singular) if and only if its determinant is zero:
+
+$$
+\det A(t) = 0
+$$
+
+When $\det A(t) = 0$:
+1. The matrix does not have full rank.
+2. The rows (and columns) are linearly dependent (parallel vectors in $\mathbb{R}^2$).
+3. The inverse formula $A^{-1} = \frac{1}{\det A} \mathrm{adj}(A)$ is undefined due to division by zero.
+
+Conversely, $A(t)$ is invertible if and only if $\det A(t) \neq 0$.
 
 ---
 
@@ -21,8 +34,7 @@ A square matrix $A$ is invertible if and only if $\det A \neq 0$. Equivalently, 
 For
 
 $$
-A(t)=
-\begin{pmatrix}
+A(t) = \begin{pmatrix}
 t & 1 \\
 2 & t \\
 \end{pmatrix}
@@ -30,72 +42,100 @@ $$
 
 find all values of $t$ for which the matrix is not invertible. Explain how your answer is related to the determinant being zero.
 
+> **Why this exercise:** shows how the determinant can be used to study a family of matrices depending on a parameter.
+
 ---
 
 ### Solution
 
-**Step 1: Compute $\det A(t)$**
+**Step 1: Compute the determinant of $A(t)$**
 
-Apply the $2 \times 2$ determinant formula with $a = t$, $b = 1$, $c = 2$, $d = t$:
+Using the $2 \times 2$ determinant formula:
 
 $$
-\begin{aligned}
-\det A(t) &= (t)(t) - (1)(2) \\
-&= t^2 - 2
-\end{aligned}
+\det A(t) = (t)(t) - (1)(2) = t^2 - 2
 $$
 
-**Step 2: Set the determinant equal to zero**
+**Step 2: Find the parameter values where the matrix is not invertible**
 
-The matrix $A(t)$ is not invertible precisely when its determinant equals zero:
+A square matrix fails to be invertible precisely when its determinant is zero:
+
+$$
+\det A(t) = 0
+$$
+
+Substitute the expression for $\det A(t)$:
 
 $$
 t^2 - 2 = 0
 $$
 
-**Step 3: Solve for $t$**
+Solve for $t$:
 
 $$
-t^2 = 2 \implies t = \pm\sqrt{2}
+t^2 = 2 \implies t = \sqrt{2} \quad \mathrm{or} \quad t = -\sqrt{2}
 $$
 
-**Step 4: Verify each value**
+Thus, there are two values of $t$ for which $A(t)$ is not invertible: $t = \pm\sqrt{2}$.
 
-For $t = \sqrt{2}$:
+**Step 3: Explain the connection to the determinant being zero**
 
-$$
-\det A(\sqrt{2}) = (\sqrt{2})^2 - 2 = 2 - 2 = 0 \quad \checkmark
-$$
+The invertibility of a matrix is directly governed by its determinant:
 
-For $t = -\sqrt{2}$:
+1. **Algebraic Inverse:**
+   The explicit formula for the inverse of a $2 \times 2$ matrix is:
 
-$$
-\det A(-\sqrt{2}) = (-\sqrt{2})^2 - 2 = 2 - 2 = 0 \quad \checkmark
-$$
+   $$
+   A(t)^{-1} = \frac{1}{t^2 - 2}
+   \begin{pmatrix}
+   t & -1 \\
+   -2 & t \\
+   \end{pmatrix}
+   $$
 
-**Step 5: Explain the connection to invertibility**
+   When $t = \pm\sqrt{2}$, the denominator $t^2 - 2$ equals zero. Since division by zero is undefined, no inverse matrix exists.
 
-A square matrix is invertible if and only if its determinant is nonzero. For $t = \pm\sqrt{2}$, the determinant vanishes, so the rows of $A(t)$ become linearly dependent and the matrix is singular. For every other value of $t$, the determinant $t^2 - 2 \neq 0$, so $A(t)$ is invertible.
+2. **Linear Dependence of Rows:**
+   The vanishing of the determinant signifies that the rows of $A(t)$ become linearly dependent:
 
-Concretely, when $t = \sqrt{2}$ the matrix becomes
+   * For $t = \sqrt{2}$:
 
-$$
-A(\sqrt{2}) = \begin{pmatrix}
-\sqrt{2} & 1 \\
-2 & \sqrt{2} \\
-\end{pmatrix}
-$$
+     $$
+     R_1 = (\sqrt{2}, 1), \qquad R_2 = (2, \sqrt{2}) = \sqrt{2} \cdot (\sqrt{2}, 1) = \sqrt{2} R_1
+     $$
 
-and the second row is $\sqrt{2}$ times the first row: $\sqrt{2} \cdot (\sqrt{2},\; 1) = (2,\; \sqrt{2})$, confirming linear dependence.
+   * For $t = -\sqrt{2}$:
+
+     $$
+     R_1 = (-\sqrt{2}, 1), \qquad R_2 = (2, -\sqrt{2}) = -\sqrt{2} \cdot (-\sqrt{2}, 1) = -\sqrt{2} R_1
+     $$
+
+   In both cases, row 2 is a direct scalar multiple of row 1, collapsing the area spanned by the row vectors to zero.
+
+**Step 4: Verification**
+
+* Evaluate the determinant at $t = \sqrt{2}$:
+
+  $$
+  \det A(\sqrt{2}) = (\sqrt{2})^2 - 2 = 2 - 2 = 0
+  $$
+
+* Evaluate the determinant at $t = -\sqrt{2}$:
+
+  $$
+  \det A(-\sqrt{2}) = (-\sqrt{2})^2 - 2 = 2 - 2 = 0
+  $$
+
+* For any other real value $t \neq \pm\sqrt{2}$, $t^2 - 2 \neq 0$, meaning $\det A(t) \neq 0$ and $A(t)$ is invertible.
 
 ---
 
 ### Final Answer
 
-The matrix $A(t)$ is not invertible for
+Values of $t$ for which $A(t)$ is not invertible:
 
 $$
-t = \sqrt{2} \quad \mathrm{and} \quad t = -\sqrt{2}
+t = \sqrt{2}, \qquad t = -\sqrt{2}
 $$
 
-These are exactly the values for which $\det A(t) = t^2 - 2 = 0$.
+A matrix is not invertible if and only if $\det A(t) = 0$, which occurs when the rows become linearly dependent and division by zero prevents the existence of $A(t)^{-1}$.
