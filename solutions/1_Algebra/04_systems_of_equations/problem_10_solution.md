@@ -16,14 +16,16 @@ The polynomial is $p(x) = ax^2 + bx + c$. We substitute the coordinates $(x, y)$
 3. For point $(2, 9)$: $a(2)^2 + b(2) + c = 9 \implies 4a + 2b + c = 9$
 
 Substitute $c = 1$ into the second and third equations:
+
 $$
 \begin{cases}
-a + b = 2 \\
-4a + 2b = 8
+a + b = 2, \\
+4a + 2b = 8.
 \end{cases}
 $$
 
 From the first equation, we get $b = 2 - a$. Substitute this into the second equation:
+
 $$
 \begin{aligned}
 4a + 2(2 - a) &= 8 \\
@@ -35,5 +37,3 @@ $$
 
 If $a = 2$, then $b = 2 - 2 = 0$. 
 With $a = 2$, $b = 0$, and $c = 1$, the exact polynomial is $p(x) = 2x^2 + 1$.
-
-

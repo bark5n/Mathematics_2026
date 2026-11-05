@@ -2,24 +2,7 @@
 
 The system in the form $Ax = b$ is:
 
-$$
-\begin{pmatrix}
-2 & -1 & 1 \\
-1 & 3 & -2 \\
-3 & 1 & 1
-\end{pmatrix}
-\begin{pmatrix}
-x \\
-y \\
-z
-\end{pmatrix}
-=
-\begin{pmatrix}
-4 \\
-1 \\
-7
-\end{pmatrix}
-$$
+$$ \begin{pmatrix} 2 & -1 & 1 \\ 1 & 3 & -2 \\ 3 & 1 & 1 \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 4 \\ 1 \\ 7 \end{pmatrix} $$
 
 **Steps & Detailed Explanation:**
 

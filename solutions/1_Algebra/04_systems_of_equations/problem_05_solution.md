@@ -4,8 +4,8 @@ The system has infinitely many solutions. In parametric form:
 
 $$
 \begin{cases}
-x = 1 + 5t \\
-y = 1 - 2t \\
+x = 1 + 5t, \\
+y = 1 - 2t, \\
 z = t
 \end{cases}
 $$
@@ -31,15 +31,19 @@ Because column 3 lacks a pivot, the variable $z$ is free. Let $z = t$. The numbe
 Use back-substitution to express the pivot variables in terms of the free variable $t$:
 
 From the second row:
+
 $$
 y + 2z = 1 \implies y + 2t = 1 \implies y = 1 - 2t
 $$
 
 From the first row:
+
 $$
 x + 2y - z = 3
 $$
+
 Substitute $y = 1 - 2t$ and $z = t$ into the equation:
+
 $$
 \begin{aligned}
 x + 2(1 - 2t) - t &= 3 \\
