@@ -1,4 +1,23 @@
-### Essential Formulas
+### Problem Statement
+
+Given
+
+$$
+A=(0,0,0),\qquad B=(1,2,0),\qquad C=(0,1,1),\qquad D=(2,5,1).
+$$
+
+1. Construct $\overrightarrow{AB}$ and $\overrightarrow{AC}$.
+2. Find $n=\overrightarrow{AB}\times\overrightarrow{AC}$.
+3. Construct $\overrightarrow{AD}$ and check whether $\overrightarrow{AD}\cdot n=0$.
+4. Based on this, decide whether $D$ lies in the plane determined by $A,B,C$, and justify the criterion.
+
+> **Why this exercise:** combines the known cross and dot products into a geometric criterion needed for planes, without introducing a separate concept used only once.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Vectors Originating from a Base Point:**
    Given four points $A, B, C, D \in \mathbb{R}^3$, the displacement vectors originating from the base point $A$ are:
@@ -26,25 +45,6 @@
    which states that the volume of the parallelepiped spanned by the three vectors is zero.
 
 ---
-
-### Problem Statement
-
-Given
-
-$$
-A=(0,0,0),\qquad B=(1,2,0),\qquad C=(0,1,1),\qquad D=(2,5,1).
-$$
-
-1. Construct $\overrightarrow{AB}$ and $\overrightarrow{AC}$.
-2. Find $n=\overrightarrow{AB}\times\overrightarrow{AC}$.
-3. Construct $\overrightarrow{AD}$ and check whether $\overrightarrow{AD}\cdot n=0$.
-4. Based on this, decide whether $D$ lies in the plane determined by $A,B,C$, and justify the criterion.
-
-> **Why this exercise:** combines the known cross and dot products into a geometric criterion needed for planes, without introducing a separate concept used only once.
-
----
-
-### Solution
 
 **Step 1: Construct $\overrightarrow{AB}$ and $\overrightarrow{AC}$**
 

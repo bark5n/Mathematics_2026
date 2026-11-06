@@ -1,4 +1,20 @@
-### Essential Formulas
+### Problem Statement
+
+Decompose $u=(3,4)$ into components parallel and perpendicular to $v=(1,2)$. Check
+
+$$
+u=u_{\parallel}+u_{\perp},\qquad u_{\perp}\cdot v=0.
+$$
+
+Explain why these are two independent checks of correctness.
+
+> **Why this exercise:** deepens the idea of projection through construction and verification.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Parallel Component (Orthogonal Projection):**
    The component of a vector $u$ in the direction of a non-zero vector $v$ is given by:
@@ -31,22 +47,6 @@
      $$
 
 ---
-
-### Problem Statement
-
-Decompose $u=(3,4)$ into components parallel and perpendicular to $v=(1,2)$. Check
-
-$$
-u=u_{\parallel}+u_{\perp},\qquad u_{\perp}\cdot v=0.
-$$
-
-Explain why these are two independent checks of correctness.
-
-> **Why this exercise:** deepens the idea of projection through construction and verification.
-
----
-
-### Solution
 
 **Step 1: Compute the Parallel Component $u_{\parallel}$**
 

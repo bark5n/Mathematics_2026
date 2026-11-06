@@ -1,4 +1,18 @@
-### Essential Formulas
+### Problem Statement
+
+Given $u=(1,1,0)$ and $v=(1,0,1)$:
+
+1. Use the sign of $u\cdot v$ to predict the type of angle.
+2. Compute the angle.
+3. Compare the result with the prediction.
+
+> **Why this exercise:** teaches how to extract qualitative information first and only then perform the exact calculation.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Angle Between Two Vectors via Dot Product:**
    For non-zero vectors $u$ and $v$ in $\mathbb{R}^n$, the angle $\theta \in [0, \pi]$ satisfies:
@@ -18,20 +32,6 @@
    * **$u \cdot v < 0 \iff \cos\theta < 0$:** The angle is **obtuse** ($\frac{\pi}{2} < \theta \le \pi$, or $90^\circ < \theta \le 180^\circ$).
 
 ---
-
-### Problem Statement
-
-Given $u=(1,1,0)$ and $v=(1,0,1)$:
-
-1. Use the sign of $u\cdot v$ to predict the type of angle.
-2. Compute the angle.
-3. Compare the result with the prediction.
-
-> **Why this exercise:** teaches how to extract qualitative information first and only then perform the exact calculation.
-
----
-
-### Solution
 
 **Step 1: Compute $u \cdot v$ and Predict the Type of Angle**
 

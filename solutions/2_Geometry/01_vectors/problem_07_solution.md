@@ -1,4 +1,20 @@
-### Essential Formulas
+### Problem Statement
+
+Given
+
+$$
+u=(1,2,3),\qquad v=(2,4,6),\qquad w=(0,1,1).
+$$
+
+Identify a specific relation between $u$ and $v$, decide whether the three vectors can be linearly independent, and explain why no long calculation is needed.
+
+> **Why this exercise:** develops the habit of recognizing structure before applying a computational procedure.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Definition of Linear Dependence:**
    A set of vectors $\{v_1, v_2, \dots, v_k\}$ in $\mathbb{R}^n$ is **linearly dependent** if there exist scalars $c_1, c_2, \dots, c_k$, not all zero, such that:
@@ -20,22 +36,6 @@
    If any non-empty subset of a collection of vectors is linearly dependent, the entire collection is automatically linearly dependent. Adding more vectors to an already dependent set can never make it independent.
 
 ---
-
-### Problem Statement
-
-Given
-
-$$
-u=(1,2,3),\qquad v=(2,4,6),\qquad w=(0,1,1).
-$$
-
-Identify a specific relation between $u$ and $v$, decide whether the three vectors can be linearly independent, and explain why no long calculation is needed.
-
-> **Why this exercise:** develops the habit of recognizing structure before applying a computational procedure.
-
----
-
-### Solution
 
 **Step 1: Identify the Relation Between $u$ and $v$**
 

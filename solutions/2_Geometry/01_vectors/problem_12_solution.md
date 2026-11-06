@@ -1,4 +1,14 @@
-### Essential Formulas
+### Problem Statement
+
+Given $A=(1,0,2)$, $B=(2,1,0)$, and $C=(0,3,1)$. Construct two vectors lying in the plane, find a vector perpendicular to both, and check the perpendicularity using dot products.
+
+> **Why this exercise:** creates a direct bridge from vectors to the description of a plane.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Direction Vectors Lying in a Plane:**
    Given three non-collinear points $A, B, C$ defining a plane in $\mathbb{R}^3$, two linearly independent direction vectors parallel to (lying in) the plane are:
@@ -22,16 +32,6 @@
    $$
 
 ---
-
-### Problem Statement
-
-Given $A=(1,0,2)$, $B=(2,1,0)$, and $C=(0,3,1)$. Construct two vectors lying in the plane, find a vector perpendicular to both, and check the perpendicularity using dot products.
-
-> **Why this exercise:** creates a direct bridge from vectors to the description of a plane.
-
----
-
-### Solution
 
 **Step 1: Construct Two Vectors Lying in the Plane**
 

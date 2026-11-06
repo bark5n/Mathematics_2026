@@ -1,4 +1,14 @@
-### Essential Formulas
+### Problem Statement
+
+For $u=(1,2,0)$ and $v=(0,1,3)$ compute $u\times v$. Use dot products to check perpendicularity to both vectors, compute $v\times u$, and compare the results.
+
+> **Why this exercise:** teaches the geometric meaning of the cross product and the effect of changing the order of its arguments.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Cross Product (Vector Product) in $\mathbb{R}^3$:**
    For vectors $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$, the cross product is formally defined as the symbolic determinant:
@@ -30,16 +40,6 @@
    Its magnitude remains unchanged ($\|v \times u\| = \|u \times v\|$), but its orientation is inverted according to the right-hand rule.
 
 ---
-
-### Problem Statement
-
-For $u=(1,2,0)$ and $v=(0,1,3)$ compute $u\times v$. Use dot products to check perpendicularity to both vectors, compute $v\times u$, and compare the results.
-
-> **Why this exercise:** teaches the geometric meaning of the cross product and the effect of changing the order of its arguments.
-
----
-
-### Solution
 
 **Step 1: Compute $u \times v$**
 

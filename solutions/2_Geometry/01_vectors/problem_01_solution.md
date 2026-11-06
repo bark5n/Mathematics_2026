@@ -1,4 +1,20 @@
-### Essential Formulas
+### Problem Statement
+
+For $u=(2,-1,3)$ and $v=(-1,4,2)$ compute
+
+$$
+u+v,\qquad u-v,\qquad 3u-2v.
+$$
+
+Then verify that $(u+v)-v=u$, and explain geometrically what adding two vectors means.
+
+> **Why this exercise:** reinforces basic operations and immediately connects them with their geometric meaning.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Vector Addition and Subtraction (Component-wise):**
    For vectors $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$ in $\mathbb{R}^3$:
@@ -29,22 +45,6 @@
    * **Parallelogram Rule:** When $u$ and $v$ share a common initial point, $u + v$ corresponds to the main diagonal directed from the shared tail to the opposite vertex of the parallelogram formed by $u$ and $v$.
 
 ---
-
-### Problem Statement
-
-For $u=(2,-1,3)$ and $v=(-1,4,2)$ compute
-
-$$
-u+v,\qquad u-v,\qquad 3u-2v.
-$$
-
-Then verify that $(u+v)-v=u$, and explain geometrically what adding two vectors means.
-
-> **Why this exercise:** reinforces basic operations and immediately connects them with their geometric meaning.
-
----
-
-### Solution
 
 **Step 1: Compute $u + v$**
 

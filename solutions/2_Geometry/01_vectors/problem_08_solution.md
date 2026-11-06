@@ -1,4 +1,20 @@
-### Essential Formulas
+### Problem Statement
+
+Check whether $w=(5,1)$ can be written as
+
+$$
+w=au+bv,
+$$
+
+where $u=(1,1)$ and $v=(2,-1)$. If so, find $a,b$, reconstruct $w$ from them, and explain the geometric meaning of the existence of such coefficients.
+
+> **Why this exercise:** connects linear combinations with the geometry of directions.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Linear Combination in $\mathbb{R}^2$:**
    A vector $w \in \mathbb{R}^2$ is a linear combination of vectors $u$ and $v$ if there exist scalar weights $a, b \in \mathbb{R}$ such that:
@@ -50,22 +66,6 @@
    then $\{u, v\}$ forms a basis of $\mathbb{R}^2$. Every vector $w \in \mathbb{R}^2$ can be expressed as a unique linear combination of $u$ and $v$.
 
 ---
-
-### Problem Statement
-
-Check whether $w=(5,1)$ can be written as
-
-$$
-w=au+bv,
-$$
-
-where $u=(1,1)$ and $v=(2,-1)$. If so, find $a,b$, reconstruct $w$ from them, and explain the geometric meaning of the existence of such coefficients.
-
-> **Why this exercise:** connects linear combinations with the geometry of directions.
-
----
-
-### Solution
 
 **Step 1: Set up the Linear System for $a$ and $b$**
 

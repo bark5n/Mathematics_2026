@@ -1,4 +1,14 @@
-### Essential Formulas
+### Problem Statement
+
+For $v=(3,4)$ find a unit vector $e$ with the same direction and orientation. Check that $\|e\|=1$, reconstruct $v$ in the form $v=\|v\|e$, and explain what changes during normalization and what remains unchanged.
+
+> **Why this exercise:** teaches how to separate direction from vector length.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Length (Euclidean Norm) of a 2D Vector:**
    For a vector $v = (v_1, v_2) \in \mathbb{R}^2$:
@@ -24,16 +34,6 @@
    $$
 
 ---
-
-### Problem Statement
-
-For $v=(3,4)$ find a unit vector $e$ with the same direction and orientation. Check that $\|e\|=1$, reconstruct $v$ in the form $v=\|v\|e$, and explain what changes during normalization and what remains unchanged.
-
-> **Why this exercise:** teaches how to separate direction from vector length.
-
----
-
-### Solution
 
 **Step 1: Compute the Length of $v$**
 

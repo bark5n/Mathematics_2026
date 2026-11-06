@@ -1,4 +1,14 @@
-### Essential Formulas
+### Problem Statement
+
+The points $A=(0,0,0)$, $B=(2,1,0)$, and $C=(1,3,2)$ form a triangle. Construct $\overrightarrow{AB}$ and $\overrightarrow{AC}$, compute the area of the parallelogram using the cross product, and then find the area of the triangle. Explain the factor $\frac12$.
+
+> **Why this exercise:** shows the interpretation of the length of the cross product as area.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Displacement Vectors from Points:**
    Given points $A, B, C \in \mathbb{R}^3$, the side vectors originating at $A$ are:
@@ -24,16 +34,6 @@
    $$
 
 ---
-
-### Problem Statement
-
-The points $A=(0,0,0)$, $B=(2,1,0)$, and $C=(1,3,2)$ form a triangle. Construct $\overrightarrow{AB}$ and $\overrightarrow{AC}$, compute the area of the parallelogram using the cross product, and then find the area of the triangle. Explain the factor $\frac12$.
-
-> **Why this exercise:** shows the interpretation of the length of the cross product as area.
-
----
-
-### Solution
 
 **Step 1: Construct the Vectors $\overrightarrow{AB}$ and $\overrightarrow{AC}$**
 

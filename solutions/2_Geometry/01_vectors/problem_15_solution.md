@@ -1,4 +1,26 @@
-### Essential Formulas
+### Problem Statement
+
+Given
+
+$$
+a=(1,2,1),\qquad b=(2,4,2),\qquad c=(2,0,3).
+$$
+
+For each pair, compute
+
+$$
+\frac{u\cdot v}{\|u\|\,\|v\|}.
+$$
+
+Order the pairs by increasing angle between the vectors. Explain why for $a$ and $b$ the value is $1$ even though the vectors have different lengths.
+
+> **Why this exercise:** reinforces the connection between the dot product and angle, and the distinction between direction and length.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Cosine Similarity (Cosine of the Angle):**
    For two non-zero vectors $u$ and $v$ in $\mathbb{R}^3$, the cosine of the angle $\theta \in [0, \pi]$ between them is defined by:
@@ -24,28 +46,6 @@
    The cosine formula normalizes both vectors by their lengths, eliminating the magnitude and isolating the pure geometric orientation.
 
 ---
-
-### Problem Statement
-
-Given
-
-$$
-a=(1,2,1),\qquad b=(2,4,2),\qquad c=(2,0,3).
-$$
-
-For each pair, compute
-
-$$
-\frac{u\cdot v}{\|u\|\,\|v\|}.
-$$
-
-Order the pairs by increasing angle between the vectors. Explain why for $a$ and $b$ the value is $1$ even though the vectors have different lengths.
-
-> **Why this exercise:** reinforces the connection between the dot product and angle, and the distinction between direction and length.
-
----
-
-### Solution
 
 **Step 1: Compute the Norms of All Three Vectors**
 

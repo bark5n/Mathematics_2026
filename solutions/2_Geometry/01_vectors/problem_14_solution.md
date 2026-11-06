@@ -1,4 +1,14 @@
-### Essential Formulas
+### Problem Statement
+
+Given a point $P=(4,1)$ and a line through the origin with direction $v=(1,2)$. Using projection, find the closest point on the line, the distance from $P$ to the line, and verify that the appropriate vector is perpendicular to the direction of the line.
+
+> **Why this exercise:** shows projection as a complete solution to a minimum-distance problem.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Parametric Line Through the Origin:**
    A straight line $L$ passing through the origin $O(0, 0)$ with direction vector $v$ consists of all points whose position vectors are scalar multiples of $v$:
@@ -29,16 +39,6 @@
    $$
 
 ---
-
-### Problem Statement
-
-Given a point $P=(4,1)$ and a line through the origin with direction $v=(1,2)$. Using projection, find the closest point on the line, the distance from $P$ to the line, and verify that the appropriate vector is perpendicular to the direction of the line.
-
-> **Why this exercise:** shows projection as a complete solution to a minimum-distance problem.
-
----
-
-### Solution
 
 **Step 1: Find the Closest Point $Q$ on the Line Using Projection**
 

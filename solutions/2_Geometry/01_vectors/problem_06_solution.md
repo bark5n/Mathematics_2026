@@ -1,4 +1,20 @@
-### Essential Formulas
+### Problem Statement
+
+Find the projection of $u=(4,2)$ onto the direction $v=(1,1)$. Then compute
+
+$$
+r=u-\mathrm{proj}_v\,u
+$$
+
+and verify that $r\cdot v=0$. Explain this result geometrically.
+
+> **Why this exercise:** shows projection as a decomposition into parallel and perpendicular components.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Orthogonal Projection of a Vector onto Another Vector:**
    The orthogonal projection of vector $u$ onto the direction of a non-zero vector $v$ is given by:
@@ -26,22 +42,6 @@
    where $u_{\parallel} = \mathrm{proj}_v u$ satisfies $u_{\parallel} \parallel v$ and $u_{\perp} = r$ satisfies $r \cdot v = 0$.
 
 ---
-
-### Problem Statement
-
-Find the projection of $u=(4,2)$ onto the direction $v=(1,1)$. Then compute
-
-$$
-r=u-\mathrm{proj}_v\,u
-$$
-
-and verify that $r\cdot v=0$. Explain this result geometrically.
-
-> **Why this exercise:** shows projection as a decomposition into parallel and perpendicular components.
-
----
-
-### Solution
 
 **Step 1: Compute $\mathrm{proj}_v u$**
 

@@ -1,4 +1,19 @@
-### Essential Formulas
+### Problem Statement
+
+The points are $A=(1,2,3)$ and $B=(4,-2,6)$.
+
+1. Construct $\overrightarrow{AB}$.
+2. Compute its length.
+3. Compute the distance between the points using the coordinate formula.
+4. Explain why both calculations give the same result.
+
+> **Why this exercise:** shows that the point-distance formula comes directly from the length of a difference vector.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Displacement Vector Connecting Two Points:**
    For two points $A = (x_A, y_A, z_A)$ and $B = (x_B, y_B, z_B)$ in $\mathbb{R}^3$, the directed displacement vector $\overrightarrow{AB}$ is obtained by subtracting the initial coordinates from the terminal coordinates:
@@ -28,21 +43,6 @@
    $$
 
 ---
-
-### Problem Statement
-
-The points are $A=(1,2,3)$ and $B=(4,-2,6)$.
-
-1. Construct $\overrightarrow{AB}$.
-2. Compute its length.
-3. Compute the distance between the points using the coordinate formula.
-4. Explain why both calculations give the same result.
-
-> **Why this exercise:** shows that the point-distance formula comes directly from the length of a difference vector.
-
----
-
-### Solution
 
 **Step 1: Construct the Vector $\overrightarrow{AB}$**
 

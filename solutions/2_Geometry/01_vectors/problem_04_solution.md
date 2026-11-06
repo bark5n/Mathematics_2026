@@ -1,4 +1,14 @@
-### Essential Formulas
+### Problem Statement
+
+For $u=(1,2,-1)$ and $v=(2,-1,3)$ compute $u\cdot v$ and determine whether the vectors are perpendicular. Then find $a$ so that $w=(2,-1,a)$ is perpendicular to $u$, and check the result.
+
+> **Why this exercise:** shows the dot product as both a test and a tool for constructing a perpendicularity condition.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Dot Product (Scalar Product) in $\mathbb{R}^3$:**
    For vectors $u = (u_1, u_2, u_3)$ and $v = (v_1, v_2, v_3)$:
@@ -25,16 +35,6 @@
    * If $u \cdot v < 0$: $\theta$ is obtuse ($\pi/2 < \theta \le \pi$).
 
 ---
-
-### Problem Statement
-
-For $u=(1,2,-1)$ and $v=(2,-1,3)$ compute $u\cdot v$ and determine whether the vectors are perpendicular. Then find $a$ so that $w=(2,-1,a)$ is perpendicular to $u$, and check the result.
-
-> **Why this exercise:** shows the dot product as both a test and a tool for constructing a perpendicularity condition.
-
----
-
-### Solution
 
 **Step 1: Compute the Dot Product $u \cdot v$**
 
