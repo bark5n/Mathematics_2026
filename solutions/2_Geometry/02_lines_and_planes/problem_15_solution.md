@@ -1,4 +1,20 @@
-### Essential Formulas
+### Problem Statement
+
+Let
+
+$$
+L:p+tv,\qquad \Pi:n\cdot x=d.
+$$
+
+State the conditions distinguishing the three cases: one intersection point, parallel with no common points, and the line contained in the plane. Then illustrate each case with your own simple numerical example.
+
+> **Why this exercise:** requires formulating a general mathematical criterion instead of carrying out one isolated calculation.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Substitution of a Parametric Line into a Plane Equation:**
    Let a line $L$ and a plane $\Pi$ be given by:
@@ -26,22 +42,6 @@
    * **Case 3 (Line Contained in Plane):** $A = 0$ and $B = 0 \iff n \cdot v = 0$ and $n \cdot p = d$.
 
 ---
-
-### Problem Statement
-
-Let
-
-$$
-L:p+tv,\qquad \Pi:n\cdot x=d.
-$$
-
-State the conditions distinguishing the three cases: one intersection point, parallel with no common points, and the line contained in the plane. Then illustrate each case with your own simple numerical example.
-
-> **Why this exercise:** requires formulating a general mathematical criterion instead of carrying out one isolated calculation.
-
----
-
-### Solution
 
 **Step 1: General Theoretical Derivation of the Three Cases**
 

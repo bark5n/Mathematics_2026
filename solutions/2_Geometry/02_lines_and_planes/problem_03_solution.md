@@ -1,4 +1,14 @@
-### Essential Formulas
+### Problem Statement
+
+Find the equation of the plane through $P=(1,-2,3)$ and perpendicular to $n=(2,1,-1)$. Check the result by substituting the point $P$ and explain the role of the normal vector.
+
+> **Why this exercise:** shows the basic construction of a plane from a point and a normal vector.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Point-Normal Equation of a Plane:**
    A plane in $\mathbb{R}^3$ passing through a point $P_0 = (x_0, y_0, z_0)$ with normal vector $n = (a, b, c)$ consists of all points $X = (x, y, z)$ such that the displacement vector $\overrightarrow{P_0 X}$ is orthogonal to $n$:
@@ -26,16 +36,6 @@
    The vector $n = (a, b, c)$ is perpendicular to every vector lying in the plane. Its components directly define the linear coefficients of $x, y, z$, establishing the plane's geometric orientation in space.
 
 ---
-
-### Problem Statement
-
-Find the equation of the plane through $P=(1,-2,3)$ and perpendicular to $n=(2,1,-1)$. Check the result by substituting the point $P$ and explain the role of the normal vector.
-
-> **Why this exercise:** shows the basic construction of a plane from a point and a normal vector.
-
----
-
-### Solution
 
 **Step 1: Set up the Point-Normal Equation**
 

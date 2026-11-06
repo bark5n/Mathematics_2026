@@ -1,4 +1,20 @@
-### Essential Formulas
+### Problem Statement
+
+Find the equation of the plane through
+
+$$
+A=(1,0,0),\quad B=(0,1,0),\quad C=(0,0,1).
+$$
+
+First construct two vectors lying in the plane, and then use the cross product. Check the resulting equation on all three points.
+
+> **Why this exercise:** connects earlier vector tools with constructing the equation of a plane.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Vectors Spanning a Plane from Three Points:**
    Given three non-collinear points $A, B, C \in \mathbb{R}^3$, two linearly independent direction vectors lying within the plane are:
@@ -26,22 +42,6 @@
    $$
 
 ---
-
-### Problem Statement
-
-Find the equation of the plane through
-
-$$
-A=(1,0,0),\quad B=(0,1,0),\quad C=(0,0,1).
-$$
-
-First construct two vectors lying in the plane, and then use the cross product. Check the resulting equation on all three points.
-
-> **Why this exercise:** connects earlier vector tools with constructing the equation of a plane.
-
----
-
-### Solution
 
 **Step 1: Construct Two Vectors Lying in the Plane**
 

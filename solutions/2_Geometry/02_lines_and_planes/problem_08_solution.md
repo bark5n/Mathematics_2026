@@ -1,134 +1,184 @@
-### Essential Formulas
-
-1. **Relative Position of a Line and a Plane:**
-   Let a line be given by $L: X = P_0 + t v$ and a plane by $\Pi: n \cdot X = d$.
-   Substitute the parametric form into the plane equation:
-
-   $$
-   n \cdot (P_0 + t v) = d \iff n \cdot P_0 + t (v \cdot n) = d
-   $$
-
-   $$
-   t (v \cdot n) = d - n \cdot P_0
-   $$
-
-2. **Classification via the Dot Product $v \cdot n$:**
-   * **Case 1: $v \cdot n \neq 0$ (Intersecting at One Point):**
-     The line is not parallel to the plane and intersects it at exactly one unique point corresponding to:
-
-     $$
-     t = \frac{d - n \cdot P_0}{v \cdot n}
-     $$
-
-   * **Case 2: $v \cdot n = 0$ (Parallel to the Plane):**
-     The direction vector $v$ is perpendicular to the normal $n$, so the line never changes its distance from the plane:
-     - If $n \cdot P_0 = d$ ($P_0 \in \Pi$): the equation $0 \cdot t = 0$ holds for all $t \in \mathbb{R}$, meaning the line **lies entirely in the plane** ($L \subset \Pi$).
-     - If $n \cdot P_0 \neq d$ ($P_0 \notin \Pi$): the equation $0 \cdot t = d - n \cdot P_0 \neq 0$ has no solution, meaning the line is **strictly parallel and disjoint** from the plane ($L \parallel \Pi, L \cap \Pi = \emptyset$).
-
----
-
 ### Problem Statement
 
-For
+Find the intersection point of
 
 $$
-L:(x,y,z)=(1,1,0)+t(1,-1,0),\qquad \Pi:x+y+z=2,
+(x,y,z)=(1,0,2)+t(1,2,-1)
 $$
 
-determine whether the line intersects the plane at one point, is parallel to it, or lies in it. Explain the role of the dot product of the direction vector and the normal vector.
+with the plane $x+y+z=4$. Check the result by substituting it into both descriptions.
 
-> **Why this exercise:** builds a universal test for the relative position of a line and a plane.
+> **Why this exercise:** practices the most important computational case of the line–plane relationship.
 
 ---
 
 ### Solution
 
-**Step 1: Extract the Direction Vector and Normal Vector**
+#### Essential Formulas
 
-* From the line $L: (x, y, z) = (1, 1, 0) + t(1, -1, 0)$:
-  - Base point: $P_0 = (1, 1, 0)$
-  - Direction vector: $v = (1, -1, 0)$
+1. **Intersection of a Parametric Line with an Implicit Plane:**
+   Given a line $L: (x, y, z) = P_0 + t v$ and a plane $\Pi: ax + by + cz = d$:
+   * Express the coordinates of a general point on $L$ in terms of the parameter $t$:
 
-* From the plane $\Pi: 1x + 1y + 1z = 2$:
-  - Normal vector: $n = (1, 1, 1)$
-  - Target constant: $d = 2$
+     $$
+     x = x_0 + t v_1, \qquad y = y_0 + t v_2, \qquad z = z_0 + t v_3
+     $$
+
+   * Substitute these expressions into the plane equation:
+
+     $$
+     a(x_0 + t v_1) + b(y_0 + t v_2) + c(z_0 + t v_3) = d
+     $$
+
+   * Solve the resulting linear scalar equation for $t$:
+
+     $$
+     (a v_1 + b v_2 + c v_3) t = d - (a x_0 + b y_0 + c z_0)
+     $$
+
+     $$
+     t = \frac{d - n \cdot P_0}{n \cdot v}
+     $$
+
+     (valid whenever $n \cdot v \neq 0$).
+
+2. **Intersection Point Coordinates:**
+   Substituting the unique parameter value $t^*$ back into the parametric line equation gives the coordinates of the intersection point $Q = P_0 + t^* v$.
 
 ---
 
-**Step 2: Compute the Dot Product $v \cdot n$**
+**Step 1: Express the Line in Parametric Components**
 
-Compute the dot product of the direction vector and the normal vector:
-
-$$
-v \cdot n = (1)(1) + (-1)(1) + (0)(1)
-$$
+From the given vector equation of the line:
 
 $$
-v \cdot n = 1 - 1 + 0 = 0
+\begin{pmatrix}
+x \\
+y \\
+z \\
+\end{pmatrix}
+= \begin{pmatrix}
+1 \\
+0 \\
+2 \\
+\end{pmatrix}
++ t \begin{pmatrix}
+1 \\
+2 \\
+-1 \\
+\end{pmatrix}
 $$
 
-Because $v \cdot n = 0$, the line's direction vector $v$ is perpendicular to the plane's normal vector $n$.
-Since $n$ is perpendicular to the plane, any vector orthogonal to $n$ is parallel to the plane.
-Thus, the line $L$ is **parallel to the plane $\Pi$**.
-The line must either be strictly parallel (disjoint) or lie entirely within the plane.
+The coordinates of any point on the line in terms of $t$ are:
+
+$$
+x = 1 + t, \qquad y = 2t, \qquad z = 2 - t
+$$
 
 ---
 
-**Step 3: Test Whether the Base Point Lies on the Plane**
+**Step 2: Substitute into the Plane Equation and Solve for $t$**
 
-Substitute the base point $P_0(1, 1, 0)$ into the plane equation $x + y + z = 2$:
+The equation of the plane is:
 
 $$
-1 + 1 + 0 = 2 \implies 2 = 2
+x + y + z = 4
 $$
 
-Point $P_0$ satisfies the plane equation ($P_0 \in \Pi$).
+Substitute the parametric coordinates:
 
-* **Algebraic Check for Any $t$:**
-  Substitute the general point $(1 + t, 1 - t, 0)$ of the line into $x + y + z$:
+$$
+(1 + t) + (2t) + (2 - t) = 4
+$$
+
+Combine like terms:
+
+$$
+(1 + 2) + (t + 2t - t) = 4
+$$
+
+$$
+3 + 2t = 4
+$$
+
+Subtract $3$ from both sides:
+
+$$
+2t = 4 - 3 = 1 \implies t = \frac{1}{2} = 0.5
+$$
+
+Since $n \cdot v = 1(1) + 1(2) + 1(-1) = 2 \neq 0$, a unique intersection parameter exists.
+
+---
+
+**Step 3: Calculate the Coordinates of the Intersection Point**
+
+Substitute $t = \frac{1}{2}$ into the parametric coordinate equations:
+
+* $x$-coordinate:
 
   $$
-  (1 + t) + (1 - t) + 0 = 1 + 1 + t - t = 2
+  x = 1 + \frac{1}{2} = \frac{3}{2} = 1.5
   $$
 
-  The equation $2 = 2$ holds identically for **every** real value of $t \in \mathbb{R}$.
+* $y$-coordinate:
 
-Therefore, every point of line $L$ lies on plane $\Pi$. The line **lies entirely in the plane** ($L \subset \Pi$).
+  $$
+  y = 2\left(\frac{1}{2}\right) = 1
+  $$
+
+* $z$-coordinate:
+
+  $$
+  z = 2 - \frac{1}{2} = \frac{3}{2} = 1.5
+  $$
+
+Thus, the intersection point $Q$ is:
+
+$$
+Q = \left(\frac{3}{2}, \ 1, \ \frac{3}{2}\right) = (1.5, \ 1, \ 1.5)
+$$
 
 ---
 
-**Step 4: The Role of the Dot Product $v \cdot n$**
+**Step 4: Check the Result in Both Descriptions**
 
-1. **Measuring Relative Orientation:**
-   * The normal vector $n$ points directly away from the plane (along the perpendicular axis).
-   * The dot product $v \cdot n = \|v\| \|n\| \cos\phi$ measures the projection of the line's velocity vector along this normal axis.
-   * If $v \cdot n \neq 0$, the line moves toward or away from the plane along the normal axis. Because its distance to the plane changes linearly with $t$, it must pierce the plane at exactly one point ($t = \frac{d - n \cdot P_0}{v \cdot n}$).
+1. **Check in the Plane Equation:**
+   Substitute the coordinates of $Q\left(\frac{3}{2}, 1, \frac{3}{2}\right)$ into $x + y + z$:
 
-2. **The Zero Dot Product Threshold ($v \cdot n = 0$):**
-   * When $v \cdot n = 0$, the motion along the line has **zero component** in the normal direction.
-   * The distance from any point on the line to the plane remains constant for all $t$.
-   * A single point test then determines whether that constant distance is zero (the line lies in the plane) or non-zero (the line is strictly parallel and never intersects the plane).
+   $$
+   x + y + z = \frac{3}{2} + 1 + \frac{3}{2} = \frac{3}{2} + \frac{2}{2} + \frac{3}{2} = \frac{8}{2} = 4
+   $$
+
+   The left-hand side equals $4$, matching the right-hand side of the plane equation ($4 = 4$).
+
+2. **Check in the Line Description:**
+   Evaluate the parametric line equation at $t = \frac{1}{2}$:
+
+   $$
+   (x, y, z) = (1, 0, 2) + \frac{1}{2}(1, 2, -1) = \left(1 + \frac{1}{2}, \ 0 + 1, \ 2 - \frac{1}{2}\right) = \left(\frac{3}{2}, \ 1, \ \frac{3}{2}\right)
+   $$
+
+   The evaluation yields point $Q$ exactly.
+
+Because point $Q$ satisfies both the line and the plane equations simultaneously, the solution is verified.
 
 ---
 
 ### Final Answer
 
-1. **Relative Position:**
-   The line $L$ **lies entirely in the plane** $\Pi$ ($L \subset \Pi$, infinitely many intersection points).
-
-2. **Computation:**
+1. **Parameter Value:**
 
    $$
-   v \cdot n = (1)(1) + (-1)(1) + (0)(1) = 0
+   t = \frac{1}{2} = 0.5
    $$
 
-   $$
-   P_0 \in \Pi: \quad 1 + 1 + 0 = 2
-   $$
+2. **Intersection Point:**
 
    $$
-   (1 + t) + (1 - t) + 0 = 2, \qquad \forall t \in \mathbb{R}
+   (x, y, z) = \left(\frac{3}{2}, \ 1, \ \frac{3}{2}\right) = (1.5, \ 1, \ 1.5)
    $$
 
-3. **Role of $v \cdot n$:**
-   The dot product $v \cdot n$ determines whether the line has any motion in the direction perpendicular to the plane. If $v \cdot n \neq 0$, the line intersects the plane at exactly one point. If $v \cdot n = 0$, the line is parallel to the plane, and testing a single point distinguishes between strict parallelism (no points) and complete inclusion (all points).
+3. **Verification:**
+   * In plane: $\frac{3}{2} + 1 + \frac{3}{2} = 4$
+   * On line: $(1, 0, 2) + \frac{1}{2}(1, 2, -1) = \left(\frac{3}{2}, 1, \frac{3}{2}\right)$

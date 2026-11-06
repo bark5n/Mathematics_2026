@@ -1,4 +1,20 @@
-### Essential Formulas
+### Problem Statement
+
+For
+
+$$
+L:(x,y,z)=(1,1,0)+t(1,-1,0),\qquad \Pi:x+y+z=2,
+$$
+
+determine whether the line intersects the plane at one point, is parallel to it, or lies in it. Explain the role of the dot product of the direction vector and the normal vector.
+
+> **Why this exercise:** builds a universal test for the relative position of a line and a plane.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Relative Position of a Line and a Plane:**
    Let a line be given by $L: X = P_0 + t v$ and a plane by $\Pi: n \cdot X = d$.
@@ -26,22 +42,6 @@
      - If $n \cdot P_0 \neq d$ ($P_0 \notin \Pi$): the equation $0 \cdot t = d - n \cdot P_0 \neq 0$ has no solution, meaning the line is **strictly parallel and disjoint** from the plane ($L \parallel \Pi, L \cap \Pi = \emptyset$).
 
 ---
-
-### Problem Statement
-
-For
-
-$$
-L:(x,y,z)=(1,1,0)+t(1,-1,0),\qquad \Pi:x+y+z=2,
-$$
-
-determine whether the line intersects the plane at one point, is parallel to it, or lies in it. Explain the role of the dot product of the direction vector and the normal vector.
-
-> **Why this exercise:** builds a universal test for the relative position of a line and a plane.
-
----
-
-### Solution
 
 **Step 1: Extract the Direction Vector and Normal Vector**
 

@@ -1,159 +1,199 @@
-### Essential Formulas
-
-1. **Distance from a Point to a Line in $\mathbb{R}^2$:**
-   The perpendicular distance from a point $P(x_0, y_0)$ to a line $ax + by + c = 0$ is:
-
-   $$
-   d(P, L) = \frac{|a x_0 + b y_0 + c|}{\sqrt{a^2 + b^2}}
-   $$
-
-2. **Distance from a Point to a Plane in $\mathbb{R}^3$:**
-   The perpendicular distance from a point $Q(x_0, y_0, z_0)$ to a plane $ax + by + cz + d = 0$ is:
-
-   $$
-   d(Q, \Pi) = \frac{|a x_0 + b y_0 + c z_0 + d|}{\sqrt{a^2 + b^2 + c^2}}
-   $$
-
-3. **Unified Geometric Principle (Projection onto the Unit Normal):**
-   In any dimension, the shortest distance from an external point $X_0$ to a hyperplane with normal vector $n$ and any base point $X_{\mathrm{base}}$ on the surface is the absolute scalar projection of $(X_0 - X_{\mathrm{base}})$ onto the unit normal vector $e_n = \frac{n}{\|n\|}$:
-
-   $$
-   d = \left|(X_0 - X_{\mathrm{base}}) \cdot \frac{n}{\|n\|}\right| = \frac{|n \cdot X_0 - d_0|}{\|n\|}
-   $$
-
----
-
 ### Problem Statement
 
-Compute:
+Find the orthogonal projection of $P=(2,1,3)$ onto the plane $x+y+z=3$, and then find the reflection of $P$ across this plane. Check that the midpoint of the segment joining the point and its reflection lies on the plane.
 
-1. the distance from $P=(2,3)$ to the line $3x+4y-10=0$,
-2. the distance from $Q=(2,-1,3)$ to the plane $2x-2y+z-4=0$.
-
-Compare the two formulas and explain their common connection with the normal direction.
-
-> **Why this exercise:** organizes two similar formulas through one geometric idea.
+> **Why this exercise:** combines the normal, intersection, and distance into the construction of a projection and reflection.
 
 ---
 
 ### Solution
 
-**Step 1: Compute the Distance from $P(2, 3)$ to the Line $3x + 4y - 10 = 0$**
+#### Essential Formulas
 
-* Identify the line parameters:
-  - Normal vector: $n = (a, b) = (3, 4)$
-  - Constant term: $c = -10$
-  - Point coordinates: $(x_0, y_0) = (2, 3)$
+1. **Normal Line Through a Point:**
+   The line passing through a point $P(x_0, y_0, z_0)$ perpendicular to a plane $\Pi: ax + by + cz = d$ with normal vector $n = (a, b, c)$ is parametrized by:
 
-* Compute the numerator (absolute evaluation):
+   $$
+   X(t) = P + t n = (x_0 + a t, \ y_0 + b t, \ z_0 + c t), \qquad t \in \mathbb{R}
+   $$
+
+2. **Orthogonal Projection of a Point onto a Plane:**
+   The orthogonal projection $P_{\mathrm{proj}}$ is the intersection of the normal line with the plane. Substituting $X(t)$ into $n \cdot X = d$ yields:
+
+   $$
+   t^* = \frac{d - n \cdot P}{\|n\|^2}
+   $$
+
+   $$
+   P_{\mathrm{proj}} = P + t^* n
+   $$
+
+3. **Symmetric Reflection Across a Plane:**
+   The reflection $P_{\mathrm{refl}}$ of $P$ across the plane lies on the same normal line at twice the distance:
+
+   $$
+   P_{\mathrm{refl}} = P + 2t^* n = 2 P_{\mathrm{proj}} - P
+   $$
+
+4. **Midpoint Property:**
+   The midpoint of the segment connecting $P$ and $P_{\mathrm{refl}}$ is precisely the orthogonal projection:
+
+   $$
+   M = \frac{P + P_{\mathrm{refl}}}{2} = P_{\mathrm{proj}}
+   $$
+
+   and must satisfy the plane equation.
+
+---
+
+**Step 1: Set up the Normal Line Passing Through $P$**
+
+Given point $P = (2, 1, 3)$ and plane $\Pi: x + y + z = 3$:
+* The normal vector to the plane is:
 
   $$
-  |a x_0 + b y_0 + c| = |3(2) + 4(3) - 10|
+  n = (1, \ 1, \ 1)
   $$
 
-  $$
-  = |6 + 12 - 10| = |18 - 10| = |8| = 8
-  $$
-
-* Compute the denominator (length of normal vector):
+* The normal line $L_n$ passing through $P$ in the direction of $n$ is:
 
   $$
-  \|n\| = \sqrt{a^2 + b^2} = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5
-  $$
-
-* Compute the distance:
-
-  $$
-  d(P, L) = \frac{8}{5} = 1.6
+  (x, y, z) = (2, 1, 3) + t(1, 1, 1) = (2 + t, \ 1 + t, \ 3 + t)
   $$
 
 ---
 
-**Step 2: Compute the Distance from $Q(2, -1, 3)$ to the Plane $2x - 2y + z - 4 = 0$**
+**Step 2: Find the Orthogonal Projection $P_{\mathrm{proj}}$**
 
-* Identify the plane parameters:
-  - Normal vector: $n = (a, b, c) = (2, -2, 1)$
-  - Constant term: $d = -4$
-  - Point coordinates: $(x_0, y_0, z_0) = (2, -1, 3)$
+Substitute the parametric coordinates into the plane equation $x + y + z = 3$:
 
-* Compute the numerator:
+$$
+(2 + t) + (1 + t) + (3 + t) = 3
+$$
+
+Simplify the sum:
+
+$$
+(2 + 1 + 3) + (t + t + t) = 3
+$$
+
+$$
+6 + 3t = 3
+$$
+
+Subtract $6$ from both sides:
+
+$$
+3t = 3 - 6 = -3 \implies t = -1
+$$
+
+Substitute $t = -1$ into the parametric equations of the normal line:
+
+* $x$-coordinate:
 
   $$
-  |a x_0 + b y_0 + c z_0 + d| = |2(2) - 2(-1) + 1(3) - 4|
+  x = 2 + (-1) = 1
   $$
 
-  $$
-  = |4 + 2 + 3 - 4| = |5| = 5
-  $$
-
-* Compute the denominator (length of normal vector):
+* $y$-coordinate:
 
   $$
-  \|n\| = \sqrt{a^2 + b^2 + c^2} = \sqrt{2^2 + (-2)^2 + 1^2} = \sqrt{4 + 4 + 1} = \sqrt{9} = 3
+  y = 1 + (-1) = 0
   $$
 
-* Compute the distance:
+* $z$-coordinate:
 
   $$
-  d(Q, \Pi) = \frac{5}{3} \approx 1.6667
+  z = 3 + (-1) = 2
   $$
+
+Thus, the orthogonal projection is:
+
+$$
+P_{\mathrm{proj}} = (1, \ 0, \ 2)
+$$
+
+* **Verification on Plane:**
+
+  $$
+  1 + 0 + 2 = 3 \implies 3 = 3
+  $$
+
+  The projection point lies on the plane.
 
 ---
 
-**Step 3: Comparison of the Formulas**
+**Step 3: Find the Reflection $P_{\mathrm{refl}}$**
 
-The two formulas exhibit identical algebraic architecture:
+The reflection point is obtained by continuing along the normal line for another step of parameter $t = -1$ (total displacement parameter $t = 2(-1) = -2$):
 
-| Object | Dimension | Equation | Normal Vector $n$ | Distance Formula |
-| :--- | :--- | :--- | :--- | :--- |
-| **Line** | $2\mathrm{D}$ | $ax + by + c = 0$ | $(a, b)$ | $\frac{\|a x_0 + b y_0 + c\|}{\sqrt{a^2 + b^2}}$ |
-| **Plane** | $3\mathrm{D}$ | $ax + by + cz + d = 0$ | $(a, b, c)$ | $\frac{\|a x_0 + b y_0 + c z_0 + d\|}{\sqrt{a^2 + b^2 + c^2}}$ |
+$$
+P_{\mathrm{refl}} = P + 2(-1)n = (2, 1, 3) - 2(1, 1, 1)
+$$
 
-In both cases:
-* The **numerator** evaluates the implicit equation at the point coordinates.
-* The **denominator** is the Euclidean norm $\|n\|$ of the normal vector formed by the linear coefficients.
+Compute the components:
+
+$$
+P_{\mathrm{refl}} = (2 - 2, \ 1 - 2, \ 3 - 2) = (0, \ -1, \ 1)
+$$
+
+Alternatively, using the midpoint relationship $P_{\mathrm{refl}} = 2P_{\mathrm{proj}} - P$:
+
+$$
+P_{\mathrm{refl}} = 2(1, 0, 2) - (2, 1, 3) = (2, 0, 4) - (2, 1, 3) = (0, \ -1, \ 1)
+$$
+
+Both calculations give $P_{\mathrm{refl}} = (0, -1, 1)$.
 
 ---
 
-**Step 4: Geometric Connection with the Normal Direction**
+**Step 4: Check That the Midpoint Lies on the Plane**
 
-1. **Shortest Path Along the Normal Line:**
-   * The shortest geometric segment connecting an external point to a flat surface (line in $2\mathrm{D}$, plane in $3\mathrm{D}$) must meet the surface perpendicularly.
-   * Therefore, the displacement vector from the closest surface point to the external point is strictly parallel to the normal vector $n$.
+Compute the midpoint $M$ of segment $P P_{\mathrm{refl}}$:
 
-2. **Orthogonal Projection onto the Unit Normal:**
-   * Let $X_{\mathrm{base}}$ be any point on the line or plane (so that $n \cdot X_{\mathrm{base}} + \mathrm{const} = 0$).
-   * The vector connecting the surface to the point $X_0$ is $(X_0 - X_{\mathrm{base}})$.
-   * The length of the perpendicular shadow cast by this vector onto the normal direction is given by the dot product with the unit normal $e_n = \frac{n}{\|n\|}$:
+$$
+M = \frac{P + P_{\mathrm{refl}}}{2} = \frac{(2, 1, 3) + (0, -1, 1)}{2}
+$$
 
-     $$
-     d = \left|(X_0 - X_{\mathrm{base}}) \cdot \frac{n}{\|n\|}\right| = \frac{|n \cdot X_0 - n \cdot X_{\mathrm{base}}|}{\|n\|}
-     $$
+Add coordinates:
 
-   * Since $n \cdot X_{\mathrm{base}} = -\mathrm{const}$, this becomes exactly $\frac{|\mathrm{Equation}(X_0)|}{\|n\|}$.
-   * Dividing by $\|n\|$ normalizes the coefficients, transforming an algebraic residual into a true metric length.
+$$
+M = \frac{(2 + 0, \ 1 + (-1), \ 3 + 1)}{2} = \frac{(2, \ 0, \ 4)}{2} = (1, \ 0, \ 2)
+$$
+
+Notice that $M = P_{\mathrm{proj}}$.
+Now substitute $M(1, 0, 2)$ into the plane equation $x + y + z = 3$:
+
+$$
+1 + 0 + 2 = 3 \implies 3 = 3
+$$
+
+The midpoint satisfies the plane equation, verifying the geometric symmetry of the projection and reflection.
 
 ---
 
 ### Final Answer
 
-1. **Distance to the Line:**
+1. **Orthogonal Projection:**
 
    $$
-   d(P, L) = \frac{8}{5} = 1.6
+   P_{\mathrm{proj}} = (1, \ 0, \ 2)
    $$
 
-2. **Distance to the Plane:**
+2. **Reflection Point:**
 
    $$
-   d(Q, \Pi) = \frac{5}{3} \approx 1.6667
+   P_{\mathrm{refl}} = (0, \ -1, \ 1)
    $$
 
-3. **Comparison and Geometric Meaning:**
-   Both formulas compute the length of the orthogonal projection of the displacement vector onto the unit normal vector:
+3. **Midpoint Check:**
 
    $$
-   \mathrm{Distance} = \frac{|\mathrm{Implicit \ Equation \ Evaluated \ at \ Point}|}{\|\mathrm{Normal \ Vector}\|}
+   M = \frac{(2, 1, 3) + (0, -1, 1)}{2} = (1, \ 0, \ 2)
    $$
 
-   The normal direction represents the unique perpendicular path of minimum distance between the point and the hyperplane.
+   $$
+   1 + 0 + 2 = 3
+   $$
+
+   The midpoint coincides with the orthogonal projection and strictly satisfies the plane equation.

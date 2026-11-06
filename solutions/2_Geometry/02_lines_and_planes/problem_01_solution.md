@@ -1,4 +1,14 @@
-### Essential Formulas
+### Problem Statement
+
+Find the equation of the line through $A=(1,2)$ and $B=(4,-1)$ in parametric and general form. Identify a direction vector and an example of a normal vector. Check that both points satisfy the equation you obtain.
+
+> **Why this exercise:** teaches how to move between equivalent descriptions of a line and connect them with the appropriate vectors.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Direction Vector of a Line Through Two Points:**
    For points $A = (x_A, y_A)$ and $B = (x_B, y_B)$ in $\mathbb{R}^2$, a direction vector parallel to the line is given by:
@@ -43,16 +53,6 @@
    where $c = -(a x_A + b y_A)$.
 
 ---
-
-### Problem Statement
-
-Find the equation of the line through $A=(1,2)$ and $B=(4,-1)$ in parametric and general form. Identify a direction vector and an example of a normal vector. Check that both points satisfy the equation you obtain.
-
-> **Why this exercise:** teaches how to move between equivalent descriptions of a line and connect them with the appropriate vectors.
-
----
-
-### Solution
 
 **Step 1: Construct the Direction Vector**
 

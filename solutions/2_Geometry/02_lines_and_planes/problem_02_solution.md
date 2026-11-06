@@ -1,4 +1,20 @@
-### Essential Formulas
+### Problem Statement
+
+Given
+
+$$
+L:(x,y,z)=(2,-1,3)+t(1,2,-2).
+$$
+
+State a point on the line and its direction vector, check whether $P=(4,3,-1)$ lies on $L$, and find the point corresponding to $t=-1$.
+
+> **Why this exercise:** reinforces the interpretation of parametric form as “point + direction.”
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Parametric Vector Equation of a Line in $\mathbb{R}^3$:**
    A line $L$ passing through a given point $P_0 = (x_0, y_0, z_0)$ with direction vector $v = (v_1, v_2, v_3)$ is represented by:
@@ -26,22 +42,6 @@
    $$
 
 ---
-
-### Problem Statement
-
-Given
-
-$$
-L:(x,y,z)=(2,-1,3)+t(1,2,-2).
-$$
-
-State a point on the line and its direction vector, check whether $P=(4,3,-1)$ lies on $L$, and find the point corresponding to $t=-1$.
-
-> **Why this exercise:** reinforces the interpretation of parametric form as “point + direction.”
-
----
-
-### Solution
 
 **Step 1: Identify a Point on the Line and the Direction Vector**
 

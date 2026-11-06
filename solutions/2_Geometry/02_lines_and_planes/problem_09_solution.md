@@ -1,4 +1,19 @@
-### Essential Formulas
+### Problem Statement
+
+Compute:
+
+1. the distance from $P=(2,3)$ to the line $3x+4y-10=0$,
+2. the distance from $Q=(2,-1,3)$ to the plane $2x-2y+z-4=0$.
+
+Compare the two formulas and explain their common connection with the normal direction.
+
+> **Why this exercise:** organizes two similar formulas through one geometric idea.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Distance from a Point to a Line in $\mathbb{R}^2$:**
    The perpendicular distance from a point $P(x_0, y_0)$ to a line $ax + by + c = 0$ is:
@@ -22,21 +37,6 @@
    $$
 
 ---
-
-### Problem Statement
-
-Compute:
-
-1. the distance from $P=(2,3)$ to the line $3x+4y-10=0$,
-2. the distance from $Q=(2,-1,3)$ to the plane $2x-2y+z-4=0$.
-
-Compare the two formulas and explain their common connection with the normal direction.
-
-> **Why this exercise:** organizes two similar formulas through one geometric idea.
-
----
-
-### Solution
 
 **Step 1: Compute the Distance from $P(2, 3)$ to the Line $3x + 4y - 10 = 0$**
 

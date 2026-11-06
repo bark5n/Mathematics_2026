@@ -1,4 +1,20 @@
-### Essential Formulas
+### Problem Statement
+
+Find the equation of the plane containing
+
+$$
+(x,y,z)=(1,0,2)+t(1,1,-1)
+$$
+
+and the point $P=(0,2,1)$. Check that both the entire line and the point lie in the plane you obtain.
+
+> **Why this exercise:** requires independently constructing two linearly independent directions in the plane.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Plane Defined by a Line and a Point:**
    Given a line $L: X = P_0 + t v$ and a point $P \notin L$, the plane containing both must contain:
@@ -25,22 +41,6 @@
    $$
 
 ---
-
-### Problem Statement
-
-Find the equation of the plane containing
-
-$$
-(x,y,z)=(1,0,2)+t(1,1,-1)
-$$
-
-and the point $P=(0,2,1)$. Check that both the entire line and the point lie in the plane you obtain.
-
-> **Why this exercise:** requires independently constructing two linearly independent directions in the plane.
-
----
-
-### Solution
 
 **Step 1: Extract Known Elements and Check That $P \notin L$**
 

@@ -1,211 +1,159 @@
-### Essential Formulas
-
-1. **Closest Point on a Plane (Orthogonal Projection):**
-   The point $Q$ on a plane $\Pi: ax + by + cz = d$ closest to an external point $P(x_0, y_0, z_0)$ is the intersection of the plane with the normal line passing through $P$:
-
-   $$
-   X(t) = P + t n, \qquad n = (a, b, c)
-   $$
-
-   Substituting into the plane equation yields:
-
-   $$
-   t^* = \frac{d - n \cdot P}{\|n\|^2}
-   $$
-
-   $$
-   Q = P + t^* n
-   $$
-
-2. **Distance from a Point to a Plane:**
-   The shortest distance is the length of the perpendicular displacement vector $\overrightarrow{PQ}$:
-
-   $$
-   d(P, \Pi) = \|\overrightarrow{PQ}\| = |t^*| \|n\| = \frac{|a x_0 + b y_0 + c z_0 - d|}{\sqrt{a^2 + b^2 + c^2}}
-   $$
-
-3. **Perpendicularity of the Segment to the Plane:**
-   The segment connecting $P$ and $Q$ is perpendicular to the plane if its direction vector $\overrightarrow{PQ}$ is collinear with the plane's normal vector $n$:
-
-   $$
-   \overrightarrow{PQ} = k n \quad (k \in \mathbb{R})
-   $$
-
----
-
 ### Problem Statement
 
-Find the point on the plane $x+2y+2z=4$ closest to $P=(3,0,0)$. Give the distance and check that the segment joining the two points is perpendicular to the plane.
+From the point $P=(0,0,1)$, two lines are drawn with direction vectors
 
-> **Why this exercise:** combines projection, distance, and the normal direction in one problem.
+$$
+v_1=(2,1,-1),\qquad v_2=(2,1,0).
+$$
+
+For each line, analyze its position relative to the plane $z=0$.
+
+For the line that intersects the plane, find the intersection point. For the other line, explain how you can recognize parallelism without solving an equation.
+
+> **Why this exercise:** compares two very similar data sets that lead to different outcomes and forces recognition of the geometric condition before calculation.
 
 ---
 
 ### Solution
 
-**Step 1: Set up the Normal Line from Point $P$**
+#### Essential Formulas
 
-Given point $P = (3, 0, 0)$ and plane $\Pi: x + 2y + 2z = 4$:
-* The normal vector of the plane is:
+1. **Horizontal Coordinate Plane ($xy$-Plane):**
+   The equation of the plane $z = 0$ is:
 
-  $$
-  n = (1, \ 2, \ 2)
-  $$
+   $$
+   0x + 0y + 1z = 0
+   $$
 
-* The normal line $L_n$ passing through $P$ along direction $n$ has parametric equations:
+   Its standard normal vector is the third unit basis vector:
 
-  $$
-  \begin{pmatrix}
-  x \\
-  y \\
-  z \\
-  \end{pmatrix}
-  = \begin{pmatrix}
-  3 \\
-  0 \\
-  0 \\
-  \end{pmatrix}
-  + t \begin{pmatrix}
-  1 \\
-  2 \\
-  2 \\
-  \end{pmatrix}
-  = \begin{pmatrix}
-  3 + t \\
-  2t \\
-  2t \\
-  \end{pmatrix}
-  $$
+   $$
+   n = (0, \ 0, \ 1)
+   $$
+
+2. **Line-Plane Intersection Condition:**
+   For a line with direction vector $v = (v_x, v_y, v_z)$ and the plane $z = 0$:
+
+   $$
+   v \cdot n = v_z
+   $$
+
+   * If $v_z \neq 0$: the line is not parallel to the plane and intersects it at a single point.
+   * If $v_z = 0$: the line has zero vertical velocity and is parallel to the plane.
 
 ---
 
-**Step 2: Find the Closest Point $Q$**
+**Step 1: Identify the Plane and Normal Vector**
 
-The closest point $Q$ is the intersection of the normal line with the plane.
-Substitute the parametric coordinates into $x + 2y + 2z = 4$:
-
-$$
-(3 + t) + 2(2t) + 2(2t) = 4
-$$
-
-Expand and combine like terms:
+The given plane is $\Pi: z = 0$.
+Its normal vector is:
 
 $$
-3 + t + 4t + 4t = 4
+n = (0, \ 0, \ 1)
 $$
 
-$$
-3 + 9t = 4
-$$
-
-Subtract $3$ from both sides:
-
-$$
-9t = 4 - 3 = 1 \implies t = \frac{1}{9}
-$$
-
-Now substitute $t = \frac{1}{9}$ back into the line equations:
-
-* $x$-coordinate:
-
-  $$
-  x = 3 + \frac{1}{9} = \frac{27}{9} + \frac{1}{9} = \frac{28}{9}
-  $$
-
-* $y$-coordinate:
-
-  $$
-  y = 2\left(\frac{1}{9}\right) = \frac{2}{9}
-  $$
-
-* $z$-coordinate:
-
-  $$
-  z = 2\left(\frac{1}{9}\right) = \frac{2}{9}
-  $$
-
-Thus, the closest point on the plane is:
-
-$$
-Q = \left(\frac{28}{9}, \ \frac{2}{9}, \ \frac{2}{9}\right)
-$$
-
-* **Verification on the Plane:**
-
-  $$
-  \frac{28}{9} + 2\left(\frac{2}{9}\right) + 2\left(\frac{2}{9}\right) = \frac{28 + 4 + 4}{9} = \frac{36}{9} = 4
-  $$
-
-  Point $Q$ strictly satisfies the plane equation.
+Both lines originate from the shared point $P(0, 0, 1)$, which lies at vertical height $z = 1$ above the plane ($1 \neq 0$, so $P \notin \Pi$).
 
 ---
 
-**Step 3: Compute the Distance from $P$ to the Plane**
+**Step 2: Analysis of Line 1 ($v_1 = (2, 1, -1)$)**
 
-* **Way 1: From the displacement vector $\overrightarrow{PQ}$:**
-
-  $$
-  \overrightarrow{PQ} = Q - P = \left(\frac{28}{9} - 3, \ \frac{2}{9} - 0, \ \frac{2}{9} - 0\right) = \left(\frac{1}{9}, \ \frac{2}{9}, \ \frac{2}{9}\right)
-  $$
-
-  Compute its Euclidean length:
+* **Dot Product Test:**
 
   $$
-  \|\overrightarrow{PQ}\| = \sqrt{\left(\frac{1}{9}\right)^2 + \left(\frac{2}{9}\right)^2 + \left(\frac{2}{9}\right)^2} = \frac{\sqrt{1^2 + 2^2 + 2^2}}{9} = \frac{\sqrt{1 + 4 + 4}}{9} = \frac{\sqrt{9}}{9} = \frac{3}{9} = \frac{1}{3}
+  v_1 \cdot n = (2)(0) + (1)(0) + (-1)(1) = -1 \neq 0
   $$
 
-* **Way 2: From the point-plane distance formula:**
+  Because $v_1 \cdot n \neq 0$, Line 1 is not parallel to the plane. It **intersects** the plane $\Pi$ at exactly one point.
+
+* **Find the Intersection Point:**
+  Parametrize Line 1:
 
   $$
-  d(P, \Pi) = \frac{|1(3) + 2(0) + 2(0) - 4|}{\sqrt{1^2 + 2^2 + 2^2}} = \frac{|3 - 4|}{\sqrt{9}} = \frac{|-1|}{3} = \frac{1}{3}
+  (x, y, z) = (0, 0, 1) + t(2, 1, -1) = (2t, \ t, \ 1 - t)
   $$
 
-Both calculations confirm:
+  Substitute the $z$-coordinate into the plane equation $z = 0$:
 
-$$
-d(P, \Pi) = \frac{1}{3} \approx 0.3333
-$$
+  $$
+  1 - t = 0 \implies t = 1
+  $$
+
+  Substitute $t = 1$ into the parametric equations:
+  - $x = 2(1) = 2$
+  - $y = 1(1) = 1$
+  - $z = 1 - 1 = 0$
+
+  The intersection point is:
+
+  $$
+  Q_1 = (2, \ 1, \ 0)
+  $$
+
+  * **Verification:**
+    Point $Q_1(2, 1, 0)$ satisfies $z = 0$ (lies on $\Pi$) and corresponds to $t = 1$ on Line 1.
 
 ---
 
-**Step 4: Check That the Segment Joining $P$ and $Q$ Is Perpendicular to the Plane**
+**Step 3: Analysis of Line 2 ($v_2 = (2, 1, 0)$)**
 
-* The displacement vector representing the segment connecting $P$ to $Q$ is:
-
-  $$
-  \overrightarrow{PQ} = \left(\frac{1}{9}, \ \frac{2}{9}, \ \frac{2}{9}\right) = \frac{1}{9}(1, \ 2, \ 2)
-  $$
-
-* Comparing this with the normal vector $n = (1, 2, 2)$:
+* **Dot Product Test:**
 
   $$
-  \overrightarrow{PQ} = \frac{1}{9} n
+  v_2 \cdot n = (2)(0) + (1)(0) + (0)(1) = 0
   $$
 
-* **Conclusion:**
-  Since $\overrightarrow{PQ}$ is a direct scalar multiple of the plane's normal vector $n$ (with scalar factor $k = 1/9$), the segment $PQ$ is collinear with the normal line.
-  Because the normal line is perpendicular to every direction in the plane, the segment joining $P$ and $Q$ is strictly perpendicular to the plane.
+  Because $v_2 \cdot n = 0$, the direction vector $v_2$ is orthogonal to the normal vector $n$.
+  Therefore, Line 2 is **parallel** to the plane $z = 0$.
+
+* **Consistency and Disjointness:**
+  Parametrize Line 2:
+
+  $$
+  (x, y, z) = (0, 0, 1) + s(2, 1, 0) = (2s, \ s, \ 1)
+  $$
+
+  Setting $z = 0$ yields:
+
+  $$
+  1 = 0
+  $$
+
+  which is an impossible contradiction.
+  Because $P(0, 0, 1) \notin \Pi$, Line 2 is **strictly parallel and disjoint** from the plane ($L_2 \parallel \Pi, L_2 \cap \Pi = \emptyset$).
+
+---
+
+**Step 4: How to Recognize Parallelism Without Solving an Equation**
+
+1. **Inspection of the $z$-Component:**
+   * The plane $z = 0$ is a level surface of constant altitude ($z = 0$).
+   * A vector $v = (v_x, v_y, v_z)$ describes the rate of change of coordinates along the line.
+   * In $v_2 = (2, 1, 0)$, the third component is $v_z = 0$.
+   * A zero $z$-component means that traveling along the line causes displacement only in the $x$ and $y$ directions, while the $z$-coordinate never changes.
+
+2. **Geometric Deduction:**
+   * Since the line starts at point $P(0, 0, 1)$, every point on Line 2 has coordinate $z = 1 + s(0) = 1$.
+   * The line resides entirely within the horizontal plane $z = 1$.
+   * Because the plane $z = 1$ is parallel to and strictly separated by a distance of $1$ from the plane $z = 0$, Line 2 must be parallel to $z = 0$ and can never intersect it.
+   * This conclusion is obtained immediately by observing that $v_z = 0$, requiring no algebraic solving.
 
 ---
 
 ### Final Answer
 
-1. **Closest Point on the Plane:**
+1. **Line 1 ($v_1 = (2, 1, -1)$):**
+   * **Relative Position:** Intersects the plane $z = 0$ at exactly one point ($v_1 \cdot n = -1 \neq 0$).
+   * **Intersection Point:**
 
-   $$
-   Q = \left(\frac{28}{9}, \ \frac{2}{9}, \ \frac{2}{9}\right)
-   $$
+     $$
+     Q_1 = (2, \ 1, \ 0)
+     $$
 
-2. **Distance from $P$ to the Plane:**
+     (at parameter $t = 1$).
 
-   $$
-   d(P, \Pi) = \frac{1}{3} \approx 0.3333
-   $$
+2. **Line 2 ($v_2 = (2, 1, 0)$):**
+   * **Relative Position:** Strictly parallel to the plane $z = 0$ ($v_2 \cdot n = 0$ and $P \notin \Pi$).
 
-3. **Perpendicularity Check:**
-
-   $$
-   \overrightarrow{PQ} = Q - P = \left(\frac{1}{9}, \ \frac{2}{9}, \ \frac{2}{9}\right) = \frac{1}{9} n
-   $$
-
-   Because $\overrightarrow{PQ}$ is collinear with the normal vector $n = (1, 2, 2)$, the segment $PQ$ is perpendicular to the plane.
+3. **Recognition Without Calculation:**
+   The plane $z = 0$ requires points to have $z = 0$. Since $v_2$ has a zero $z$-component ($v_z = 0$), motion along Line 2 produces zero vertical change, locking the line at constant height $z = 1$. A line trapped at height $z = 1$ can never reach height $z = 0$, guaranteeing parallelism by inspection.

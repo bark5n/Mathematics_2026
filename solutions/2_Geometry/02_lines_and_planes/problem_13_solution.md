@@ -1,4 +1,14 @@
-### Essential Formulas
+### Problem Statement
+
+Find the point on the plane $x+2y+2z=4$ closest to $P=(3,0,0)$. Give the distance and check that the segment joining the two points is perpendicular to the plane.
+
+> **Why this exercise:** combines projection, distance, and the normal direction in one problem.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Closest Point on a Plane (Orthogonal Projection):**
    The point $Q$ on a plane $\Pi: ax + by + cz = d$ closest to an external point $P(x_0, y_0, z_0)$ is the intersection of the plane with the normal line passing through $P$:
@@ -32,16 +42,6 @@
    $$
 
 ---
-
-### Problem Statement
-
-Find the point on the plane $x+2y+2z=4$ closest to $P=(3,0,0)$. Give the distance and check that the segment joining the two points is perpendicular to the plane.
-
-> **Why this exercise:** combines projection, distance, and the normal direction in one problem.
-
----
-
-### Solution
 
 **Step 1: Set up the Normal Line from Point $P$**
 

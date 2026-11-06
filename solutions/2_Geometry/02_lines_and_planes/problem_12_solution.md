@@ -1,4 +1,20 @@
-### Essential Formulas
+### Problem Statement
+
+Find a parametric equation of the line that is the intersection of
+
+$$
+x+y+z=3,\qquad x-y+z=1.
+$$
+
+Find its direction vector in two ways: from the system of equations and from the cross product of the normal vectors. Compare the results.
+
+> **Why this exercise:** shows the equivalence of the algebraic and geometric approaches to constructing an intersection line.
+
+---
+
+### Solution
+
+#### Essential Formulas
 
 1. **Intersection Line of Two Non-Parallel Planes:**
    Two planes $\Pi_1: n_1 \cdot X = d_1$ and $\Pi_2: n_2 \cdot X = d_2$ with non-collinear normal vectors intersect along a straight line $L$.
@@ -27,22 +43,6 @@
    $$
 
 ---
-
-### Problem Statement
-
-Find a parametric equation of the line that is the intersection of
-
-$$
-x+y+z=3,\qquad x-y+z=1.
-$$
-
-Find its direction vector in two ways: from the system of equations and from the cross product of the normal vectors. Compare the results.
-
-> **Why this exercise:** shows the equivalence of the algebraic and geometric approaches to constructing an intersection line.
-
----
-
-### Solution
 
 **Step 1: Way 1 — Direction Vector and Line from the System of Equations**
 
