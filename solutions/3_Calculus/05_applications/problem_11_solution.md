@@ -1,217 +1,146 @@
 ### Essential Formulas
 
-1. **Pythagorean Theorem for Spatial Distance:**
-   In a Cartesian coordinate system, the distance between $(0, 100)$ and $(x, 0)$ is:
+1. **Volume of a Solid of Revolution (Disk Method around the $x$-Axis):**
+   When the continuous curve $y = f(x) \ge 0$ on $[a, b]$ is rotated about the $x$-axis, the volume of the resulting solid of revolution is:
 
    $$
-   d = \sqrt{x^2 + 100^2} = \sqrt{x^2 + 10000}
+   V = \pi \int_a^b [f(x)]^2 \, dx = \pi \int_a^b y^2 \, dx
    $$
 
-2. **Cost Optimization Function:**
-   If unit costs are $c_{\mathrm{water}} = 2c$ and $c_{\mathrm{land}} = c$, total cost is:
+2. **Infinitesimal Cylindrical Disk Element:**
+   At coordinate $x$, a slice of width $dx$ forms a circular disk:
+   * Radius: $R(x) = y = f(x)$
+   * Cross-sectional circular area: $A(x) = \pi R(x)^2 = \pi y^2$
+   * Volume element: $dV = A(x) \, dx = \pi y^2 \, dx$
+
+3. **Power Rule for Integration:**
 
    $$
-   C(x) = c_{\mathrm{water}} \cdot d_{\mathrm{water}} + c_{\mathrm{land}} \cdot d_{\mathrm{land}}
-   $$
-
-3. **Critical Point Condition:**
-
-   $$
-   C'(x) = 0
+   \int_a^b x \, dx = \left[ \frac{x^2}{2} \right]_a^b
    $$
 
 ---
 
 ### Problem Statement
 
-Point $A$ lies on one bank of a river of width $100$ m, and point $B$ lies on the other bank, $500$ m along the bank from the point directly opposite $A$.
+The region under the graph
 
-The cost per meter of cable underwater is twice the cost per meter of cable on land.
+$$
+y=\sqrt{x},\qquad x\in[0,4],
+$$
 
-Build a cost function depending on the point where the cable comes out of the water, determine the domain, and find the solution that minimizes the cost.
+is rotated about the $x$-axis.
 
-> **Why this problem:** it checks whether the student can independently translate a spatial description and two different costs into a single function to be optimized.
+1. Construct the integral describing the volume using the disk method.
+2. Compute the volume.
+3. Explain where the factor $\pi y^2$ in the integral comes from.
+
+> **Why this problem:** it teaches how to construct an integral from the geometry of cross-sections instead of applying a volume formula without understanding its origin.
 
 ---
 
 ### Solution
 
-**Step 1: Set up the spatial coordinate model and define variables**
+**Step 1: Construct the integral using the disk method**
 
-Establish a Cartesian plane:
-* Let the bank containing point $A$ be the line $y = 100$. Place point $A$ at coordinates $(0, 100)$.
-* Let the opposite bank containing point $B$ lie along the $x$-axis ($y = 0$).
-* The point directly opposite $A$ on this bank is the origin $C(0, 0)$.
-* Point $B$ is located $500\ \mathrm{m}$ down the bank at coordinates $(500, 0)$.
-
-Let $P(x, 0)$ denote the point on the opposite bank where the cable emerges from the water:
-* **Underwater segment ($A$ to $P$):**
-  By the Pythagorean theorem, the underwater path length is:
+The region is bounded by $y = \sqrt{x}$, the $x$-axis ($y = 0$), and the vertical lines $x = 0$ and $x = 4$.
+Rotating this planar region about the $x$-axis generates a three-dimensional paraboloid of revolution:
+* At every horizontal coordinate $x \in [0, 4]$, slicing the solid perpendicular to the $x$-axis produces a circular cross-section.
+* The radius of this circle is the vertical distance from the axis of rotation ($y = 0$) to the curve:
 
   $$
-  d_{\mathrm{water}} = \sqrt{(x - 0)^2 + (0 - 100)^2} = \sqrt{x^2 + 10000}
+  R(x) = y = \sqrt{x}
   $$
 
-* **Land segment ($P$ to $B$):**
-  The cable runs straight along the bank from $x$ to $500$, so the land path length is:
+* The cross-sectional area of this circular face is:
 
   $$
-  d_{\mathrm{land}} = 500 - x
+  A(x) = \pi [R(x)]^2 = \pi y^2 = \pi (\sqrt{x})^2 = \pi x
   $$
 
----
-
-**Step 2: Build the cost function and determine its domain**
-
-Let $c > 0$ denote the cost per meter of cable on land.
-The underwater cost per meter is $2c$.
-The total cost of laying the cable is:
+Multiplying the face area by the infinitesimal slice thickness $dx$ gives the volume of a single disk:
 
 $$
-C(x) = 2c \cdot d_{\mathrm{water}} + c \cdot d_{\mathrm{land}}
+dV = A(x) \, dx = \pi x \, dx
 $$
 
-Substitute the geometric distances:
+Summing all disks across the interval $[0, 4]$ yields the definite integral:
 
 $$
-C(x) = 2c\sqrt{x^2 + 10000} + c(500 - x) = c\left(2\sqrt{x^2 + 10000} + 500 - x\right)
-$$
-
-**Domain:**
-The exit point $P$ must physically lie between the point opposite $A$ ($x = 0$) and the destination $B$ ($x = 500$):
-* If $x < 0$, both the underwater distance and the land distance would be longer than at $x = 0$.
-* If $x > 500$, both the underwater distance and the land distance would be longer than at $x = 500$.
-
-Therefore, the geometrically feasible domain is the closed interval:
-
-$$
-D = [0, 500]
+V = \pi \int_0^4 y^2 \, dx = \pi \int_0^4 (\sqrt{x})^2 \, dx = \pi \int_0^4 x \, dx
 $$
 
 ---
 
-**Step 3: Differentiate to find the critical point**
+**Step 2: Compute the volume**
 
-To minimize $C(x)$, it suffices to minimize the normalized cost function:
-
-$$
-f(x) = 2\sqrt{x^2 + 10000} + 500 - x
-$$
-
-Differentiate with respect to $x$ using the chain rule:
+Evaluate the definite integral using the power rule:
 
 $$
-f'(x) = 2 \cdot \frac{2x}{2\sqrt{x^2 + 10000}} - 1 = \frac{2x}{\sqrt{x^2 + 10000}} - 1
+V = \pi \left[ \frac{x^2}{2} \right]_0^4
 $$
 
-Set the derivative equal to zero:
+Substitute the limits of integration:
 
 $$
-\frac{2x}{\sqrt{x^2 + 10000}} - 1 = 0 \iff \frac{2x}{\sqrt{x^2 + 10000}} = 1
+V = \pi \left( \frac{4^2}{2} - \frac{0^2}{2} \right) = \pi \left( \frac{16}{2} - 0 \right) = 8\pi
 $$
 
-Multiply both sides by $\sqrt{x^2 + 10000}$:
+In decimal form:
 
 $$
-2x = \sqrt{x^2 + 10000}
+V = 8\pi \approx 25.1327
 $$
-
-Since $x \ge 0$, square both sides:
-
-$$
-(2x)^2 = x^2 + 10000 \iff 4x^2 = x^2 + 10000
-$$
-
-Subtract $x^2$ from both sides:
-
-$$
-3x^2 = 10000 \iff x^2 = \frac{10000}{3}
-$$
-
-Taking the positive square root:
-
-$$
-x = \frac{100}{\sqrt{3}} = \frac{100\sqrt{3}}{3} \approx 57.735\ \mathrm{m}
-$$
-
-Because $0 \le 57.74 \le 500$, this critical point lies in the domain.
 
 ---
 
-**Step 4: Verify the global minimum on $[0, 500]$**
+**Step 3: Explain the origin of the factor $\pi y^2$ in the integral**
 
-Compute the second derivative:
-
-$$
-f''(x) = \frac{d}{dx}\left[\frac{2x}{\sqrt{x^2 + 10000}}\right] = \frac{2\sqrt{x^2 + 10000} - 2x \cdot \frac{x}{\sqrt{x^2 + 10000}}}{x^2 + 10000}
-$$
-
-$$
-f''(x) = \frac{2(x^2 + 10000) - 2x^2}{(x^2 + 10000)^{3/2}} = \frac{20000}{(x^2 + 10000)^{3/2}}
-$$
-
-Because the numerator is $20000 > 0$ and the denominator is strictly positive for all real $x$:
-
-$$
-f''(x) > 0 \quad \forall x \in [0, 500]
-$$
-
-The function is strictly convex, guaranteeing that the critical point is a unique **strict global minimum**.
-
-**Compare values at critical point and endpoints:**
-1. At the critical point $x = \frac{100}{\sqrt{3}}$:
+1. **Geometry of Revolution:**
+   When a straight vertical line segment extending from $(x, 0)$ to $(x, y)$ rotates $360^\circ$ about the $x$-axis, its path sweeps out a flat circular disk perpendicular to the axis of revolution.
+2. **Area of a Circle:**
+   From Euclidean geometry, the area of a circle with radius $r$ is:
 
    $$
-   \sqrt{x^2 + 10000} = \sqrt{\frac{10000}{3} + 10000} = \sqrt{\frac{40000}{3}} = \frac{200}{\sqrt{3}}
+   A = \pi r^2
    $$
 
-   $$
-   f\left(\frac{100}{\sqrt{3}}\right) = 2\left(\frac{200}{\sqrt{3}}\right) + 500 - \frac{100}{\sqrt{3}} = \frac{300}{\sqrt{3}} + 500 = 100\sqrt{3} + 500 \approx 673.21
-   $$
-
-   Total cost is approximately $673.21 c$.
-
-2. At endpoint $x = 0$ (cross perpendicularly, then walk $500\ \mathrm{m}$ on land):
+   In this coordinate framework, the radius of the circle at position $x$ is precisely the function's height:
 
    $$
-   f(0) = 2(100) + 500 - 0 = 700 \implies C(0) = 700 c
+   r = y = f(x)
    $$
 
-3. At endpoint $x = 500$ (cable goes straight underwater from $A$ to $B$):
+   Substituting $r = y$ produces the cross-sectional area:
 
    $$
-   f(500) = 2\sqrt{500^2 + 100^2} = 2\sqrt{260000} = 200\sqrt{26} \approx 1019.80 \implies C(500) \approx 1019.80 c
+   A(x) = \pi y^2
    $$
 
-The minimum cost occurs strictly at $x = \frac{100\sqrt{3}}{3} \approx 57.74\ \mathrm{m}$.
+3. **Cavalieri's Principle and Riemann Sums:**
+   A thin vertical slice of the solid of thickness $dx$ is approximately a flat right circular cylinder (a coin or disk) of base area $\pi y^2$ and height $dx$. Its differential volume is therefore:
+
+   $$
+   dV = \pi y^2 \, dx
+   $$
+
+   The integral $\int_a^b \pi y^2 \, dx$ is the limit of the sum of these thin circular slices, accumulating the total volume of the solid of revolution.
 
 ---
 
 ### Final Answer
 
-1. **Cost Function:**
+1. **Integral Construction (Disk Method):**
 
    $$
-   C(x) = c\left(2\sqrt{x^2 + 10000} + 500 - x\right)
+   V = \pi \int_0^4 y^2 \, dx = \pi \int_0^4 x \, dx
    $$
 
-2. **Domain:**
+2. **Computed Volume:**
 
    $$
-   D = [0, 500]
+   V = 8\pi \approx 25.13
    $$
 
-3. **Optimal Exit Point:**
-   The cable should exit the water at:
-
-   $$
-   x = \frac{100\sqrt{3}}{3} \approx 57.74\ \mathrm{m}
-   $$
-
-   down the opposite bank from the point directly across from $A$.
-
-4. **Minimum Cost:**
-
-   $$
-   C_{\min} = c(100\sqrt{3} + 500) \approx 673.21 c
-   $$
+3. **Origin of $\pi y^2$:**
+   Rotating the vertical segment of height $y$ around the $x$-axis generates a circular cross-section with radius $r = y$. The term $\pi y^2$ is the exact geometric area of this circular cross-sectional slice ($\pi r^2$).
