@@ -1,20 +1,21 @@
 ### Essential Formulas
 
-**Associativity of Matrix Multiplication:**
-Let $A \in \mathbb{R}^{m \times n}$, $B \in \mathbb{R}^{n \times p}$, and $C \in \mathbb{R}^{p \times q}$ be matrices with compatible inner dimensions. Matrix multiplication is associative:
-
-$$(AB)C = A(BC)$$
-
-Both groupings yield the exact same $m \times q$ matrix, allowing the triple product to be written unambiguously as $ABC$.
+**Matrix Multiplication Definition:**
+For an $m \times p$ matrix $X$ and a $p \times n$ matrix $Y$, the product $XY$ is an $m \times n$ matrix whose $(i, j)$-entry is the dot product of the $i$-th row of $X$ and the $j$-th column of $Y$.
 
 **Operation Count for Matrix Multiplication:**
-Multiplying a matrix $X \in \mathbb{R}^{m \times n}$ by a matrix $Y \in \mathbb{R}^{n \times p}$ produces $mp$ entries, where each entry is the dot product of two vectors of length $n$:
+Computing the product of an $m \times p$ matrix and a $p \times n$ matrix requires exactly $m \times n$ dot products. Each dot product of vectors of length $p$ requires $p$ scalar multiplications (and $p-1$ additions). Thus, the total number of scalar multiplications required is:
 
-* Number of scalar multiplications: $mnp$
-* Number of scalar additions: $mp(n - 1)$
-* Total scalar arithmetic operations: $mp(2n - 1)$
+$$
+\text{Number of multiplications} = m \cdot p \cdot n
+$$
 
-Although $(AB)C$ and $A(BC)$ produce identical matrices, different parenthesizations can require different numbers of intermediate arithmetic operations.
+**Associativity of Matrix Multiplication:**
+For any matrices $A, B, C$ with compatible dimensions (e.g., $A$ is $m \times p$, $B$ is $p \times q$, $C$ is $q \times n$), the order of grouping the multiplications does not change the final matrix result:
+
+$$
+(AB)C = A(BC)
+$$
 
 ---
 
@@ -24,7 +25,22 @@ Although $(AB)C$ and $A(BC)$ produce identical matrices, different parenthesizat
 
 Given
 
-$$A = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 1 \\ \end{pmatrix}, \quad B = \begin{pmatrix} 1 & 0 \\ 2 & 1 \\ -1 & 3 \\ \end{pmatrix}, \quad C = \begin{pmatrix} 2 & 1 \\ 0 & -1 \\ \end{pmatrix}.$$
+$$
+A=
+\begin{pmatrix}
+1 & 2 & 0 \\
+0 & 1 & 1 \\
+\end{pmatrix},\quad B=
+\begin{pmatrix}
+1 & 0 \\
+2 & 1 \\
+-1 & 3 \\
+\end{pmatrix},\quad C=
+\begin{pmatrix}
+2 & 1 \\
+0 & -1 \\
+\end{pmatrix}.
+$$
 
 Compute $(AB)C$ and $A(BC)$. Compare the results and the number of intermediate operations. Explain what associativity of matrix multiplication means in this example.
 
@@ -34,31 +50,177 @@ Compute $(AB)C$ and $A(BC)$. Compare the results and the number of intermediate 
 
 ### Solution
 
-**Step 1: Check dimensions and compute $(AB)C$**
+**Step 1: Determine dimensions and set up paths**
 
-The matrix dimensions are $A_{2 \times 3}$, $B_{3 \times 2}$, and $C_{2 \times 2}$.
+* $A$ is $2 \times 3$.
+* $B$ is $3 \times 2$.
+* $C$ is $2 \times 2$.
 
-1. **Compute $AB$ ($2 \times 3$ multiplied by $3 \times 2$):**
-   The intermediate product $AB$ has size $2 \times 2$:
+Both paths $(AB)C$ and $A(BC)$ are valid and will produce a final $2 \times 2$ matrix.
 
-$$\begin{aligned} AB &= \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 1 \\ \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 2 & 1 \\ -1 & 3 \\ \end{pmatrix} \\ &= \begin{pmatrix} 1 \cdot 1 + 2 \cdot 2 + 0 \cdot (-1) & 1 \cdot 0 + 2 \cdot 1 + 0 \cdot 3 \\ 0 \cdot 1 + 1 \cdot 2 + 1 \cdot (-1) & 0 \cdot 0 + 1 \cdot 1 + 1 \cdot 3 \\ \end{pmatrix} \\ &= \begin{pmatrix} 1 + 4 + 0 & 0 + 2 + 0 \\ 0 + 2 - 1 & 0 + 1 + 3 \\ \end{pmatrix} \\ &= \begin{pmatrix} 5 & 2 \\ 1 & 4 \\ \end{pmatrix} \end{aligned}$$
+**Step 2: Path 1 — Compute $(AB)C$**
 
-   * Operation count for $AB$: $2 \times 2 = 4$ entries, each using $3$ multiplications and $2$ additions, giving $12$ multiplications and $8$ additions ($20$ operations).
+First, compute $AB$ ($2 \times 3$ multiplied by $3 \times 2$ yields $2 \times 2$):
 
-2. **Compute $(AB)C$ ($2 \times 2$ multiplied by $2 \times 2$):**
-   Multiply $AB$ on the right by $C$:
+$$
+\begin{aligned}
+AB &=
+\begin{pmatrix}
+1 & 2 & 0 \\
+0 & 1 & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 \\
+2 & 1 \\
+-1 & 3 \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1(1) + 2(2) + 0(-1) & 1(0) + 2(1) + 0(3) \\
+0(1) + 1(2) + 1(-1) & 0(0) + 1(1) + 1(3) \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 + 4 + 0 & 0 + 2 + 0 \\
+0 + 2 - 1 & 0 + 1 + 3 \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+5 & 2 \\
+1 & 4 \\
+\end{pmatrix}
+\end{aligned}
+$$
 
-$$\begin{aligned} (AB)C &= \begin{pmatrix} 5 & 2 \\ 1 & 4 \\ \end{pmatrix} \begin{pmatrix} 2 & 1 \\ 0 & -1 \\ \end{pmatrix} \\ &= \begin{pmatrix} 5 \cdot 2 + 2 \cdot 0 & 5 \cdot 1 + 2 \cdot (-1) \\ 1 \cdot 2 + 4 \cdot 0 & 1 \cdot 1 + 4 \cdot (-1) \\ \end{pmatrix} \\ &= \begin{pmatrix} 10 + 0 & 5 - 2 \\ 2 + 0 & 1 - 4 \\ \end{pmatrix} \\ &= \begin{pmatrix} 10 & 3 \\ 2 & -3 \\ \end{pmatrix} \end{aligned}$$
+Next, multiply $(AB)$ by $C$ ($2 \times 2$ multiplied by $2 \times 2$ yields $2 \times 2$):
 
-   * Operation count for $(AB)C$: $2 \times 2 = 4$ entries, each using $2$ multiplications and $1$ addition, giving $8$ multiplications and $4$ additions ($12$ operations).
+$$
+\begin{aligned}
+(AB)C &=
+\begin{pmatrix}
+5 & 2 \\
+1 & 4 \\
+\end{pmatrix}
+\begin{pmatrix}
+2 & 1 \\
+0 & -1 \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+5(2) + 2(0) & 5(1) + 2(-1) \\
+1(2) + 4(0) & 1(1) + 4(-1) \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+10 & 5 - 2 \\
+2 & 1 - 4 \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+10 & 3 \\
+2 & -3 \\
+\end{pmatrix}
+\end{aligned}
+$$
 
-* **Total operations for $(AB)C$:** $12 + 8 = 20$ multiplications and $8 + 4 = 12$ additions, for a total of $32$ arithmetic operations.
+**Step 3: Path 2 — Compute $A(BC)$**
 
-**Step 2: Compute $A(BC)$**
+First, compute $BC$ ($3 \times 2$ multiplied by $2 \times 2$ yields $3 \times 2$):
 
-1. **Compute $BC$ ($3 \times 2$ multiplied by $2 \times 2$):**
-   The intermediate product $BC$ has size $3 \times 2$:
+$$
+\begin{aligned}
+BC &=
+\begin{pmatrix}
+1 & 0 \\
+2 & 1 \\
+-1 & 3 \\
+\end{pmatrix}
+\begin{pmatrix}
+2 & 1 \\
+0 & -1 \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1(2) + 0(0) & 1(1) + 0(-1) \\
+2(2) + 1(0) & 2(1) + 1(-1) \\
+-1(2) + 3(0) & -1(1) + 3(-1) \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+2 & 1 \\
+4 & 2 - 1 \\
+-2 & -1 - 3 \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+2 & 1 \\
+4 & 1 \\
+-2 & -4 \\
+\end{pmatrix}
+\end{aligned}
+$$
 
-$$\begin{aligned} BC &= \begin{pmatrix} 1 & 0 \\ 2 & 1 \\ -1 & 3 \\ \end{pmatrix} \begin{pmatrix} 2 & 1 \\ 0 & -1 \\ \end{pmatrix} \\ &= \begin{pmatrix} 1 \cdot 2 + 0 \cdot 0 & 1 \cdot 1 + 0 \cdot (-1) \\ 2 \cdot 2 + 1 \cdot 0 & 2 \cdot 1 + 1 \cdot (-1) \\ (-1) \cdot 2 + 3 \cdot 0 & (-1) \cdot 1 + 3 \cdot (-1) \\ \end{pmatrix} \\ &= \begin{pmatrix} 2 + 0 & 1 + 0 \\ 4 + 0 & 2 - 1 \\ -2 + 0 & -1 - 3 \\ \end{pmatrix} \\ &= \begin{pmatrix} 2 & 1 \\ 4 & 1 \\ -2 & -4 \\ \end{pmatrix} \end{aligned}$$
+Next, multiply $A$ by $(BC)$ ($2 \times 3$ multiplied by $3 \times 2$ yields $2 \times 2$):
 
-   * Operation count
+$$
+\begin{aligned}
+A(BC) &=
+\begin{pmatrix}
+1 & 2 & 0 \\
+0 & 1 & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+2 & 1 \\
+4 & 1 \\
+-2 & -4 \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1(2) + 2(4) + 0(-2) & 1(1) + 2(1) + 0(-4) \\
+0(2) + 1(4) + 1(-2) & 0(1) + 1(1) + 1(-4) \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+2 + 8 + 0 & 1 + 2 + 0 \\
+0 + 4 - 2 & 0 + 1 - 4 \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+10 & 3 \\
+2 & -3 \\
+\end{pmatrix}
+\end{aligned}
+$$
+
+**Step 4: Compare results, operation counts, and explain associativity**
+
+* **Result comparison:** Both $(AB)C$ and $A(BC)$ yield the exact same final $2 \times 2$ matrix, confirming $(AB)C = A(BC)$.
+* **Operation count comparison (counting scalar multiplications):**
+  * **Path $(AB)C$:**
+    1. Computing $AB$ ($2 \times 3$ by $3 \times 2$) requires $2 \cdot 3 \cdot 2 = 12$ multiplications.
+    2. Computing $(AB)C$ ($2 \times 2$ by $2 \times 2$) requires $2 \cdot 2 \cdot 2 = 8$ multiplications.
+    **Total for $(AB)C$:** $12 + 8 = \mathbf{20}$ multiplications.
+  * **Path $A(BC)$:**
+    1. Computing $BC$ ($3 \times 2$ by $2 \times 2$) requires $3 \cdot 2 \cdot 2 = 12$ multiplications.
+    2. Computing $A(BC)$ ($2 \times 3$ by $3 \times 2$) requires $2 \cdot 3 \cdot 2 = 12$ multiplications.
+    **Total for $A(BC)$:** $12 + 12 = \mathbf{24}$ multiplications.
+* **Explanation of associativity:** Associativity of matrix multiplication means that while the **final result is guaranteed to be mathematically identical** regardless of grouping (as verified by the identical $10, 3, 2, -3$ entries), the **computational cost** (number of intermediate arithmetic operations) can differ significantly depending on the path chosen. Here, computing $(AB)$ first is structurally more efficient (by $4$ multiplications) because it collapses the wide inner dimensions early, creating smaller intermediate matrices.
+
+---
+
+### Final Answer
+
+1. **Both calculation paths yield the same final matrix:**
+
+$$
+(AB)C = A(BC) =
+\begin{pmatrix}
+10 & 3 \\
+2 & -3 \\
+\end{pmatrix}
+$$
+
+2. **Operation counts:**
+   * Path $(AB)C$ requires $12 + 8 = \mathbf{20}$ scalar multiplications.
+   * Path $A(BC)$ requires $12 + 12 = \mathbf{24}$ scalar multiplications.
+3. **What associativity means here:** Associativity guarantees that grouping $(AB)$ or $(BC)$ first has absolutely no effect on the final numerical result. However, it shows that the chosen order changes the sizes of intermediate matrices, making the first path ($20$ operations) computationally cheaper than the second ($24$ operations) without altering the outcome[cite: 3, 4].
