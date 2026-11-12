@@ -1,23 +1,12 @@
 ### Essential Formulas
 
-**Determinant-Preserving Row Operations (Row Replacements):**
-For any square matrix $A \in \mathbb{R}^{n \times n}$, adding a scalar multiple of one row to a different row ($R_i \leftarrow R_i + cR_j$ with $i \neq j$) leaves the determinant unchanged:
-
-$$\det B = \det A$$
-
-By contrast, interchanging two rows ($R_i \leftrightarrow R_j$) multiplies the determinant by $-1$, and scaling a row by $c \neq 0$ ($R_i \leftarrow cR_i$) multiplies the determinant by $c$.
+**Effect of Row Operations on the Determinant:**
+1. **Row Replacement ($R_i \leftarrow R_i + cR_j$):** Adding a multiple of one row to another row **does not change** the value of the determinant.
+2. **Row Swap ($R_i \leftrightarrow R_j$):** Swapping two rows multiplies the determinant by $-1$.
+3. **Row Scaling ($R_i \leftarrow cR_i$):** Multiplying a row by a nonzero scalar $c$ multiplies the determinant by $c$.
 
 **Determinant of a Triangular Matrix:**
-For an upper triangular matrix $U = (u_{ij})$ ($u_{ij} = 0$ for all $i > j$) or a lower triangular matrix, the determinant equals the product of its main diagonal entries:
-
-$$\det U = u_{11} u_{22} \cdots u_{nn}$$
-
-**Cofactor Expansion Along a Row or Column:**
-Expanding along row $i$ (or column $j$) simplifies dramatically when that row or column contains zeros:
-
-$$\det A = \sum_{j=1}^{n} (-1)^{i+j} a_{ij} \det M_{ij}$$
-
-where $M_{ij}$ is the $(n-1) \times (n-1)$ submatrix formed by deleting row $i$ and column $j$.
+If a square matrix is in upper triangular form (all entries below the main diagonal are zero), its determinant is the simple product of its main diagonal entries.
 
 ---
 
@@ -27,7 +16,14 @@ where $M_{ij}$ is the $(n-1) \times (n-1)$ submatrix formed by deleting row $i$ 
 
 Compute
 
-$$\det \begin{pmatrix} 1 & 2 & 3 \\ 1 & 3 & 4 \\ 1 & 4 & 6 \\ \end{pmatrix}$$
+$$
+\det
+\begin{pmatrix}
+1 & 2 & 3 \\
+1 & 3 & 4 \\
+1 & 4 & 6 \\
+\end{pmatrix}
+$$
 
 by first performing row operations that create as many zeros as possible. State which operations do not change the determinant.
 
@@ -37,57 +33,99 @@ by first performing row operations that create as many zeros as possible. State 
 
 ### Solution
 
-**Step 1: State which row operations do not change the determinant**
+**Step 1: Perform row operations to create zeros in the first column**
 
-Among the three elementary row operations, **row replacement operations** of the form
+Let the original matrix be $A$. We want to transform it into an upper triangular matrix. We can use the pivot $1$ in the $(1,1)$ position to eliminate the $1$s below it. 
 
-$$R_i \leftarrow R_i + cR_j \qquad (i \neq j, \; c \in \mathbb{R})$$
+Perform the row replacement operations $R_2 \leftarrow R_2 - R_1$ and $R_3 \leftarrow R_3 - R_1$:
 
-do not change the value of the determinant. Every operation used below is a row replacement, so the determinant remains invariant at every step.
+$$
+\det A =
+\det
+\begin{pmatrix}
+1 & 2 & 3 \\
+1 & 3 & 4 \\
+1 & 4 & 6 \\
+\end{pmatrix}
+=
+\det
+\begin{pmatrix}
+1 & 2 & 3 \\
+0 & 1 & 1 \\
+0 & 2 & 3 \\
+\end{pmatrix}
+$$
 
-**Step 2: Create zeros in the first column below the $(1, 1)$-pivot**
+* **Property used:** Row replacement ($R_i \leftarrow R_i + cR_j$) leaves the determinant **unchanged**.
 
-Denote the matrix by $A$:
+**Step 2: Create a zero in the second column**
 
-$$A = \begin{pmatrix} 1 & 2 & 3 \\ 1 & 3 & 4 \\ 1 & 4 & 6 \\ \end{pmatrix}$$
+Now use the pivot $1$ in the $(2,2)$ position to eliminate the $2$ below it. Perform the row replacement operation $R_3 \leftarrow R_3 - 2R_2$:
 
-Apply two row replacements using row $1$ to eliminate the entries below $a_{11} = 1$:
+$$
+\det A =
+\det
+\begin{pmatrix}
+1 & 2 & 3 \\
+0 & 1 & 1 \\
+0 & 2 & 3 \\
+\end{pmatrix}
+=
+\det
+\begin{pmatrix}
+1 & 2 & 3 \\
+0 & 1 & 1 \\
+0 & 0 & 1 \\
+\end{pmatrix}
+$$
 
-1. $R_2 \leftarrow R_2 - R_1$: $(1, 3, 4) - (1, 2, 3) = (0, 1, 1)$
-2. $R_3 \leftarrow R_3 - R_1$: $(1, 4, 6) - (1, 2, 3) = (0, 2, 3)$
+* **Property used:** Again, row replacement does not change the determinant.
 
-This produces $A_1$ with two zeros in column $1$ and $\det A_1 = \det A$:
+**Step 3: Compute the determinant of the triangular matrix**
 
-$$A_1 = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 1 \\ 0 & 2 & 3 \\ \end{pmatrix}$$
+The matrix is now in upper triangular form. The determinant of an upper triangular matrix is simply the product of its diagonal entries:
 
-**Step 3: Create a zero in the $(3, 2)$-position to reach upper triangular form**
+$$
+\det A = 1 \cdot 1 \cdot 1 = 1
+$$
 
-Apply the row replacement $R_3 \leftarrow R_3 - 2R_2$ to $A_1$:
+**Step 4: Verification (Cofactor Expansion)**
 
-$$R_3 - 2R_2 = (0, 2, 3) - 2(0, 1, 1) = (0, 0, 1)$$
+To verify the result, we can compute the determinant of the original matrix using cofactor expansion along the first column:
 
-This produces the upper triangular matrix $U$ with three zeros below the main diagonal and $\det U = \det A$:
+$$
+\begin{aligned}
+\det
+\begin{pmatrix}
+1 & 2 & 3 \\
+1 & 3 & 4 \\
+1 & 4 & 6 \\
+\end{pmatrix}
+&= 1 \cdot \det\begin{pmatrix} 3 & 4 \\ 4 & 6 \end{pmatrix} - 1 \cdot \det\begin{pmatrix} 2 & 3 \\ 4 & 6 \end{pmatrix} + 1 \cdot \det\begin{pmatrix} 2 & 3 \\ 3 & 4 \end{pmatrix} \\
+&= 1(18 - 16) - 1(12 - 12) + 1(8 - 9) \\
+&= 1(2) - 1(0) + 1(-1) \\
+&= 2 - 0 - 1 \\
+&= 1
+\end{aligned}
+$$
 
-$$U = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \\ \end{pmatrix}$$
+The result perfectly matches the value obtained using row operations.
 
-**Step 4: Eliminate above the main diagonal to maximize the number of zeros**
+---
 
-Applying upward row replacements preserves the determinant and clears the remaining nonzero off-diagonal entries:
+### Final Answer
 
-1. $R_1 \leftarrow R_1 - 2R_2$: $(1, 2, 3) - 2(0, 1, 1) = (1, 0, 1)$
-2. $R_1 \leftarrow R_1 - R_3$: $(1, 0, 1) - (0, 0, 1) = (1, 0, 0)$
-3. $R_2 \leftarrow R_2 - R_3$: $(0, 1, 1) - (0, 0, 1) = (0, 1, 0)$
+1. **Determinant value:**
 
-These three row replacements reduce the matrix to the $3 \times 3$ identity matrix $I_3$, which has six zeros (the maximum possible for an invertible $3 \times 3$ matrix):
+$$
+\det
+\begin{pmatrix}
+1 & 2 & 3 \\
+1 & 3 & 4 \\
+1 & 4 & 6 \\
+\end{pmatrix}
+= 1
+$$
 
-$$I_3 = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \\ \end{pmatrix}$$
-
-**Step 5: Read off the determinant**
-
-Because every step was a determinant-preserving row replacement, the determinant equals the product of the main diagonal entries of $U$ (and of $I_3$):
-
-$$\begin{aligned} \det A &= \det U \\ &= \det I_3 \\ &= 1 \cdot 1 \cdot 1 \\ &= 1 \end{aligned}$$
-
-**Step 6: Verification**
-
-* **Cofactor expansion along column $1$ of
+2. **Operations used and their effects:**
+   The matrix was reduced to an upper triangular form $\begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$ using the operations $R_2 \leftarrow R_2 - R_1$, $R_3 \leftarrow R_3 - R_1$, and $R_3 \leftarrow R_3 - 2R_2$. These are all **row replacement operations**, which **do not change the determinant**[cite: 5, 6].
