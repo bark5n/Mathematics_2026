@@ -1,18 +1,10 @@
 ### Essential Formulas
 
-**Matching the Solution Method to Problem Structure:**
-When solving linear systems $Ax = b$ of size $n \times n$ with $k$ right-hand side vectors, the most efficient method depends on the structure of $A$, whether $A^{-1}$ is already known, and the number of right-hand sides $k$:
-
-1. **Triangular System ($A = U$ upper triangular or $A = L$ lower triangular, $k = 1$):**
-   Solve directly by **back-substitution** (or forward substitution), requiring no row reduction and no matrix inversion ($\approx \frac{1}{2}n^2$ multiplications/divisions).
-2. **Multiple Right-Hand Sides with Precomputed Inverse ($Ax = b_i$ for $i = 1, \ldots, k$, $A^{-1}$ known):**
-   Compute each solution directly via **matrix-vector multiplication**:
-
-$$x_i = A^{-1} b_i \qquad (i = 1, 2, \ldots, k)$$
-
-   requiring only $n^2$ multiplications per right-hand side.
-3. **Single General System ($Ax = b$, $k = 1$, $A^{-1}$ unknown):**
-   Apply **Gaussian elimination with back-substitution** to the $n \times (n + 1)$ augmented matrix $[A \mid b]$ ($\approx \frac{1}{3}n^3$ multiplications), rather than computing the entire $n \times n$ matrix $A^{-1}$ ($\approx n^3$ multiplications).
+**Computational Complexity of Solving Linear Systems:**
+* **Gaussian Elimination (LU Decomposition):** Solving a generic $n \times n$ system $Ax = b$ from scratch requires on the order of $\approx \frac{1}{3} n^3$ arithmetic operations.
+* **Matrix Inverse Computation:** Finding $A^{-1}$ from scratch requires $\approx n^3$ operations (solving $n$ systems simultaneously).
+* **Matrix-Vector Multiplication:** If $A^{-1}$ is already known, computing $x = A^{-1}b$ requires only $\approx n^2$ operations.
+* **Back-Substitution:** If $A$ is already in triangular form, finding the solution requires only $\approx \frac{1}{2} n^2$ operations.
 
 ---
 
@@ -24,7 +16,12 @@ Do not solve all of the following systems completely. For each situation, choose
 
 1. one system with a triangular coefficient matrix
 
-$$\begin{cases} 2x-y=3, \\ 4y=8; \end{cases}$$
+$$
+\begin{cases}
+2x-y=3, \\
+4y=8;
+\end{cases}
+$$
 
 2. three systems $Ax=b_i$ with the same invertible matrix $A$, when $A^{-1}$ is already known;
 3. one $3\times3$ system for which the inverse matrix is not given and the goal is only to find one solution vector.
@@ -37,67 +34,38 @@ For case 1, carry out the chosen method completely. For cases 2 and 3, describe 
 
 ### Solution
 
-**Step 1: Case 1 — Triangular system (choose method, justify, and solve completely)**
+**Case 1: Triangular coefficient matrix**
 
-* **Chosen method:** **Direct back-substitution** (starting from the bottom equation and substituting upward).
-* **Justification based on structure and right-hand sides:**
-  * There is only **one right-hand side** ($k = 1$).
-  * Writing the system in matrix form $A\mathbf{x} = b$ shows that the coefficient matrix is already **upper triangular** (in row echelon form) with nonzero diagonal pivots $2$ and $4$:
+* **Method choice and justification:** Use **back-substitution** directly. Gaussian elimination is unnecessary because the matrix is already in upper triangular (row echelon) form; the elimination phase is already complete.
+* **Execution:**
+  Start with the last equation:
 
-$$\begin{pmatrix} 2 & -1 \\ 0 & 4 \\ \end{pmatrix} \begin{pmatrix} x \\ y \\ \end{pmatrix} = \begin{pmatrix} 3 \\ 8 \\ \end{pmatrix}$$
+$$
+4y = 8 \implies y = 2
+$$
 
-  * Forward elimination is completely unnecessary because the $(2, 1)$-entry is already $0$, and computing $A^{-1}$ would do extra work to solve for two columns when only a single $2 \times 1$ solution vector is needed.
-* **Complete execution of back-substitution:**
-  1. **Solve the second equation for $y$:**
+  Substitute $y = 2$ back into the first equation:
 
-$$4y = 8 \implies y = \frac{8}{4} = 2$$
+$$
+2x - (2) = 3 \implies 2x = 5 \implies x = \frac{5}{2}
+$$
 
-  2. **Substitute $y = 2$ into the first equation and solve for $x$:**
+  **Solution:** $(x, y) = \left(\frac{5}{2}, 2\right)$.
 
-$$2x - 2 = 3 \implies 2x = 5 \implies x = \frac{5}{2}$$
+**Case 2: Three systems $Ax = b_i$ with the same $A$, where $A^{-1}$ is known**
 
-  Thus, the unique solution is $(x, y) = \left(\frac{5}{2}, 2\right)$.
+* **Method choice and justification:** Use **matrix-vector multiplication**, $x_i = A^{-1} b_i$. Since the inverse $A^{-1}$ is already given, the heavy computation (elimination) has already been done.
+* **Plan and reusable parts:** To solve for the three different right-hand sides $b_1, b_2, b_3$, simply multiply the known $A^{-1}$ by each vector. The completely unnecessary part would be setting up augmented matrices $[A \mid b_i]$ and performing Gaussian elimination from scratch three separate times, which ignores the highly valuable, already-computed inverse.
 
-**Step 2: Case 2 — Three systems $Ax = b_i$ with the same invertible $A$ and known $A^{-1}$**
+**Case 3: One $3 \times 3$ system, $A^{-1}$ not given, only one solution needed**
 
-* **Chosen method:** **Direct matrix-vector multiplication** $x_i = A^{-1} b_i$ for each $i \in \{1, 2, 3\}$ (equivalently, one matrix-matrix product $X = A^{-1} B$ where $B$ has columns $b_1, b_2, b_3$).
-* **Justification based on structure and right-hand sides:**
-  * There are **three right-hand sides** ($k = 3$) sharing the exact same invertible coefficient matrix $A$.
-  * Because $A^{-1}$ is **already known**, the expensive factorization/inversion work on $A$ has already been completed, reducing each system to a simple matrix-vector product.
-* **Execution plan, reusable part, and unnecessary part:**
-  * **Plan:** Multiply the known matrix $A^{-1}$ on the right by each vector $b_1$, $b_2$, and $b_3$ in turn to obtain $x_1 = A^{-1}b_1$, $x_2 = A^{-1}b_2$, and $x_3 = A^{-1}b_3$.
-  * **Reusable part:** The precomputed inverse matrix $A^{-1}$ is **reused** across all three right-hand sides $b_1, b_2, b_3$ without ever returning to the original matrix $A$.
-  * **Unnecessary part:** Performing Gaussian elimination or Gauss–Jordan elimination from scratch on $[A \mid b_1]$, $[A \mid b_2]$, and $[A \mid b_3]$—or recomputing $\det A$ and $A^{-1}$—is completely **unnecessary**, because $A^{-1}$ already encodes the full inverse action of $A$.
-
-**Step 3: Case 3 — One $3 \times 3$ system with unknown $A^{-1}$ and a single solution vector**
-
-* **Chosen method:** **Gaussian elimination with back-substitution** on the $3 \times 4$ augmented matrix $[A \mid b]$.
-* **Justification based on structure and right-hand sides:**
-  * There is only **one right-hand side** ($k = 1$), and the goal is to find a single vector $x \in \mathbb{R}^3$ rather than a general solver for many right-hand sides.
-  * The matrix $A$ is a general $3 \times 3$ matrix (not already triangular or diagonal) and its inverse $A^{-1}$ is **not given**. Finding $A^{-1}$ via Gauss–Jordan elimination on $[A \mid I_3]$ requires reducing a $3 \times 6$ augmented matrix—effectively solving **three** right-hand sides ($e_1, e_2, e_3$) instead of one.
-* **Execution plan, reusable part, and unnecessary part:**
-  * **Plan:** Form the $3 \times 4$ augmented matrix $[A \mid b]$, use elementary row operations (forward elimination) to reduce the left $3 \times 3$ block to upper triangular form $[U \mid c]$, and then solve for $x_3$, $x_2$, and $x_1$ via back-substitution.
-  * **Reusable part:** For a single system, no reuse across right-hand sides is needed (though if another right-hand side were later added, the recorded sequence of row operations or upper triangular factor $U$ could be reused).
-  * **Unnecessary part:** Computing the full $3 \times 3$ inverse matrix $A^{-1}$ (whether by Gauss–Jordan elimination on $[A \mid I_3]$ or by determinants and cofactors) and then multiplying $A^{-1}b$ is **unnecessary** extra work; even full Gauss–Jordan reduction to RREF is unnecessary once upper triangular form $[U \mid c]$ is reached for back-substitution.
-
-**Step 4: Verification**
-
-* **Substitute the Case 1 solution $(x, y) = \left(\frac{5}{2}, 2\right)$ back into the original system:**
-  * Equation 1: $2\left(\frac{5}{2}\right) - 2 = 5 - 2 = 3$ (matches RHS $= 3$).
-  * Equation 2: $4(2) = 8$ (matches RHS $= 8$).
-* **Operation-count consistency check:**
-  For an $n \times n$ matrix with $k$ right-hand sides:
-  * Gaussian elimination with back-substitution requires roughly $\frac{1}{3}n^3 + kn^2$ multiplicative operations. For $n = 3, k = 1$ (Case 3), this is $\approx 9 + 9 = 18$ operations, whereas computing $A^{-1}$ and multiplying $A^{-1}b$ requires roughly $n^3 + n^2 = 27 + 9 = 36$ operations (twice as much work).
-  * When $A^{-1}$ is already given (Case 2), computing $A^{-1}b_i$ for $k = 3$ right-hand sides requires only $k n^2 = 3 n^2$ operations with zero matrix-reduction cost.
+* **Method choice and justification:** Use **Gaussian elimination**.
+* **Plan and unnecessary parts:** Form the single augmented matrix $[A \mid b]$ and perform row operations to reach row echelon form, then back-substitute. The completely unnecessary part would be trying to compute the full inverse matrix $A^{-1}$ first just to multiply it by $b$. Finding $A^{-1}$ requires reducing the wider augmented matrix $[A \mid I]$, which is equivalent to solving the system for three different right-hand sides instead of just the one required right-hand side $b$.
 
 ---
 
 ### Final Answer
 
-1. **Case 1 (Triangular system, $k = 1$):**
-   * **Method & justification:** **Direct back-substitution**, because there is only one right-hand side and the coefficient matrix is already upper triangular, making elimination or inversion unnecessary.
-   * **Complete solution:** $y = \frac{8}{4} = 2$ and $x = \frac{3 + 2}{2} = \frac{5}{2}$, giving $(x, y) = \left(\frac{5}{2}, 2\right)$.
-2. **Case 2 (Three systems $Ax = b_i$ with known $A^{-1}$, $k = 3$):**
-   * **Method & plan:** **Direct matrix-vector multiplication** $x_i = A^{-1}b_i$ for $i = 1, 2, 3$.
-   * **Reusable vs. unnecessary:** The known inverse $A^{-1}$ is **reused** for all three right-hand sides; performing Gaussian elimination from scratch or recomputing $A^{-1}$ is **unnecessary**.
-3. **Case
+1. **Case 1 (Triangular matrix):** **Method:** Back-substitution. **Justification:** Elimination is already done. **Solution:** $y = 2$, then $2x - 2 = 3 \implies x = \frac{5}{2}$.
+2. **Case 2 (Same $A$, $A^{-1}$ known, three RHS vectors):** **Method:** Matrix multiplication $x_i = A^{-1} b_i$. **Justification:** The heavy lifting is already done; computing the product is fast ($O(n^2)$) compared to reducing the matrix three times from scratch.
+3. **Case 3 (One system, inverse not given):** **Method:** Gaussian elimination. **Justification:** It directly yields the single required solution using the fewest operations. Computing the full inverse matrix $A^{-1}$ from scratch would require three times as much work (solving for three right-hand sides) and is therefore completely unnecessary.
