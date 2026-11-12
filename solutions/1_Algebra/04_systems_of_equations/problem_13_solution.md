@@ -1,10 +1,7 @@
 ### Essential Formulas
 
-**Redundant Equations in a Linear System:**
-An equation in a linear system $Ax = b$ is **redundant** if it is a linear combination of the remaining equations in the system. Removing a redundant equation does **not** change the solution set of the system, and during Gaussian elimination, a redundant equation reduces to a zero row $(0 \ 0 \ \cdots \ 0 \mid 0)$.
-
-**Row Echelon Form and Free Variables:**
-For a consistent system of linear equations in $n$ unknowns whose row echelon form has $r = \mathrm{rank}(A) = \mathrm{rank}([A \mid b])$ nonzero rows (pivots), there are $n - r$ free variables and $r$ independent equations needed to describe the solution set.
+**Redundant Equations in a System:**
+An equation in a linear system is **redundant** (or dependent) if it can be derived algebraically as a linear combination of the other equations. Removing a redundant equation from the system does not change the solution set, because the information it provides is already strictly encoded in the remaining equations.
 
 ---
 
@@ -14,7 +11,9 @@ For a consistent system of linear equations in $n$ unknowns whose row echelon fo
 
 Consider the system
 
-$$x_1+x_2=10,\qquad x_2+x_3=8,\qquad x_1-x_3=2.$$
+$$
+x_1+x_2=10,\qquad x_2+x_3=8,\qquad x_1-x_3=2.
+$$
 
 Solve it and check whether all three equations are independently necessary to describe the solution set. If one follows from the others, show this by calculation.
 
@@ -24,58 +23,79 @@ Solve it and check whether all three equations are independently necessary to de
 
 ### Solution
 
-**Step 1: Set up the augmented matrix $[A \mid b]$ and apply Gaussian elimination**
+**Step 1: Write down the equations clearly**
 
-Order the unknowns as $(x_1, x_2, x_3)$ and write the $3 \times 4$ augmented matrix of the system:
+We label the three equations:
 
-$$\begin{pmatrix} 1 & 1 & 0 & \mid & 10 \\ 0 & 1 & 1 & \mid & 8 \\ 1 & 0 & -1 & \mid & 2 \\ \end{pmatrix}$$
+1. $x_1 + x_2 = 10$
+2. $x_2 + x_3 = 8$
+3. $x_1 - x_3 = 2$
 
-1. **Eliminate the $(3, 1)$-entry using $R_3 \leftarrow R_3 - R_1$:**
+**Step 2: Check for redundancy by deriving the third equation from the first two**
 
-$$(1, 0, -1 \mid 2) - (1, 1, 0 \mid 10) = (0, -1, -1 \mid -8)$$
-
-   The augmented matrix becomes:
-
-$$\begin{pmatrix} 1 & 1 & 0 & \mid & 10 \\ 0 & 1 & 1 & \mid & 8 \\ 0 & -1 & -1 & \mid & -8 \\ \end{pmatrix}$$
-
-2. **Eliminate the $(3, 2)$-entry using $R_3 \leftarrow R_3 + R_2$:**
-
-$$(0, -1, -1 \mid -8) + (0, 1, 1 \mid 8) = (0, 0, 0 \mid 0)$$
-
-   The augmented matrix reaches row echelon form:
-
-$$\begin{pmatrix} 1 & 1 & 0 & \mid & 10 \\ 0 & 1 & 1 & \mid & 8 \\ 0 & 0 & 0 & \mid & 0 \\ \end{pmatrix}$$
-
-3. **Eliminate the $(1, 2)$-entry using $R_1 \leftarrow R_1 - R_2$ to obtain reduced row echelon form (RREF):**
-
-$$(1, 1, 0 \mid 10) - (0, 1, 1 \mid 8) = (1, 0, -1 \mid 2)$$
-
-$$\begin{pmatrix} 1 & 0 & -1 & \mid & 2 \\ 0 & 1 & 1 & \mid & 8 \\ 0 & 0 & 0 & \mid & 0 \\ \end{pmatrix}$$
-
-**Step 2: Write the complete solution set in parametric form**
-
-There is no contradictory row ($\mathrm{rank}(A) = \mathrm{rank}([A \mid b]) = 2$), and there are $r = 2$ pivot columns (column $1$ for $x_1$ and column $2$ for $x_2$) among $n = 3$ variables, leaving $n - r = 3 - 2 = 1$ free variable ($x_3$). Rewriting the two nonzero rows as equations gives:
-
-$$\begin{cases} x_1 - x_3 = 2, \\ x_2 + x_3 = 8. \end{cases}$$
-
-Assign an arbitrary real parameter $x_3 = t$ ($t \in \mathbb{R}$) and express $x_1$ and $x_2$ in terms of $t$:
-
-$$\begin{cases} x_1 = 2 + t, \\ x_2 = 8 - t, \\ x_3 = t, \end{cases} \qquad t \in \mathbb{R}$$
-
-Equivalently, in parametric vector form:
-
-$$\begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ \end{pmatrix} = \begin{pmatrix} 2 \\ 8 \\ 0 \\ \end{pmatrix} + t \begin{pmatrix} 1 \\ -1 \\ 1 \\ \end{pmatrix}, \qquad t \in \mathbb{R}$$
-
-**Step 3: Check whether all three equations are independently necessary and show by calculation that one follows from the others**
-
-* **Are all three equations independently necessary?**
-  **No.** Because Gaussian elimination reduced the third row completely to $(0, 0, 0 \mid 0)$, the system contains only **$2$ independent equations** rather than $3$. Any one of the three equations is redundant and adds no new restriction to the solution set already determined by the other two.
-
-* **Explicit algebraic calculation showing that Equation 3 follows from Equations 1 and 2:**
-  Subtract Equation 2 ($x_2 + x_3 = 8$) from Equation 1 ($x_1 + x_2 = 10$):
+Notice the structure of the variables. Equation 1 contains $x_1$ and $x_2$, while Equation 2 contains $x_2$ and $x_3$. If we subtract Equation 2 from Equation 1 to eliminate the shared variable $x_2$, we obtain:
 
 $$
 \begin{aligned}
 (x_1 + x_2) - (x_2 + x_3) &= 10 - 8 \\
-x_1 + (x_2 - x_2) - x_3 &= 2 \\
-x_1
+x_1 + x_2 - x_2 - x_3 &= 2 \\
+x_1 - x_3 &= 2
+\end{aligned}
+$$
+
+The result of subtracting Equation 2 from Equation 1 is exactly Equation 3. Because Equation 3 can be generated entirely from the first two equations, it adds **no new information** to the system. It is redundant and can be discarded without affecting the solution set.
+
+**Step 3: Solve the remaining independent equations**
+
+We are left with two independent equations for three unknowns:
+
+$$
+\begin{cases}
+x_1 + x_2 = 10 \\
+x_2 + x_3 = 8
+\end{cases}
+$$
+
+Because there are more unknowns than independent equations, the system has infinitely many solutions. We can choose one variable as a free parameter, for example, $x_3 = t$.
+
+Using back-substitution:
+From the second equation:
+
+$$
+x_2 + t = 8 \implies x_2 = 8 - t
+$$
+
+From the first equation:
+
+$$
+x_1 + (8 - t) = 10 \implies x_1 - t = 2 \implies x_1 = t + 2
+$$
+
+**Step 4: Verification**
+
+Substitute the parametric solution $(x_1, x_2, x_3) = (t+2, 8-t, t)$ into the original third equation to ensure it holds for all $t$:
+
+$$
+x_1 - x_3 = (t + 2) - t = 2
+$$
+
+The equation evaluates to $2 = 2$, which confirms that the solution family satisfies the entire original system perfectly.
+
+---
+
+### Final Answer
+
+1. **Solution:** The system has **infinitely many solutions** given by the parametric family:
+
+$$
+\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}
+=
+\begin{pmatrix} t + 2 \\ 8 - t \\ t \end{pmatrix}, \qquad t \in \mathbb{R}
+$$
+
+2. **Independence check:** Not all three equations are independently necessary. Equation 3 provides no new information because it is algebraically dependent on the first two.
+3. **Derivation:** Subtracting equation 2 from equation 1 exactly produces equation 3:
+
+$$
+(x_1 + x_2) - (x_2 + x_3) = 10 - 8 \implies x_1 - x_3 = 2
+$$
