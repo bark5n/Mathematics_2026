@@ -24,7 +24,7 @@ $$
 A square matrix $M \in \mathbb{R}^{n \times n}$ is invertible if and only if its determinant is nonzero:
 
 $$
-M \text{ is invertible} \iff \det M \neq 0
+\det M \neq 0
 $$
 
 For an invertible $2 \times 2$ matrix with $ad - bc \neq 0$, its inverse is given explicitly by:
@@ -189,4 +189,4 @@ $$
 = 0
 $$
 
-2. **Invertibility conclusion:** Only the first matrix, $\begin{pmatrix} 3 & -2 \\ 5 & 4 \\ \end{pmatrix}$, is invertible because its determinant is $22 \neq 0$. The second matrix is not invertible because its determinant is $0$.
+2. **Invertibility conclusion:** Only the first matrix $A$ is invertible because $\det A = 22 \neq 0$. The second matrix $B$ is not invertible because $\det B = 0$.
