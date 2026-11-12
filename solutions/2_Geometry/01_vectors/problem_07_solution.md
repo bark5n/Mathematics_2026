@@ -1,124 +1,82 @@
 ### Essential Formulas
 
-**Orthogonal Projection of $u$ onto a Nonzero Direction $v$:**
-For any vector $u$ and any nonzero vector $v \neq \mathbf{0}$, the orthogonal projection of $u$ onto $v$ is the scalar multiple of $v$ defined by:
+**Linear Dependence of Vectors:**
+A set of vectors $\{v_1, v_2, \dots, v_k\}$ in a vector space is called **linearly dependent** if there exist scalars $c_1, c_2, \dots, c_k$, not all zero, such that:
 
 $$
-\mathrm{proj}_v\,u = \frac{u \cdot v}{v \cdot v} v = \frac{u \cdot v}{\|v\|^2} v
+c_1 v_1 + c_2 v_2 + \dots + c_k v_k = \mathbf{0}
 $$
 
-**Orthogonal (Perpendicular) Residual Component:**
-Subtracting the projection from $u$ yields the component of $u$ perpendicular to $v$:
-
-$$
-r = u - \mathrm{proj}_v\,u
-$$
-
-**Orthogonal Decomposition Identity:**
-Every vector $u$ decomposes uniquely as $u = \mathrm{proj}_v\,u + r$, where $\mathrm{proj}_v\,u$ is parallel to $v$ and $r \perp v$ ($r \cdot v = 0$).
+**Proportionality as a Sufficient Condition:**
+If any one vector in a set is a scalar multiple of another vector in the same set (i.e., they are proportional, $v_i = c v_j$), then the entire set of vectors is **automatically linearly dependent**, regardless of how many other vectors are in the set.
 
 ---
 
 ### Problem Statement
 
-**Exercise 6. Projection and Perpendicular Component**
+**Exercise 7. Linear Dependence Without Lengthy Calculation**
 
-Find the projection of $u=(4,2)$ onto the direction $v=(1,1)$. Then compute
+State $u=(1,2,3)$, $v=(2,4,6)$, $w=(0,1,1)$; show $v=2u$ and explain why the three vectors are linearly dependent without lengthy calculation.
 
-$$
-r=u-\mathrm{proj}_v\,u
-$$
-
-and verify that $r\cdot v=0$. Explain this result geometrically.
-
-> **Why this exercise:** shows projection as a decomposition into parallel and perpendicular components.
+> **Why this exercise:** demonstrates that noticing a simple proportional relationship between two vectors bypasses the need to set up and solve a full system of linear equations to prove dependence.
 
 ---
 
 ### Solution
 
-**Step 1: Compute the projection $\mathrm{proj}_v\,u$**
+**Step 1: State the vectors and show that $v = 2u$**
 
-First compute the dot products $u \cdot v$ and $v \cdot v$ for $u = (4, 2)$ and $v = (1, 1)$:
+The three given vectors are:
+
+$$
+u = (1, 2, 3), \qquad v = (2, 4, 6), \qquad w = (0, 1, 1)
+$$
+
+Multiply the vector $u$ by the scalar $2$:
 
 $$
 \begin{aligned}
-u \cdot v &= (4, 2) \cdot (1, 1) = 4 \cdot 1 + 2 \cdot 1 = 4 + 2 = 6, \\
-v \cdot v &= \|v\|^2 = (1, 1) \cdot (1, 1) = 1^2 + 1^2 = 2.
+2u &= 2(1, 2, 3) \\
+&= (2 \cdot 1, \, 2 \cdot 2, \, 2 \cdot 3) \\
+&= (2, 4, 6)
 \end{aligned}
 $$
 
-Substitute these values into the orthogonal projection formula:
+Comparing the result with the coordinates of $v$, we see identically that:
 
 $$
-\begin{aligned}
-\mathrm{proj}_v\,u &= \frac{u \cdot v}{v \cdot v} v \\
-&= \frac{6}{2} (1, 1) \\
-&= 3(1, 1) \\
-&= (3, 3)
-\end{aligned}
+v = 2u
 $$
 
-**Step 2: Compute the perpendicular component $r = u - \mathrm{proj}_v\,u$**
+**Step 2: Explain why the three vectors are linearly dependent without a lengthy calculation**
 
-Subtract $\mathrm{proj}_v\,u = (3, 3)$ from $u = (4, 2)$ componentwise:
-
-$$
-\begin{aligned}
-r &= u - \mathrm{proj}_v\,u \\
-&= (4, 2) - (3, 3) \\
-&= (4 - 3, \, 2 - 3) \\
-&= (1, -1)
-\end{aligned}
-$$
-
-**Step 3: Verify that $r \cdot v = 0$**
-
-Take the dot product of $r = (1, -1)$ and $v = (1, 1)$:
+By definition, a set of vectors $\{u, v, w\}$ is linearly dependent if we can find scalars $c_1, c_2, c_3$ (where at least one is not zero) such that:
 
 $$
-\begin{aligned}
-r \cdot v &= (1, -1) \cdot (1, 1) \\
-&= 1 \cdot 1 + (-1) \cdot 1 \\
-&= 1 - 1 \\
-&= 0
-\end{aligned}
+c_1 u + c_2 v + c_3 w = \mathbf{0}
 $$
 
-Because $r = (1, -1) \neq \mathbf{0}$, $v = (1, 1) \neq \mathbf{0}$, and $r \cdot v = 0$, the residual vector $r$ is strictly perpendicular to $v$ ($r \perp v$).
+Because we have already established the direct relationship $v = 2u$, we can rewrite this as:
 
-**Step 4: Explain this result geometrically**
+$$
+2u - v = \mathbf{0}
+$$
 
-Geometrically, finding $\mathrm{proj}_v\,u$ drops a perpendicular from the tip of $u = (4, 2)$ onto the line spanned by $v = (1, 1)$ (the line $y = x$ in $\mathbb{R}^2$):
+To match the formal definition involving all three vectors, we simply add the vector $w$ with a scalar coefficient of $0$:
 
-1. **Foot of the perpendicular ($\mathrm{proj}_v\,u = (3, 3)$):** The point $(3, 3)$ is the closest point on the line $y = x$ to $(4, 2)$—the orthogonal "shadow" cast by $u$ onto the direction of $v$.
-2. **Perpendicular drop vector ($r = (1, -1)$):** The difference $r = u - \mathrm{proj}_v\,u$ is the directed segment connecting the foot $(3, 3)$ on the line $y = x$ directly to the tip $(4, 2)$ of $u$. Because the shortest distance from a point to a line meets the line at a $90^\circ$ angle, this segment $r$ must be perpendicular to the line's direction $v$, which is captured algebraically by $r \cdot v = 0$.
-3. **Right-triangle decomposition:** Together, $\mathrm{proj}_v\,u = (3, 3)$ (parallel to $v$) and $r = (1, -1)$ (perpendicular to $v$) form the two perpendicular legs of a right triangle whose hypotenuse is $u = (3, 3) + (1, -1) = (4, 2)$.
+$$
+2u - 1v + 0w = \mathbf{0}
+$$
 
-**Step 5: Verification**
+Here, the coefficients are $c_1 = 2$, $c_2 = -1$, and $c_3 = 0$. Since not all coefficients are zero (in fact, $c_1$ and $c_2$ are nonzero), the vectors $u, v$, and $w$ satisfy the exact definition of linear dependence. 
 
-* **Reconstruction check:** $\mathrm{proj}_v\,u + r = (3, 3) + (1, -1) = (4, 2) = u$.
-* **Pythagorean theorem check for the right triangle:**
-  * $\|\mathrm{proj}_v\,u\|^2 = 3^2 + 3^2 = 9 + 9 = 18$
-  * $\|r\|^2 = 1^2 + (-1)^2 = 1 + 1 = 2$
-  * $\|u\|^2 = 4^2 + 2^2 = 16 + 4 = 20$
-  * Since $\|\mathrm{proj}_v\,u\|^2 + \|r\|^2 = 18 + 2 = 20 = \|u\|^2$, the vectors $\mathrm{proj}_v\,u$, $r$, and $u$ form an exact right triangle.
+Because two of the vectors are collinear (they lie on the same line through the origin), the entire set is trapped in at most a 2-dimensional plane, rather than spanning a full 3-dimensional space. We deduced this instantly by noticing $v = 2u$, completely avoiding the need to set up a $3 \times 3$ matrix, compute a determinant, or use Gaussian elimination.
 
 ---
 
 ### Final Answer
 
-1. **Orthogonal projection of $u$ onto $v$:**
-
-$$
-\mathrm{proj}_v\,u = (3, 3)
-$$
-
-2. **Perpendicular component $r$:**
-
-$$
-r = u - \mathrm{proj}_v\,u = (1, -1)
-$$
-
-3. **Orthogonality verification:** $r \cdot v = (1, -1) \cdot (1, 1) = 1 - 1 = 0$, confirming $r \perp v$.
-4. **Geometric interpretation:** $\mathrm{proj}_v\,u = (3, 3)$ is the foot of the perpendicular dropped from $(4, 2)$ onto the line $y = x$ spanned by $v = (1, 1)$, and $r = (1, -1)$ is the perpendicular segment from that foot to $(4, 2)$; together they decompose $u$ into two orthogonal legs of a right triangle.
+1. **Stating vectors and showing proportionality:**
+   Given $u = (1, 2, 3)$, multiplying by $2$ yields $2u = (2, 4, 6) = v$. Therefore, $v = 2u$.
+2. **Explanation of linear dependence:** 
+   Because $v$ is a scalar multiple of $u$, we can form the non-trivial linear combination $2u - v + 0w = \mathbf{0}$. Since the coefficients $(2, -1, 0)$ are not all zero, the set $\{u, v, w\}$ is strictly linearly dependent by definition. No further calculation is required[cite: 13, 14].
