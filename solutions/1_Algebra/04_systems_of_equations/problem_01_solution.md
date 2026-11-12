@@ -1,22 +1,14 @@
 ### Essential Formulas
 
-**Matrix Form of a System of Linear Equations ($Ax = b$):**
-A system of $m$ linear equations in $n$ unknowns $x_1, x_2, \ldots, x_n$:
+**Matrix Form of a Linear System:**
+A system of $m$ linear equations in $n$ unknowns can be written as a single matrix equation:
 
-$$\begin{cases} a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1, \\ a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2, \\ \quad \vdots \\ a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n = b_m \end{cases}$$
+$$Ax = b$$
 
-can be written compactly as a single matrix equation $Ax = b$, where:
-
-$$A = \begin{pmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \\ \end{pmatrix}, \qquad x = \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \\ \end{pmatrix}, \qquad b = \begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_m \\ \end{pmatrix}$$
-
-* $A \in \mathbb{R}^{m \times n}$ is the **coefficient matrix**,
-* $x \in \mathbb{R}^n$ is the **vector of unknowns**,
-* $b \in \mathbb{R}^m$ is the **right-hand side vector**.
-
-**Row-by-Column Multiplication Rule:**
-The $i$-th entry of the matrix-vector product $Ax$ equals the dot product of the $i$-th row of $A$ with the column vector $x$:
-
-$$(Ax)_i = a_{i1}x_1 + a_{i2}x_2 + \cdots + a_{in}x_n$$
+where:
+* $A$ is the $m \times n$ **coefficient matrix** containing the weights of the variables.
+* $x$ is the $n \times 1$ column **vector of unknowns**.
+* $b$ is the $m \times 1$ column **right-hand side vector** of constants.
 
 ---
 
@@ -37,32 +29,46 @@ Identify the coefficient matrix, the vector of unknowns, and the right-hand side
 
 ### Solution
 
-**Step 1: Align the variables and extract the coefficients and constants**
+**Step 1: Identify the components for the matrix equation $Ax = b$**
 
-Write every equation with the variables in the consistent order $x$, $y$, $z$, making implicit coefficients of $1$ and $-1$ explicit:
+Read the coefficients of the variables $x, y, z$ from the left side of each equation to form the coefficient matrix $A$. Group the variables into the column vector $x$, and take the constants from the right side of the equals signs to form the vector $b$.
 
-$$\begin{cases} 2x + (-1)y + 1z = 4, \\ 1x + 3y + (-2)z = 1, \\ 3x + 1y + 1z = 7. \end{cases}$$
+1. **Coefficient matrix $A$:**
 
-* From equation 1, the coefficients are $(2, -1, 1)$ and the right-hand side constant is $4$.
-* From equation 2, the coefficients are $(1, 3, -2)$ and the right-hand side constant is $1$.
-* From equation 3, the coefficients are $(3, 1, 1)$ and the right-hand side constant is $7$.
+$$A = \begin{pmatrix} 2 & -1 & 1 \\ 1 & 3 & -2 \\ 3 & 1 & 1 \\ \end{pmatrix}$$
 
-**Step 2: Identify $A$, $x$, and $b$, and write the system as $Ax = b$**
+2. **Vector of unknowns $x$:**
 
-Arrange the coefficients into a $3 \times 3$ matrix $A$, the unknowns into a $3 \times 1$ column vector (denoting the vector of unknowns by $\mathbf{x}$ to distinguish it from the scalar variable $x$), and the constants into a $3 \times 1$ column vector $b$:
+$$x = \begin{pmatrix} x \\ y \\ z \\ \end{pmatrix}$$
 
-$$A = \begin{pmatrix} 2 & -1 & 1 \\ 1 & 3 & -2 \\ 3 & 1 & 1 \\ \end{pmatrix}, \qquad \mathbf{x} = \begin{pmatrix} x \\ y \\ z \\ \end{pmatrix}, \qquad b = \begin{pmatrix} 4 \\ 1 \\ 7 \\ \end{pmatrix}$$
+3. **Right-hand side vector $b$:**
 
-Writing the system in the matrix form $A\mathbf{x} = b$ gives:
+$$b = \begin{pmatrix} 4 \\ 1 \\ 7 \\ \end{pmatrix}$$
+
+**Step 2: Write the system in the form $Ax = b$**
+
+Combining the identified components, the matrix equation is:
 
 $$\begin{pmatrix} 2 & -1 & 1 \\ 1 & 3 & -2 \\ 3 & 1 & 1 \\ \end{pmatrix} \begin{pmatrix} x \\ y \\ z \\ \end{pmatrix} = \begin{pmatrix} 4 \\ 1 \\ 7 \\ \end{pmatrix}$$
 
-**Step 3: Explain how each row of $A$ corresponds to one equation**
+**Step 3: Explain the row-to-equation correspondence**
 
-By the definition of matrix-vector multiplication, multiplying $A$ by $\mathbf{x}$ computes the dot product of each row of $A$ with the column vector $\mathbf{x} = (x, y, z)^T$, while vector equality equates corresponding entries on both sides:
+By the definition of matrix multiplication, multiplying the $i$-th row of matrix $A$ by the column vector $x$ produces the left-hand side of the $i$-th equation in the original system. For example, multiplying the first row of $A$ by the vector of unknowns gives the dot product:
 
-* **Row 1 $\leftrightarrow$ Equation 1:** The first row $(2, -1, 1)$ contains the coefficients of $x$, $y$, and $z$ in the first equation. Multiplying Row 1 by $\mathbf{x}$ yields $2x - y + z$, and equating it to the first entry of $b$ ($4$) produces $2x - y + z = 4$.
-* **Row 2 $\leftrightarrow$ Equation 2:** The second row $(1, 3, -2)$ contains the coefficients of $x$, $y$, and $z$ in the second equation. Multiplying Row 2 by $\mathbf{x}$ yields $x + 3y - 2z$, and equating it to the second entry of $b$ ($1$) produces $x + 3y - 2z = 1$.
-* **Row 3 $\leftrightarrow$ Equation 3:** The third row $(3, 1, 1)$ contains the coefficients of $x$, $y$, and $z$ in the third equation. Multiplying Row 3 by $\mathbf{x}$ yields $3x + y + z$, and equating it to the third entry of $b$ ($7$) produces $3x + y + z = 7$.
+$$\begin{pmatrix} 2 & -1 & 1 \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = 2x + (-1)y + 1z = 2x - y + z$$
 
-*(Equivalently, the columns of $A$ group coefficients by variable: column 1 holds the coefficients of $x$, column 2
+Equating this result to the first entry of the vector $b$ gives $2x - y + z = 4$, which perfectly recovers the first equation of the system. Thus, each row of the augmented matrix acts as a direct placeholder for the coefficients and constant of one specific equation.
+
+---
+
+### Final Answer
+
+1. **The system in $Ax = b$ form:**
+
+$$\begin{pmatrix} 2 & -1 & 1 \\ 1 & 3 & -2 \\ 3 & 1 & 1 \\ \end{pmatrix} \begin{pmatrix} x \\ y \\ z \\ \end{pmatrix} = \begin{pmatrix} 4 \\ 1 \\ 7 \\ \end{pmatrix}$$
+
+2. **Identified parts:**
+   * **Coefficient matrix:** $A = \begin{pmatrix} 2 & -1 & 1 \\ 1 & 3 & -2 \\ 3 & 1 & 1 \end{pmatrix}$
+   * **Vector of unknowns:** $x = \begin{pmatrix} x \\ y \\ z \end{pmatrix}$
+   * **Right-hand side:** $b = \begin{pmatrix} 4 \\ 1 \\ 7 \end{pmatrix}$
+3. **Row correspondence:** By the rules of matrix-vector multiplication, the dot product of the $i$-th row of $A$ and the vector $x$ produces the algebraic expression for the $i$-th equation, which is then equated to the $i$-th entry of $b$.
