@@ -1,16 +1,15 @@
 ### Essential Formulas
 
-**Parametric Gaussian Elimination and Division Validity:**
-When reducing an augmented matrix $[A(t) \mid b(t)]$ that depends on a parameter $t$:
+**Invalid Row Operations in Parametric Systems:**
+When analyzing a system of equations with a parameter (e.g., $t$), one must avoid dividing a row by an expression containing $t$ (such as $t - 1$) unless one explicitly analyzes the case where that expression equals zero.
 
-* Row replacements $R_i \leftarrow R_i + k R_j$ with constant scalars $k$ are valid for **all** $t \in \mathbb{R}$.
-* Scaling a row by $\frac{1}{p(t)}$ or solving $p(t) x_k = c$ by dividing by $p(t)$ is valid **only when $p(t) \neq 0$**. Any parameter value $t_0$ satisfying $p(t_0) = 0$ must be substituted back into the reduced matrix and analyzed separately.
+If an elimination step produces a row of the form:
 
-**Solution-Count Criterion from Row Echelon Form ($n = 3$ Unknowns):**
+$$
+(0 \ \cdots \ 0 \mid d)
+$$
 
-* **No solution (inconsistent):** At least one row has the form $(0, 0, 0 \mid d)$ with $d \neq 0$ ($\mathrm{rank}(A) < \mathrm{rank}([A \mid b])$).
-* **Exactly one solution (unique):** No contradictory row appears and all $3$ variable columns contain nonzero pivots ($\mathrm{rank}(A) = \mathrm{rank}([A \mid b]) = 3$).
-* **Infinitely many solutions:** No contradictory row appears and $\mathrm{rank}(A) = \mathrm{rank}([A \mid b]) < 3$.
+where the left side evaluates to $0$ and the right side is a nonzero constant $d \neq 0$, the system is **inconsistent** (no solution) for that parameter value.
 
 ---
 
@@ -20,7 +19,13 @@ When reducing an augmented matrix $[A(t) \mid b(t)]$ that depends on a parameter
 
 Analyze the number of solutions depending on $t$:
 
-$$\begin{cases} x+y+z=1, \\ x+ty+z=2, \\ x+y+tz=3. \end{cases}$$
+$$
+\begin{cases}
+x+y+z=1, \\
+x+ty+z=2, \\
+x+y+tz=3.
+\end{cases}
+$$
 
 Use elimination and separately analyze the parameter values for which a standard calculation step ceases to be valid.
 
@@ -30,32 +35,91 @@ Use elimination and separately analyze the parameter values for which a standard
 
 ### Solution
 
-**Step 1: Set up the augmented matrix $[A(t) \mid b]$**
+**Step 1: Set up the augmented matrix and perform initial elimination**
 
-Write the coefficients of $x$, $y$, $z$ and the right-hand side constants in a $3 \times 4$ augmented matrix:
+Write the augmented matrix for the system:
 
-$$\begin{pmatrix} 1 & 1 & 1 & \mid & 1 \\ 1 & t & 1 & \mid & 2 \\ 1 & 1 & t & \mid & 3 \\ \end{pmatrix}$$
+$$
+\begin{pmatrix}
+1 & 1 & 1 & \mid & 1 \\
+1 & t & 1 & \mid & 2 \\
+1 & 1 & t & \mid & 3 \\
+\end{pmatrix}
+$$
 
-**Step 2: Perform forward elimination (valid for all $t \in \mathbb{R}$)**
+Use the $(1,1)$ entry as a pivot to eliminate the variables in the first column below it. Perform the row operations $R_2 \leftarrow R_2 - R_1$ and $R_3 \leftarrow R_3 - R_1$:
 
-Using the leading $1$ in position $(1, 1)$ as the first pivot, eliminate $x$ from rows $2$ and $3$ using row replacements that require no division:
+$$
+\begin{pmatrix}
+1 & 1 & 1 & \mid & 1 \\
+0 & t-1 & 0 & \mid & 1 \\
+0 & 0 & t-1 & \mid & 2 \\
+\end{pmatrix}
+$$
 
-1. **$R_2 \leftarrow R_2 - R_1$:**
+**Step 2: Identify the critical parameter value**
 
-$$(1, t, 1 \mid 2) - (1, 1, 1 \mid 1) = (0, t - 1, 0 \mid 1)$$
+The matrix is now in row echelon form. The equations corresponding to the second and third rows are:
 
-2. **$R_3 \leftarrow R_3 - R_1$:**
+$$
+\begin{aligned}
+(t-1)y &= 1 \\
+(t-1)z &= 2
+\end{aligned}
+$$
 
-$$(1, 1, t \mid 3) - (1, 1, 1 \mid 1) = (0, 0, t - 1 \mid 2)$$
+To solve for $y$ and $z$, we need to divide by $t-1$. This standard calculation step **ceases to be valid** when the denominator is zero, meaning when $t - 1 = 0 \implies t = 1$. We must split the analysis into two distinct cases.
 
-The augmented matrix is now in upper triangular (row echelon) form for every $t \in \mathbb{R}$:
+**Step 3: Analyze Case 1 ($t = 1$)**
 
-$$\begin{pmatrix} 1 & 1 & 1 & \mid & 1 \\ 0 & t - 1 & 0 & \mid & 1 \\ 0 & 0 & t - 1 & \mid & 2 \\ \end{pmatrix}$$
+Substitute $t = 1$ directly into the row-reduced augmented matrix:
 
-This corresponds to the equivalent system:
+$$
+\begin{pmatrix}
+1 & 1 & 1 & \mid & 1 \\
+0 & 0 & 0 & \mid & 1 \\
+0 & 0 & 0 & \mid & 2 \\
+\end{pmatrix}
+$$
 
-$$\begin{cases} x + y + z = 1, \\ (t - 1)y = 1, \\ (t - 1)z = 2. \end{cases}$$
+The second row reads $0x + 0y + 0z = 1 \implies 0 = 1$.
+The third row reads $0x + 0y + 0z = 2 \implies 0 = 2$.
+These are blatant contradictions. Therefore, for $t = 1$, the system has **no solution**.
 
-**Step 3: Identify where a standard calculation step ceases to be valid**
+**Step 4: Analyze Case 2 ($t \neq 1$)**
 
-In the standard back-substitution step, solving $(t - 1)y = 1$ for $y$ and $(t - 1)z = 2$ for $z$ requires **dividing both equations by $t - 1$** (equivalently, normalizing the pivots via
+If $t \neq 1$, then $t - 1 \neq 0$, and division by $t-1$ is mathematically valid. We can uniquely determine $y$ and $z$:
+
+$$
+\begin{aligned}
+y &= \frac{1}{t-1} \\
+z &= \frac{2}{t-1}
+\end{aligned}
+$$
+
+Substitute $y$ and $z$ back into the first row's equation $x + y + z = 1$ to find $x$:
+
+$$
+\begin{aligned}
+x + \frac{1}{t-1} + \frac{2}{t-1} &= 1 \\
+x + \frac{3}{t-1} &= 1 \\
+x &= 1 - \frac{3}{t-1} \\
+x &= \frac{t-1-3}{t-1} \\
+x &= \frac{t-4}{t-1}
+\end{aligned}
+$$
+
+Because every variable is uniquely determined, the system has **exactly one solution** for any $t \neq 1$.
+
+---
+
+### Final Answer
+
+Based on the elimination steps yielding $(t-1)y=1$ and $(t-1)z=2$, the division by $t-1$ requires splitting the parameter:
+
+1. **For $t = 1$:** The division is invalid. The reduced matrix produces contradictory rows ($0=1$ and $0=2$), meaning the system has **no solution**.
+2. **For $t \neq 1$:** The division by $t-1 \neq 0$ is valid, leading to **exactly one solution** (a unique point):
+
+$$
+x = \frac{t-4}{t-1}, \qquad y = \frac{1}{t-1}, \qquad z = \frac{2}{t-1}
+$$
