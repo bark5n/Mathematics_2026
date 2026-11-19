@@ -53,3 +53,26 @@ Choose the intercepts along the coordinate axes:
                ' . | . '
             (0,-3) *
                    |
+```
+
+**Step 4: Explain why the curve is bounded**
+
+Since $x^2 \ge 0$ and $y^2 \ge 0$ for all real numbers $x, y$:
+
+$$
+x^2 \le x^2 + y^2 = 9 \implies |x| \le 3 \implies -3 \le x \le 3
+$$
+
+$$
+y^2 \le x^2 + y^2 = 9 \implies |y| \le 3 \implies -3 \le y \le 3
+$$
+
+Every point on the circle is confined within the closed square $[-3, 3] \times [-3, 3]$ (and at a fixed distance $3$ from the origin), so the curve cannot extend to infinity and is therefore bounded.
+
+---
+
+### Final Answer
+
+1. **Center and radius:** Center at $(0, 0)$, radius $r = 3$.
+2. **Four points on the curve:** $(3, 0)$, $(-3, 0)$, $(0, 3)$, and $(0, -3)$.
+3. **Boundedness:** Because $x^2 \le 9$ and $y^2 \le 9$, all coordinates satisfy $|x| \le 3$ and $|y| \le 3$.
