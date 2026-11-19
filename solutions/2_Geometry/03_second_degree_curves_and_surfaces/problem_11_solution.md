@@ -1,19 +1,15 @@
 ### Essential Formulas
 
-**Cross-Sections of Surfaces of Revolution in Space:**
-Given a surface defined implicitly by an equation in $x, y,$ and $z$, the horizontal cross-section at a fixed level $z = c$ is obtained by substituting $c$ for $z$, yielding an equation in the remaining variables $x$ and $y$. For equations of the form:
+**Horizontal Cross-Sections of Quadric Surfaces of Revolution:**
+For a surface of the form
 
-$$
-x^2 + y^2 - z^2 = k
-$$
+$$x^2 + y^2 - z^2 = k,$$
 
-substituting $z = c$ gives:
+intersecting with the horizontal plane $z = c$ gives the planar curve:
 
-$$
-x^2 + y^2 = c^2 + k
-$$
+$$x^2 + y^2 = c^2 + k$$
 
-The existence, shape, and scale of the cross-section depend entirely on the sign and magnitude of the constant $c^2 + k$.
+which is a circle of radius $r = \sqrt{c^2 + k}$ whenever $c^2 + k > 0$, a single point when $c^2 + k = 0$, and empty when $c^2 + k < 0$.
 
 ---
 
@@ -23,19 +19,15 @@ The existence, shape, and scale of the cross-section depend entirely on the sign
 
 Compare
 
-$$
-x^2+y^2-z^2=1
-$$
+$$x^2 + y^2 - z^2 = 1$$
 
 and
 
-$$
-x^2+y^2-z^2=-1.
-$$
+$$x^2 + y^2 - z^2 = -1.$$
 
-For several values $z=c$, check whether the cross-section exists and what its radius is. Based on this, describe qualitatively the difference between the surfaces and make sketches[cite: 1].
+For several values $z = c$, check whether the cross-section exists and what its radius is. Based on this, describe qualitatively the difference between the surfaces and make sketches.
 
-> **Why this exercise:** teaches how to recognize the shape of a surface from cross-sections instead of from a memorized catalog of names[cite: 1].
+> **Why this exercise:** teaches how to recognize the shape of a surface from cross-sections instead of from a memorized catalog of names.
 
 ---
 
@@ -43,43 +35,45 @@ For several values $z=c$, check whether the cross-section exists and what its ra
 
 **Part 1: Surface 1 ($x^2 + y^2 - z^2 = 1$ — Hyperboloid of One Sheet)**
 
-1. **Substitute $z = c$:**
-   Substitute $z = c$ into the equation:
-   $$
-   x^2 + y^2 - c^2 = 1 \implies x^2 + y^2 = 1 + c^2
-   $$
+Setting $z = c$ gives $x^2 + y^2 = 1 + c^2$:
+* **$c = 0$:** $x^2 + y^2 = 1 \implies$ exists; circle of radius $r = 1$ (narrowest waist).
+* **$c = \pm 1$:** $x^2 + y^2 = 2 \implies$ exists; circle of radius $r = \sqrt{2}$.
+* **$c = \pm 2$:** $x^2 + y^2 = 5 \implies$ exists; circle of radius $r = \sqrt{5}$.
 
-2. **Check existence and radius for various values of $c$:**
-   * **When $c = 0$:** $x^2 + y^2 = 1$, giving a circle with radius $r = 1$ (the minimum radius at the "waist" in the $xy$-plane).
-   * **When $c = \pm 1$:** $x^2 + y^2 = 1 + (\pm 1)^2 = 2$, giving a circle with radius $r = \sqrt{2} \approx 1.41$.
-   * **When $c = \pm 3$:** $x^2 + y^2 = 1 + (\pm 3)^2 = 10$, giving a circle with radius $r = \sqrt{10} \approx 3.16$.
-   * **General observation:** For *any* real value of $c \in \mathbb{R}$, the right-hand side $1 + c^2$ is strictly positive ($1 + c^2 \ge 1$). Therefore, horizontal cross-sections **always exist** for all $z = c$, and their radii grow larger as $|c|$ increases.
-
-3. **Qualitative description of Surface 1:**
-   A connected, single-piece surface (hyperboloid of one sheet) that narrows to a waist of radius $1$ at $z = 0$ and expands outward symmetrically as $|c|$ increases, resembling a cooling tower or an hourglass.
-
----
+Because $1 + c^2 \ge 1 > 0$ for every $c \in \mathbb{R}$, horizontal cross-sections exist at **every height** $z = c$ with radius $r = \sqrt{1 + c^2}$. The surface is a single connected tube with a narrow waist of radius $1$ at $z = 0$ that flares outward as $\vert{}z\vert{}$ grows.
 
 **Part 2: Surface 2 ($x^2 + y^2 - z^2 = -1$ — Hyperboloid of Two Sheets)**
 
-1. **Substitute $z = c$:**
-   Substitute $z = c$ into the equation:
-   $$
-   x^2 + y^2 - c^2 = -1 \implies x^2 + y^2 = c^2 - 1
-   $$
+Setting $z = c$ gives $x^2 + y^2 = c^2 - 1$:
+* **$c = 0$:** $x^2 + y^2 = -1 \implies$ **does not exist** (empty set).
+* **$c = \pm \frac{1}{2}$:** $x^2 + y^2 = -\frac{3}{4} \implies$ **does not exist** (empty set).
+* **$c = \pm 1$:** $x^2 + y^2 = 0 \implies$ exists as a **single vertex point** $(0, 0, 1)$ or $(0, 0, -1)$ (radius $r = 0$).
+* **$c = \pm 2$:** $x^2 + y^2 = 3 \implies$ exists; circle of radius $r = \sqrt{3}$.
 
-2. **Check existence and radius for various values of $c$:**
-   * **When $c = 0$:** $x^2 + y^2 = 0^2 - 1 = -1$. Since the sum of squares cannot be negative, **no cross-section exists** (no real points) at $z = 0$.
-   * **When $c = \pm 1$:** $x^2 + y^2 = (\pm 1)^2 - 1 = 0$, giving a **single point** at $(0, 0, \pm 1)$ (the vertices of the surface).
-   * **When $c = \pm 2$:** $x^2 + y^2 = (\pm 2)^2 - 1 = 3$, giving a circle with radius $r = \sqrt{3} \approx 1.73$.
-   * **General observation:** Cross-sections only exist when $c^2 - 1 \ge 0$, which means **$|c| \ge 1$** ($c \ge 1$ or $c \le -1$). For the central slab where $-1 < c < 1$, no cross-sections exist.
+Cross-sections exist only for $\vert{}c\vert{} \ge 1$ with radius $r = \sqrt{c^2 - 1}$. There is an empty gap for $-1 < z < 1$ separating two disconnected sheets (one for $z \ge 1$ and one for $z \le -1$).
 
-3. **Qualitative description of Surface 2:**
-   A disconnected, two-piece surface (hyperboloid of two sheets). One sheet opens upward for $z \ge 1$ and the other opens downward for $z \le -1$, separated by an empty gap between $z = -1$ and $z = 1$.
+**Part 3: Labelled Qualitative Sketches**
+
+```text
+  (a) One-Sheet Hyperboloid: x^2+y^2-z^2 = 1    (b) Two-Sheet Hyperboloid: x^2+y^2-z^2 = -1
+
+                    z ^                                            z ^
+              .-----+-+-----.                                .-----+-----.
+             (      | |      )                              (      |      )  (z = 2, r = sqrt(3))
+              '-----+-+-----'                                '-----+-----'
+                \   | |   /                                    \   |   /
+                 )  | |  (   (waist at z=0, r=1)                '-*+*-'      (vertex (0,0,1))
+            -----+--+-+--+-----> x                         --------+---------> x  [empty gap |z|<1]
+                 )  | |  (                                      .-*+*-.      (vertex (0,0,-1))
+                /   | |   \                                    /   |   \
+              .-----+-+-----.                                .-----+-----.
+             (      | |      )                              (      |      )  (z = -2, r = sqrt(3))
+              '-----+-+-----'                                '-----+-----'
+```
 
 ---
 
 ### Final Answer
 
-1. **Surface 1 ($x^2 + y^2 - z^2 = 1$):** Cross-sections exist for all $z = c$ with radius $r = \sqrt{1 + c^2}$, forming a single connected surface (hyperboloid of one sheet) with a narrow waist at $z = 0$[cite: 1].
-2. **Surface 2 ($x^2 + y^2 - z^2 = -1$):** Cross-sections exist only for $|c| \ge 1$ with radius $r = \sqrt{c^2 - 1}$, forming two disconnected sheets separated by a gap between $z = -1$ and $z = 1$ (hyperboloid of two sheets)[cite: 1].
+1. **$x^2 + y^2 - z^2 = 1$ (Hyperboloid of one sheet):** Cross-sections exist for all $z = c$ as circles of radius $r = \sqrt{1 + c^2}$, forming one connected surface with a minimum waist $r = 1$ at $z = 0$.
+2. **$x^2 + y^2 - z^2 = -1$ (Hyperboloid of two sheets):** Cross-sections exist only for $|c| \ge 1$ as circles of radius $r = \sqrt{c^2 - 1}$ (points at $z = \pm 1$), forming two separate sheets divided by the empty strip $-1 < z < 1$.
