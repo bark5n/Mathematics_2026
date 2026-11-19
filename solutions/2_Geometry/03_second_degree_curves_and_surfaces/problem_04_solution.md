@@ -1,18 +1,11 @@
 ### Essential Formulas
 
-**Canonical Equation of a Parabola (Horizontal Axis):**
-A parabola with its vertex at the origin and axis of symmetry along the $x$-axis is described by the equation:
+**Canonical Equation of a Parabola:**
+A parabola with vertex at the origin opening along the positive $x$-axis has the standard equation:
 
-$$
-y^2 = 4px
-$$
+$$y^2 = 4px \qquad (p > 0)$$
 
-where:
-* **Vertex:** $(0, 0)$
-* **Axis of symmetry:** The $x$-axis ($y = 0$)
-* **Opening direction:** Opens to the right if $p > 0$, and to the left if $p < 0$.
-* **Focus:** $(p, 0)$
-* **Directrix:** $x = -p$
+where the focus is at $(p, 0)$, the directrix is the vertical line $x = -p$, and the axis of symmetry is the $x$-axis ($y = 0$).
 
 ---
 
@@ -20,64 +13,63 @@ where:
 
 **Exercise 4. Parabola**
 
-For
+Analyze
 
-$$
-y^2=12x,
-$$
+$$y^2 = 8x.$$
 
-identify the vertex, axis of symmetry, and opening direction. Find points on the parabola for $x=3$ and use them to make a sketch[cite: 3].
+Find the vertex, axis of symmetry, focus, directrix, and make a sketch. Explain why the curve exists only for $x \ge 0$.
 
-> **Why this exercise:** teaches how to move from the equation of a parabola to its basic geometry[cite: 3].
+> **Why this exercise:** introduces the parabola as a curve symmetric about one axis and bounded on one side.
 
 ---
 
 ### Solution
 
-**Step 1: Identify the vertex, axis of symmetry, and opening direction**
+**Step 1: Determine the parameter $p$**
 
-Compare the given equation $y^2 = 12x$ to the canonical form $y^2 = 4px$:
-* **Parameter $p$:** Set $4p = 12$, which gives $p = 3$.
-* **Vertex:** Since no shifting terms are present (i.e., $x$ and $y$ are not modified inside parentheses), the vertex is at the origin:
+Compare $y^2 = 8x$ with the canonical form $y^2 = 4px$:
+
+$$4p = 8 \implies p = 2$$
+
+**Step 2: Identify the key geometric features**
+
+* **Vertex:** $V = (0, 0)$
+* **Axis of symmetry:** The $x$-axis ($y = 0$)
+* **Focus:** $F = (p, 0) = (2, 0)$
+* **Directrix:** $x = -p \implies x = -2$
+
+**Step 3: Labelled Sketch**
+
+```text
+          Directrix: x = -2
+                 |          y ^         . (2,4)
+                 |            |      . '
+                 |            |   . '
+                 |            | .'    Focus
+  ---------------+------------*---------*--------> x
+               (-2,0)       (0,0)     (2,0)
+                 |            | '.
+                 |            |   ' .
+                 |            |      ' .
+                 |            |         ' (2,-4)
+```
+
+**Step 4: Explain why the curve exists only for $x \ge 0$**
+
+For every real number $y$, its square is non-negative ($y^2 \ge 0$). From $y^2 = 8x$:
 
 $$
-V = (0, 0)
+8x = y^2 \ge 0 \implies x \ge 0
 $$
 
-* **Axis of symmetry:** The squared variable is $y^2$, meaning the axis of symmetry is the $x$-axis ($y = 0$).
-* **Opening direction:** Since $p = 3 > 0$, the parabola opens to the **right**.
-
-**Step 2: Find points on the parabola for $x = 3$**
-
-Substitute $x = 3$ into the equation $y^2 = 12x$:
-
-$$
-y^2 = 12(3) = 36
-$$
-
-Solving for $y$:
-
-$$
-y = \pm \sqrt{36} = \pm 6
-$$
-
-Thus, the two corresponding points on the parabola at $x = 3$ are:
-
-$$
-P_1 = (3, 6), \qquad P_2 = (3, -6)
-$$
-
-**Step 3: Sketch details**
-
-* Plot the vertex at the origin $(0, 0)$.
-* Draw the horizontal axis of symmetry along the $x$-axis.
-* Sketch the smooth curve opening to the right, passing through the origin and symmetric points $(3, 6)$ and $(3, -6)$ at $x = 3$.
+If $x < 0$, then $8x < 0$, which cannot equal $y^2$ for any real $y$. Hence the parabola lies entirely in the right half-plane $x \ge 0$.
 
 ---
 
 ### Final Answer
 
-1. **Vertex:** $(0, 0)$[cite: 3].
-2. **Axis of symmetry:** The $x$-axis ($y = 0$)[cite: 3].
-3. **Opening direction:** To the right (since $p = 3 > 0$)[cite: 3].
-4. **Points at $x = 3$:** $(3, 6)$ and $(3, -6)[cite: 3]$.
+1. **Vertex:** $(0, 0)$
+2. **Axis of symmetry:** $y = 0$ ($x$-axis)
+3. **Focus:** $(2, 0)$
+4. **Directrix:** $x = -2$
+5. **Domain restriction:** Because $y^2 \ge 0$ for all real $y$, $8x \ge 0 \implies x \ge 0$.
