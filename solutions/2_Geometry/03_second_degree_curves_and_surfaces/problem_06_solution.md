@@ -1,23 +1,10 @@
 ### Essential Formulas
 
 **Canonical Equation of a Shifted Ellipse:**
-An ellipse centered at an arbitrary point $(h, k)$ with semiaxes $a$ and $b$ is described by the canonical equation:
+An ellipse centered at $(h, k)$ with semiaxes $a$ and $b$ is described by:
 
 $$
 \frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} = 1
-$$
-
-**Completing the Square:**
-To transform a general second-degree equation of the form:
-
-$$
-Ax^2 + By^2 + Dx + Ey + F = 0
-$$
-
-into canonical form, group the $x$ and $y$ terms, factor out the leading coefficients $A$ and $B$, and complete the square for each variable:
-
-$$
-A\left(x - h\right)^2 + B\left(y - k\right)^2 = C
 $$
 
 ---
@@ -29,7 +16,7 @@ $$
 Reduce
 
 $$
-4x^2+9y^2-16x+18y-11=0
+4x^2 + 9y^2 - 16x + 18y - 11 = 0
 $$
 
 to canonical form. Give the center and semiaxis lengths. Check that substituting the coordinates of the center into the left-hand side gives a value consistent with the form you obtained.
@@ -40,85 +27,78 @@ to canonical form. Give the center and semiaxis lengths. Check that substituting
 
 ### Solution
 
-**Step 1: Group the terms by variable**
+**Step 1: Group terms and complete the square**
 
-Rearrange the given equation by grouping the $x$-terms and $y$-terms together, and move the constant term to the right-hand side:
+Group the $x$-terms and $y$-terms and move the constant to the right-hand side:
 
 $$
 (4x^2 - 16x) + (9y^2 + 18y) = 11
 $$
 
-**Step 2: Factor out the leading coefficients of the squared terms**
-
-Factor out $4$ from the $x$-group and $9$ from the $y$-group:
+Factor out the leading coefficients $4$ and $9$:
 
 $$
 4(x^2 - 4x) + 9(y^2 + 2y) = 11
 $$
 
-**Step 3: Complete the square inside each parenthesis**
-
-* For the $x$-terms ($x^2 - 4x$), take half of $-4$ (which is $-2$) and square it to get $4$.
-* For the $y$-terms ($y^2 + 2y$), take half of $2$ (which is $1$) and square it to get $1$.
-
-Add these values inside the parentheses. To maintain equality, add the corresponding scaled values ($4 \cdot 4 = 16$ and $9 \cdot 1 = 9$) to the right-hand side:
+Complete the square inside each parenthesis by adding $\left(\frac{-4}{2}\right)^2 = 4$ to the $x$-group and $\left(\frac{2}{2}\right)^2 = 1$ to the $y$-group:
 
 $$
 4(x^2 - 4x + 4) + 9(y^2 + 2y + 1) = 11 + 4(4) + 9(1)
-$$
-
-Simplify both sides:
-
-$$
-4(x - 2)^2 + 9(y + 1)^2 = 11 + 16 + 9
 $$
 
 $$
 4(x - 2)^2 + 9(y + 1)^2 = 36
 $$
 
-**Step 4: Reduce to canonical form**
+**Step 2: Reduce to canonical form**
 
-Divide the entire equation by $36$ to obtain $1$ on the right-hand side:
-
-$$
-\frac{4(x - 2)^2}{36} + \frac{9(y + 1)^2}{36} = \frac{36}{36}
-$$
+Divide both sides by $36$:
 
 $$
-\frac{(x - 2)^2}{9} + \frac{(y + 1)^2}{4} = 1
+\frac{4(x - 2)^2}{36} + \frac{9(y + 1)^2}{36} = 1 \implies \frac{(x - 2)^2}{9} + \frac{(y + 1)^2}{4} = 1
 $$
 
-**Step 5: Identify the center and semiaxis lengths**
+**Step 3: Identify the center and semiaxis lengths**
 
-Comparing $\frac{(x - 2)^2}{9} + \frac{(y + 1)^2}{4} = 1$ to the canonical form $\frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} = 1$:
 * **Center:** $(h, k) = (2, -1)$
-* **Semiaxis along the $x$-direction:** $a^2 = 9 \implies a = 3$
-* **Semiaxis along the $y$-direction:** $b^2 = 4 \implies b = 2$
+* **Semiaxes:** $a = \sqrt{9} = 3$ (along the $x$-direction) and $b = \sqrt{4} = 2$ (along the $y$-direction)
 
-**Step 6: Check consistency by substituting the center coordinates**
+**Step 4: Check consistency by substituting the center into the original left-hand side**
 
-Substitute the center $(x, y) = (2, -1)$ into the un-normalized completed-square form $4(x - 2)^2 + 9(y + 1)^2$:
-
-$$
-4(2 - 2)^2 + 9(-1 + 1)^2 = 4(0) + 9(0) = 0
-$$
-
-Alternatively, substituting into the canonical form's left-hand side:
+Substitute $(x, y) = (2, -1)$ into the original left-hand side $L(x, y) = 4x^2 + 9y^2 - 16x + 18y - 11$:
 
 $$
-\frac{(2 - 2)^2}{9} + \frac{(-1 + 1)^2}{4} = 0 + 0 = 0
+\begin{aligned}
+L(2, -1) &= 4(2)^2 + 9(-1)^2 - 16(2) + 18(-1) - 11 \\
+         &= 4(4) + 9(1) - 32 - 18 - 11 \\
+         &= 16 + 9 - 32 - 18 - 11 \\
+         &= -36
+\end{aligned}
 $$
 
-This matches the expected value at the center (where deviations from the center are zero), confirming the correctness of the reduction.
+**Reconciliation with the transformed equation:**
+Notice that the original left-hand side is algebraically identical to:
+
+$$
+4x^2 + 9y^2 - 16x + 18y - 11 = 4(x - 2)^2 + 9(y + 1)^2 - 36
+$$
+
+At the center $(2, -1)$, the completed-square part $4(x - 2)^2 + 9(y + 1)^2$ vanishes ($0$), leaving the exact constant $-36$ that was moved to the right-hand side ($+36$) to normalize the canonical equation:
+
+$$
+\frac{-36}{36} = -1 \quad \Longleftrightarrow \quad \frac{(2 - 2)^2}{9} + \frac{(-1 + 1)^2}{4} - 1 = 0 - 1 = -1
+$$
+
+Thus, the value $-36$ is completely consistent with the right-hand side constant $36$ obtained when completing the square.
 
 ---
 
 ### Final Answer
 
-1. **Canonical form:** 
+1. **Canonical form:**
    $$
    \frac{(x - 2)^2}{9} + \frac{(y + 1)^2}{4} = 1
    $$
-2. **Center and semiaxes:** Center is $(2, -1)$, with semiaxes $a = 3$ and $b = 2$.
-3. **Verification:** Substituting the center $(2, -1)$ into the completed-square expression yields $0$, confirming consistency with the canonical form.
+2. **Center and semiaxes:** Center at $(2, -1)$, semiaxes $a = 3$ and $b = 2$.
+3. **Center substitution check:** Substituting $(2, -1)$ into the original left-hand side yields $-36$, matching the constant term $4(x-2)^2 + 9(y+1)^2 - 36$ from completing the square.
