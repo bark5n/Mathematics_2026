@@ -1,17 +1,10 @@
 ### Essential Formulas
 
-**Paraboloids in Space:**
-1. **Elliptic Paraboloid:**
-   $$
-   z = ax^2 + by^2 \quad (\text{with } a, b > 0)
-   $$
-   characterized by parabolic vertical cross-sections and concentric circular/elliptic horizontal cross-sections opening in one direction.
-
+**Two Fundamental Paraboloids:**
+1. **Elliptic (Circular) Paraboloid:**
+   $$z = ax^2 + by^2 \qquad (a, b > 0)$$
 2. **Hyperbolic Paraboloid (Saddle Surface):**
-   $$
-   z = ax^2 - by^2 \quad (\text{with } a, b > 0)
-   $$
-   characterized by orthogonal parabolas curving in opposite directions and hyperbolic horizontal cross-sections, forming a characteristic saddle shape with a saddle point at the origin.
+   $$z = ax^2 - by^2 \qquad (a, b > 0)$$
 
 ---
 
@@ -21,78 +14,72 @@
 
 Compare
 
-$$
-z=x^2+y^2
-$$
+$$z = x^2 + y^2$$
 
 and
 
-$$
-z=x^2-y^2.
-$$
+$$z = x^2 - y^2.$$
 
-For each surface, describe the cross-sections $x=0$, $y=0$, and $z=c$, then make a qualitative sketch[cite: 1].
+For each surface, describe the cross-sections $x = 0$, $y = 0$, and $z = c$, then make a qualitative sketch.
 
-> **Why this exercise:** teaches how to distinguish two basic types of paraboloids from their cross-sections[cite: 1].
+> **Why this exercise:** teaches how to distinguish two basic types of paraboloids from their cross-sections.
 
 ---
 
 ### Solution
 
-**Part 1: The Elliptic Paraboloid ($z = x^2 + y^2$)**
+**Part 1: Elliptic Paraboloid ($z = x^2 + y^2$)**
 
-1. **Cross-section $x = 0$ (Plane $yz$):**
-   Substitute $x = 0$ into the equation:
-   $$
-   z = 0^2 + y^2 \implies z = y^2
-   $$
-   This is a **parabola** in the $yz$-plane, with vertex at the origin $(0,0)$ opening upward.
+1. **Cross-section $x = 0$ ($yz$-plane):**
+   $$z = y^2$$
+   A parabola in the $yz$-plane with vertex $(0, 0, 0)$ opening upward along $+z$.
 
-2. **Cross-section $y = 0$ (Plane $xz$):**
-   Substitute $y = 0$ into the equation:
-   $$
-   z = x^2 + 0^2 \implies z = x^2
-   $$
-   This is a **parabola** in the $xz$-plane, with vertex at the origin $(0,0)$ opening upward.
+2. **Cross-section $y = 0$ ($xz$-plane):**
+   $$z = x^2$$
+   A parabola in the $xz$-plane with vertex $(0, 0, 0)$ opening upward along $+z$.
 
-3. **Cross-sections $z = c$ (Horizontal planes):**
-   Substitute a constant level $z = c$:
-   * If $c < 0$, $x^2 + y^2 = c$ has **no real solutions** (empty cross-section below the vertex).
-   * If $c = 0$, $x^2 + y^2 = 0$, which yields a **single point** at the origin $(0, 0, 0)$ (the vertex).
-   * If $c > 0$, $x^2 + y^2 = c$, which describes a **circle** centered on the $z$-axis with radius $r = \sqrt{c}$. As $c$ increases, the circles grow larger.
+3. **Cross-sections $z = c$ (horizontal planes):**
+   * For $c < 0$: $x^2 + y^2 = c$ has **no real points** (empty set).
+   * For $c = 0$: $x^2 + y^2 = 0$ gives the **single vertex point** $(0, 0, 0)$.
+   * For $c > 0$: $x^2 + y^2 = c$ is a **circle** of radius $r = \sqrt{c}$ centered on the $z$-axis.
 
-4. **Qualitative Sketch Description:** 
-   A bowl-shaped surface (elliptic paraboloid) resting its lowest point (vertex) at the origin and opening infinitely upward along the $z$-axis.
+**Part 2: Hyperbolic Paraboloid ($z = x^2 - y^2$)**
 
----
+1. **Cross-section $x = 0$ ($yz$-plane):**
+   $$z = -y^2$$
+   A parabola in the $yz$-plane with vertex $(0, 0, 0)$ opening downward along $-z$.
 
-**Part 2: The Hyperbolic Paraboloid / Saddle Surface ($z = x^2 - y^2$)**
+2. **Cross-section $y = 0$ ($xz$-plane):**
+   $$z = x^2$$
+   A parabola in the $xz$-plane with vertex $(0, 0, 0)$ opening upward along $+z$.
 
-1. **Cross-section $x = 0$ (Plane $yz$):**
-   Substitute $x = 0$ into the equation:
-   $$
-   z = 0^2 - y^2 \implies z = -y^2
-   $$
-   This is a **parabola** in the $yz$-plane opening downward.
+3. **Cross-sections $z = c$ (horizontal planes):**
+   * For $c = 0$: $x^2 - y^2 = 0 \implies y = \pm x$, which is a pair of **two intersecting lines** at the origin.
+   * For $c > 0$: $x^2 - y^2 = c$ is a **hyperbola** opening along the $x$-direction.
+   * For $c < 0$: $y^2 - x^2 = -c$ is a **hyperbola** opening along the $y$-direction.
 
-2. **Cross-section $y = 0$ (Plane $xz$):**
-   Substitute $y = 0$ into the equation:
-   $$
-   z = x^2 - 0^2 \implies z = x^2
-   $$
-   This is a **parabola** in the $xz$-plane opening upward.
+**Part 3: Labelled Qualitative Sketches**
 
-3. **Cross-sections $z = c$ (Horizontal planes):**
-   Substitute a constant level $z = c$:
-   * If $c = 0$, $x^2 - y^2 = 0 \implies y = \pm x$, which represents **two intersecting straight lines** forming an "X" shape through the origin.
-   * If $c \neq 0$, $x^2 - y^2 = c$, which describes a **hyperbola**. When $c > 0$, the hyperbola opens along the $x$-axis; when $c < 0$, it opens along the $y$-axis.
+```text
+  (a) Elliptic Paraboloid: z = x^2 + y^2      (b) Hyperbolic Paraboloid: z = x^2 - y^2
 
-4. **Qualitative Sketch Description:** 
-   A saddle-shaped surface (hyperbolic paraboloid). Along the $xz$-plane it curves upward like a smile, while along the $yz$-plane it curves downward like a frown, intersecting at a saddle point at the origin.
+                   z ^                                         z ^
+                     |   (circle z = c > 0)                      |   .---.   (upward along x:
+                 .---+---.                                   .---+--'     '--.__  z = x^2)
+                (    |    )                                 /    |   \          \
+                 '---+---'                                 |     *----+----------*---> x
+                  \  |  /                                   \   (0,0,0)         /
+                   \ | /                                     '-.  \  (downward along y:
+            --------+*+--------> x                              '-. \   z = -y^2)
+                   (0,0,0)                                         '-\
+                   / |                                               v y
+                  v  |
+                 y
+```
 
 ---
 
 ### Final Answer
 
-1. **Elliptic Paraboloid ($z = x^2 + y^2$):** Vertical cross-sections ($x=0, y=0$) are upward-opening parabolas; horizontal cross-sections ($z=c > 0$) are expanding concentric circles, forming a bowl shape[cite: 1].
-2. **Hyperbolic Paraboloid ($z = x^2 - y^2$):** Vertical cross-sections are parabolas opening in opposite directions (upward along $x$, downward along $y$); horizontal cross-sections are hyperbolas (intersecting as lines at $z=0$), forming a saddle shape[cite: 1].
+1. **Elliptic paraboloid ($z = x^2 + y^2$):** Both vertical sections ($x = 0, y = 0$) are upward parabolas; horizontal sections ($z = c > 0$) are expanding circles of radius $\sqrt{c}$, forming an upward-opening bowl.
+2. **Hyperbolic paraboloid ($z = x^2 - y^2$):** Vertical sections bend in opposite directions ($z = x^2$ upward, $z = -y^2$ downward); horizontal sections are hyperbolas (and two intersecting lines at $z = 0$), forming a saddle surface.
