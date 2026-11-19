@@ -1,118 +1,78 @@
 ### Essential Formulas
 
-**Orthogonal Projection of a Point onto a Plane:**
-Given a point $P$ and a plane $\Pi$ with normal vector $n$ passing through a point on the plane, the orthogonal projection $P'$ of $P$ onto the plane is found by constructing a line through $P$ parallel to $n$, finding its intersection $P'$ with the plane, and using the parameter $t$:
+**Angle Between Two Planes:**
+The angle $\theta \in \left[0, \frac{\pi}{2}\right]$ between two planes with normal vectors $n_1$ and $n_2$ is given by the acute angle between their normal vectors:
 
 $$
-P' = P + t n, \quad \text{where } t = \frac{d - n \cdot P}{n \cdot n}
+\cos\theta = \frac{|n_1 \cdot n_2|}{\|n_1\| \, \|n_2\|}
 $$
 
-**Reflection of a Point Across a Plane:**
-If $P'$ is the orthogonal projection of $P$ onto the plane, then the reflection $P''$ of $P$ across the plane is symmetric with respect to $P'$:
-
-$$
-P'' = 2P' - P
-$$
+**Special Cases:**
+* **Perpendicular planes:** $n_1 \cdot n_2 = 0$ ($\theta = 90^\circ$ or $\frac{\pi}{2}$).
+* **Parallel planes:** $n_1$ and $n_2$ are scalar multiples ($\theta = 0^\circ$).
 
 ---
 
 ### Problem Statement
 
-**Exercise 10. Projection of a Point onto a Plane**
+**Exercise 10. Angle Between Two Planes**
 
-Find the orthogonal projection of $P=(2,1,3)$ onto the plane $x+y+z=3$, and then find the reflection of $P$ across this plane. Check that the midpoint of the segment joining the point and its reflection lies on the plane[cite: 13].
+Find the angle between the planes
 
-> **Why this exercise:** combines the normal, intersection, and distance into the construction of a projection and reflection[cite: 13].
+$$
+x + y = 1, \qquad y + z = 1.
+$$
+
+Are the planes perpendicular? Explain why or why not.
+
+> **Why this exercise:** connects the geometric position of planes with the dot product of their normal vectors.
 
 ---
 
 ### Solution
 
-**Step 1: Find the normal vector of the plane**
+**Step 1: Identify the normal vectors of both planes**
 
-From the general equation of the plane $\Pi: 1x + 1y + 1z = 3$, read off the normal vector:
+From the coefficients of $x$, $y$, and $z$ in each equation:
+* Plane 1 ($1x + 1y + 0z = 1$): $n_1 = (1, 1, 0)$
+* Plane 2 ($0x + 1y + 1z = 1$): $n_2 = (0, 1, 1)$
 
-$$
-n = (1, 1, 1)
-$$
+**Step 2: Compute the dot product and magnitudes of the normal vectors**
 
-**Step 2: Construct the line through $P$ parallel to the normal vector**
+1. **Dot product:**
+   $$
+   n_1 \cdot n_2 = (1)(0) + (1)(1) + (0)(1) = 0 + 1 + 0 = 1
+   $$
 
-The line passing through $P = (2, 1, 3)$ with direction vector equal to $n = (1, 1, 1)$ has the parametric form:
+2. **Magnitudes:**
+   $$
+   \|n_1\| = \sqrt{1^2 + 1^2 + 0^2} = \sqrt{2}
+   $$
+   $$
+   \|n_2\| = \sqrt{0^2 + 1^2 + 1^2} = \sqrt{2}
+   $$
 
-$$
-(x, y, z) = (2 + t, \, 1 + t, \, 3 + t)
-$$
+**Step 3: Calculate the cosine of the angle $\theta$**
 
-**Step 3: Find the parameter $t$ and the projection point $P'$**
-
-Substitute the parametric coordinates into the plane equation $x + y + z = 3$:
-
-$$
-(2 + t) + (1 + t) + (3 + t) = 3
-$$
-
-Simplify and solve for $t$:
-
-$$
-\begin{aligned}
-6 + 3t &= 3 \\
-3t &= -3 \\
-t &= -1
-\end{aligned}
-$$
-
-Substitute $t = -1$ back into the line's parametric equations to obtain the projection point $P'$:
+Substitute the computed values into the angle formula:
 
 $$
-P' = (2 + (-1), \, 1 + (-1), \, 3 + (-1)) = (1, 0, 2)
+\cos\theta = \frac{|1|}{\sqrt{2} \cdot \sqrt{2}} = \frac{1}{2}
 $$
 
-**Step 4: Find the reflection point $P''$**
-
-Using the reflection formula where $P'$ is the midpoint between $P$ and $P''$:
+Taking the inverse cosine for $\theta \in \left[0, \frac{\pi}{2}\right]$:
 
 $$
-P'' = 2P' - P = 2(1, 0, 2) - (2, 1, 3)
+\theta = \arccos\left(\frac{1}{2}\right) = \frac{\pi}{3} = 60^\circ
 $$
 
-$$
-\begin{aligned}
-P'' &= (2, 0, 4) - (2, 1, 3) \\
-&= (0, -1, 1)
-\end{aligned}
-$$
+**Step 4: Determine whether the planes are perpendicular**
 
-**Step 5: Check that the midpoint of the segment joining $P$ and $P''$ lies on the plane**
-
-The midpoint of the segment joining $P = (2, 1, 3)$ and its reflection $P'' = (0, -1, 1)$ is:
-
-$$
-\mathrm{Midpoint} = \frac{P + P''}{2} = \frac{(2, 1, 3) + (0, -1, 1)}{2} = \frac{(2, 0, 4)}{2} = (1, 0, 2) = P'
-$$
-
-Substitute this midpoint into the plane equation $x + y + z = 3$:
-
-$$
-1 + 0 + 2 = 3 \quad (\text{True})
-$$
-
-The midpoint lies on the plane identically[cite: 13].
+Two planes are perpendicular if and only if the dot product of their normal vectors is zero ($n_1 \cdot n_2 = 0$). Here, $n_1 \cdot n_2 = 1 \neq 0$, and the angle between them is $60^\circ \neq 90^\circ$. Therefore, the planes are **not perpendicular**.
 
 ---
 
 ### Final Answer
 
-1. **Orthogonal projection ($P'$):** 
-
-$$
-(1, 0, 2)
-$$
-
-2. **Reflection ($P''$):** 
-
-$$
-(0, -1, 1)
-$$
-
-3. **Verification:** The midpoint of the segment joining $P$ and its reflection is $(1, 0, 2)$, which satisfies the plane equation $1 + 0 + 2 = 3[cite: 13, 14]$.
+1. **Angle between the planes:** $\theta = \frac{\pi}{3}$ radians (or $60^\circ$).
+2. **Perpendicularity:** The planes are **not perpendicular** because the dot product of their normal vectors is nonzero ($n_1 \cdot n_2 = 1 \neq 0$).
