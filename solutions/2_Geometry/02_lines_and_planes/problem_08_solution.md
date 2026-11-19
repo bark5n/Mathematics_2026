@@ -1,110 +1,76 @@
 ### Essential Formulas
 
-**Intersection of a Parametric Line and a Cartesian Plane:**
-Given a line in parametric form:
-
-$$
-(x, y, z) = (x_0 + t v_1, \, y_0 + t v_2, \, z_0 + t v_3)
-$$
-
-and a plane given by the general equation:
-
-$$
-ax + by + cz = d
-$$
-
-To find the intersection point, substitute the parametric coordinate expressions for $x, y,$ and $z$ into the plane equation to solve for the unique parameter value $t$. Once $t$ is found, substitute it back into the line's parametric equations to obtain the exact intersection coordinates.
+**Relative Position of Two Lines in Space:**
+Given two lines $L_1: P_1 + t v_1$ and $L_2: P_2 + s v_2$:
+1. **Parallel:** $v_1$ and $v_2$ are scalar multiples ($v_1 = k v_2$ for some $k \neq 0$). If $P_1$ also lies on $L_2$, the lines are identical; otherwise, they are strictly parallel.
+2. **Intersecting:** $v_1$ and $v_2$ are not parallel, and the system $P_1 + t v_1 = P_2 + s v_2$ has a unique solution $(t, s)$.
+3. **Skew:** $v_1$ and $v_2$ are not parallel, and the system $P_1 + t v_1 = P_2 + s v_2$ is inconsistent (no solution).
 
 ---
 
 ### Problem Statement
 
-**Exercise 8. Intersection Point of a Line and a Plane**
+**Exercise 8. Relative Position of Two Lines**
 
-Find the intersection point of
+Determine whether the lines
 
-$$
-(x,y,z)=(1,0,2)+t(1,2,-1)
-$$
+$$L_1: \begin{cases} x = 1 + t, \\ y = 2 - t, \\ z = 3 + 2t, \end{cases} \qquad L_2: \begin{cases} x = 3 + s, \\ y = 2s, \\ z = 1 + s \end{cases}$$
 
-with the plane $x+y+z=4$. Check the result by substituting it into both descriptions[cite: 15].
+are parallel, intersect, or are skew. If they intersect, find the point of intersection.
 
-> **Why this exercise:** practices the most important computational case of the line–plane relationship[cite: 15].
+> **Why this exercise:** builds a systematic decision procedure for comparing two lines in $\mathbb{R}^3$.
 
 ---
 
 ### Solution
 
-**Step 1: Write the parametric coordinates of the line**
+**Step 1: Check if the direction vectors are parallel**
 
-From the given vector equation, express $x, y,$ and $z$ as functions of the parameter $t$:
+Extract the direction vectors from the parametric equations:
 
-$$
-\begin{aligned}
-x &= 1 + t \\
-y &= 0 + 2t = 2t \\
-z &= 2 - t
-\end{aligned}
-$$
+$$v_1 = (1, -1, 2), \qquad v_2 = (1, 2, 1)$$
 
-**Step 2: Substitute the parametric expressions into the plane equation**
+Compare the ratios of corresponding components:
 
-Substitute $x, y,$ and $z$ into the plane equation $\Pi: x + y + z = 4$:
+$$\frac{1}{1} = 1, \qquad \frac{-1}{2} = -\frac{1}{2}$$
 
-$$
-(1 + t) + (2t) + (2 - t) = 4
-$$
+Since $1 \neq -\frac{1}{2}$, $v_1$ is not a scalar multiple of $v_2$. Therefore, the lines are **not parallel**.
 
-**Step 3: Solve for the parameter $t$**
+**Step 2: Set up the system of equations for intersection**
 
-Combine like terms on the left-hand side:
+Equate the $x$, $y$, and $z$ coordinates of $L_1$ and $L_2$:
 
-$$
-\begin{aligned}
-1 + t + 2t + 2 - t &= 4 \\
-3 + 2t &= 4 \\
-2t &= 4 - 3 \\
-2t &= 1 \\
-t &= \frac{1}{2}
-\end{aligned}
-$$
+$$\begin{cases} 1 + t = 3 + s, \\ 2 - t = 2s, \\ 3 + 2t = 1 + s \end{cases}$$
 
-**Step 4: Compute the coordinates of the intersection point**
+**Step 3: Solve the first two equations for $t$ and $s$**
 
-Substitute $t = \frac{1}{2}$ back into the parametric equations of the line:
+From the first equation, express $t$ in terms of $s$:
 
-$$
-\begin{aligned}
-x &= 1 + \frac{1}{2} = \frac{3}{2} \\
-y &= 2\left(\frac{1}{2}\right) = 1 \\
-z &= 2 - \frac{1}{2} = \frac{3}{2}
-\end{aligned}
-$$
+$$t = s + 2$$
 
-Thus, the intersection point is $P_{\mathrm{int}} = \left(\frac{3}{2}, 1, \frac{3}{2}\right)$.
+Substitute $t = s + 2$ into the second equation:
 
-**Step 5: Check the result in both descriptions**
+$$2 - (s + 2) = 2s \implies -s = 2s \implies 3s = 0 \implies s = 0$$
 
-1. **Check in the plane equation ($x + y + z = 4$):**
+Substitute $s = 0$ back into $t = s + 2$:
 
-$$
-\frac{3}{2} + 1 + \frac{3}{2} = \frac{6}{2} + 1 = 3 + 1 = 4 \quad (\text{True})
-$$
+$$t = 0 + 2 = 2$$
 
-2. **Check in the line's parametric equations at $t = \frac{1}{2}$:**
+**Step 4: Check consistency in the third equation**
 
-$$
-(x, y, z) = (1, 0, 2) + \frac{1}{2}(1, 2, -1) = \left(1 + \frac{1}{2}, \, 0 + 1, \, 2 - \frac{1}{2}\right) = \left(\frac{3}{2}, 1, \frac{3}{2}\right) \quad (\text{True})
-$$
+Substitute $t = 2$ and $s = 0$ into the third equation ($3 + 2t = 1 + s$):
+* **Left-hand side:** $3 + 2(2) = 3 + 4 = 7$
+* **Right-hand side:** $1 + 0 = 1$
+
+Since $7 \neq 1$, the third equation is not satisfied, meaning the system has **no solution**.
+
+**Step 5: Conclude the relative position**
+
+Because the lines are neither parallel nor intersecting, they are **skew lines**.
 
 ---
 
 ### Final Answer
 
-1. **Intersection point:** 
-
-$$
-\left(\frac{3}{2}, 1, \frac{3}{2}\right)
-$$
-
-2. **Verification:** The point satisfies both the line's parametric equations (at $t = \frac{1}{2}$) and the plane's Cartesian equation identically[cite: 15].
+1. **Relative position:** The lines $L_1$ and $L_2$ are **skew**.
+2. **Intersection point:** None (the lines do not intersect).
