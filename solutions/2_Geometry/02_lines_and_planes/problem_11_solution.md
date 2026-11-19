@@ -1,123 +1,110 @@
 ### Essential Formulas
 
-**Constructing a Plane from a Line and an External Point:**
-Given a line $L$ passing through a point $P_0$ with direction vector $v$, and an external point $P$ not on $L$:
-1. A second vector lying in the plane can be formed by connecting $P_0$ to $P$: 
+**Distance from a Point to a Plane:**
+Given a point $P_0 = (x_0, y_0, z_0)$ and a plane $\Pi$ with general equation $ax + by + cz + d = 0$ (or $ax + by + cz = D$), the shortest perpendicular distance $d(P_0, \Pi)$ is:
 
 $$
-w = P - P_0
+d(P_0, \Pi) = \frac{|a x_0 + b y_0 + c z_0 + d|}{\sqrt{a^2 + b^2 + c^2}} = \frac{|n \cdot P_0 - D|}{\|n\|}
 $$
 
-2. The normal vector $n$ to the plane is obtained by taking the cross product of the direction vector and the in-plane vector:
+**Foot of the Perpendicular (Orthogonal Projection onto a Plane):**
+The closest point $H$ on the plane $\Pi$ to $P_0$ lies along the line passing through $P_0$ in the direction of the normal vector $n = (a, b, c)$:
 
 $$
-n = v \times w
+H = P_0 + t_0 n, \qquad \text{where } t_0 = \frac{D - n \cdot P_0}{\|n\|^2}
 $$
-
-3. The equation of the plane is then determined using the normal vector $n$ and either point ($P_0$ or $P$).
 
 ---
 
 ### Problem Statement
 
-**Exercise 11. Plane Containing a Line and a Point**
+**Exercise 11. Distance from a Point to a Plane**
 
-Find the equation of the plane containing
+Compute the distance from the point $P_0 = (2, -1, 3)$ to the plane
 
 $$
-(x,y,z)=(1,0,2)+t(1,1,-1)
+2x - y + 2z = 5.
 $$
 
-and the point $P=(0,2,1)$. Check that both the entire line and the point lie in the plane you obtain[cite: 12].
+Then find the foot of the perpendicular dropped from $P_0$ onto the plane, and verify that the distance from $P_0$ to this point equals the distance computed earlier.
 
-> **Why this exercise:** requires independently constructing two linearly independent directions in the plane[cite: 12].
+> **Why this exercise:** connects the distance formula with the geometric notion of orthogonal projection onto a plane.
 
 ---
 
 ### Solution
 
-**Step 1: Extract a point and a direction vector from the line**
+**Step 1: Compute the distance from $P_0$ to the plane**
 
-From the given parametric line equation $(x, y, z) = (1, 0, 2) + t(1, 1, -1)$[cite: 12]:
-* **A point on the line:** $P_0 = (1, 0, 2)$
-* **The direction vector of the line:** $v = (1, 1, -1)$
+Identify the normal vector $n = (2, -1, 2)$ and constant $D = 5$ (or $d = -5$ in $2x - y + 2z - 5 = 0$). Compute the magnitude of $n$:
 
-**Step 2: Construct a second vector lying in the plane**
+$$
+\|n\| = \sqrt{2^2 + (-1)^2 + 2^2} = \sqrt{4 + 1 + 4} = \sqrt{9} = 3
+$$
 
-Let $P = (0, 2, 1)$ be the given external point[cite: 12]. Compute the vector $w$ from $P_0$ to $P$:
+Substitute $P_0 = (2, -1, 3)$ into the distance formula:
+
+$$
+d(P_0, \Pi) = \frac{|2(2) - (-1) + 2(3) - 5|}{3} = \frac{|4 + 1 + 6 - 5|}{3} = \frac{|6|}{3} = 2
+$$
+
+**Step 2: Set up the perpendicular line through $P_0$**
+
+The line through $P_0 = (2, -1, 3)$ parallel to the normal vector $n = (2, -1, 2)$ has parametric equations:
+
+$$
+\begin{cases}
+x = 2 + 2t, \\
+y = -1 - t, \\
+z = 3 + 2t
+\end{cases}
+\qquad (t \in \mathbb{R})
+$$
+
+**Step 3: Find the foot of the perpendicular $H$**
+
+Substitute the parametric expressions into the plane equation $2x - y + 2z = 5$:
 
 $$
 \begin{aligned}
-w &= P - P_0 = (0 - 1, \, 2 - 0, \, 1 - 2) \\
-&= (-1, 2, -1)
+2(2 + 2t) - (-1 - t) + 2(3 + 2t) &= 5 \\
+4 + 4t + 1 + t + 6 + 4t &= 5 \\
+11 + 9t &= 5 \\
+9t &= -6 \\
+t &= -\frac{2}{3}
 \end{aligned}
 $$
 
-Both vectors $v = (1, 1, -1)$ and $w = (-1, 2, -1)$ lie entirely within the desired plane and are linearly independent.
-
-**Step 3: Compute the normal vector of the plane using the cross product**
-
-Calculate the cross product $n = v \times w$ to find a normal vector orthogonal to both in-plane vectors:
+Substitute $t = -\frac{2}{3}$ back into the parametric equations to find $H$:
 
 $$
 \begin{aligned}
-n &= v \times w = (1, 1, -1) \times (-1, 2, -1) \\
-&= \bigl(1(-1) - (-1)(2), \, (-1)(-1) - 1(-1), \, 1(2) - 1(-1)\bigr) \\
-&= (-1 + 2, \, 1 + 1, \, 2 + 1) \\
-&= (1, 2, 3)
+x &= 2 + 2\left(-\frac{2}{3}\right) = 2 - \frac{4}{3} = \frac{2}{3} \\
+y &= -1 - \left(-\frac{2}{3}\right) = -1 + \frac{2}{3} = -\frac{1}{3} \\
+z &= 3 + 2\left(-\frac{2}{3}\right) = 3 - \frac{4}{3} = \frac{5}{3}
 \end{aligned}
 $$
 
-**Step 4: Write the equation of the plane**
+Thus, the foot of the perpendicular is $H = \left(\frac{2}{3}, -\frac{1}{3}, \frac{5}{3}\right)$.
 
-Using the normal vector $n = (1, 2, 3)$ and the point $P_0 = (1, 0, 2)$ in the point-normal equation form:
+**Step 4: Verify the Euclidean distance between $P_0$ and $H$**
 
-$$
-1(x - 1) + 2(y - 0) + 3(z - 2) = 0
-$$
-
-Expand and simplify to obtain the general Cartesian equation:
+Compute the distance $\|P_0 - H\|$:
 
 $$
 \begin{aligned}
-x - 1 + 2y + 3z - 6 &= 0 \\
-x + 2y + 3z - 7 &= 0 \\
-x + 2y + 3z &= 7
+\|P_0 - H\| &= \sqrt{\left(2 - \frac{2}{3}\right)^2 + \left(-1 - \left(-\frac{1}{3}\right)\right)^2 + \left(3 - \frac{5}{3}\right)^2} \\
+&= \sqrt{\left(\frac{4}{3}\right)^2 + \left(-\frac{2}{3}\right)^2 + \left(\frac{4}{3}\right)^2} \\
+&= \sqrt{\frac{16}{9} + \frac{4}{9} + \frac{16}{9}} \\
+&= \sqrt{\frac{36}{9}} = \sqrt{4} = 2
 \end{aligned}
 $$
 
-**Step 5: Check that both the entire line and the point lie in the plane**
-
-1. **Check the external point $P = (0, 2, 1)$:**
-
-$$
-0 + 2(2) + 3(1) = 0 + 4 + 3 = 7 \quad (\text{True})
-$$
-
-2. **Check the entire line $(x, y, z) = (1 + t, \, t, \, 2 - t)$:**
-
-Substitute the parametric coordinates of the line into the plane equation:
-
-$$
-(1 + t) + 2(t) + 3(2 - t) = 7
-$$
-
-Simplify the expression:
-
-$$
-1 + t + 2t + 6 - 3t = 7 \implies 7 = 7 \quad (\text{True for all } t \in \mathbb{R})
-$$
-
-Since the identity holds for any real parameter $t$, every point on the line lies within the plane.
+This matches the distance $d(P_0, \Pi) = 2$ computed in Step 1.
 
 ---
 
 ### Final Answer
 
-1. **Equation of the plane:** 
-
-$$
-x + 2y + 3z = 7
-$$
-
-2. **Verification:** The given point $P(0, 2, 1)$ satisfies the equation, and substituting the parametric line expression yields $7 = 7$ identically for all $t[cite: 12, 13]$.
+1. **Distance from $P_0$ to the plane:** $2$.
+2. **Foot of the perpendicular:** $H = \left(\frac{2}{3}, -\frac{1}{3}, \frac{5}{3}\right)$.
