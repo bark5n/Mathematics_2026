@@ -1,111 +1,76 @@
 ### Essential Formulas
 
-**Relative Positions of Two Lines in $\mathbb{R}^3$:**
-Given two lines $L_1$ and $L_2$ with direction vectors $v_1$ and $v_2$ passing through points $P_1$ and $P_2$ respectively:
-1. **Parallel:** The direction vectors are scalar multiples ($v_1 = k v_2$). If a point on $L_1$ also satisfies $L_2$, they are identical; otherwise, they are strictly parallel.
-2. **Intersecting:** The lines are not parallel, and their parametric equations yield a unique, consistent intersection point $(x, y, z)$.
-3. **Skew:** The lines are neither parallel nor intersecting (they do not lie in the same plane).
+**Point-Normal Equation of a Plane:**
+A plane passing through a point $P_0 = (x_0, y_0, z_0)$ with a nonzero normal vector $n = (a, b, c)$ is defined by the orthogonality condition $n \cdot \overrightarrow{P_0P} = 0$, which expands to:
 
-**Checking for Intersection:**
-Equating the coordinates of $L_1$ and $L_2$ produces a system of three linear equations in two parameters ($t$ and $s$). If a unique solution $(t, s)$ satisfies all three equations simultaneously, the lines intersect. If no solution exists, they are either parallel or skew.
+$$
+a(x - x_0) + b(y - y_0) + c(z - z_0) = 0
+$$
+
+or in general scalar form:
+
+$$
+ax + by + cz = d, \qquad \text{where } d = ax_0 + by_0 + cz_0
+$$
 
 ---
 
 ### Problem Statement
 
-**Exercise 5. Relative Position of Two Lines**
+**Exercise 5. Plane from a Point and a Normal Vector**
 
-Analyze the position of
+Find the equation of the plane passing through $P_0 = (2, -1, 4)$ with normal vector $n = (3, 1, -2)$. Determine whether the points $Q = (1, 0, 3)$ and $R = (0, 1, 2)$ lie on this plane.
 
-$$
-L_1:(x,y,z)=(1,1,0)+t(1,2,1),
-$$
-
-$$
-L_2:(x,y,z)=(2,0,1)+s(0,1,-1).
-$$
-
-If they intersect, give the intersection point. If not, determine whether they are parallel or skew. Justify the classification.
-
-> **Why this exercise:** teaches how to distinguish qualitatively different relationships between lines in space.
+> **Why this exercise:** builds direct fluency with the normal equation of a plane.
 
 ---
 
 ### Solution
 
-**Step 1: Identify direction vectors and check for parallelism**
+**Step 1: Construct the equation of the plane**
 
-From the parametric descriptions, extract the direction vectors:
-* For $L_1$: $v_1 = (1, 2, 1)$
-* For $L_2$: $v_2 = (0, 1, -1)$
-
-Check if $v_1$ is a scalar multiple of $v_2$:
+Substitute the coordinates of $P_0 = (2, -1, 4)$ and the components of the normal vector $n = (3, 1, -2)$ into the point-normal formula:
 
 $$
-(1, 2, 1) = k(0, 1, -1) \implies 1 = k \cdot 0 \implies \text{No solution}
+3(x - 2) + 1(y - (-1)) - 2(z - 4) = 0
 $$
 
-Because no such scalar $k$ exists, the direction vectors are not proportional. Therefore, the lines **are not parallel**. They either intersect or are skew.
-
-**Step 2: Set up the coordinate equations to test for intersection**
-
-Equate the corresponding $x, y,$ and $z$ components of $L_1$ and $L_2$:
+Expand and simplify:
 
 $$
-\begin{cases}
-1 + t = 2 \\
-1 + 2t = s \\
-t = 1 - s
-\end{cases}
+\begin{aligned}
+3x - 6 + y + 1 - 2z + 8 &= 0 \\
+3x + y - 2z + 3 &= 0 \\
+3x + y - 2z &= -3
+\end{aligned}
 $$
 
-**Step 3: Solve the system for parameters $t$ and $s$**
+**Step 2: Check whether point $Q = (1, 0, 3)$ lies on the plane**
 
-1. From the first equation, directly solve for $t$:
-
-$$
-t = 2 - 1 = 1
-$$
-
-2. Substitute $t = 1$ into the second equation to find $s$:
+Substitute $Q = (1, 0, 3)$ into the left-hand side of $3x + y - 2z = -3$:
 
 $$
-1 + 2(1) = s \implies s = 3
+3(1) + 0 - 2(3) = 3 + 0 - 6 = -3
 $$
 
-3. Check consistency by substituting $t = 1$ and $s = 3$ into the third equation:
+Since $-3 = -3$, point $Q$ **lies on the plane**.
+
+**Step 3: Check whether point $R = (0, 1, 2)$ lies on the plane**
+
+Substitute $R = (0, 1, 2)$ into the left-hand side of $3x + y - 2z = -3$:
 
 $$
-1 = 1 - (3) \implies 1 = -2 \quad (\text{Contradiction})
+3(0) + 1 - 2(2) = 0 + 1 - 4 = -3
 $$
 
-Because the third equation yields an inconsistent result ($1 \neq -2$), the system of equations has **no solution**.
-
-**Step 4: Classify the relative position**
-
-Since the lines are not parallel and fail to intersect, they do not share any common points in space. Therefore, lines $L_1$ and $L_2$ are **skew lines**.
-
-**Step 5: Verification**
-
-* **Direction test:** Non-collinear direction vectors $v_1 = (1, 2, 1)$ and $v_2 = (0, 1, -1)$ confirm they are not parallel.
-* **Scalar triple product check for coplanarity:** 
-  The vector connecting the base points $P_1 = (1, 1, 0)$ and $P_2 = (2, 0, 1)$ is $P_2 - P_1 = (1, -1, 1)$. The determinant formed by $(P_2 - P_1, v_1, v_2)$ is:
-
-$$
-\det
-\begin{pmatrix}
-1 & -1 & 1 \\
-1 & 2 & 1 \\
-0 & 1 & -1 \\
-\end{pmatrix}
-= 1(-2 - 1) - (-1)(-1 - 0) + 1(1 - 0) = -3 - 1 + 1 = -3 \neq 0
-$$
-
-  Because the scalar triple product is nonzero, the lines do not lie in the same plane, confirming mathematically that they are skew.
+Since $-3 = -3$, point $R$ **also lies on the plane**.
 
 ---
 
 ### Final Answer
 
-1. **Classification:** The lines $L_1$ and $L_2$ are **skew lines** (they are neither parallel nor do they intersect).
-2. **Justification:** The direction vectors are not proportional (ruling out parallelism), and equating the coordinate components leads to a contradiction ($1 = -2$), proving there is no intersection point[cite: 16].
+1. **Equation of the plane:**
+   $$
+   3x + y - 2z = -3
+   $$
+2. **Point membership:** Both $Q = (1, 0, 3)$ and $R = (0, 1, 2)$ satisfy the equation and therefore lie on the plane.
