@@ -1,22 +1,12 @@
 ### Essential Formulas
 
-**Cone in Space:**
-A double cone centered at the origin whose cross-sections expand linearly with height is described by the equation:
+**Circular Double Cone:**
+$$x^2 + y^2 = z^2$$
+Horizontal cross-sections $z = c$ are circles of radius $r = \vert{}c\vert{}$ scaling linearly with $\vert{}z\vert{}$.
 
-$$
-x^2 + y^2 = k^2 z^2 \quad (\text{or } x^2 + y^2 = z^2)
-$$
-
-Horizontal cross-sections at $z = c$ are circles whose radius depends directly on $|c|$ (scaling with height).
-
-**Cylinder in Space:**
-A right circular cylinder whose axis is aligned with the $Oz$ axis is described by the equation:
-
-$$
-x^2 + y^2 = r^2
-$$
-
-where $r > 0$ is a constant radius. Horizontal cross-sections at $z = c$ are identical circles independent of $z$ (constant radius).
+**Right Circular Cylinder:**
+$$x^2 + y^2 = R^2$$
+Horizontal cross-sections $z = c$ are identical circles of constant radius $r = R$ independent of $z$.
 
 ---
 
@@ -26,78 +16,78 @@ where $r > 0$ is a constant radius. Horizontal cross-sections at $z = c$ are ide
 
 Compare
 
-$$
-x^2+y^2=z^2
-$$
+$$x^2 + y^2 = z^2$$
 
 and
 
-$$
-x^2+y^2=4.
-$$
+$$x^2 + y^2 = 4.$$
 
-For each surface, describe the cross-sections $z=c$, $x=0$, and $y=0$, make a sketch, and explain why the radius of the cross-section depends on $z$ in the first case but is constant in the second[cite: 1].
+For each surface, describe the cross-sections $z = c$, $x = 0$, and $y = 0$, make a sketch, and explain why the radius of the cross-section depends on $z$ in the first case but is constant in the second.
 
-> **Why this exercise:** teaches how to distinguish a cone from a cylinder by the behavior of their cross-sections[cite: 1].
+> **Why this exercise:** teaches how to distinguish a cone from a cylinder by the behavior of their cross-sections.
 
 ---
 
 ### Solution
 
-**Part 1: The Cone ($x^2 + y^2 = z^2$)**
+**Part 1: Circular Cone ($x^2 + y^2 = z^2$)**
 
-1. **Cross-sections $z = c$ (Horizontal planes):**
-   Substitute $z = c$ into the equation:
-   $$
-   x^2 + y^2 = c^2
-   $$
-   * For any $c \neq 0$, this represents a **circle** with radius $r = |c|$. 
-   * When $c = 0$, $x^2 + y^2 = 0$, which yields a **single point** at the origin $(0, 0, 0)$.
-   * **Why the radius depends on $z$:** The radius $r = |c|$ is directly proportional to the height $c$. As you move higher or lower along the $z$-axis (increasing $|c|$), the cross-sectional circles expand linearly, meeting at a apex point at $z = 0$.
+1. **Cross-sections $z = c$:**
+   $$x^2 + y^2 = c^2$$
+   * For $c \neq 0$: a **circle** centered at $(0, 0, c)$ with radius $r = \vert{}c\vert{}$.
+   * For $c = 0$: the **single apex point** $(0, 0, 0)$.
 
-2. **Cross-section $x = 0$ (Plane $yz$):**
-   Substitute $x = 0$ into the equation:
-   $$
-   0^2 + y^2 = z^2 \implies y^2 = z^2 \implies z = \pm y
-   $$
-   This represents **two intersecting straight lines** passing through the origin ($z = y$ and $z = -y$), forming an "X" shape in the $yz$-plane.
+2. **Cross-section $x = 0$ ($yz$-plane):**
+   $$y^2 = z^2 \implies z = \pm y$$
+   A pair of **two intersecting lines** ($z = y$ and $z = -y$) meeting at $(0, 0, 0)$.
 
-3. **Cross-section $y = 0$ (Plane $xz$):**
-   Substitute $y = 0$ into the equation:
-   $$
-   x^2 + 0^2 = z^2 \implies x^2 = z^2 \implies z = \pm x
-   $$
-   This also represents **two intersecting straight lines** passing through the origin ($z = x$ and $z = -x$) in the $xz$-plane.
+3. **Cross-section $y = 0$ ($xz$-plane):**
+   $$x^2 = z^2 \implies z = \pm x$$
+   A pair of **two intersecting lines** ($z = x$ and $z = -x$) meeting at $(0, 0, 0)$.
 
----
+**Part 2: Circular Cylinder ($x^2 + y^2 = 4$)**
 
-**Part 2: The Cylinder ($x^2 + y^2 = 4$)**
+1. **Cross-sections $z = c$:**
+   $$x^2 + y^2 = 4$$
+   For every $c \in \mathbb{R}$, this is a **circle** centered at $(0, 0, c)$ with constant radius $r = 2$.
 
-1. **Cross-sections $z = c$ (Horizontal planes):**
-   The equation $x^2 + y^2 = 4$ does not contain the variable $z$. Therefore, for *any* real value of $c$, the cross-section is:
-   $$
-   x^2 + y^2 = 4
-   $$
-   This represents a **circle** with a constant radius $r = \sqrt{4} = 2$.
-   * **Why the radius is constant:** Because $z$ is completely absent from the equation, the cross-sectional shape and size do not change with height; every horizontal slice is an identical circle of radius $2$, stacked vertically to form a tube.
+2. **Cross-section $x = 0$ ($yz$-plane):**
+   $$y^2 = 4 \implies y = \pm 2$$
+   A pair of **two parallel vertical lines** ($y = 2$ and $y = -2$) parallel to the $z$-axis.
 
-2. **Cross-section $x = 0$ (Plane $yz$):**
-   Substitute $x = 0$ into the equation:
-   $$
-   0^2 + y^2 = 4 \implies y^2 = 4 \implies y = \pm 2
-   $$
-   This represents **two parallel straight lines** ($y = 2$ and $y = -2$) running parallel to the $Oz$ axis in the $yz$-plane.
+3. **Cross-section $y = 0$ ($xz$-plane):**
+   $$x^2 = 4 \implies x = \pm 2$$
+   A pair of **two parallel vertical lines** ($x = 2$ and $x = -2$) parallel to the $z$-axis.
 
-3. **Cross-section $y = 0$ (Plane $xz$):**
-   Substitute $y = 0$ into the equation:
-   $$
-   x^2 + 0^2 = 4 \implies x^2 = 4 \implies x = \pm 2
-   $$
-   This represents **two parallel straight lines** ($x = 2$ and $x = -2$) running parallel to the $Oz$ axis in the $xz$-plane.
+**Part 3: Labelled Sketches**
+
+```text
+  (a) Cone: x^2 + y^2 = z^2                   (b) Cylinder: x^2 + y^2 = 4
+
+                 z ^                                         z ^
+             .---+-+---.                                 .---+---.
+            (    | |    )  (z = c, r = |c|)             (    |    )  (z = c, r = 2)
+             '---+-+---'                                 '---+---'
+               \ | | /                                   |   |   |
+                \| |/                                    |   |   |
+  ---------------+*+---------------> x          ---------*---+---*---------> x
+                /| |\  (apex (0,0,0))                 (-2,0) | (2,0)
+               / | | \                                   |   |   |
+             .---+-+---.                                 |   |   |
+            (    | |    )  (z = -c, r = |c|)             .---+---.
+             '---+-+---'                                (    |    )
+                 |                                       '---+---'
+```
+
+**Part 4: Why the cross-sectional radius depends on $z$ in the first case but is constant in the second**
+
+* In the cone equation $x^2 + y^2 = z^2$, the variable $z$ appears explicitly on the right-hand side as $z^2$, coupling the horizontal distance from the $z$-axis ($\sqrt{x^2 + y^2}$) directly to the height ($|z|$). Thus $r(z) = |z|$ grows linearly with distance from the plane $z = 0$.
+* In the cylinder equation $x^2 + y^2 = 4$, the variable $z$ does not appear at all. Consequently, the constraint on $(x, y)$ is identical at every height $z = c$, keeping the radius fixed at $r = 2$ for all $z$.
 
 ---
 
 ### Final Answer
 
-1. **The Cone ($x^2 + y^2 = z^2$):** Horizontal cross-sections are circles whose radius $r = |c|$ depends linearly on $z$ (expanding outward from a point apex at $z = 0$), and vertical cross-sections are pairs of intersecting lines[cite: 1].
-2. **The Cylinder ($x^2 + y^2 = 4$):** Horizontal cross-sections are circles with a **constant** radius $r = 2$ independent of $z$ (since $z$ is absent from the equation), and vertical cross-sections are pairs of parallel lines running along the $Oz$ axis[cite: 1].
+1. **Cone ($x^2 + y^2 = z^2$):** Horizontal sections $z = c$ are circles of radius $r = |c|$ (a point at $c = 0$); vertical sections $x = 0$ and $y = 0$ are pairs of intersecting lines ($z = \pm y$ and $z = \pm x$).
+2. **Cylinder ($x^2 + y^2 = 4$):** Horizontal sections $z = c$ are circles of constant radius $r = 2$; vertical sections $x = 0$ and $y = 0$ are pairs of parallel vertical lines ($y = \pm 2$ and $x = \pm 2$).
+3. **Radius comparison:** $z^2$ couples the radius to $|z|$ in the cone ($r = |z|$), whereas the absence of $z$ in the cylinder leaves the radius invariant ($r = 2$).
