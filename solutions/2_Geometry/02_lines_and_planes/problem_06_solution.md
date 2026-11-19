@@ -1,110 +1,110 @@
 ### Essential Formulas
 
-**Normal Vectors of Planes:**
-For a plane given in general Cartesian form as $ax + by + cz = d$, its normal (perpendicular) vector is readily given by the coefficients of the variables:
+**Plane Through Three Non-Collinear Points:**
+Given three non-collinear points $A$, $B$, and $C$ in space, two direction vectors lying on the plane are:
 
 $$
-n = (a, b, c)
+u = \overrightarrow{AB} = B - A, \qquad v = \overrightarrow{AC} = C - A
 $$
 
-**Parallelism Condition for Planes:**
-Two planes $\Pi_1$ and $\Pi_2$ with respective normal vectors $n_1$ and $n_2$ are parallel if and only if their normal vectors are scalar multiples of each other:
+A normal vector $n$ perpendicular to the plane is obtained via the cross product:
 
 $$
-n_1 = k n_2 \quad (\text{for some scalar } k \neq 0)
+n = u \times v = (a, b, c)
 $$
 
-**Angle Between Two Planes:**
-The acute angle $\theta$ between two intersecting planes is equal to the angle between their normal vectors $n_1$ and $n_2$, which is computed using the dot product formula:
+Using $n = (a, b, c)$ and point $A = (x_1, y_1, z_1)$, the plane equation is:
 
 $$
-\cos\theta = \frac{|n_1 \cdot n_2|}{\|n_1\| \|n_2\|}
+a(x - x_1) + b(y - y_1) + c(z - z_1) = 0
 $$
 
 ---
 
 ### Problem Statement
 
-**Exercise 6. Angle Between Planes**
+**Exercise 6. Plane Through Three Points**
 
-Given
+Find the equation of the plane passing through the points
 
 $$
-\Pi_1:x+y+z=1,\qquad \Pi_2:x-y=2.
+A = (1, 0, 2), \qquad B = (2, 1, 1), \qquad C = (0, 2, 3).
 $$
 
-First use the normal vectors to decide whether the planes are parallel. If not, compute the angle between them and explain why the normal vectors alone are enough for this calculation.
+Check that all three points satisfy the obtained equation.
 
-> **Why this exercise:** focuses attention on one mechanism—using normals to analyze position and angle—without also introducing the construction of the intersection line[cite: 16].
+> **Why this exercise:** connects three points in space with the cross product and the normal vector of a plane.
 
 ---
 
 ### Solution
 
-**Step 1: Extract the normal vectors**
+**Step 1: Construct two vectors in the plane**
 
-From the general equations of the planes, read off the coefficients of $x, y,$ and $z$ to find their respective normal vectors:
-* For $\Pi_1: 1x + 1y + 1z = 1$:
-
-$$
-n_1 = (1, 1, 1)
-$$
-
-* For $\Pi_2: 1x - 1y + 0z = 2$:
+Compute $\overrightarrow{AB}$ and $\overrightarrow{AC}$ using $A = (1, 0, 2)$ as the common reference point:
 
 $$
-n_2 = (1, -1, 0)
+u = \overrightarrow{AB} = (2 - 1, \, 1 - 0, \, 1 - 2) = (1, 1, -1)
 $$
 
-**Step 2: Check whether the planes are parallel**
-
-Test if $n_1$ is a scalar multiple of $n_2$:
-
 $$
-(1, 1, 1) = k(1, -1, 0)
+v = \overrightarrow{AC} = (0 - 1, \, 2 - 0, \, 3 - 2) = (-1, 2, 1)
 $$
 
-Looking at the third component: $1 = k \cdot 0 \implies 1 = 0$, which is a contradiction. Because no such scalar $k$ exists, the normal vectors are not proportional. Therefore, the planes **are not parallel** and must intersect.
+**Step 2: Find a normal vector via the cross product**
 
-**Step 3: Compute the angle between the planes**
-
-Calculate the dot product of the normal vectors $n_1$ and $n_2$:
-
-$$
-n_1 \cdot n_2 = 1(1) + 1(-1) + 1(0) = 1 - 1 + 0 = 0
-$$
-
-Calculate the magnitudes of the normal vectors:
+Compute $n = u \times v$:
 
 $$
 \begin{aligned}
-\|n_1\| &= \sqrt{1^2 + 1^2 + 1^2} = \sqrt{3} \\
-\|n_2\| &= \sqrt{1^2 + (-1)^2 + 0^2} = \sqrt{2}
+n &= (1, 1, -1) \times (-1, 2, 1) \\
+  &= \big((1)(1) - (-1)(2), \, (-1)(-1) - (1)(1), \, (1)(2) - (1)(-1)\big) \\
+  &= (1 + 2, \, 1 - 1, \, 2 + 1) \\
+  &= (3, 0, 3)
 \end{aligned}
 $$
 
-Substitute these values into the angle formula:
+To simplify calculations, scale $n$ by $\frac{1}{3}$ to obtain a simpler normal vector $n_0 = (1, 0, 1)$.
+
+**Step 3: Write the equation of the plane**
+
+Substitute $n_0 = (1, 0, 1)$ and point $A = (1, 0, 2)$ into the point-normal equation:
 
 $$
-\cos\theta = \frac{n_1 \cdot n_2}{\|n_1\| \|n_2\|} = \frac{0}{\sqrt{3}\sqrt{2}} = 0
+1(x - 1) + 0(y - 0) + 1(z - 2) = 0
 $$
 
-Since $\cos\theta = 0$, the angle $\theta$ is:
+Simplify the expression:
 
 $$
-\theta = \arccos(0) = \frac{\pi}{2} \quad (\text{or } 90^\circ)
+x - 1 + z - 2 = 0 \implies x + z = 3
 $$
 
-The planes are orthogonal (perpendicular) to each other.
+**Step 4: Verify that all three points satisfy the equation**
 
-**Step 4: Explain why the normal vectors alone are sufficient**
+1. **Point $A = (1, 0, 2)$:**
+   $$
+   1 + 2 = 3
+   $$
+2. **Point $B = (2, 1, 1)$:**
+   $$
+   2 + 1 = 3
+   $$
+3. **Point $C = (0, 2, 3)$:**
+   $$
+   0 + 3 = 3
+   $$
 
-The orientation in space of any plane is completely determined by the direction of its normal vector. The angle between two planes is geometrically identical to the angle formed by their perpendicular normals. Therefore, analyzing the relationship between $n_1$ and $n_2$ (via proportionality for parallelism and the dot product for the angle) completely resolves the relative geometric configuration of the planes without requiring any points or lines lying on them.
+All three points satisfy the equation.
 
 ---
 
 ### Final Answer
 
-1. **Parallelism check:** The normal vectors are $n_1 = (1, 1, 1)$ and $n_2 = (1, -1, 0)$. They are not proportional, so the planes **are not parallel**.
-2. **Angle between the planes:** Since $n_1 \cdot n_2 = 0$, the angle is $\frac{\pi}{2}$ ($90^\circ$), meaning the planes are perpendicular.
-3. **Sufficiency of normals:** Normal vectors alone are sufficient because a plane's orientation in space is entirely defined by its normal direction[cite: 16, 17].
+1. **Equation of the plane:**
+
+$$
+x + z = 3
+$$
+
+2. **Verification:** Substituting $A(1,0,2)$, $B(2,1,1)$, and $C(0,2,3)$ into $x + z$ yields $3$ in every case.
