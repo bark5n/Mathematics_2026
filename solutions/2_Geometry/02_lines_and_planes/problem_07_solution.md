@@ -1,102 +1,76 @@
 ### Essential Formulas
 
-**Intersection of a Line and a Plane:**
-Given a line in parametric form:
-
-$$
-\begin{cases}
-x = x_0 + t v_1, \\
-y = y_0 + t v_2, \\
-z = z_0 + t v_3
-\end{cases}
-$$
-
-and a plane $ax + by + cz = d$, substitute the parametric expressions for $x$, $y$, and $z$ into the plane equation:
-
-$$
-a(x_0 + t v_1) + b(y_0 + t v_2) + c(z_0 + t v_3) = d
-$$
-
-Solve this linear equation for the parameter $t$, then substitute $t$ back into the line equations to obtain the intersection coordinates.
+**Relative Position of a Line and a Plane:**
+Let a line be parameterized as $L: P_0 + t v$ with base point $P_0$ and direction vector $v$, and let a plane be given by $\Pi: a x + b y + c z = d$ with normal vector $n = (a, b, c)$. The dot product $n \cdot v$ measures whether the line direction is perpendicular to the plane's normal vector (i.e., parallel to the plane):
+1. **Unique Intersection Point:** $n \cdot v \neq 0$ (the line pierces the plane transversally).
+2. **Strictly Parallel (No Common Points):** $n \cdot v = 0$ and $P_0 \notin \Pi$ ($n \cdot P_0 \neq d$).
+3. **Line Contained in the Plane:** $n \cdot v = 0$ and $P_0 \in \Pi$ ($n \cdot P_0 = d$).
 
 ---
 
 ### Problem Statement
 
-**Exercise 7. Intersection of a Line and a Plane**
+**Exercise 7. Classifying a Line Relative to a Plane**
 
-Find the point of intersection of the line
+Classify the line
 
 $$
-\begin{cases}
-x = 1 + 2t, \\
-y = -1 + t, \\
-z = 3 - t
-\end{cases}
+L: P_0 + t v = (1, 1, 0) + t(1, -1, 0)
 $$
 
-with the plane $2x - y + z = 7$. Check that the obtained point satisfies both the equations of the line and the equation of the plane.
+relative to the plane
 
-> **Why this exercise:** teaches the standard algebraic method for intersecting a line with a plane.
+$$
+\Pi: x + y + z = 2,
+$$
+
+and explain the geometric meaning of the dot product $n \cdot v$ in this classification.
+
+> **Why this exercise:** connects the algebraic dot product $n \cdot v$ with the geometric orientation between a line and a plane.
 
 ---
 
 ### Solution
 
-**Step 1: Substitute the parametric equations into the plane equation**
+**Step 1: Identify the line and plane vectors**
 
-Replace $x$, $y$, and $z$ in $2x - y + z = 7$ with the expressions from the line:
+* **Line $L$:** Base point $P_0 = (1, 1, 0)$, direction vector $v = (1, -1, 0)$.
+* **Plane $\Pi$:** Normal vector $n = (1, 1, 1)$, constant $d = 2$.
 
-$$
-2(1 + 2t) - (-1 + t) + (3 - t) = 7
-$$
+**Step 2: Compute and explain $n \cdot v$**
 
-**Step 2: Solve for the parameter $t$**
-
-Expand and combine like terms:
+Compute the dot product between the plane normal $n$ and the line direction $v$:
 
 $$
-\begin{aligned}
-2 + 4t + 1 - t + 3 - t &= 7 \\
-6 + 2t &= 7 \\
-2t &= 1 \\
-t &= \frac{1}{2}
-\end{aligned}
+n \cdot v = (1)(1) + (1)(-1) + (1)(0) = 1 - 1 + 0 = 0
 $$
 
-**Step 3: Find the coordinates of the intersection point**
+**Geometric meaning of $n \cdot v$:**
+The normal vector $n$ is perpendicular to every vector lying in the plane $\Pi$. Because $n \cdot v = 0$, the direction vector $v$ is orthogonal to $n$, which means the line $L$ runs **parallel to the plane $\Pi$** (either strictly parallel above/below it, or lying completely inside it).
 
-Substitute $t = \frac{1}{2}$ back into the parametric equations of the line:
+**Step 3: Check whether the base point $P_0$ lies on the plane $\Pi$**
 
-$$
-\begin{aligned}
-x &= 1 + 2\left(\frac{1}{2}\right) = 1 + 1 = 2 \\
-y &= -1 + \frac{1}{2} = -\frac{1}{2} \\
-z &= 3 - \frac{1}{2} = \frac{5}{2}
-\end{aligned}
-$$
-
-The intersection point is $P = \left(2, -\frac{1}{2}, \frac{5}{2}\right)$.
-
-**Step 4: Verify the intersection point**
-
-1. **Check in the line equations:** At $t = \frac{1}{2}$, the parametric equations produce $\left(2, -\frac{1}{2}, \frac{5}{2}\right)$ directly.
-2. **Check in the plane equation:** Substitute $P = \left(2, -\frac{1}{2}, \frac{5}{2}\right)$ into $2x - y + z$:
+Substitute $P_0 = (1, 1, 0)$ into the left-hand side of $x + y + z = 2$:
 
 $$
-2(2) - \left(-\frac{1}{2}\right) + \frac{5}{2} = 4 + \frac{1}{2} + \frac{5}{2} = 4 + 3 = 7
+n \cdot P_0 = 1(1) + 1(1) + 1(0) = 2 = d
 $$
 
-Both conditions hold.
+Since $P_0 = (1, 1, 0)$ satisfies the plane equation $x + y + z = 2$, the point $P_0$ lies on $\Pi$.
+
+**Step 4: Verify for an arbitrary parameter $t \in \mathbb{R}$**
+
+For any point $(x, y, z) = (1 + t, 1 - t, 0)$ on $L$:
+
+$$
+(1 + t) + (1 - t) + 0 = 2
+$$
+
+Every point of $L$ satisfies the plane equation.
 
 ---
 
 ### Final Answer
 
-1. **Intersection point:**
-
-$$
-P = \left(2, -\frac{1}{2}, \frac{5}{2}\right)
-$$
-
-2. **Parameter value:** $t = \frac{1}{2}$.
+1. **Classification:** The line $L$ is **contained in the plane** $\Pi$.
+2. **Explanation of $n \cdot v$:** Since $n \cdot v = 0$, the direction vector $v$ is perpendicular to the plane's normal vector $n$, ensuring $L$ is parallel to $\Pi$; combined with $P_0 = (1, 1, 0) \in \Pi$, the entire line lies within the plane.
