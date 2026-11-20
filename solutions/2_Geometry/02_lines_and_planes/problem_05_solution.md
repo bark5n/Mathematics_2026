@@ -1,76 +1,68 @@
 ### Essential Formulas
 
-**Point-Normal Equation of a Plane:**
-A plane passing through a point $P_0 = (x_0, y_0, z_0)$ with a nonzero normal vector $n = (a, b, c)$ is defined by the orthogonality condition $n \cdot \overrightarrow{P_0P} = 0$, which expands to:
-
-$$
-a(x - x_0) + b(y - y_0) + c(z - z_0) = 0
-$$
-
-or in general scalar form:
-
-$$
-ax + by + cz = d, \qquad \text{where } d = ax_0 + by_0 + cz_0
-$$
+**Classification of Two Lines in Space:**
+Given two lines $L_1: P_1 + t v_1$ and $L_2: P_2 + s v_2$ in $\mathbb{R}^3$:
+1. **Parallel or Coincident:** $v_1$ and $v_2$ are scalar multiples ($v_1 = k v_2$ for some $k \neq 0$). If $P_1 \in L_2$, they coincide; otherwise they are strictly parallel.
+2. **Intersecting:** $v_1$ and $v_2$ are not parallel, and the vector equation $P_1 + t v_1 = P_2 + s v_2$ yields a unique solution $(t, s)$.
+3. **Skew:** $v_1$ and $v_2$ are not parallel, and $P_1 + t v_1 = P_2 + s v_2$ has no solution (the system is inconsistent).
 
 ---
 
 ### Problem Statement
 
-**Exercise 5. Plane from a Point and a Normal Vector**
+**Exercise 5. Classifying Two Lines in Space**
 
-Find the equation of the plane passing through $P_0 = (2, -1, 4)$ with normal vector $n = (3, 1, -2)$. Determine whether the points $Q = (1, 0, 3)$ and $R = (0, 1, 2)$ lie on this plane.
+Classify the relative position of the two lines
 
-> **Why this exercise:** builds direct fluency with the normal equation of a plane.
+$$L_1: P_1 + t v_1 = (1, 1, 0) + t(1, 2, 1), \qquad L_2: P_2 + s v_2 = (2, 0, 1) + s(0, 1, -1),$$
+
+determining whether they are parallel, coincident, intersecting, or skew. If they intersect, find the point of intersection.
+
+> **Why this exercise:** establishes a systematic procedure for testing parallelism and solving parameter equations to classify lines in $\mathbb{R}^3$.
 
 ---
 
 ### Solution
 
-**Step 1: Construct the equation of the plane**
+**Step 1: Check whether the direction vectors are parallel**
 
-Substitute the coordinates of $P_0 = (2, -1, 4)$ and the components of the normal vector $n = (3, 1, -2)$ into the point-normal formula:
+Identify the direction vectors of $L_1$ and $L_2$:
 
-$$
-3(x - 2) + 1(y - (-1)) - 2(z - 4) = 0
-$$
+$$v_1 = (1, 2, 1), \qquad v_2 = (0, 1, -1)$$
 
-Expand and simplify:
+Because the first component of $v_2$ is $0$ while the first component of $v_1$ is $1$, there is no scalar $k$ such that $v_1 = k v_2$. Thus, the lines are **not parallel** (and not coincident).
 
-$$
-\begin{aligned}
-3x - 6 + y + 1 - 2z + 8 &= 0 \\
-3x + y - 2z + 3 &= 0 \\
-3x + y - 2z &= -3
-\end{aligned}
-$$
+**Step 2: Set up the coordinate system for intersection**
 
-**Step 2: Check whether point $Q = (1, 0, 3)$ lies on the plane**
+Equate the parametric coordinates of $L_1$ and $L_2$:
 
-Substitute $Q = (1, 0, 3)$ into the left-hand side of $3x + y - 2z = -3$:
+$$\begin{cases} 1 + t = 2 + 0s, \\ 1 + 2t = 0 + s, \\ 0 + t = 1 - s \end{cases}$$
 
-$$
-3(1) + 0 - 2(3) = 3 + 0 - 6 = -3
-$$
+**Step 3: Solve the first two equations for $t$ and $s$**
 
-Since $-3 = -3$, point $Q$ **lies on the plane**.
+From the first equation:
 
-**Step 3: Check whether point $R = (0, 1, 2)$ lies on the plane**
+$$1 + t = 2 \implies t = 1$$
 
-Substitute $R = (0, 1, 2)$ into the left-hand side of $3x + y - 2z = -3$:
+Substitute $t = 1$ into the second equation:
 
-$$
-3(0) + 1 - 2(2) = 0 + 1 - 4 = -3
-$$
+$$1 + 2(1) = s \implies s = 3$$
 
-Since $-3 = -3$, point $R$ **also lies on the plane**.
+**Step 4: Test consistency in the third equation**
+
+Substitute $t = 1$ and $s = 3$ into the third equation ($t = 1 - s$):
+* **Left-hand side:** $t = 1$
+* **Right-hand side:** $1 - s = 1 - 3 = -2$
+
+Since $1 \neq -2$, the third equation fails and the system is inconsistent.
+
+**Step 5: Conclude the classification**
+
+Since $L_1$ and $L_2$ are neither parallel nor intersecting, they are **skew lines**.
 
 ---
 
 ### Final Answer
 
-1. **Equation of the plane:**
-   $$
-   3x + y - 2z = -3
-   $$
-2. **Point membership:** Both $Q = (1, 0, 3)$ and $R = (0, 1, 2)$ satisfy the equation and therefore lie on the plane.
+1. **Classification:** The lines $L_1$ and $L_2$ are **skew**.
+2. **Intersection:** None (the parameter system is inconsistent because $1 \neq -2$).
