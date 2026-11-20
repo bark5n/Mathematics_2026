@@ -1,73 +1,118 @@
 ### Essential Formulas
 
-**Distance Between Parallel Planes:**
-Given two parallel planes $\Pi_1: ax + by + cz = d_1$ and $\Pi_2: ax + by + cz = d_2$ written with the same normal vector $n = (a, b, c)$, the perpendicular distance between them is:
-
-$$
-d(\Pi_1, \Pi_2) = \frac{|d_1 - d_2|}{\sqrt{a^2 + b^2 + c^2}} = \frac{|d_1 - d_2|}{\|n\|}
-$$
+**Line of Intersection of Two Non-Parallel Planes:**
+Given two planes $\Pi_1: n_1 \cdot x = d_1$ and $\Pi_2: n_2 \cdot x = d_2$, their intersection line $L: P_0 + t v$ can be found in two equivalent ways:
+1. **Geometric (Cross-Product) Method:** Compute the direction vector $v = n_1 \times n_2$ orthogonal to both normal vectors, and find one particular point $P_0$ satisfying both plane equations.
+2. **Algebraic (Elimination / Parameterization) Method:** Solve the linear system of the two plane equations by expressing two coordinates in terms of the third free parameter $t$.
 
 ---
 
 ### Problem Statement
 
-**Exercise 12. Distance Between Parallel Planes**
+**Exercise 12. Line of Intersection of Two Planes in Two Ways**
 
-Show that the planes
+Find a parametric equation of the line of intersection of the planes
 
 $$
-x - 2y + 2z = 4, \qquad 2x - 4y + 4z = -10
+\Pi_1: x + y + z = 3, \qquad \Pi_2: x - y + z = 1,
 $$
 
-are parallel, and compute the distance between them.
+finding its direction vector in two different ways (using the cross product of the normal vectors and by solving the linear system algebraically). Verify that your parametric line satisfies both plane equations for all $t \in \mathbb{R}$.
 
-> **Why this exercise:** checks whether the student can recognize parallel planes and reduce the problem to a distance calculation.
+> **Why this exercise:** demonstrates the equivalence between geometric cross products and algebraic Gaussian elimination for intersecting planes.
 
 ---
 
 ### Solution
 
-**Step 1: Verify that the two planes are parallel**
+**Method 1: Geometric Approach (Cross Product + Particular Point)**
 
-Read the normal vectors from the given equations:
+1. **Find the direction vector $v_1$ via the cross product:**
+   Read the normal vectors $n_1 = (1, 1, 1)$ and $n_2 = (1, -1, 1)$ from $\Pi_1$ and $\Pi_2$:
+   $$
+   \begin{aligned}
+   v_1 &= n_1 \times n_2 = (1, 1, 1) \times (1, -1, 1) \\
+       &= \big((1)(1) - (1)(-1), \, (1)(1) - (1)(1), \, (1)(-1) - (1)(1)\big) \\
+       &= (1 + 1, \, 1 - 1, \, -1 - 1) \\
+       &= (2, 0, -2)
+   \end{aligned}
+   $$
+   Scaling by $\frac{1}{2}$ gives the simplified direction vector $v = (1, 0, -1)$.
 
-$$
-n_1 = (1, -2, 2), \qquad n_2 = (2, -4, 4)
-$$
+2. **Find a particular point $P_0$ on the intersection:**
+   Set $z = 0$ in both equations:
+   $$
+   \begin{cases}
+   x + y = 3, \\
+   x - y = 1
+   \end{cases}
+   $$
+   Adding the two equations gives $2x = 4 \implies x = 2$, and substituting back gives $y = 1$. Thus $P_0 = (2, 1, 0)$ lies on the line, yielding:
+   $$
+   L: (x, y, z) = (2, 1, 0) + t(1, 0, -1)
+   $$
 
-Notice that $n_2$ is a scalar multiple of $n_1$:
+---
 
-$$
-n_2 = 2(1, -2, 2) = 2 n_1
-$$
+**Method 2: Algebraic Approach (Solving the Linear System)**
 
-Because their normal vectors are proportional, the planes are parallel. Furthermore, dividing the second plane equation by $2$ gives:
+1. **Eliminate variables from the system:**
+   $$
+   \begin{cases}
+   x + y + z = 3, \\
+   x - y + z = 1
+   \end{cases}
+   $$
+   Subtract the second equation from the first:
+   $$
+   (x + y + z) - (x - y + z) = 3 - 1 \implies 2y = 2 \implies y = 1
+   $$
+   Substitute $y = 1$ into the first equation:
+   $$
+   x + 1 + z = 3 \implies x = 2 - z
+   $$
 
-$$
-x - 2y + 2z = -5
-$$
+2. **Parameterize using $z = -t$ (or $z = s$):**
+   Setting $z = s$ ($s \in \mathbb{R}$) gives:
+   $$
+   \begin{cases}
+   x = 2 - s, \\
+   y = 1, \\
+   z = s
+   \end{cases}
+   \implies (x, y, z) = (2, 1, 0) + s(-1, 0, 1)
+   $$
+   The direction vector obtained algebraically is $v_{\mathrm{alg}} = (-1, 0, 1) = -v$, which is collinear with $v = (1, 0, -1)$ from Method 1.
 
-Since $4 \neq -5$, the planes are distinct (strictly parallel, not identical).
+---
 
-**Step 2: Compute the distance between the two planes**
+**Verification in Both Plane Equations**
 
-Now both planes share the same normal vector $n = (1, -2, 2)$ with constants $d_1 = 4$ and $d_2 = -5$.
+Substitute $(x, y, z) = (2 + t, \, 1, \, -t)$ into both plane equations:
+* **Plane $\Pi_1$ ($x + y + z = 3$):**
+  $$
+  (2 + t) + 1 + (-t) = 3 + 0t = 3
+  $$
+* **Plane $\Pi_2$ ($x - y + z = 1$):**
+  $$
+  (2 + t) - 1 + (-t) = 1 + 0t = 1
+  $$
 
-Compute the norm of the common normal vector:
-
-$$
-\|n\| = \sqrt{1^2 + (-2)^2 + 2^2} = \sqrt{1 + 4 + 4} = \sqrt{9} = 3
-$$
-
-Apply the parallel plane distance formula:
-
-$$
-d(\Pi_1, \Pi_2) = \frac{|4 - (-5)|}{3} = \frac{|9|}{3} = 3
-$$
+Both equations are satisfied identically for all $t \in \mathbb{R}$.
 
 ---
 
 ### Final Answer
 
-1. **Parallelism:** The planes are strictly parallel because $n_2 = 2 n_1$ while their normalized constant terms differ ($4 \neq -5$).
-2. **Distance between the planes:** $3$.
+1. **Direction vector (two ways):**
+   * Cross product: $n_1 \times n_2 = (2, 0, -2) = 2(1, 0, -1)$.
+   * Algebraic elimination: $(-1, 0, 1) = -(1, 0, -1)$.
+2. **Parametric equation of the line of intersection:**
+   $$
+   \begin{cases}
+   x = 2 + t, \\
+   y = 1, \\
+   z = -t
+   \end{cases}
+   \qquad (t \in \mathbb{R})
+   $$
