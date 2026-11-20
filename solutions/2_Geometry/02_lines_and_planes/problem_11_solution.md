@@ -1,110 +1,77 @@
 ### Essential Formulas
 
-**Distance from a Point to a Plane:**
-Given a point $P_0 = (x_0, y_0, z_0)$ and a plane $\Pi$ with general equation $ax + by + cz + d = 0$ (or $ax + by + cz = D$), the shortest perpendicular distance $d(P_0, \Pi)$ is:
+**Plane Containing a Line and an External Point:**
+Given a line $L: P_0 + t v$ and a point $P \notin L$, two non-parallel vectors lying in the plane $\Pi$ are:
 
-$$
-d(P_0, \Pi) = \frac{|a x_0 + b y_0 + c z_0 + d|}{\sqrt{a^2 + b^2 + c^2}} = \frac{|n \cdot P_0 - D|}{\|n\|}
-$$
+$$v \qquad \mathrm{and} \qquad w = \overrightarrow{P_0 P} = P - P_0$$
 
-**Foot of the Perpendicular (Orthogonal Projection onto a Plane):**
-The closest point $H$ on the plane $\Pi$ to $P_0$ lies along the line passing through $P_0$ in the direction of the normal vector $n = (a, b, c)$:
+A normal vector $n$ to the plane is given by the cross product:
 
-$$
-H = P_0 + t_0 n, \qquad \text{where } t_0 = \frac{D - n \cdot P_0}{\|n\|^2}
-$$
+$$n = v \times w = (a, b, c)$$
+
+Using $n = (a, b, c)$ and $P_0 = (x_0, y_0, z_0)$, the plane equation is:
+
+$$a(x - x_0) + b(y - y_0) + c(z - z_0) = 0$$
 
 ---
 
 ### Problem Statement
 
-**Exercise 11. Distance from a Point to a Plane**
+**Exercise 11. Plane Containing a Line and a Point**
 
-Compute the distance from the point $P_0 = (2, -1, 3)$ to the plane
+Find the equation of the plane containing the line
 
-$$
-2x - y + 2z = 5.
-$$
+$$L: P_0 + t v = (1, 0, 2) + t(1, 1, -1)$$
 
-Then find the foot of the perpendicular dropped from $P_0$ onto the plane, and verify that the distance from $P_0$ to this point equals the distance computed earlier.
+and the point $P = (0, 2, 1)$. Perform both checks to confirm that the entire line $L$ lies in the plane and that the point $P$ satisfies the plane equation.
 
-> **Why this exercise:** connects the distance formula with the geometric notion of orthogonal projection onto a plane.
+> **Why this exercise:** combines a line direction vector with a displacement vector to construct a unique plane and verifies both containment conditions.
 
 ---
 
 ### Solution
 
-**Step 1: Compute the distance from $P_0$ to the plane**
+**Step 1: Construct two direction vectors in the plane**
 
-Identify the normal vector $n = (2, -1, 2)$ and constant $D = 5$ (or $d = -5$ in $2x - y + 2z - 5 = 0$). Compute the magnitude of $n$:
+From the line $L$, take the base point $P_0 = (1, 0, 2)$ and direction vector $v = (1, 1, -1)$.
+Form a second vector $w$ from $P_0 = (1, 0, 2)$ to $P = (0, 2, 1)$:
 
-$$
-\|n\| = \sqrt{2^2 + (-1)^2 + 2^2} = \sqrt{4 + 1 + 4} = \sqrt{9} = 3
-$$
+$$w = \overrightarrow{P_0 P} = P - P_0 = (0 - 1, \, 2 - 0, \, 1 - 2) = (-1, 2, -1)$$
 
-Substitute $P_0 = (2, -1, 3)$ into the distance formula:
+Since $w$ is not a scalar multiple of $v$, $P$ does not lie on $L$, so a unique plane is determined.
 
-$$
-d(P_0, \Pi) = \frac{|2(2) - (-1) + 2(3) - 5|}{3} = \frac{|4 + 1 + 6 - 5|}{3} = \frac{|6|}{3} = 2
-$$
+**Step 2: Compute the normal vector via the cross product**
 
-**Step 2: Set up the perpendicular line through $P_0$**
+Compute $n = v \times w$:
 
-The line through $P_0 = (2, -1, 3)$ parallel to the normal vector $n = (2, -1, 2)$ has parametric equations:
+$$\begin{aligned} n &= (1, 1, -1) \times (-1, 2, -1) \\ &= \big((1)(-1) - (-1)(2), \, (-1)(-1) - (1)(-1), \, (1)(2) - (1)(-1)\big) \\ &= (-1 + 2, \, 1 + 1, \, 2 + 1) \\ &= (1, 2, 3) \end{aligned}$$
 
-$$
-\begin{cases}
-x = 2 + 2t, \\
-y = -1 - t, \\
-z = 3 + 2t
-\end{cases}
-\qquad (t \in \mathbb{R})
-$$
+**Step 3: Write the equation of the plane**
 
-**Step 3: Find the foot of the perpendicular $H$**
+Substitute $n = (1, 2, 3)$ and $P_0 = (1, 0, 2)$ into the point-normal equation:
 
-Substitute the parametric expressions into the plane equation $2x - y + 2z = 5$:
+$$1(x - 1) + 2(y - 0) + 3(z - 2) = 0$$
 
-$$
-\begin{aligned}
-2(2 + 2t) - (-1 - t) + 2(3 + 2t) &= 5 \\
-4 + 4t + 1 + t + 6 + 4t &= 5 \\
-11 + 9t &= 5 \\
-9t &= -6 \\
-t &= -\frac{2}{3}
-\end{aligned}
-$$
+Expand and simplify:
 
-Substitute $t = -\frac{2}{3}$ back into the parametric equations to find $H$:
+$$x - 1 + 2y + 3z - 6 = 0 \implies x + 2y + 3z = 7$$
 
-$$
-\begin{aligned}
-x &= 2 + 2\left(-\frac{2}{3}\right) = 2 - \frac{4}{3} = \frac{2}{3} \\
-y &= -1 - \left(-\frac{2}{3}\right) = -1 + \frac{2}{3} = -\frac{1}{3} \\
-z &= 3 + 2\left(-\frac{2}{3}\right) = 3 - \frac{4}{3} = \frac{5}{3}
-\end{aligned}
-$$
+**Step 4: Perform both containment checks**
 
-Thus, the foot of the perpendicular is $H = \left(\frac{2}{3}, -\frac{1}{3}, \frac{5}{3}\right)$.
+1. **Check 1 (Point $P = (0, 2, 1)$ lies on the plane):**
+   Substitute $(x, y, z) = (0, 2, 1)$ into $x + 2y + 3z$:
+   $$0 + 2(2) + 3(1) = 0 + 4 + 3 = 7$$
+   The point $P$ satisfies the plane equation.
 
-**Step 4: Verify the Euclidean distance between $P_0$ and $H$**
-
-Compute the distance $\|P_0 - H\|$:
-
-$$
-\begin{aligned}
-\|P_0 - H\| &= \sqrt{\left(2 - \frac{2}{3}\right)^2 + \left(-1 - \left(-\frac{1}{3}\right)\right)^2 + \left(3 - \frac{5}{3}\right)^2} \\
-&= \sqrt{\left(\frac{4}{3}\right)^2 + \left(-\frac{2}{3}\right)^2 + \left(\frac{4}{3}\right)^2} \\
-&= \sqrt{\frac{16}{9} + \frac{4}{9} + \frac{16}{9}} \\
-&= \sqrt{\frac{36}{9}} = \sqrt{4} = 2
-\end{aligned}
-$$
-
-This matches the distance $d(P_0, \Pi) = 2$ computed in Step 1.
+2. **Check 2 (Every point of line $L$ lies on the plane):**
+   Substitute the general parametric point $(x, y, z) = (1 + t, \, t, \, 2 - t)$ into $x + 2y + 3z$:
+   $$(1 + t) + 2(t) + 3(2 - t) = 1 + t + 2t + 6 - 3t = 7 + 0t = 7$$
+   The equation holds identically for every $t \in \mathbb{R}$, confirming that the entire line $L$ is contained in the plane.
 
 ---
 
 ### Final Answer
 
-1. **Distance from $P_0$ to the plane:** $2$.
-2. **Foot of the perpendicular:** $H = \left(\frac{2}{3}, -\frac{1}{3}, \frac{5}{3}\right)$.
+1. **Equation of the plane:**
+   $$x + 2y + 3z = 7$$
+2. **Verification:** Both $P = (0, 2, 1)$ and every point $(1 + t, t, 2 - t)$ on $L$ yield $x + 2y + 3z = 7$.
