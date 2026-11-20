@@ -1,108 +1,98 @@
 ### Essential Formulas
 
-**Parametric and Symmetric Equations of a Line in Space:**
-A line passing through a point $P_0 = (x_0, y_0, z_0)$ with a nonzero direction vector $v = (v_1, v_2, v_3)$ is described in parametric form by:
+**Plane Through Three Non-Collinear Points:**
+Given three non-collinear points $A$, $B$, and $C$ in $\mathbb{R}^3$, two direction vectors lying in the plane are:
 
 $$
-\begin{cases}
-x = x_0 + t v_1, \\
-y = y_0 + t v_2, \\
-z = z_0 + t v_3
-\end{cases}
-\qquad (t \in \mathbb{R})
+u = \overrightarrow{AB} = B - A, \qquad v = \overrightarrow{AC} = C - A
 $$
 
-If all components of $v$ are nonzero, the symmetric form is:
+A normal vector $n$ perpendicular to the plane is computed via the cross product:
 
 $$
-\frac{x - x_0}{v_1} = \frac{y - y_0}{v_2} = \frac{z - z_0}{v_3}
+n = u \times v = (a, b, c)
 $$
 
-**Direction Vector from Two Points:**
-Given two distinct points $A = (x_1, y_1, z_1)$ and $B = (x_2, y_2, z_2)$, a direction vector for the line passing through them is:
+Using $n = (a, b, c)$ and point $A = (x_1, y_1, z_1)$, the scalar equation of the plane is:
 
 $$
-v = \overrightarrow{AB} = B - A = (x_2 - x_1, \, y_2 - y_1, \, z_2 - z_1)
+a(x - x_1) + b(y - y_1) + c(z - z_1) = 0
 $$
 
 ---
 
 ### Problem Statement
 
-**Exercise 4. Line Through Two Points**
+**Exercise 4. Plane Through Three Points**
 
-Find a parametric equation and a symmetric equation of the line passing through
+Find the equation of the plane passing through the points
 
 $$
-A = (1, -2, 3), \qquad B = (4, 0, -3).
+A = (1, 0, 0), \qquad B = (0, 1, 0), \qquad C = (0, 0, 1),
 $$
 
-Check that both given points satisfy your equations.
+using two in-plane vectors and a cross product. Verify that all three given points satisfy the resulting plane equation.
 
-> **Why this exercise:** connects two points in space with the algebraic description of a line.
+> **Why this exercise:** connects three non-collinear points in space with in-plane vectors and the cross product to construct a plane normal.
 
 ---
 
 ### Solution
 
-**Step 1: Find the direction vector of the line**
+**Step 1: Construct two in-plane vectors**
 
-Compute the vector $\overrightarrow{AB}$ from point $A$ to point $B$:
-
-$$
-v = \overrightarrow{AB} = (4 - 1, \, 0 - (-2), \, -3 - 3) = (3, 2, -6)
-$$
-
-**Step 2: Write the parametric equations**
-
-Using point $A = (1, -2, 3)$ as the base point and $v = (3, 2, -6)$ as the direction vector:
+Using $A = (1, 0, 0)$ as the initial point, compute the vectors $\overrightarrow{AB}$ and $\overrightarrow{AC}$:
 
 $$
-\begin{cases}
-x = 1 + 3t, \\
-y = -2 + 2t, \\
-z = 3 - 6t
-\end{cases}
-\qquad (t \in \mathbb{R})
+u = \overrightarrow{AB} = B - A = (0 - 1, \, 1 - 0, \, 0 - 0) = (-1, 1, 0)
 $$
 
-**Step 3: Write the symmetric equations**
-
-Since all components of $v = (3, 2, -6)$ are nonzero, solve each parametric equation for $t$ and equate the expressions:
-
 $$
-\frac{x - 1}{3} = \frac{y + 2}{2} = \frac{z - 3}{-6}
+v = \overrightarrow{AC} = C - A = (0 - 1, \, 0 - 0, \, 1 - 0) = (-1, 0, 1)
 $$
 
-**Step 4: Verify that both points satisfy the equations**
+**Step 2: Compute a normal vector via the cross product**
 
-1. **Verification for $A = (1, -2, 3)$:**
-   * **Parametric form:** Setting $t = 0$ gives $(x, y, z) = (1 + 0, \, -2 + 0, \, 3 - 0) = (1, -2, 3)$.
-   * **Symmetric form:**
-     $$
-     \frac{1 - 1}{3} = \frac{-2 + 2}{2} = \frac{3 - 3}{-6} \implies 0 = 0 = 0
-     $$
+Take the cross product $n = u \times v$:
 
-2. **Verification for $B = (4, 0, -3)$:**
-   * **Parametric form:** Setting $t = 1$ gives $(x, y, z) = (1 + 3(1), \, -2 + 2(1), \, 3 - 6(1)) = (4, 0, -3)$.
-   * **Symmetric form:**
-     $$
-     \frac{4 - 1}{3} = \frac{0 + 2}{2} = \frac{-3 - 3}{-6} \implies 1 = 1 = 1
-     $$
+$$
+\begin{aligned}
+n &= (-1, 1, 0) \times (-1, 0, 1) \\
+  &= \big((1)(1) - (0)(0), \, (0)(-1) - (-1)(1), \, (-1)(0) - (1)(-1)\big) \\
+  &= (1 - 0, \, 0 + 1, \, 0 + 1) \\
+  &= (1, 1, 1)
+\end{aligned}
+$$
+
+**Step 3: Write the equation of the plane**
+
+Substitute the normal vector $n = (1, 1, 1)$ and point $A = (1, 0, 0)$ into the point-normal equation:
+
+$$
+1(x - 1) + 1(y - 0) + 1(z - 0) = 0
+$$
+
+Simplify the expression:
+
+$$
+x - 1 + y + z = 0 \implies x + y + z = 1
+$$
+
+**Step 4: Verify that all three points satisfy the equation**
+
+1. **Point $A = (1, 0, 0)$:** $1 + 0 + 0 = 1$.
+2. **Point $B = (0, 1, 0)$:** $0 + 1 + 0 = 1$.
+3. **Point $C = (0, 0, 1)$:** $0 + 0 + 1 = 1$.
+
+All three points satisfy $x + y + z = 1$.
 
 ---
 
 ### Final Answer
 
-1. **Parametric equations:**
+1. **In-plane vectors:** $u = (-1, 1, 0)$ and $v = (-1, 0, 1)$.
+2. **Normal vector:** $n = u \times v = (1, 1, 1)$.
+3. **Equation of the plane:**
    $$
-   \begin{cases}
-   x = 1 + 3t, \\
-   y = -2 + 2t, \\
-   z = 3 - 6t
-   \end{cases}
-   $$
-2. **Symmetric equations:**
-   $$
-   \frac{x - 1}{3} = \frac{y + 2}{2} = \frac{z - 3}{-6}
+   x + y + z = 1
    $$
