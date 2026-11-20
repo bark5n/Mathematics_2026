@@ -1,110 +1,79 @@
 ### Essential Formulas
 
-**Plane Through Three Non-Collinear Points:**
-Given three non-collinear points $A$, $B$, and $C$ in space, two direction vectors lying on the plane are:
+**Parallelism and Angle Between Two Planes:**
+Let two planes be given by $\Pi_1: a_1 x + b_1 y + c_1 z = d_1$ and $\Pi_2: a_2 x + b_2 y + c_2 z = d_2$ with normal vectors $n_1 = (a_1, b_1, c_1)$ and $n_2 = (a_2, b_2, c_2)$:
+* **Parallelism test:** The planes are parallel if and only if $n_1$ and $n_2$ are scalar multiples ($n_1 = k n_2$).
+* **Angle formula:** The acute angle $\theta \in \left[0, \frac{\pi}{2}\right]$ between the planes satisfies:
 
 $$
-u = \overrightarrow{AB} = B - A, \qquad v = \overrightarrow{AC} = C - A
-$$
-
-A normal vector $n$ perpendicular to the plane is obtained via the cross product:
-
-$$
-n = u \times v = (a, b, c)
-$$
-
-Using $n = (a, b, c)$ and point $A = (x_1, y_1, z_1)$, the plane equation is:
-
-$$
-a(x - x_1) + b(y - y_1) + c(z - z_1) = 0
+\cos\theta = \frac{|n_1 \cdot n_2|}{\|n_1\| \, \|n_2\|}
 $$
 
 ---
 
 ### Problem Statement
 
-**Exercise 6. Plane Through Three Points**
+**Exercise 6. Parallelism and Angle Between Two Planes**
 
-Find the equation of the plane passing through the points
+Determine whether the planes
 
 $$
-A = (1, 0, 2), \qquad B = (2, 1, 1), \qquad C = (0, 2, 3).
+\Pi_1: x + y + z = 1, \qquad \Pi_2: x - y = 2
 $$
 
-Check that all three points satisfy the obtained equation.
+are parallel. If they are not parallel, find the angle between them.
 
-> **Why this exercise:** connects three points in space with the cross product and the normal vector of a plane.
+> **Why this exercise:** connects the relative orientation of planes in space to the dot product and norms of their normal vectors.
 
 ---
 
 ### Solution
 
-**Step 1: Construct two vectors in the plane**
+**Step 1: Extract the normal vectors of both planes**
 
-Compute $\overrightarrow{AB}$ and $\overrightarrow{AC}$ using $A = (1, 0, 2)$ as the common reference point:
+From the coefficients of $x$, $y$, and $z$:
+* Plane $\Pi_1$ ($1x + 1y + 1z = 1$): $n_1 = (1, 1, 1)$
+* Plane $\Pi_2$ ($1x - 1y + 0z = 2$): $n_2 = (1, -1, 0)$
 
-$$
-u = \overrightarrow{AB} = (2 - 1, \, 1 - 0, \, 1 - 2) = (1, 1, -1)
-$$
+**Step 2: Check whether the planes are parallel**
 
-$$
-v = \overrightarrow{AC} = (0 - 1, \, 2 - 0, \, 3 - 2) = (-1, 2, 1)
-$$
+Compare the components of $n_1$ and $n_2$:
+* The $z$-component of $n_2$ is $0$, whereas the $z$-component of $n_1$ is $1$.
+* Moreover, comparing the $x$- and $y$-components gives $\frac{1}{1} = 1 \neq \frac{1}{-1} = -1$.
 
-**Step 2: Find a normal vector via the cross product**
+Hence $n_1$ is not a scalar multiple of $n_2$, so the planes are **not parallel**.
 
-Compute $n = u \times v$:
+**Step 3: Compute the dot product and magnitudes of $n_1$ and $n_2$**
 
-$$
-\begin{aligned}
-n &= (1, 1, -1) \times (-1, 2, 1) \\
-  &= \big((1)(1) - (-1)(2), \, (-1)(-1) - (1)(1), \, (1)(2) - (1)(-1)\big) \\
-  &= (1 + 2, \, 1 - 1, \, 2 + 1) \\
-  &= (3, 0, 3)
-\end{aligned}
-$$
-
-To simplify calculations, scale $n$ by $\frac{1}{3}$ to obtain a simpler normal vector $n_0 = (1, 0, 1)$.
-
-**Step 3: Write the equation of the plane**
-
-Substitute $n_0 = (1, 0, 1)$ and point $A = (1, 0, 2)$ into the point-normal equation:
-
-$$
-1(x - 1) + 0(y - 0) + 1(z - 2) = 0
-$$
-
-Simplify the expression:
-
-$$
-x - 1 + z - 2 = 0 \implies x + z = 3
-$$
-
-**Step 4: Verify that all three points satisfy the equation**
-
-1. **Point $A = (1, 0, 2)$:**
+1. **Dot product:**
    $$
-   1 + 2 = 3
-   $$
-2. **Point $B = (2, 1, 1)$:**
-   $$
-   2 + 1 = 3
-   $$
-3. **Point $C = (0, 2, 3)$:**
-   $$
-   0 + 3 = 3
+   n_1 \cdot n_2 = (1)(1) + (1)(-1) + (1)(0) = 1 - 1 + 0 = 0
    $$
 
-All three points satisfy the equation.
+2. **Magnitudes:**
+   $$
+   \|n_1\| = \sqrt{1^2 + 1^2 + 1^2} = \sqrt{3}, \qquad \|n_2\| = \sqrt{1^2 + (-1)^2 + 0^2} = \sqrt{2}
+   $$
+
+**Step 4: Find the angle $\theta$ between the planes**
+
+Substitute into the angle formula:
+
+$$
+\cos\theta = \frac{|n_1 \cdot n_2|}{\|n_1\| \, \|n_2\|} = \frac{|0|}{\sqrt{3} \cdot \sqrt{2}} = 0
+$$
+
+For $\theta \in \left[0, \frac{\pi}{2}\right]$:
+
+$$
+\theta = \arccos(0) = \frac{\pi}{2} = 90^\circ
+$$
+
+Because $n_1 \cdot n_2 = 0$, the two planes are orthogonal (perpendicular).
 
 ---
 
 ### Final Answer
 
-1. **Equation of the plane:**
-
-$$
-x + z = 3
-$$
-
-2. **Verification:** Substituting $A(1,0,2)$, $B(2,1,1)$, and $C(0,2,3)$ into $x + z$ yields $3$ in every case.
+1. **Parallelism:** The planes are **not parallel** because their normal vectors $n_1 = (1, 1, 1)$ and $n_2 = (1, -1, 0)$ are not scalar multiples.
+2. **Angle between the planes:** $\theta = \frac{\pi}{2}$ radians ($90^\circ$); the planes are perpendicular.
