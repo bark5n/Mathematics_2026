@@ -83,7 +83,15 @@ Let $Q(h) = \frac{f(2 + h) - f(2)}{h}$:
 * **Consistency with the definition:** As $h$ decreases ($1 \to 0.1 \to 0.01$), the secant slopes $Q(h)$ take the values $2 \to 1.1 \to 1.01$, approaching the exact tangent slope $f'(2) = 1$ with error equal to $h$. This numerical convergence matches the limit definition $f'(2) = \lim_{h \to 0} Q(h) = 1$.
 * **Why a few computations do not replace a limit argument:**
   1. **One-sided and finitely many samples:** Evaluating $Q(h)$ at only three positive values ($h = 1, 0.1, 0.01$) leaves negative increments ($h < 0$) and infinitely many smaller increments ($0 < |h| < 0.01$) untested.
-  2. **Possibility of non-differentiability at smaller scales:** A function with a sharp corner or rapid oscillation at scales smaller than $0.01$ (for instance, $g(x) = |x - 2| + (x - 2) + (x - 2)^2 - 1$, which agrees with $f(x)$ for all $x \ge 2$ yet has left-hand derivative $0 \neq 2$ at $x_0 = 2$) would produce the exact same values $2, 1.1, 1.01$ for $h = 1, 0.1, 0.01$, even though $g'(2)$ does not exist. Only a general algebraic limit calculation valid for all $h \to 0$ from both sides proves differentiability.
+  2. **Possibility of non-differentiability:** Consider the piecewise function
+     $$
+     g(x) =
+     \begin{cases}
+     x^2 - 3x + 1, & x \ge 2, \\
+     -x + 1, & x < 2.
+     \end{cases}
+     $$
+     Because $g(x) = f(x)$ for all $x \ge 2$ (including $g(2) = -1$), $g$ produces the exact same difference quotients $2$, $1.1$, and $1.01$ for $h = 1, 0.1, 0.01$ (with right-hand derivative $g'_+(2) = 1$), yet its left-hand derivative is $g'_-(2) = -1 \neq 1$, so $g'(2)$ does not exist. Only a general algebraic limit calculation valid for all $h \to 0$ from both sides proves differentiability.
 
 ---
 
@@ -91,4 +99,4 @@ Let $Q(h) = \frac{f(2 + h) - f(2)}{h}$:
 
 1. **Chosen function and exact derivative:** For $f(x) = x^2 - 3x + 1$ at $x_0 = 2$, $f'(2) = 1$.
 2. **Difference quotients:** $Q(1) = 2$, $Q(0.1) = 1.1$, and $Q(0.01) = 1.01$.
-3. **Conclusion:** The values converge cleanly toward $1$, confirming the limit definition numerically, but finite samples cannot rule out left-hand disagreements or micro-scale singularities without a general two-sided limit proof.
+3. **Conclusion:** The values converge cleanly toward $1$, confirming the limit definition numerically, but finite positive samples cannot rule out left-hand disagreements or smaller-scale singularities without a general two-sided limit proof.
