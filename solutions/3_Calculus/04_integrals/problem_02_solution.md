@@ -1,23 +1,92 @@
-## Question
+### Essential Formulas
 
-Compute $\int(2\sqrt{x}+3/x^2-x^{1/3})\,dx$, first rewriting powers and determining the original domain, then verify by differentiation.
+**Power Rewrite Rules:**
 
-## Solution
+$$
+\sqrt{x} = x^{1/2} \quad (x \ge 0), \qquad \frac{1}{x^2} = x^{-2} \quad (x \neq 0)
+$$
 
-The integrand can be written as
+**Power Rule for Integration:**
 
-$$2x^{1/2}+3x^{-2}-x^{1/3}.$$
+$$
+\int x^r \, dx = \frac{x^{r+1}}{r+1} + C \qquad (r \neq -1)
+$$
 
-The square root requires $x\geq0$, while the term $3/x^2$ requires $x\ne0$. Their intersection is therefore $x>0$, which is the domain of the original expression.
+---
 
-Applying the power rule term by term,
+### Problem Statement
 
-$$\int\left(2x^{1/2}+3x^{-2}-x^{1/3}\right)dx
-=\frac43x^{3/2}-\frac3x-\frac34x^{4/3}+C.$$
+**Problem 2. Powers, Roots, and the Domain**
 
-On differentiating,
+Compute
 
-$$\left(\frac43x^{3/2}-\frac3x-\frac34x^{4/3}+C\right)'
-=2x^{1/2}+3x^{-2}-x^{1/3},$$
+$$
+\int \left(2\sqrt{x} + \frac{3}{x^2} - x^{1/3}\right) \, dx.
+$$
 
-which recovers the integrand for $x>0$.
+First rewrite the terms as powers, determine the domain of the original expression, and verify the result by differentiation.
+
+> **Why this problem:** it reinforces the power rule and reminds the student to keep track of the domain.
+
+---
+
+### Solution
+
+**Step 1: Rewrite the terms as powers**
+
+Express the square root and reciprocal power using fractional and negative exponents:
+
+$$
+2\sqrt{x} + \frac{3}{x^2} - x^{1/3} = 2x^{1/2} + 3x^{-2} - x^{1/3}
+$$
+
+**Step 2: Determine the domain of the original integrand**
+
+Check the domain of each term:
+* $2\sqrt{x}$ requires $x \ge 0$.
+* $\frac{3}{x^2}$ requires $x \neq 0$.
+* $-x^{1/3} = -\sqrt[3]{x}$ is defined for all $x \in \mathbb{R}$.
+
+Intersecting all three conditions gives the domain of the integrand:
+
+$$
+D = (0, +\infty)
+$$
+
+**Step 3: Compute the indefinite integral on $(0, +\infty)$**
+
+Apply the power rule $\int x^r \, dx = \frac{x^{r+1}}{r+1}$ to each term:
+
+$$
+\begin{aligned}
+\int \left(2x^{1/2} + 3x^{-2} - x^{1/3}\right) \, dx
+&= 2 \cdot \frac{x^{\frac{1}{2} + 1}}{\frac{1}{2} + 1} + 3 \cdot \frac{x^{-2 + 1}}{-2 + 1} - \frac{x^{\frac{1}{3} + 1}}{\frac{1}{3} + 1} + C \\
+&= 2 \cdot \frac{x^{3/2}}{3/2} + 3 \cdot \frac{x^{-1}}{-1} - \frac{x^{4/3}}{4/3} + C \\
+&= \frac{4}{3} x^{3/2} - \frac{3}{x} - \frac{3}{4} x^{4/3} + C
+\end{aligned}
+$$
+
+**Step 4: Verify the result by differentiation**
+
+Differentiate $F(x) = \frac{4}{3} x^{3/2} - 3x^{-1} - \frac{3}{4} x^{4/3} + C$ for $x > 0$:
+
+$$
+\begin{aligned}
+F'(x) &= \frac{4}{3} \cdot \frac{3}{2} x^{1/2} - 3(-1) x^{-2} - \frac{3}{4} \cdot \frac{4}{3} x^{1/3} + 0 \\
+      &= 2x^{1/2} + 3x^{-2} - x^{1/3} \\
+      &= 2\sqrt{x} + \frac{3}{x^2} - x^{1/3}
+\end{aligned}
+$$
+
+The derivative reproduces the original integrand on $(0, +\infty)$.
+
+---
+
+### Final Answer
+
+1. **Power form:** $2x^{1/2} + 3x^{-2} - x^{1/3}$.
+2. **Domain:** $D = (0, +\infty)$.
+3. **Indefinite integral:**
+   $$
+   \int \left(2\sqrt{x} + \frac{3}{x^2} - x^{1/3}\right) \, dx = \frac{4}{3} x^{3/2} - \frac{3}{x} - \frac{3}{4} x^{4/3} + C \qquad (x > 0)
+   $$
